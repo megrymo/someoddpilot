@@ -25,7 +25,7 @@ function templateStream(file, enc, callback) {
 
   var templatePath = path.join(__dirname, file.frontMatter.template + ".html");
 
-  fs.readFileSync(templatePath, "utf-8", onTemplateFile);
+  fs.readFile(templatePath, "utf-8", onTemplateFile);
 }
 
 function templates() {
