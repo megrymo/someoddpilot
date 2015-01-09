@@ -4,7 +4,7 @@ var marked = require("gulp-marked");
 var rename = require("gulp-rename");
 var path = require("path");
 var templates = require("./templates");
-var collections = require("./collections");
+var collections = require("gulp-collections");
 var connect = require("gulp-connect");
 
 function renamePage(filePath) {
