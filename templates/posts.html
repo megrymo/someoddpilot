@@ -9,7 +9,9 @@
   <ul>
   {{#each collections.posts}}
     <li>
-      {{attributes.title}}
+      <a href="/posts/{{ slug }}">
+        {{attributes.title}}
+      </a>
     </li>
   {{/each}}
   </ul>
