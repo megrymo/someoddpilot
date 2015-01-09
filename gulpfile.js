@@ -6,12 +6,14 @@ var path = require("path");
 var templates = require("./templates");
 
 function renamePost(filePath) {
-  filePath.dirname = path.join(filePath.dirname, "/posts/", filePath.basename);
+  filePath.dirname = path.join(filePath.dirname, filePath.basename);
   filePath.basename = "index";
 }
 
+var postsGlob = "./src/posts/*.md";
+
 function postsTask() {
-  gulp.src("./src/*.md")
+  return gulp.src(postsGlob)
     .pipe(frontMatter({
       property: "frontMatter",
       remove: true
@@ -19,7 +21,7 @@ function postsTask() {
     .pipe(marked())
     .pipe(rename(renamePost))
     .pipe(templates())
-    .pipe(gulp.dest("./dest"));
+    .pipe(gulp.dest("./dest/posts"));
 }
 
 gulp.task("posts", postsTask);
