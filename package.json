@@ -8,6 +8,13 @@
   },
   "author": "Alex Robertson <alex@someoddpilot.com>",
   "license": "ISC",
+  "repository": "git@github.com:alexsomeoddpilot/sop-gulp-static.git",
+  "bugs": "https://github.com/alexsomeoddpilot/sop-gulp-static/issues",
+  "contributors": [],
+  "keywords": [
+    "static site generator",
+    "gulp"
+  ],
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-front-matter": "^1.1.1",
