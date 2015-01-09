@@ -15,6 +15,7 @@ function templateStream(file, enc, callback) {
     var data = _.extend(
       file.frontMatter,
       {
+        collections: file.collections,
         contents: file.contents.toString()
       }
     );

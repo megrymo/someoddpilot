@@ -21,6 +21,8 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "front-matter": "^0.2.0",
+    "glob": "^4.3.2",
     "gulp": "^3.8.10",
     "gulp-front-matter": "^1.1.1",
     "gulp-marked": "^1.0.0",
