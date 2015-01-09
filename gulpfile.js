@@ -19,14 +19,18 @@ function renamePage(filePath) {
   }
 }
 
-var postsGlob = "./src/posts/*.md";
+var globs = {
+  posts: "./src/posts/*.md",
+  pages: "./src/*.md",
+  templates: "./templates/*.html"
+};
 var fmOptions = {
   property: "frontMatter",
   remove: true
 };
 
 function postsTask() {
-  return gulp.src(postsGlob)
+  return gulp.src(globs.posts)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePost))
@@ -37,9 +41,9 @@ function postsTask() {
 gulp.task("posts", postsTask);
 
 function pagesTask() {
-  return gulp.src(["./src/*.md"])
+  return gulp.src(globs.pages)
     .pipe(collections({
-      posts: "./src/posts/*.md"
+      posts: globs.posts
     }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
@@ -56,4 +60,9 @@ gulp.task("connect", function () {
   });
 });
 
-gulp.task("default", ["posts", "pages", "connect"]);
+gulp.task("watch", function () {
+  gulp.watch([globs.posts, globs.pages, globs.templates], ["pages"]);
+  gulp.watch([globs.posts, "./templates/post.html"], ["posts"]);
+});
+
+gulp.task("default", ["posts", "pages", "connect", "watch"]);
