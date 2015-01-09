@@ -1,0 +1,9 @@
+{{>head}}
+  <ul>
+  {{#each collections.caseStudies}}
+  <li>
+    <a href="/case-studies/{{ slug }}/">{{ attributes.title }}</a>
+  </li>
+  {{/each}}
+  </ul>
+{{>foot}}

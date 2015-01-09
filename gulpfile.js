@@ -7,11 +7,6 @@ var templates = require("./templates");
 var collections = require("./collections");
 var connect = require("gulp-connect");
 
-function renamePost(filePath) {
-  filePath.dirname = path.join(filePath.dirname, filePath.basename);
-  filePath.basename = "index";
-}
-
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
     filePath.dirname = path.join(filePath.dirname, filePath.basename);
@@ -22,6 +17,7 @@ function renamePage(filePath) {
 var globs = {
   posts: "./src/posts/*.md",
   pages: "./src/*.md",
+  caseStudies: "./src/case-studies/*.md",
   templates: "./templates/*.html"
 };
 var fmOptions = {
@@ -33,7 +29,7 @@ function postsTask() {
   return gulp.src(globs.posts)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
-    .pipe(rename(renamePost))
+    .pipe(rename(renamePage))
     .pipe(templates())
     .pipe(gulp.dest("./dest/posts"));
 }
@@ -43,7 +39,8 @@ gulp.task("posts", postsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
-      posts: globs.posts
+      posts: globs.posts,
+      caseStudies: globs.caseStudies
     }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
@@ -53,6 +50,15 @@ function pagesTask() {
 }
 
 gulp.task("pages", pagesTask);
+
+gulp.task("case-studies", function () {
+  return gulp.src(globs.caseStudies)
+    .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePage))
+    .pipe(templates())
+    .pipe(gulp.dest("./dest/case-studies"));
+});
 
 gulp.task("connect", function () {
   connect.server({
@@ -65,4 +71,4 @@ gulp.task("watch", function () {
   gulp.watch([globs.posts, "./templates/post.html"], ["posts"]);
 });
 
-gulp.task("default", ["posts", "pages", "connect", "watch"]);
+gulp.task("default", ["posts", "pages", "case-studies", "connect", "watch"]);
