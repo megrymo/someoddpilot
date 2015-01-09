@@ -1,3 +1,4 @@
 ---
 template: posts
+title: Posts
 ---
