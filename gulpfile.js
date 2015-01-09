@@ -25,3 +25,10 @@ function postsTask() {
 }
 
 gulp.task("posts", postsTask);
+
+function pagesTask() {
+  gulp.src("./src/*.md")
+    .pipe(gulp.dest("./dest"));
+}
+
+gulp.task("pages", ["posts"], pagesTask);
