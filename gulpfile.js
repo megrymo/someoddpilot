@@ -30,8 +30,12 @@ gulp.task("posts", postsTask);
 
 function pagesTask() {
   return gulp.src("./src/*.md")
-    .pipe(collections("./src/posts/*.md"))
+    .pipe(collections({
+      posts: "./src/posts/*.md"
+    }))
     .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePost))
     .pipe(templates())
     .pipe(gulp.dest("./dest"));
 }
