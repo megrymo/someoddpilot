@@ -4,6 +4,18 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
+var partials = ["head", "foot"];
+
+partials.forEach(function (partial) {
+  handlebars.registerPartial(
+    partial,
+    fs.readFileSync(
+      path.join(__dirname, "/partials/", partial + ".html"),
+      "utf-8"
+    )
+  );
+});
+
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {
     if (err) {
