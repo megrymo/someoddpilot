@@ -21,16 +21,13 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "glob": "^4.3.2",
     "gulp": "^3.8.10",
     "gulp-collections": "^1.2.0",
     "gulp-connect": "^2.2.0",
     "gulp-front-matter": "^1.2.0",
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.0",
-    "handlebars": "^2.0.0",
-    "lodash": "^2.4.1",
-    "through2": "^0.6.3",
-    "vinyl-source-stream": "^1.0.0"
+    "gulp-static-api": "^1.0.0",
+    "handlebars": "^2.0.0"
   }
 }
