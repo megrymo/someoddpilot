@@ -6,6 +6,7 @@ var path = require("path");
 var templates = require("./templates");
 var collections = require("gulp-collections");
 var connect = require("gulp-connect");
+var api = require("gulp-static-api");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -64,8 +65,6 @@ gulp.task("case-studies", function () {
 });
 
 gulp.task("api", function () {
-  var api = require("./api");
-
   api({
     glob: "src/posts/*.md",
     count: 2,
