@@ -17,9 +17,9 @@ function getFileInfo(files) {
   return files.map(function (file) {
     return _.defaults(
       {
-      slug: path.basename(file, path.extname(file))
-    },
-    fm(fs.readFileSync(file, "utf-8"))
+        slug: path.basename(file, path.extname(file))
+      },
+      fm(fs.readFileSync(file, "utf-8"))
     );
   });
 }
