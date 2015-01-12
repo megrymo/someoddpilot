@@ -3,6 +3,8 @@ var glob = require("glob");
 var fm = require("front-matter");
 var fs = require("fs");
 var path = require("path");
+var through = require("through2");
+var File = require("vinyl");
 
 function group(options, files) {
   if (options.count) {
@@ -24,11 +26,11 @@ function getFileInfo(files) {
   });
 }
 
-function writeFiles(chunk, index) {
-  fs.writeFileSync("./dest/api/" + index + ".json", JSON.stringify(chunk));
-}
-
 module.exports = function (options) {
+  var stream = through.obj(function (file, enc, cb) {
+    cb(null, new File(file));
+  });
+
   glob(options.glob, function (err, files) {
     if (err) {
       throw err;
@@ -42,10 +44,13 @@ module.exports = function (options) {
 
     files = group(options, files);
 
-    if (!fs.existsSync("./dest/api")) {
-      fs.mkdir("./dest/api");
-    }
-
-    _.forEach(files, writeFiles);
+    _.forEach(files, function (item, index) {
+      stream.write({
+        path: index + ".json",
+        contents: new Buffer(JSON.stringify(item))
+      });
+    });
   });
+
+  return stream;
 };

@@ -84,7 +84,8 @@ gulp.task("api", function () {
         -1 : (a < b) ?
         1 : 0;
     }
-  });
+  })
+    .pipe(gulp.dest("dest/api/posts"));
 });
 
 gulp.task("connect", function () {
