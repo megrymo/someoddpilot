@@ -13,20 +13,28 @@ function group(options, files) {
   return [files];
 }
 
+function getFileInfo(files) {
+  return files.map(function (file) {
+    return _.defaults(
+      {
+      slug: path.basename(file, path.extname(file))
+    },
+    fm(fs.readFileSync(file, "utf-8"))
+    );
+  });
+}
+
+function writeFiles(chunk, index) {
+  fs.writeFileSync("./dest/api/" + index + ".json", JSON.stringify(chunk));
+}
+
 module.exports = function (options) {
   glob(options.glob, function (err, files) {
     if (err) {
       throw err;
     }
 
-    files = files.map(function (file) {
-      return _.defaults(
-        {
-          slug: path.basename(file, path.extname(file))
-        },
-        fm(fs.readFileSync(file, "utf-8"))
-      );
-    });
+    files = getFileInfo(files);
 
     if (options.sortBy) {
       files = files.sort(options.sortBy);
@@ -38,8 +46,6 @@ module.exports = function (options) {
       fs.mkdir("./dest/api");
     }
 
-    _.forEach(files, function (chunk, index) {
-      fs.writeFileSync("./dest/api/" + index + ".json", JSON.stringify(chunk));
-    });
+    _.forEach(files, writeFiles);
   });
 };
