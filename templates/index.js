@@ -36,7 +36,9 @@ function templateStream(file, enc, callback) {
     callback(null, file);
   }
 
-  var templatePath = path.join(__dirname, file.frontMatter.template + ".html");
+  var templateName = file.frontMatter.template || "post";
+
+  var templatePath = path.join(__dirname, templateName + ".html");
 
   fs.readFile(templatePath, "utf-8", onTemplateFile);
 }
