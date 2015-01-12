@@ -40,7 +40,10 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       posts: globs.posts,
-      caseStudies: globs.caseStudies
+      caseStudies: globs.caseStudies,
+      options: {
+        count: 1
+      }
     }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
@@ -58,6 +61,30 @@ gulp.task("case-studies", function () {
     .pipe(rename(renamePage))
     .pipe(templates())
     .pipe(gulp.dest("./dest/case-studies"));
+});
+
+gulp.task("api", function () {
+  var api = require("./api");
+
+  api({
+    glob: "src/posts/*.md",
+    count: 2,
+    sortBy: function (a, b) {
+      if (!b.attributes.date) {
+        return -1;
+      }
+      if (!a.attributes.date) {
+        return 1;
+      }
+
+      a = new Date(a.attributes.date);
+      b = new Date(b.attributes.date);
+
+      return (a > b) ?
+        -1 : (a < b) ?
+        1 : 0;
+    }
+  });
 });
 
 gulp.task("connect", function () {
