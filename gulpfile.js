@@ -18,7 +18,7 @@ var globs = {
   posts: "./src/posts/*.md",
   pages: "./src/*.md",
   caseStudies: "./src/case-studies/*.md",
-  templates: "./templates/*.html"
+  templates: "./templates/**/*.html"
 };
 var fmOptions = {
   property: "frontMatter",
