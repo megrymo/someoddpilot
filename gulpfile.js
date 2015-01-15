@@ -99,3 +99,5 @@ gulp.task("watch", function () {
 });
 
 gulp.task("default", ["posts", "pages", "case-studies", "connect", "watch"]);
+
+gulp.task("deploy", ["posts", "pages", "case-studies"]);
