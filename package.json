@@ -1,5 +1,5 @@
 {
-  "name": "Someoddpilot Site",
+  "name": "someoddpilot-site",
   "version": "1.0.0",
   "description": "Someoddpilot’s site generator",
   "main": "index.js",
@@ -30,9 +30,12 @@
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.0",
     "gulp-static-api": "^1.0.0",
+    "gulp-stylus": "^2.0.0",
     "handlebars": "^2.0.0",
     "lodash": "^2.4.1",
+    "nib": "^1.1.0",
     "serve-static": "^1.8.0",
+    "sop-styl": "^1.2.4",
     "through2": "^0.6.3"
   },
   "devDependencies": {}

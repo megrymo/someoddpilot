@@ -7,6 +7,9 @@ var templates = require("./templates");
 var collections = require("gulp-collections");
 var connect = require("gulp-connect");
 var api = require("gulp-static-api");
+var stylus = require("gulp-stylus");
+var nib = require("nib");
+var sopStyl = require("sop-styl");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -98,6 +101,17 @@ gulp.task("watch", function () {
   gulp.watch([globs.posts, "./templates/post.html"], ["posts"]);
 });
 
-gulp.task("default", ["posts", "pages", "case-studies", "connect", "watch"]);
+gulp.task("style", function () {
+  gulp.src("stylus/style.styl")
+    .pipe(stylus({
+      use: [
+        nib(),
+        sopStyl()
+      ]
+    }))
+    .pipe(gulp.dest("dest/css"));
+});
 
-gulp.task("deploy", ["posts", "pages", "case-studies"]);
+gulp.task("default", ["style", "posts", "pages", "case-studies", "connect", "watch"]);
+
+gulp.task("deploy", ["style", "posts", "pages", "case-studies"]);
