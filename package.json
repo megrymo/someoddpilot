@@ -1,21 +1,21 @@
 {
-  "name": "sop-gulp-static",
-  "version": "1.0.1",
-  "description": "Prototype for a Gulp based static site generator",
+  "name": "Someoddpilot Site",
+  "version": "1.0.0",
+  "description": "Someoddpilot’s site generator",
   "main": "index.js",
   "scripts": {
     "postinstall": "gulp deploy"
   },
   "author": "Alex Robertson <alex@someoddpilot.com>",
   "license": "ISC",
-  "repository": "https://github.com/alexsomeoddpilot/sop-gulp-static",
-  "bugs": "https://github.com/alexsomeoddpilot/sop-gulp-static/issues",
+  "repository": "https://github.com/alexsomeoddpilot/someoddpilot-site",
+  "bugs": "https://github.com/alexsomeoddpilot/someoddpilot-site/issues",
   "contributors": [],
   "keywords": [
     "static site generator",
     "gulp"
   ],
-  "homepage": "https://github.com/alexsomeoddpilot/sop-gulp-static",
+  "homepage": "https://github.com/alexsomeoddpilot/someoddpilot-site",
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
