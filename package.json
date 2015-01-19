@@ -8,14 +8,14 @@
   },
   "author": "Alex Robertson <alex@someoddpilot.com>",
   "license": "ISC",
-  "repository": "https://github.com/alexsomeoddpilot/someoddpilot-site",
-  "bugs": "https://github.com/alexsomeoddpilot/someoddpilot-site/issues",
+  "repository": "https://github.com/alexsomeoddpilot/someoddpilot",
+  "bugs": "https://github.com/alexsomeoddpilot/someoddpilot/issues",
   "contributors": [],
   "keywords": [
     "static site generator",
     "gulp"
   ],
-  "homepage": "https://github.com/alexsomeoddpilot/someoddpilot-site",
+  "homepage": "https://github.com/alexsomeoddpilot/someoddpilot",
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
