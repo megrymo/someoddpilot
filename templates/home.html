@@ -1,16 +1,46 @@
 {{>head}}
   <h1>Home</h1>
 
-  <div>
-    <h2>News</h2>
-    <div>
-    {{#each collections.posts}}
-      <div>
-        <a href="/posts/{{ slug }}">
-          {{ attributes.title }}
-        </a>
-      </div>
+  <div class="full slider">
+    <ul class="slides">
+    {{#each collections.homeSlides}}
+      {{ content }}
     {{/each}}
+    </ul>
+    <div class="pager">
+      <a class="prev"></a>
+      <a class="next"></a>
     </div>
   </div>
+
+  <section class="contained recent-work">
+  <h2>Recent Work</h2>
+  {{#each collections.project}}
+    <article class="project-preview {{ attributes.layoutStyle }}">
+      {{ content }}
+    </article>
+  {{/each}}
+    <article class="project-preview {{ attributes.layoutStyle }}">
+      <div class="left">
+        <a href="/posts/{{ slug }}">
+          <img class="preview-image" src="" />
+          <h3 class="preview-header" >Sound Opinions</h3>
+          <figcaption class="preview-caption" >Re-branding</figcaption>
+          <a class="preview-link" href="#">{{ linkText }}</a>
+        </a>
+      </div>
+      <div class="right">
+        <img class="preview-image" src="" />
+        <img class="preview-image" src="" />
+      </div>
+    </article>
+    <article class="project-preview preview-one">
+      <a href="/posts/{{ slug }}">
+        <img class="preview-image" src="" />
+        <h3 class="preview-header" >Record Covers</h3>
+        <figcaption class="preview-caption" >Packaging</figcaption>
+        <a class="preview-link" href="#">{{ linkText }}</a>
+      </a>
+    </article>
+  </section>
 {{>foot}}

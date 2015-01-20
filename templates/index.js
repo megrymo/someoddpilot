@@ -36,7 +36,7 @@ function templateStream(file, enc, callback) {
     callback(null, file);
   }
 
-  var templateName = file.frontMatter.template || "post";
+  var templateName = file.frontMatter.template || "news";
 
   var templatePath = path.join(__dirname, templateName + ".html");
 

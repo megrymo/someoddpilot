@@ -1,0 +1,44 @@
+.top-header
+	text-align: center
+
+.logo
+	display: inline-block
+	margin 111px 0 130px
+	width 280px
+	height auto
+
+.sop-logo
+	width 100%
+	height auto
+	
+.nav-icon
+	display inline-block
+	position absolute
+	left 11px
+	top 9px
+	padding 25px
+
+.menu-line
+	fill #000
+	
+	.top-header.open &
+		fill #fff
+	
+.nav-holder
+	display: inline-block
+	position absolute
+	top 0
+	left 0
+	background #000
+	overflow hidden
+	transition height ease 1s
+
+	.top-header.close &
+		height 0
+	
+	.top-header.open &
+		height 400px
+
+.close-line
+	stroke-width 2px
+	stroke #fff

@@ -1,4 +1,0 @@
----
-template: posts
-title: Posts
----
