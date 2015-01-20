@@ -1,23 +1,29 @@
+html { -webkit-font-smoothing: antialiased; }
+
 body
 	width 100%
 	margin 0
 	padding 0
+	background #faf7ee
 	font-family sop-serif
 
 .full
 	width 100%
 
 .contained
+	position relative
 	width 100%
 	max-width content-width px
 	margin 0 auto
 
+.left,
+.right
+	width (((content-width - vert-gutter) / content-width) * 50) %
+
 .left
 	float left
-	width 50%
-	padding-right (small-gutter/2) px
+	padding-right (((vert-gutter/2)/content-width) * 100) %
 
 .right
 	float right
-	width 50%
-	padding-left (small-gutter/2) px
+	padding-left (((vert-gutter/2)/content-width) * 100) %

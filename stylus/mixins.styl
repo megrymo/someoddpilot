@@ -1,3 +1,8 @@
-font-specs(size,leading)
+font-specs(size, leading, tracking = 0)
   font-size (size / base-font-size)em
-  line-height (leading/size)em
+  if size == 0 && leading==0
+  	line-height 0em
+  else
+  	line-height (leading/size)em
+  unless tracking == 0
+  	letter-spacing (tracking * 0.0005 * size / base-font-size)em

@@ -1,46 +1,115 @@
 {{>head}}
-  <h1>Home</h1>
-
-  <div class="full slider">
+  <div class="full slider home-slider">
     <ul class="slides">
     {{#each collections.homeSlides}}
       {{ content }}
     {{/each}}
+      <li class="full slide">
+        <img class="full">
+        <p>Inspire Wonder</p>
+      </li>
+      <li class="contained slide">
+        <div class="left">
+          <p class="news-snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <a class="preview-link" href="#">{{ linkText }}</a>
+        </div>
+        <div class="right">
+          <img class="full" src="" />
+        </div>
+      </li>
+      <li class="slide">
+        <div class="left">
+          <img class="full" src="" />
+        </div>
+        <div class="right">
+          <p class="news-snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <a class="preview-link" href="#">{{ linkText }}</a>
+        </div>
+      </li>
     </ul>
     <div class="pager">
-      <a class="prev"></a>
-      <a class="next"></a>
+      <a class="prev">Prev</a>
+      <a class="next">Next</a>
     </div>
   </div>
 
   <section class="contained recent-work">
-  <h2>Recent Work</h2>
+  <h2 class="page-subheader">Recent Work</h2>
   {{#each collections.project}}
     <article class="project-preview {{ attributes.layoutStyle }}">
       {{ content }}
     </article>
   {{/each}}
     <article class="project-preview {{ attributes.layoutStyle }}">
-      <div class="left">
-        <a href="/posts/{{ slug }}">
+      <a href="/posts/{{ slug }}">
+        <div class="left">
           <img class="preview-image" src="" />
           <h3 class="preview-header" >Sound Opinions</h3>
           <figcaption class="preview-caption" >Re-branding</figcaption>
           <a class="preview-link" href="#">{{ linkText }}</a>
-        </a>
-      </div>
-      <div class="right">
-        <img class="preview-image" src="" />
-        <img class="preview-image" src="" />
-      </div>
+        </div>
+        <div class="right">
+          <img class="preview-image" src="" />
+          <img class="preview-image" src="" />
+        </div>
+      </a>
     </article>
     <article class="project-preview preview-one">
       <a href="/posts/{{ slug }}">
-        <img class="preview-image" src="" />
+        <img class="full preview-image" src="" />
         <h3 class="preview-header" >Record Covers</h3>
         <figcaption class="preview-caption" >Packaging</figcaption>
         <a class="preview-link" href="#">{{ linkText }}</a>
       </a>
     </article>
   </section>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+      $("#checkbox").change(function(){
+        setInterval(function () {
+            moveRight();
+        }, 3000);
+      });
+
+
+        function moveRight() {
+          $(".slides .slide").removeClass("slide-right slide-left");
+          $(".slides .slide:last-child").appendTo(".slides").addClass("slide-left");
+        }
+
+        function moveLeft() {
+          $(".slides .slide").removeClass("slide-right slide-left");
+          $(".slides .slide:first-child").prependTo(".slides").addClass("slide-right");
+        }
+
+        $(".prev").click(function () {
+            moveLeft();
+        });
+
+        $(".next").click(function () {
+            moveRight();
+        });
+
+        $(".nav-icon").click(function () {
+          $(".top-header").toggleClass( "nav-open" );
+        });
+        $(".nav-close-icon").click(function () {
+          $(".top-header").toggleClass( "nav-open" );
+        });
+
+    });
+  </script>
 {{>foot}}
