@@ -1,7 +1,10 @@
 font-specs(size, leading, tracking = 0)
-  font-size (size / base-font-size)em
+  if size == 0
+  	font-size 0
+  else
+  	font-size (size / base-font-size)em
   if size == 0 && leading==0
-  	line-height 0em
+  	line-height 0
   else
   	line-height (leading/size)em
   unless tracking == 0

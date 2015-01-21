@@ -2,9 +2,6 @@
 	text-align: center
 	z-index 999
 
-.content
-	z-index 1
-
 .logo
 	display: inline-block
 	margin 111px 0 130px
@@ -81,7 +78,6 @@
 
 .slider 
 	position: relative
-	overflow: hidden
 
 .slides 
 	position: relative
@@ -89,6 +85,7 @@
 	height 100%
 	margin: 0
 	padding: 0
+	background #fff
 	list-style: none
 
 .slide
@@ -102,7 +99,11 @@
 	position absolute
 
 .home-slider
+	position absolute
 	height 100%
+	
+.project-preview
+	text-align: center
 	
 .news-article
 	width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%

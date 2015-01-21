@@ -1,23 +1,32 @@
 .slide-left,
 .slide-right{
-	animation-duration: 1s;	
+	animation-duration: 1s;
 	-webkit-animation-duration: 1s;
 
-	animation-timing-function: ease-in-out;	
-	-webkit-animation-timing-function: ease-in-out;		
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
 
 	visibility: visible !important;	
 }
 
 .slide-left{
+	transform: translateX(-150%);
 	animation-name: slideLeft;
-	-webkit-animation-name: slideLeft;	
+	-webkit-animation-name: slideLeft;
 }
 
-.slide-right{
+.slide-left-trans
+	transform: translateX(0%);
+
+
+.slide-right
+	transform: translateX(0%);
 	animation-name: slideRight;
-	-webkit-animation-name: slideRight;	
-}
+	-webkit-animation-name: slideRight;
+	
+.slide-right-trans
+	transform: translateX(-150%);
+
 
 @keyframes slideLeft {
 	0% {
@@ -37,7 +46,7 @@
 	}
 }
 
-@keyframes slideReft {
+@keyframes slideRight {
 	0% {
 		transform: translateX(-150%);
 	}
@@ -46,7 +55,7 @@
 	}
 }
 
-@-webkit-keyframes slideReft {
+@-webkit-keyframes slideRight {
 	0% {
 		-webkit-transform: translateX(-150%);
 	}

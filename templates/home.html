@@ -6,11 +6,11 @@
     {{/each}}
       <li class="full slide">
         <img class="full">
-        <p>Inspire Wonder</p>
+        <p>SLIDE 4 Inspire Wonder</p>
       </li>
       <li class="contained slide">
         <div class="left">
-          <p class="news-snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          <p class="news-snippet">SLIDE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -28,7 +28,22 @@
           <img class="full" src="" />
         </div>
         <div class="right">
-          <p class="news-snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          <p class="news-snippet">SLIDE 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <a class="preview-link" href="#">{{ linkText }}</a>
+        </div>
+      </li>
+      <li class="slide">
+        <div class="left">
+          <img class="full" src="" />
+        </div>
+        <div class="right">
+          <p class="news-snippet">SLIDE 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -83,24 +98,25 @@
             moveRight();
         }, 3000);
       });
-
-
-        function moveRight() {
-          $(".slides .slide").removeClass("slide-right slide-left");
-          $(".slides .slide:last-child").appendTo(".slides").addClass("slide-left");
-        }
+        $(".slides .slide:first-child").addClass("slide-left").appendTo(".slides");
 
         function moveLeft() {
-          $(".slides .slide").removeClass("slide-right slide-left");
-          $(".slides .slide:first-child").prependTo(".slides").addClass("slide-right");
+          $(".slides .slide:last-child").prependTo(".slides");
+          $(".slide").removeClass("slide-right slide-left");
+          $(".slides .slide:last-child").addClass("slide-left");
+        }
+
+        function moveRight() {
+          $(".slides .slide:last-child").removeClass("slide-left").addClass("slide-right");
+          $(".slides .slide:first-child").appendTo(".slides");
         }
 
         $(".prev").click(function () {
-            moveLeft();
+            moveRight();
         });
 
         $(".next").click(function () {
-            moveRight();
+            moveLeft();
         });
 
         $(".nav-icon").click(function () {
