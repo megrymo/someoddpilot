@@ -1,4 +1,4 @@
 ---
 title: Example
-template: case-study
+template: work
 ---

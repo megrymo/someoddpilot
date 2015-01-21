@@ -8,16 +8,12 @@
         <img class="background-fill" src="/assets/images/home-slides/slide1.jpg">
         <h4 class="contained fit-text sans center-align white-text">Inspire<br />Wonder</h4>
       </li>
-      <li class="slide">
+      <li class="slide light-yellow-bg explain-slide">
         <div class="contained">
-          <div class="left">
-            <p class="">SLIDE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+          <div class="left display-serif left-align drop-cap">
+            <p>Someoddpilot is a branding agency and design studio.</p>
+            <p>We inspire wonder. We work tirelessly to bring that to the world. Something genuine and bold, real and fantastical. Because that’s what moves people. And always has. </p>
+            <p>Inspiring wonder forges a deep bond – you leave someone better off than they were before you came along – the essence of any relationship. You’ve taught them something, given them something, and affected the way they see themselves and the world.</p>
             <a class="preview-link" href="#">{{ linkText }}</a>
           </div>
           <div class="right">
@@ -25,7 +21,7 @@
           </div>
         </div>
       </li>
-      <li class="slide">
+      <li class="slide light-yellow-bg">
         <div class="contained">
           <div class="left">
             <img class="full" src="/assets/images/home-slides/half.jpg" />
@@ -39,9 +35,9 @@
           </div>
         </div>
       </li>
-      <li class="slide">
+      <li class="slide light-blue-bg">
         <div class="contained">
-          <p class="dispaly-serif fit-text">We are 5 Designers,<br />
+          <p class="display-serif we-are">We are 5 Designers,<br />
           2 Writers, 2 Photographers,<br />
           2 Coders, 1 Stylist,<br />
           4 Strategists, 1 Architect,<br />
@@ -66,8 +62,8 @@
       {{ content }}
     </article>
   {{/each}}
-    <article class="project-preview {{ attributes.layoutStyle }}">
-      <a href="/posts/{{ slug }}">
+    <article class="project-preview preview-one-two">
+      <a href="/work/{{ slug }}">
         <div class="left">
           <img class="preview-image big-bottom-gutter" src="/assets/images/projects/project1-1.png" />
           <h3 class="preview-header" >Sound Opinions</h3>
@@ -81,7 +77,7 @@
       </a>
     </article>
     <article class="project-preview preview-one">
-      <a href="/posts/{{ slug }}">
+      <a href="/work/{{ slug }}">
         <img class="preview-image bottom-gutter" src="/assets/images/projects/project2.jpg" />
         <h3 class="preview-header" >Record Covers</h3>
         <p class="preview-subheader" >Packaging</p>
@@ -89,131 +85,4 @@
       </a>
     </article>
   </section>
-  <script type="text/javascript">
-    var $bg = $(".background-fill"),
-      theSlide = $bg.parent(),
-      aspectRatio = $bg.width() / $bg.height();
-      function resizeBg() {
-        if ( (theSlide.outerWidth() / theSlide.outerHeight()) < aspectRatio ) {
-          shift = ($bg.width() * -0.5);
-          $bg
-            .removeClass("bgwidth")
-            .addClass("bgheight")
-            .css("margin-left", shift);
-        } else {
-          $bg
-            .removeClass("bgheight")
-            .addClass("bgwidth")
-            .css("margin-left", 0);
-        }
-      }
-      theSlide.resize(resizeBg).trigger("resize");
-
-    function doSlide(){
-      timer = setInterval(function(){
-        moveLeft();
-      }, 8000);
-    }
-
-    function initSliders() {
-      $(".slider").each(function(){
-          if ( $(".slides .slide").length > 1) {
-            $(".slides .slide:first-child").addClass("slide-left-force").appendTo(".slides");
-            doSlide();
-          } else {
-            $(".pager").remove();
-          }
-      });
-    }
-
-    function fixFlexsliderHeight() {
-      // Set fixed height based on the tallest slide
-      $(".slider:not(.home-slider)").each(function(){
-        if ( $(".slides .slide").length > 1) {
-          var maxHeight = 0;
-          $(".slide .contained").each(function(){
-            if ($(this).outerHeight() > maxHeight) {
-              maxHeight = $(this).outerHeight();
-            }
-          });
-          $(this).find(".slides").height(maxHeight);
-        }
-      });
-      $(".home-slider").each(function(){
-        if ( $(".slides .slide").length > 1) {
-          var maxHeight = 0;
-          var theWindow = $(window).height();
-          $(".slide .contained").each(function(){
-            if ($(this).outerHeight() > maxHeight) {
-              maxHeight = $(this).outerHeight();
-            }
-            if (theWindow > maxHeight) {
-              maxHeight = theWindow;
-            }
-          });
-          $(this).find(".slides").height(maxHeight);
-        }
-      });
-    }
-
-    function moveLeft() {
-      $(".slides .slide:last-child").prependTo(".slides");
-      $(".slide").removeClass("slide-right slide-left slide-right-force slide-left-force");
-      $(".slides .slide:last-child").addClass("slide-left");
-    }
-
-    function moveRight() {
-      $(".slides .slide:last-child").removeClass("slide-left slide-left-force").addClass("slide-right");
-      $(".slides .slide:first-child").removeClass("slide-right").addClass("slide-left-force").appendTo(".slides");
-    }
-
-    function toggleMenu(){
-      $(".top-header").toggleClass( "nav-open" );
-    }
-
-
-    jQuery(document).ready(function ($) {
-      resizeBg();
-      initSliders();
-      fixFlexsliderHeight();
-
-      $(".prev").click(function () {
-          moveRight();
-      });
-
-      $(".next").click(function () {
-          moveLeft();
-      });
-
-      $(".slider").hover(function(){
-         clearInterval(timer);
-       });
-      $(".slider").mouseleave(function(){
-         doSlide();
-      });
-
-      $(".nav-icon").click(function () {
-        toggleMenu();
-      });
-      $(".nav-close-icon").click(function () {
-        toggleMenu();
-      });
-
-      $(".fit-text").each(function(){
-         $(this).fitText();
-      });
-
-    });
-
-    $(window).load(function() {
-      resizeBg();
-      fixFlexsliderHeight();
-    });
-
-    $(window).resize(function() {
-      fixFlexsliderHeight();
-      resizeBg();
-    });
-
-  </script>
 {{>foot}}
