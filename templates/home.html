@@ -5,50 +5,49 @@
       {{ content }}
     {{/each}}
       <li class="full slide">
-        <img class="full">
-        <p>SLIDE 4 Inspire Wonder</p>
+        <img class="background-fill" src="/assets/images/home-slides/slide1.jpg">
+        <h4 class="contained fit-text sans center-align white-text">Inspire<br />Wonder</h4>
       </li>
-      <li class="contained slide">
-        <div class="left">
-          <p class="news-snippet">SLIDE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <a class="preview-link" href="#">{{ linkText }}</a>
-        </div>
-        <div class="right">
-          <img class="full" src="" />
+      <li class="slide">
+        <div class="contained">
+          <div class="left">
+            <p class="">SLIDE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <a class="preview-link" href="#">{{ linkText }}</a>
+          </div>
+          <div class="right">
+            <img class="full" src="/assets/images/home-slides/half.jpg" />
+          </div>
         </div>
       </li>
       <li class="slide">
-        <div class="left">
-          <img class="full" src="" />
-        </div>
-        <div class="right">
-          <p class="news-snippet">SLIDE 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <a class="preview-link" href="#">{{ linkText }}</a>
+        <div class="contained">
+          <div class="left">
+            <img class="full" src="/assets/images/home-slides/half.jpg" />
+          </div>
+          <div class="right">
+            <p class="news-snippet">SLIDE 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris
+            </p>
+            <a class="preview-link" href="#">{{ linkText }}</a>
+          </div>
         </div>
       </li>
       <li class="slide">
-        <div class="left">
-          <img class="full" src="" />
-        </div>
-        <div class="right">
-          <p class="news-snippet">SLIDE 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class="contained">
+          <p class="dispaly-serif fit-text">We are 5 Designers,<br />
+          2 Writers, 2 Photographers,<br />
+          2 Coders, 1 Stylist,<br />
+          4 Strategists, 1 Architect,<br />
+          3 Cinematographers,<br />
+          2 Editors, 2 Managers<br />
+          &amp; 1 Metal Band. 
           </p>
           <a class="preview-link" href="#">{{ linkText }}</a>
         </div>
@@ -91,50 +90,130 @@
     </article>
   </section>
   <script type="text/javascript">
+    var $bg = $(".background-fill"),
+      theSlide = $bg.parent(),
+      aspectRatio = $bg.width() / $bg.height();
+      function resizeBg() {
+        if ( (theSlide.outerWidth() / theSlide.outerHeight()) < aspectRatio ) {
+          shift = ($bg.width() * -0.5);
+          $bg
+            .removeClass("bgwidth")
+            .addClass("bgheight")
+            .css("margin-left", shift);
+        } else {
+          $bg
+            .removeClass("bgheight")
+            .addClass("bgwidth")
+            .css("margin-left", 0);
+        }
+      }
+      theSlide.resize(resizeBg).trigger("resize");
+
+    function doSlide(){
+      timer = setInterval(function(){
+        moveLeft();
+      }, 8000);
+    }
+
+    function initSliders() {
+      $(".slider").each(function(){
+          if ( $(".slides .slide").length > 1) {
+            $(".slides .slide:first-child").addClass("slide-left-force").appendTo(".slides");
+            doSlide();
+          } else {
+            $(".pager").remove();
+          }
+      });
+    }
+
+    function fixFlexsliderHeight() {
+      // Set fixed height based on the tallest slide
+      $(".slider:not(.home-slider)").each(function(){
+        if ( $(".slides .slide").length > 1) {
+          var maxHeight = 0;
+          $(".slide .contained").each(function(){
+            if ($(this).outerHeight() > maxHeight) {
+              maxHeight = $(this).outerHeight();
+            }
+          });
+          $(this).find(".slides").height(maxHeight);
+        }
+      });
+      $(".home-slider").each(function(){
+        if ( $(".slides .slide").length > 1) {
+          var maxHeight = 0;
+          var theWindow = $(window).height();
+          $(".slide .contained").each(function(){
+            if ($(this).outerHeight() > maxHeight) {
+              maxHeight = $(this).outerHeight();
+            }
+            if (theWindow > maxHeight) {
+              maxHeight = theWindow;
+            }
+          });
+          $(this).find(".slides").height(maxHeight);
+        }
+      });
+    }
+
+    function moveLeft() {
+      $(".slides .slide:last-child").prependTo(".slides");
+      $(".slide").removeClass("slide-right slide-left slide-right-force slide-left-force");
+      $(".slides .slide:last-child").addClass("slide-left");
+    }
+
+    function moveRight() {
+      $(".slides .slide:last-child").removeClass("slide-left slide-left-force").addClass("slide-right");
+      $(".slides .slide:first-child").removeClass("slide-right").addClass("slide-left-force").appendTo(".slides");
+    }
+
+    function toggleMenu(){
+      $(".top-header").toggleClass( "nav-open" );
+    }
+
+
     jQuery(document).ready(function ($) {
+      resizeBg();
+      initSliders();
+      fixFlexsliderHeight();
 
-        $(".slides .slide:first-child").addClass("slide-left-force").appendTo(".slides");
+      $(".prev").click(function () {
+          moveRight();
+      });
 
-        function moveLeft() {
-          $(".slides .slide:last-child").prependTo(".slides");
-          $(".slide").removeClass("slide-right slide-left slide-right-force slide-left-force");
-          $(".slides .slide:last-child").addClass("slide-left");
-        }
+      $(".next").click(function () {
+          moveLeft();
+      });
 
-        function moveRight() {
-          $(".slides .slide:last-child").removeClass("slide-left slide-left-force").addClass("slide-right");
-          $(".slides .slide:first-child").removeClass("slide-right").addClass("slide-left-force").appendTo(".slides");
-        }
+      $(".slider").hover(function(){
+         clearInterval(timer);
+       });
+      $(".slider").mouseleave(function(){
+         doSlide();
+      });
 
-        $(".prev").click(function () {
-            moveRight();
-        });
+      $(".nav-icon").click(function () {
+        toggleMenu();
+      });
+      $(".nav-close-icon").click(function () {
+        toggleMenu();
+      });
 
-        $(".next").click(function () {
-            moveLeft();
-        });
-
-        function doSlide(){
-          timer = setInterval(function(){
-            moveLeft();
-          }, 8000);
-        }
-        doSlide();
-
-        $(".slider").hover(function(){
-           clearInterval(timer);
-         });
-        $(".slider").mouseleave(function(){
-           doSlide();
-        });
-
-        $(".nav-icon").click(function () {
-          $(".top-header").toggleClass( "nav-open" );
-        });
-        $(".nav-close-icon").click(function () {
-          $(".top-header").toggleClass( "nav-open" );
-        });
+      $(".fit-text").each(function(){
+         $(this).fitText();
+      });
 
     });
+
+    $(window).load(function() {
+      resizeBg();
+      fixFlexsliderHeight();
+    });
+
+    $(window).resize(function() {
+      fixFlexsliderHeight();
+      resizeBg();
+    });
+
   </script>
 {{>foot}}
