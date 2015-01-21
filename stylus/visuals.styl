@@ -4,6 +4,7 @@
 
 .home .top-header
 	position absolute
+	overflow visible
 	
 .logo
 	display: inline-block
@@ -128,8 +129,17 @@
 	height auto
 
 .we-are
-	font-specs(90, 120)
-	padding-right 20%
+	.contained
+		margin 0
+		width 50%
+		overflow visible
+		white-space: nowrap
+	
+	.display-serif
+		font-specs(90, 120)
+
+.truth-vision .fit-text
+	font-specs(30, 35)
 	
 .project-preview
 	display: block

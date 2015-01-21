@@ -26,10 +26,15 @@ body
 .contained
 	position relative
 	width 100%
-	max-width content-width px
+	max-width (content-width)px
 	margin 0 auto
 	overflow auto
 	clear both
+	
+@media screen and (max-width: (content-width + vert-gutter + vert-gutter)px)
+	.contained
+		width 90%
+		padding 0 5%
 
 .left,
 .right
@@ -45,6 +50,9 @@ body
 	
 .bottom-gutter
 	margin-bottom (hr-gutter)px
+
+.small-bottom-gutter
+	margin-bottom (hr-gutter / 2)px
 
 .big-bottom-gutter
 	margin-bottom (big-gutter)px
