@@ -98,17 +98,17 @@
             moveRight();
         }, 3000);
       });
-        $(".slides .slide:first-child").addClass("slide-left").appendTo(".slides");
+        $(".slides .slide:first-child").addClass("slide-left-force").appendTo(".slides");
 
         function moveLeft() {
           $(".slides .slide:last-child").prependTo(".slides");
-          $(".slide").removeClass("slide-right slide-left");
+          $(".slide").removeClass("slide-right slide-left slide-right-force slide-left-force");
           $(".slides .slide:last-child").addClass("slide-left");
         }
 
         function moveRight() {
-          $(".slides .slide:last-child").removeClass("slide-left").addClass("slide-right");
-          $(".slides .slide:first-child").appendTo(".slides");
+          $(".slides .slide:last-child").removeClass("slide-left slide-left-force").addClass("slide-right");
+          $(".slides .slide:first-child").removeClass("slide-right").addClass("slide-left-force").appendTo(".slides");
         }
 
         $(".prev").click(function () {
