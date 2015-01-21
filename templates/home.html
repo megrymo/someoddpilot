@@ -55,8 +55,8 @@
       </li>
     </ul>
     <div class="pager">
-      <a class="prev">Prev</a>
-      <a class="next">Next</a>
+      <a class="prev"><img src="/assets/images/arrow-left.svg" /></a>
+      <a class="next"><img src="/assets/images/arrow-right.svg" /></a>
     </div>
   </div>
 
@@ -70,22 +70,22 @@
     <article class="project-preview {{ attributes.layoutStyle }}">
       <a href="/posts/{{ slug }}">
         <div class="left">
-          <img class="preview-image" src="" />
+          <img class="preview-image big-bottom-gutter" src="/assets/images/projects/project1-1.png" />
           <h3 class="preview-header" >Sound Opinions</h3>
-          <figcaption class="preview-caption" >Re-branding</figcaption>
+          <p class="preview-subheader" >Re-branding</p>
           <a class="preview-link" href="#">{{ linkText }}</a>
         </div>
         <div class="right">
-          <img class="preview-image" src="" />
-          <img class="preview-image" src="" />
+          <img class="preview-image bottom-gutter" src="/assets/images/projects/project1-2.jpg" />
+          <img class="preview-image" src="/assets/images/projects/project1-2.jpg" />
         </div>
       </a>
     </article>
     <article class="project-preview preview-one">
       <a href="/posts/{{ slug }}">
-        <img class="full preview-image" src="" />
+        <img class="preview-image bottom-gutter" src="/assets/images/projects/project2.jpg" />
         <h3 class="preview-header" >Record Covers</h3>
-        <figcaption class="preview-caption" >Packaging</figcaption>
+        <p class="preview-subheader" >Packaging</p>
         <a class="preview-link" href="#">{{ linkText }}</a>
       </a>
     </article>
@@ -93,11 +93,6 @@
   <script type="text/javascript">
     jQuery(document).ready(function ($) {
 
-      $("#checkbox").change(function(){
-        setInterval(function () {
-            moveRight();
-        }, 3000);
-      });
         $(".slides .slide:first-child").addClass("slide-left-force").appendTo(".slides");
 
         function moveLeft() {
@@ -117,6 +112,20 @@
 
         $(".next").click(function () {
             moveLeft();
+        });
+
+        function doSlide(){
+          timer = setInterval(function(){
+            moveLeft();
+          }, 8000);
+        }
+        doSlide();
+
+        $(".slider").hover(function(){
+           clearInterval(timer);
+         });
+        $(".slider").mouseleave(function(){
+           doSlide();
         });
 
         $(".nav-icon").click(function () {

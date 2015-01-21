@@ -2,6 +2,9 @@
 	text-align: center
 	z-index 999
 
+.home .top-header
+	position absolute
+	
 .logo
 	display: inline-block
 	margin 111px 0 130px
@@ -57,15 +60,9 @@
 	.nav-open &
 		stroke #fff
 
-.main-nav
-	font-family: sop-sans
-	font-specs(14, 14, 200)
-
 .nav-link
 	display: block
 	padding 12px 0
-	text-decoration none
-	text-transform: uppercase
 	color #000
 	transition color ease 1s
 	
@@ -75,6 +72,9 @@
 .nav-link-social
 	display: inline-block
 	font-specs(0,0)
+
+.page-subheader
+	margin (avg(hr-gutter big-gutter) / 2)px 0
 
 .slider 
 	position: relative
@@ -95,22 +95,49 @@
 	height 100%
 	background #fff
 
-.pager
+.pager,
+.prev,
+.next
 	position absolute
+	
+.prev,
+.next
+	padding 10px
+	
+.pager
+	top 48%
+	width 100%
+
+.prev
+	left 2%
+
+.next
+	right 2%
 
 .home-slider
-	position absolute
+	min-height 100%
 	height 100%
 	
 .project-preview
+	display: block
+	padding 0 0 (big-gutter)px
+	clear both
+	overflow auto
 	text-align: center
 	
+.preview-image
+	display: block
+	width 100%
+	height auto
+
 .news-article
 	width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%
 	padding-top (vert-gutter)px
 	vertical-align top
 	float left
-	font-specs(20, 30)
+	
+.news-date
+	margin-bottom (hr-gutter/2)px
 
 .news-article:nth-child(3n+3)
 	padding-left (((vert-gutter / 2) / content-width) * 100)%
@@ -121,11 +148,10 @@
 .news-article:nth-child(3n+2)
 	padding (vert-gutter)px (((vert-gutter / 2) / content-width) * 100)% 0
 
-.news-article.featured
-	width 100%
-	padding (big-gutter)px 0 0
+.featured
+	padding (avg(hr-gutter big-gutter))px 0 0
 	
-.news-article.featured:nth-child(2)
+.featured.even
 	background #f0ede5
 
 .news-image
@@ -133,15 +159,7 @@
 	height auto
 
 .featured .news-image
-	padding-bottom (big-gutter)px
+	padding-bottom avg(hr-gutter big-gutter)px
 
 .featured .news-snippet
-	padding-bottom (vert-gutter)px
-
-.news-title
-	font-family: sop-serif
-	font-specs(22, 30)
-
-.news-date
-	margin-bottom (30 / base-font-size)em
-	font-style: italic
+	padding-bottom (hr-gutter)px

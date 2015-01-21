@@ -1,3 +1,8 @@
+html, body 
+	height: 100%;
+	width 100%
+
+
 html { -webkit-font-smoothing: antialiased; }
 
 body
@@ -12,12 +17,15 @@ body
 
 .full
 	width 100%
+	clear both
+	overflow auto
 
 .contained
 	position relative
 	width 100%
 	max-width content-width px
 	margin 0 auto
+	clear both
 
 .left,
 .right
@@ -30,3 +38,9 @@ body
 .right
 	float right
 	padding-left (((vert-gutter/2)/content-width) * 100) %
+	
+.bottom-gutter
+	margin-bottom (hr-gutter)px
+
+.big-bottom-gutter
+	margin-bottom (big-gutter)px
