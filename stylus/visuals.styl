@@ -38,7 +38,7 @@
 	top 0
 	left 0
 	background #000
-	padding 0 70px 0 60px
+	padding 0 66px 0 56px
 	overflow hidden
 	text-align: left
 	transition height ease 1s, padding ease 1s
@@ -46,7 +46,8 @@
 	
 	.nav-open &
 		height 248px
-		padding 80px 70px 72px 60px
+		padding-top 80px
+		padding-bottom 72px
 
 .nav-close-icon
 	position absolute
@@ -64,16 +65,29 @@
 
 .nav-link
 	display: block
-	padding 12px 0
+	padding 12px 4px
 	color #000
 	transition color ease 1s
 	
 	.nav-open &
 		color #fff
 
+.social-nav
+	margin-top 26px
+	
 .nav-link-social
-	display: inline-block
+	float left
 	font-specs(0,0)
+	
+.social-icon
+	width 32px
+	height 32px
+	padding 4px
+	fill #787878
+	transition fill ease 0.5s
+	
+.nav-link-social:hover .social-icon
+	fill #fff
 
 .page-subheader
 	margin (avg(hr-gutter big-gutter) / 2)px 0

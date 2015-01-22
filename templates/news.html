@@ -17,9 +17,12 @@
   </article>
   {{/lessThan}}
   {{#greaterThan @index 2 }}
-    {{#equal @index 3 }}
-    <div class="contained even">
-    {{/equal}}
+    {{#everyOtherOffset @index 6 -2}}
+      <div class="even">
+    {{/everyOtherOffset}}
+    {{#everyOtherOffset @index 3 -2}}
+      <div class="contained">
+    {{/everyOtherOffset}}
       <article class="news-article news-article-{{@index}}">
         <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
         <header class="news-title">{{attributes.title}}</header>
@@ -28,9 +31,12 @@
             {{{body}}}
         </div>
       </article>
-    {{#everyOtherOffset @index 3 3 }}
-      </div><div class="contained{{#everyOtherOffset @index 6 3}} even{{/everyOtherOffset}}">
+    {{#everyOtherOffset @index 3 3}}
+      </div>
     {{/everyOtherOffset}}
+    {{#everyOther @index 6}}
+      </div>
+    {{/everyOther}}
   {{/greaterThan}}
 {{/each}}
 </div>
