@@ -2,12 +2,14 @@
   <div class="full slider home-slider">
     <ul class="slides">
     {{#each collections.homeSlides}}
-      {{ content }}
+      <li class="slide light-{{#if color}}{{color}}{{else}}yellow{{/if}}-bg {{slug}}">
+        {{{body}}}
+      </li>
     {{/each}}
-      <li class="full slide">
+<!--       <li class="slide">
         <img class="background-fill" src="/assets/images/home-slides/slide1.jpg">
         <h4 class="contained fit-text sans center-align white-text">Inspire<br />Wonder</h4>
-      </li>
+      </li> -->
       <li class="slide light-yellow-bg explain-slide">
         <div class="contained vertCenter">
           <div class="left display-serif left-align drop-cap">
@@ -33,7 +35,7 @@
           </div>
         </div>
       </li>
-      <li class="slide light-blue-bg we-are">
+      <!-- <li class="slide light-blue-bg we-are">
         <div class="contained">
           <p class="display-serif fit-text">We are 5 Designers,<br />
           2 Writers, 2 Photographers,<br />
@@ -45,12 +47,8 @@
           </p>
           <a class="preview-link" href="#">{{ linkText }}</a>
         </div>
-      </li>
+      </li> -->
     </ul>
-    <div class="pager">
-      <a class="prev"><img src="/assets/images/arrow-left.svg" /></a>
-      <a class="next"><img src="/assets/images/arrow-right.svg" /></a>
-    </div>
   </div>
 
   <section class="contained recent-work">
@@ -63,7 +61,7 @@
     <article class="project-preview preview-one-two vertCenter">
       <a href="/work/{{ slug }}">
         <div class="left">
-          <img class="preview-image big-bottom-gutter" src="/assets/images/projects/project1-1.png" />
+          <img class="preview-image bottom-gutter" src="/assets/images/projects/project1-1.png" />
           <h3 class="preview-header" >Sound Opinions</h3>
           <p class="preview-subheader" >Re-branding</p>
           <a class="preview-link" href="#">{{ linkText }}</a>

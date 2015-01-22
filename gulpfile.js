@@ -19,9 +19,9 @@ function renamePage(filePath) {
 }
 
 var globs = {
-  posts: "./src/posts/*.md",
+  news: "./src/news/*.md",
   pages: "./src/*.md",
-  caseStudies: "./src/case-studies/*.md",
+  work: "./src/work/*.md",
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -29,24 +29,24 @@ var fmOptions = {
   remove: true
 };
 
-function postsTask() {
-  return gulp.src(globs.posts)
+function newsTask() {
+  return gulp.src(globs.news)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates())
-    .pipe(gulp.dest("./dest/posts"));
+    .pipe(gulp.dest("./dest/news"));
 }
 
-gulp.task("posts", postsTask);
+gulp.task("news", newsTask);
 
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
-      posts: globs.posts,
-      caseStudies: globs.caseStudies,
+      news: globs.news,
+      work: globs.work,
       options: {
-        count: 1
+        count: 10
       }
     }))
     .pipe(frontMatter(fmOptions))
@@ -58,18 +58,18 @@ function pagesTask() {
 
 gulp.task("pages", pagesTask);
 
-gulp.task("case-studies", function () {
-  return gulp.src(globs.caseStudies)
+gulp.task("work", function () {
+  return gulp.src(globs.work)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates())
-    .pipe(gulp.dest("./dest/case-studies"));
+    .pipe(gulp.dest("./dest/work"));
 });
 
 gulp.task("api", function () {
   api({
-    glob: "src/posts/*.md",
+    glob: "src/news/*.md",
     count: 2,
     sortBy: function (a, b) {
       if (!b.attributes.date) {
@@ -87,7 +87,7 @@ gulp.task("api", function () {
         1 : 0;
     }
   })
-    .pipe(gulp.dest("dest/api/posts"));
+    .pipe(gulp.dest("dest/api/news"));
 });
 
 gulp.task("connect", function () {
@@ -97,8 +97,8 @@ gulp.task("connect", function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch([globs.posts, globs.pages, globs.templates], ["pages"]);
-  gulp.watch([globs.posts, "./templates/post.html"], ["posts"]);
+  gulp.watch([globs.news, globs.pages, globs.templates], ["pages"]);
+  gulp.watch([globs.news, "./templates/new.html"], ["news"]);
 });
 
 gulp.task("style", function () {
@@ -112,6 +112,6 @@ gulp.task("style", function () {
     .pipe(gulp.dest("dest/css"));
 });
 
-gulp.task("default", ["style", "posts", "pages", "case-studies", "connect", "watch"]);
+gulp.task("default", ["style", "news", "pages", "work", "connect", "watch"]);
 
-gulp.task("deploy", ["style", "posts", "pages", "case-studies"]);
+gulp.task("deploy", ["style", "news", "pages", "work"]);
