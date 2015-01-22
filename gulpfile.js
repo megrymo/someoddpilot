@@ -7,6 +7,7 @@ var templates = require("./templates");
 var collections = require("gulp-collections");
 var connect = require("gulp-connect");
 var api = require("gulp-static-api");
+var moment = require("moment");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -30,6 +31,12 @@ var templateOptions = {
   partials: {
     head: "head",
     foot: "foot"
+  },
+  helpers: {
+    dateFormat: function (context, block) {
+      var f = block.hash.format || "MMM Do, YYYY";
+      return moment(context).format(f);
+    }
   }
 };
 
@@ -67,7 +74,7 @@ gulp.task("case-studies", function () {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates())
+    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/case-studies"));
 });
 

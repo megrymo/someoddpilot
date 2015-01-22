@@ -46,6 +46,15 @@ function templates(options) {
     );
   });
 
+  var helpers = options.helpers || [];
+
+  _.forEach(helpers, function (helper, name) {
+    handlebars.registerHelper(
+      name,
+      helper
+    );
+  });
+
   return through.obj(templateStream);
 }
 
