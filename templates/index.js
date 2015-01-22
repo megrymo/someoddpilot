@@ -4,8 +4,6 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
-var partials = ["head", "foot"];
-
 partials.forEach(function (partial) {
   handlebars.registerPartial(
     partial,
@@ -92,7 +90,30 @@ function templateStream(file, enc, callback) {
   fs.readFile(templatePath, "utf-8", onTemplateFile);
 }
 
-function templates() {
+function templates(options) {
+  options = options || {};
+
+  var partials = options.partials || [];
+
+  _.forEach(partials, function (partialPath, name) {
+    handlebars.registerPartial(
+      name,
+      fs.readFileSync(
+        path.join(__dirname, "/partials/", partialPath + ".html"),
+        "utf-8"
+      )
+    );
+  });
+
+  var helpers = options.helpers || [];
+
+  _.forEach(helpers, function (helper, name) {
+    handlebars.registerHelper(
+      name,
+      helper
+    );
+  });
+
   return through.obj(templateStream);
 }
 

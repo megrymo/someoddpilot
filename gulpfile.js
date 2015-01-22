@@ -10,6 +10,7 @@ var api = require("gulp-static-api");
 var stylus = require("gulp-stylus");
 var nib = require("nib");
 var sopStyl = require("sop-styl");
+var moment = require("moment");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -29,12 +30,25 @@ var fmOptions = {
   remove: true
 };
 
-function newsTask() {
-  return gulp.src(globs.news)
+var templateOptions = {
+  partials: {
+    head: "head",
+    foot: "foot"
+  },
+  helpers: {
+    dateFormat: function (context, block) {
+      var f = block.hash.format || "MMM Do, YYYY";
+      return moment(context).format(f);
+    }
+  }
+};
+
+function postsTask() {
+  return gulp.src(globs.posts)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates())
+    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/news"));
 }
 
@@ -52,7 +66,7 @@ function pagesTask() {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates())
+    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest"));
 }
 
@@ -63,7 +77,7 @@ gulp.task("work", function () {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates())
+    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/work"));
 });
 
