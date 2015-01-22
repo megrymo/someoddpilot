@@ -1,5 +1,5 @@
 ---
-title: I am Lorde
+title: 9th Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 template: news
 date: January 25, 2016
 image: 

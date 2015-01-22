@@ -170,7 +170,7 @@
 
 .news-article
 	width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%
-	padding-top (vert-gutter)px
+	padding (vert-gutter / 2)px 0
 	vertical-align top
 	float left
 	
@@ -184,7 +184,7 @@
 	padding-right (((vert-gutter / 2) / content-width) * 100)%
 	
 .news-article:nth-child(3n+2)
-	padding (vert-gutter)px (((vert-gutter / 2) / content-width) * 100)% 0
+	padding (vert-gutter / 2)px (((vert-gutter / 2) / content-width) * 100)%
 
 .featured
 	padding 0
@@ -192,7 +192,7 @@
 .featured + .featured
 	padding (avg(hr-gutter big-gutter))px 0 0
 	
-.featured.even
+.news .even
 	background #f0ede5
 
 .news-image

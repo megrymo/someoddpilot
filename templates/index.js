@@ -16,6 +16,55 @@ partials.forEach(function (partial) {
   );
 });
 
+handlebars.registerHelper("equal", function(lvalue, rvalue, options) {
+    if (arguments.length < 3){
+      throw new Error("Handlebars Helper equal needs 2 parameters");
+    }
+    if ( lvalue !== rvalue ) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this);
+    }
+});
+
+handlebars.registerHelper("lessThan", function(lvalue, rvalue, options) {
+    if (arguments.length < 3){
+      throw new Error("Handlebars Helper lessThan needs 2 parameters");
+    }
+    if (lvalue > rvalue || lvalue === rvalue) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this);
+    }
+});
+
+handlebars.registerHelper("greaterThan", function(lvalue, rvalue, options) {
+    if (arguments.length < 3){
+      throw new Error("Handlebars Helper greaterThan needs 2 parameters");
+    }
+    if (lvalue < rvalue || lvalue === rvalue) {
+      return options.inverse(this);
+    } else {
+      return options.fn(this);
+    }
+});
+
+handlebars.registerHelper("everyOtherOffset", function (index, amount, offset, scope) {
+    if (((++index) - offset) % amount ) {
+      return scope.inverse(this);
+    } else {
+      return scope.fn(this);
+    }
+});
+
+handlebars.registerHelper("everyOther", function (index, amount, scope) {
+    if (++index % amount ) {
+      return scope.inverse(this);
+    } else {
+      return scope.fn(this);
+    }
+});
+
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {
     if (err) {
