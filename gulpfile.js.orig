@@ -34,8 +34,18 @@ function newsTask() {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
+<<<<<<< HEAD
     .pipe(templates())
     .pipe(gulp.dest("./dest/news"));
+=======
+    .pipe(templates({
+      "partials": [
+        "head",
+        "foot"
+      ]
+    }))
+    .pipe(gulp.dest("./dest/posts"));
+>>>>>>> Adding option for templating partials
 }
 
 gulp.task("news", newsTask);
