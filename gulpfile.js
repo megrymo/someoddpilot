@@ -31,7 +31,12 @@ function postsTask() {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates())
+    .pipe(templates({
+      "partials": [
+        "head",
+        "foot"
+      ]
+    }))
     .pipe(gulp.dest("./dest/posts"));
 }
 
@@ -49,7 +54,12 @@ function pagesTask() {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates())
+    .pipe(templates({
+      "partials": [
+        "head",
+        "foot"
+      ]
+    }))
     .pipe(gulp.dest("./dest"));
 }
 
