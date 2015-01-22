@@ -36,11 +36,11 @@ function templates(options) {
 
   var partials = options.partials || [];
 
-  partials.forEach(function (partial) {
+  _.forEach(partials, function (partialPath, name) {
     handlebars.registerPartial(
-      partial,
+      name,
       fs.readFileSync(
-        path.join(__dirname, "/partials/", partial + ".html"),
+        path.join(__dirname, "/partials/", partialPath + ".html"),
         "utf-8"
       )
     );

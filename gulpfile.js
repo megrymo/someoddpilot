@@ -26,17 +26,19 @@ var fmOptions = {
   remove: true
 };
 
+var templateOptions = {
+  partials: {
+    head: "head",
+    foot: "foot"
+  }
+};
+
 function postsTask() {
   return gulp.src(globs.posts)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates({
-      "partials": [
-        "head",
-        "foot"
-      ]
-    }))
+    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/posts"));
 }
 
@@ -54,12 +56,7 @@ function pagesTask() {
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
-    .pipe(templates({
-      "partials": [
-        "head",
-        "foot"
-      ]
-    }))
+    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest"));
 }
 
