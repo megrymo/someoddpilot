@@ -26,7 +26,10 @@ function renamePage(filePath) {
 var globs = {
   news: "./src/news/*.md",
   pages: "./src/*.md",
-  work: "./src/work/*.md",
+  work: {
+    indexes: "./src/work/**/index.md",
+    sections: "./src/work/**/!(index).md"
+  },
   homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
@@ -57,7 +60,7 @@ function pagesTask() {
     .pipe(collections({
       homeSlides: globs.homeSlides,
       news: globs.news,
-      work: globs.work,
+      work: globs.work.indexes,
       options: {
         count: 10
       }
@@ -72,9 +75,9 @@ function pagesTask() {
 gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
-  return gulp.src(globs.work)
+  return gulp.src(globs.work.indexes)
     .pipe(collections({
-      sections: globs.nested.sections,
+      sections: globs.work.sections,
       options: {
         count: 10
       }
