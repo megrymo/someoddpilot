@@ -4,8 +4,8 @@ function fixSliderHeight() {
   if ( $(".slides .slide").length > 1) {
     var maxHeight = 0;
     $(".slide .contained").each(function(){
-      if ($(this).offsetHeight > maxHeight) {
-      maxHeight = $(this).offsetHeight;
+      if ($(this).innerHeight() > maxHeight) {
+      maxHeight = $(this).innerHeight();
       }
     });
     $(this).find(".slides").height(maxHeight);
@@ -16,8 +16,8 @@ function fixSliderHeight() {
     var maxHeight = 0;
     var theWindow = $(window).height();
     $(".slide .contained").each(function(){
-      if ($(this).offsetHeight > maxHeight) {
-      maxHeight = $(this).offsetHeight;
+      if ($(this).innerHeight() > maxHeight) {
+      maxHeight = $(this).innerHeight();
       }
       if (theWindow > maxHeight) {
       maxHeight = theWindow;
