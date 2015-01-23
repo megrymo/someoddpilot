@@ -7,6 +7,7 @@ var templates = require("./templates");
 var collections = require("gulp-collections");
 var connect = require("gulp-connect");
 var api = require("gulp-static-api");
+var _ = require("lodash");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -29,21 +30,11 @@ var fmOptions = {
   remove: true
 };
 
-var templateOptions = {
-  partials: {
-    head: "head",
-    foot: "foot"
-  },
-  globals: {
-    site: {
-      title: "Gulp Static",
-      description: "Prototype for a Gulp based static site generator"
-    }
-  },
+var templateOptions = _.merge({
   helpers: {
     dateFormat: require("./helpers/dateFormat")
   }
-};
+}, require("./config/templates"));
 
 function postsTask() {
   return gulp.src(globs.posts)
