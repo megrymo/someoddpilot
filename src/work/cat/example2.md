@@ -1,5 +1,6 @@
 ---
-title: "Record Covers"
+clientSlug: "cat"
+title: "CAT"
 subheader: "Packaging"
 linkText: "more"
 template: work

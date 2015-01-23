@@ -1,5 +1,6 @@
 ---
-title: "Sound Opinions"
+clientSlug: "cat"
+title: "CAT"
 subheader: "Re-branding"
 linkText: "more"
 template: work

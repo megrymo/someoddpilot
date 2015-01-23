@@ -1,4 +1,5 @@
 ---
+clientSlug: "sound-opnions"
 title: "Record Covers"
 subheader: "Packaging"
 linkText: "more"

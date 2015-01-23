@@ -4,14 +4,14 @@
         {{#compare attributes.layout1 "1-1up" }}
         <div class="left">
         {{/compare}}
-        	<a href="/work/{{ slug }}">
+        	<a href="/work/{{ attributes.clientSlug }}/">
           	<img class="preview-image bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
           </a>
         {{#compare attributes.layout1 "1-1up" }}
         </div>
         <div class="right">
         {{/compare}}
-        <a href="/work/{{ slug }}">
+        <a href="/work/{{ attributes.clientSlug }}/">
           <h3 class="preview-header">{{ attributes.title }}</h3>
           <p class="preview-subheader">{{ attributes.subheader }}</p>
           <a class="preview-link" href="#">{{ attributes.linkText }}</a>
@@ -22,7 +22,7 @@
       {{/compare}}
 
       {{#compare attributes.layout1 "any" "1-2up 2-1up" }}
-        <a href="/work/{{ slug }}">
+        <a href="/work/{{ attributes.clientSlug }}/">
 	        <div class="{{#compare attributes.layout1 "1-2up" }}left{{/compare}}{{#compare attributes.layout1 "2-1up" }}right{{/compare}}">
 	          <img class="preview-image bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
 	          <h3 class="preview-header">{{ attributes.title }}</h3>
