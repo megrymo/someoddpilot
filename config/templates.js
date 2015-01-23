@@ -2,7 +2,7 @@ module.exports = {
   partials: {
     head: "head",
     foot: "foot",
-    projectView: "projectView"
+    projectView: "project-view"
   },
   globals: {
     site: {
