@@ -47,14 +47,15 @@ handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options
 
 });
 
-handlebars.registerHelper('each_upto', function(ary, max, options) {
-    if(!ary || ary.length == 0)
+handlebars.registerHelper("eachLimited", function(ary, max, options) {
+    if(!ary || ary.length == 0){
         return options.inverse(this);
-
+    }
     var result = [ ];
-    for(var i = 0; i < max && i < ary.length; ++i)
+    for(var i = 0; i < max && i < ary.length; ++i){
         result.push(options.fn(ary[i]));
-    return result.join('');
+      }
+    return result.join("");
 });
 
 handlebars.registerHelper("everyOther", function (index, amount, offset, scope) {
