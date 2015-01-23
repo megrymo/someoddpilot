@@ -5,7 +5,6 @@ var path = require("path");
 var through = require("through2");
 
 handlebars.registerHelper("json", function (obj) {
-  console.log(arguments);
   return JSON.stringify(obj);
 });
 

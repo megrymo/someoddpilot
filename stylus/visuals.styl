@@ -8,7 +8,7 @@
 
 .logo
   display: inline-block
-  margin (100 / base-font-size)em 0 (120 / base-font-size)em
+  margin 100px 0 120px
 
 .sop-logo
   width 280px
@@ -92,7 +92,7 @@
   fill #fff
 
 .page-subheader
-  margin (avg(hr-gutter big-gutter) / 2 / base-font-size)em 0
+  margin (avg(hr-gutter big-gutter) / 2)px 0
 
 .slider
   position: relative
@@ -117,7 +117,7 @@
   overflow hidden
 
   .contained
-    padding 300px 10% (big-gutter / base-font-size)em
+    padding 300px 10% (big-gutter * 1.2)px
     width 80%
 
 .pager,
@@ -142,7 +142,7 @@
 
 .counter
   position absolute
-  bottom (hr-gutter / base-font-size)em
+  bottom (hr-gutter)px
   font-family: "Georgia", Georgia, serif
   font-specs(18, 18)
   font-weight: bold
@@ -171,7 +171,7 @@
 
 .block-link
   display: inline-block
-  margin-top (hr-gutter / 2 / base-font-size)em
+  margin-top (hr-gutter / 2)px
 
 .news-article
   width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%
@@ -180,7 +180,7 @@
   float left
 
 .news-date
-  margin-bottom (hr-gutter/2 / base-font-size)em
+  margin-bottom (hr-gutter/2)px
 
 .news-article:nth-child(3n+3)
   padding-left (((vert-gutter / 2) / content-width) * 100)%
@@ -189,21 +189,88 @@
   padding-right (((vert-gutter / 2) / content-width) * 100)%
 
 .news-article:nth-child(3n+2)
-  padding (vert-gutter / 2)px (((vert-gutter / 2) / content-width) * 100)%
+  padding (vert-gutter / 2 )px (((vert-gutter / 2) / content-width) * 100)%
 
 .featured
   padding 0
 
 .featured + .featured
-  padding (avg(hr-gutter big-gutter) / base-font-size)em 0 0
+  padding (avg(hr-gutter big-gutter))px 0 0
 
 .news-image
   width 100%
   height auto
-  padding-bottom (hr-gutter / base-font-size)em
+  padding-bottom (hr-gutter)px
 
 .featured .news-image
-  padding-bottom avg(hr-gutter big-gutter / base-font-size)em
+  padding-bottom avg(hr-gutter big-gutter)px
 
 .featured .news-snippet
-  padding-bottom (hr-gutter / base-font-size)em
+  padding-bottom (hr-gutter)px
+
+.sop-footer
+  display: table
+  vertical-align middle
+  width 100%
+  background #000
+  padding (hr-gutter/2)px 0
+
+  .left
+    padding 0 0 0 (hr-gutter)px
+
+  .right
+    padding 0 (hr-gutter)px 0 0
+
+.footer-link
+  display: table-cell
+  vertical-align middle
+  padding-right (hr-gutter)px
+  fill #fff
+
+.sop-footer .sop-logo
+  height 46px
+  width auto
+
+.pw-logo
+  height 69px
+  width auto
+
+.chris-logo
+  height 44px
+  width auto
+
+.signup
+  text-align right
+
+  .email,
+  .button
+    appearance none
+    background #000
+    height 30px
+    border none
+    outline none
+    color #fff
+    font-specs(14, 16, 150)
+    line-height 2.5em
+    transition: all ease 0.5s
+
+  .email
+    height 30px
+    width 250px
+    padding 0 2px
+    border-bottom solid 3px #fff
+    border-top solid 3px #000
+    text-align: left
+
+    &:focus
+      outline none
+      background #222
+      border-top-color #222
+
+  .button
+    height 36px
+    float right
+
+    &:hover
+      background #fff
+      color #000
