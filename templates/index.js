@@ -8,7 +8,10 @@ function forEachPartial(partialPath, name) {
   handlebars.registerPartial(
     name,
     fs.readFileSync(
-      path.join(__dirname, "/partials/", partialPath + ".html"),
+      path.join(
+        this.partialPath.prefix,
+        partialPath + this.partialPath.extension
+      ),
       "utf-8"
     )
   );
@@ -22,9 +25,14 @@ function forEachHelper(helper, name) {
 }
 
 function templates(options) {
-  options = options || {};
+  options = _.merge(options, {
+    partialPath: {
+      prefix: path.join(__dirname, "partials"),
+      extension: ".html"
+    }
+  });
 
-  _.forEach(options.partials || [], forEachPartial);
+  _.forEach(options.partials || [], forEachPartial, options);
 
   _.forEach(options.helpers || [], forEachHelper);
 
