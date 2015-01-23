@@ -1,5 +1,5 @@
 function animateImages() {
-  $(".preview-image").each(function(){
+  $(".animate").each(function(){
     var imagePos = $(this).offset().top;
 
     var topOfWindow = $(window).scrollTop();

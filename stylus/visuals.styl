@@ -8,7 +8,7 @@
 
 .logo
   display: inline-block
-  margin 100px 0 120px
+  margin (100 / base-font-size)em 0 (120 / base-font-size)em
 
 .sop-logo
   width 280px
@@ -92,7 +92,7 @@
   fill #fff
 
 .page-subheader
-  margin (avg(hr-gutter big-gutter) / 2)px 0
+  margin (avg(hr-gutter big-gutter) / 2 / base-font-size)em 0
 
 .slider
   position: relative
@@ -117,9 +117,8 @@
   overflow hidden
 
   .contained
-    padding 300px 10% (big-gutter)px
+    padding 300px 10% (big-gutter / base-font-size)em
     width 80%
-    max-height 125%
 
 .pager,
 .prev,
@@ -143,7 +142,7 @@
 
 .counter
   position absolute
-  bottom (hr-gutter)px
+  bottom (hr-gutter / base-font-size)em
   font-family: "Georgia", Georgia, serif
   font-specs(18, 18)
   font-weight: bold
@@ -153,19 +152,6 @@
 .home-slider
   min-height 100%
   height auto
-
-.we-are
-  .contained
-    margin 0
-    width 50%
-    overflow visible
-    white-space: nowrap
-
-  .display-serif
-    font-specs(90, 120)
-
-.truth-and-vision .fit-text
-  font-specs(30, 35)
 
 .project-block
   display: block
@@ -185,7 +171,7 @@
 
 .block-link
   display: inline-block
-  margin-top (hr-gutter / 2)px
+  margin-top (hr-gutter / 2 / base-font-size)em
 
 .news-article
   width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%
@@ -194,7 +180,7 @@
   float left
 
 .news-date
-  margin-bottom (hr-gutter/2)px
+  margin-bottom (hr-gutter/2 / base-font-size)em
 
 .news-article:nth-child(3n+3)
   padding-left (((vert-gutter / 2) / content-width) * 100)%
@@ -209,7 +195,7 @@
   padding 0
 
 .featured + .featured
-  padding (avg(hr-gutter big-gutter))px 0 0
+  padding (avg(hr-gutter big-gutter) / base-font-size)em 0 0
 
 .yellow-bg .even
   background #f0ede5
@@ -217,10 +203,10 @@
 .news-image
   width 100%
   height auto
-  padding-bottom (hr-gutter)px
+  padding-bottom (hr-gutter / base-font-size)em
 
 .featured .news-image
-  padding-bottom avg(hr-gutter big-gutter)px
+  padding-bottom avg(hr-gutter big-gutter / base-font-size)em
 
 .featured .news-snippet
-  padding-bottom (hr-gutter)px
+  padding-bottom (hr-gutter / base-font-size)em
