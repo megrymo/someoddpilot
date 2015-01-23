@@ -33,7 +33,8 @@ var fmOptions = {
 var templateOptions = {
   partials: {
     head: "head",
-    foot: "foot"
+    foot: "foot",
+    projectView: "project-view"
   },
   helpers: {
     dateFormat: function (context, block) {
@@ -43,8 +44,8 @@ var templateOptions = {
   }
 };
 
-function postsTask() {
-  return gulp.src(globs.posts)
+function newsTask() {
+  return gulp.src(globs.news)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))

@@ -4,16 +4,6 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
-partials.forEach(function (partial) {
-  handlebars.registerPartial(
-    partial,
-    fs.readFileSync(
-      path.join(__dirname, "/partials/", partial + ".html"),
-      "utf-8"
-    )
-  );
-});
-
 handlebars.registerHelper("equal", function(lvalue, rvalue, options) {
     if (arguments.length < 3){
       throw new Error("Handlebars Helper equal needs 2 parameters");
