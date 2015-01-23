@@ -1,36 +1,26 @@
 <article {{#everyOther @index 2}}class="even"{{/everyOther}}>
   <div class="contained project-preview preview-{{@index}}{{#compare attributes.layout1 "any" "1-1up 1-2up 2-1up"}} vert-center{{/compare}}">
-      {{#compare attributes.layout1 "1up" }}
-        	<a href="/work/{{ attributes.clientSlug }}/">
-          	<img class="preview-image bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
-          </a>
-        <a href="/work/{{ attributes.clientSlug }}/">
-          <h3 class="preview-header">{{ attributes.title }}</h3>
-          <p class="preview-subheader">{{ attributes.subheader }}</p>
-          <a class="preview-link" href="#">{{ attributes.linkText }}</a>
-         </a>
+    <a href="/work/{{ attributes.clientSlug }}/">
+      {{#compare attributes.layout1 "!==" "1up" }}
+      <div class="{{#compare attributes.layout1 "1-2up" }}left{{else}}right{{/compare}}">
       {{/compare}}
-
-      {{#compare attributes.layout1 "any" "1-2up 2-1up 1-1up" }}
-        <a href="/work/{{ attributes.clientSlug }}/">
-	        <div class="{{#compare attributes.layout1 "1-2up" }}left{{/compare}}{{#compare attributes.layout1 "any" "2-1up 1-1up" }}right{{/compare}}">
-            {{#compare attributes.layout1 "!==" "1-1up" }}
-	          <img class="preview-image bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
-            {{/compare}}
-	          <h3 class="preview-header">{{ attributes.title }}</h3>
-	          <p class="preview-subheader">{{ attributes.subheader }}</p>
-	          <a class="preview-link" href="#">{{ attributes.linkText }}</a>
-	        </div>
-	        <div class="{{#compare attributes.layout1 "1-2up" }}right{{/compare}}{{#compare attributes.layout1 "any" "2-1up 1-1up" }}left{{/compare}}">
-            {{#compare attributes.layout1 "!==" "1-1up" }}
-	          <img class="preview-image bottom-gutter" src="{{ attributes.images.image2.src }}" alt="{{ attributes.images.image2.alt }}" />
-	          <img class="preview-image" src="{{ attributes.images.image3.src }}" alt="{{ attributes.images.image3.alt }}" />
-            {{/compare}}
-            {{#compare attributes.layout1 "1-1up" }}
-            <img class="preview-image" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
-            {{/compare}}
-	        </div>
-        </a>
+        {{#compare attributes.layout1 "!==" "1-1up" }}
+        <img class="preview-image bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
+        {{/compare}}
+        <h3 class="preview-header">{{ attributes.title }}</h3>
+        <p class="preview-subheader">{{ attributes.subheader }}</p>
+        <a class="preview-link" href="#">{{ attributes.linkText }}</a>
+      {{#compare attributes.layout1 "!==" "1up" }}
+        </div>
+        <div class="{{#compare attributes.layout1 "1-2up" }}right{{else}}left{{/compare}}">
+          {{#compare attributes.layout1 "!==" "1-1up" }}
+          <img class="preview-image bottom-gutter" src="{{ attributes.images.image2.src }}" alt="{{ attributes.images.image2.alt }}" />
+          <img class="preview-image" src="{{ attributes.images.image3.src }}" alt="{{ attributes.images.image3.alt }}" />
+          {{/compare}}
+          {{#compare attributes.layout1 "1-1up" }}
+          <img class="preview-image" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
+          {{/compare}}
+        </div>
       {{/compare}}
     </a>
   </div>
