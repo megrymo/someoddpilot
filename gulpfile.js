@@ -15,6 +15,7 @@ var watchify = require("watchify");
 var browserify = require("browserify");
 var source = require("vinyl-source-stream");
 var gutil = require("gulp-util");
+var _ = require("lodash");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -35,24 +36,11 @@ var fmOptions = {
   remove: true
 };
 
-var templateOptions = {
-  partials: {
-    head: "head",
-    foot: "foot"
-  },
-  globals: {
-    site: {
-      title: "Gulp Static",
-      description: "Prototype for a Gulp based static site generator"
-    }
-  },
+var templateOptions = _.merge({
   helpers: {
-    dateFormat: function (context, block) {
-      var f = block.hash.format || "MMM Do, YYYY";
-      return moment(context).format(f);
-    }
+    dateFormat: require("./helpers/dateFormat")
   }
-};
+}, require("./config/templates"));
 
 function postsTask() {
   return gulp.src(globs.posts)
@@ -86,6 +74,12 @@ gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
   return gulp.src(globs.work)
+    .pipe(collections({
+      sections: globs.nested.sections,
+      options: {
+        count: 10
+      }
+    }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
@@ -93,25 +87,27 @@ gulp.task("work", function () {
     .pipe(gulp.dest("./dest/work"));
 });
 
+function sortByDate(a, b) {
+  if (!b.attributes.date) {
+    return -1;
+  }
+  if (!a.attributes.date) {
+    return 1;
+  }
+
+  a = new Date(a.attributes.date);
+  b = new Date(b.attributes.date);
+
+  return (a > b) ?
+    -1 : (a < b) ?
+    1 : 0;
+}
+
 gulp.task("api", function () {
   api({
     glob: "src/news/*.md",
     count: 2,
-    sortBy: function (a, b) {
-      if (!b.attributes.date) {
-        return -1;
-      }
-      if (!a.attributes.date) {
-        return 1;
-      }
-
-      a = new Date(a.attributes.date);
-      b = new Date(b.attributes.date);
-
-      return (a > b) ?
-        -1 : (a < b) ?
-        1 : 0;
-    }
+    sortBy: sortByDate
   })
     .pipe(gulp.dest("dest/api/news"));
 });
