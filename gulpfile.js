@@ -80,25 +80,27 @@ gulp.task("case-studies", function () {
     .pipe(gulp.dest("./dest/nested"));
 });
 
+function sortByDate(a, b) {
+  if (!b.attributes.date) {
+    return -1;
+  }
+  if (!a.attributes.date) {
+    return 1;
+  }
+
+  a = new Date(a.attributes.date);
+  b = new Date(b.attributes.date);
+
+  return (a > b) ?
+    -1 : (a < b) ?
+    1 : 0;
+}
+
 gulp.task("api", function () {
   api({
     glob: "src/posts/*.md",
     count: 2,
-    sortBy: function (a, b) {
-      if (!b.attributes.date) {
-        return -1;
-      }
-      if (!a.attributes.date) {
-        return 1;
-      }
-
-      a = new Date(a.attributes.date);
-      b = new Date(b.attributes.date);
-
-      return (a > b) ?
-        -1 : (a < b) ?
-        1 : 0;
-    }
+    sortBy: sortByDate
   })
     .pipe(gulp.dest("dest/api/posts"));
 });
