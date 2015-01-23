@@ -70,7 +70,9 @@ handlebars.registerHelper("everyOther", function (index, amount, offset, scope) 
 });
 
 // template data globals
-var globals = {};
+var globals = {
+  linkText : "More"
+};
 
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {

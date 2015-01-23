@@ -6,7 +6,7 @@
 	animation-timing-function: ease-in-out;
 	-webkit-animation-timing-function: ease-in-out;
 
-	visibility: visible !important;	
+	visibility: visible !important;
 }
 
 .slide-left{
@@ -23,7 +23,7 @@
 	transform: translateX(0%);
 	animation-name: slideRight;
 	-webkit-animation-name: slideRight;
-	
+
 .slide-left-force
 	transform: translateX(-150%);
 
@@ -62,4 +62,39 @@
 	100% {
 		-webkit-transform: translateX(0%);
 	}
+}
+
+.slide-up{
+  animation-name: slideUp;
+  -webkit-animation-name: slideUp;
+
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+
+  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+
+  visibility: visible !important;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(1em);
+    opacity 0
+  }
+  100% {
+    transform: translateY(0%);
+    opacity 1
+  }
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(1em);
+    opacity 0
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+    opacity 1
+  }
 }

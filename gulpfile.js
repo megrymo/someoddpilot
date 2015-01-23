@@ -76,7 +76,6 @@ gulp.task("news", newsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
-      homeSlides: globs.homeSlides,
       news: globs.news,
       homeSlides: globs.homeSlides,
       work: globs.work,

@@ -4,6 +4,7 @@
   var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
   var fixSliderHeight = require("./slider-height");
+  var animateImages = require("./animate-images");
 
   jQuery(document).ready(function ($) {
     initSliders();
@@ -21,6 +22,7 @@
     });
 
     vertCenter();
+    animateImages();
 
   });
 
@@ -32,6 +34,10 @@
   $(window).resize(function() {
     fixSliderHeight();
     vertCenter();
+  });
+
+  $(window).scroll(function() {
+    animateImages();
   });
 
 })( jQuery );
