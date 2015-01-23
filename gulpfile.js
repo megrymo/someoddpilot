@@ -27,6 +27,7 @@ var globs = {
   news: "./src/news/*.md",
   pages: "./src/*.md",
   work: "./src/work/*.md",
+  homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -61,6 +62,7 @@ gulp.task("news", newsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
+      homeSlides: globs.homeSlides,
       news: globs.news,
       work: globs.work,
       options: {
