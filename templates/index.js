@@ -4,6 +4,9 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
+// template data globals
+var globals = {};
+
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {
     if (err) {
@@ -13,6 +16,7 @@ function templateStream(file, enc, callback) {
     var templateFn = handlebars.compile(templateString);
 
     var data = _.extend(
+      globals,
       file.frontMatter,
       {
         collections: file.collections,
@@ -54,6 +58,8 @@ function templates(options) {
       helper
     );
   });
+
+  globals = options.globals || {};
 
   return through.obj(templateStream);
 }
