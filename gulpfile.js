@@ -11,6 +11,10 @@ var stylus = require("gulp-stylus");
 var nib = require("nib");
 var sopStyl = require("sop-styl");
 var moment = require("moment");
+var watchify = require("watchify");
+var browserify = require("browserify");
+var source = require("vinyl-source-stream");
+var gutil = require("gulp-util");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -125,6 +129,15 @@ gulp.task("style", function () {
       ]
     }))
     .pipe(gulp.dest("dest/css"));
+});
+
+var bundler = watchify(browserify("./client.js", watchify.args));
+
+gulp.task("scripts", function () {
+  return bundler.bundle()
+    .on("error", gutil.log.bind(gutil, "Browserify Error"))
+    .pipe(source("client.js"))
+    .pipe(gulp.dest("./dest/js"));
 });
 
 gulp.task("default", ["style", "news", "pages", "work", "connect", "watch"]);
