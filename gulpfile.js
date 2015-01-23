@@ -23,10 +23,18 @@ function renamePage(filePath) {
   }
 }
 
+function renamePageParentFolder(filePath) {
+  if (filePath.basename !== "index") {
+    filePath.basename = "index";
+  }
+}
+
 var globs = {
   news: "./src/news/*.md",
   pages: "./src/*.md",
-  work: "./src/work/*.md",
+  homeSlides: "./src/home-slides/*.md",
+  workPreview: "./src/work/*/main.md",
+  work: "./src/work/*/*.md",
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -38,7 +46,7 @@ var templateOptions = {
   partials: {
     head: "head",
     foot: "foot",
-    projectView: "project-view"
+    projectBlock: "project-block"
   },
   helpers: {
     dateFormat: function (context, block) {
@@ -63,7 +71,9 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       news: globs.news,
+      homeSlides: globs.homeSlides,
       work: globs.work,
+      workPreview: globs.workPreview,
       options: {
         count: 10
       }
@@ -77,11 +87,11 @@ function pagesTask() {
 
 gulp.task("pages", pagesTask);
 
-gulp.task("work", function () {
-  return gulp.src(globs.work)
+gulp.task("workPreview", function () {
+  return gulp.src(globs.workPreview)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
-    .pipe(rename(renamePage))
+    .pipe(rename(renamePageParentFolder))
     .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/work"));
 });
@@ -140,6 +150,6 @@ gulp.task("scripts", function () {
     .pipe(gulp.dest("./dest/js"));
 });
 
-gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts"]);
+gulp.task("default", ["style", "news", "pages", "workPreview", "connect", "watch", "scripts"]);
 
-gulp.task("deploy", ["style", "news", "pages", "work"]);
+gulp.task("deploy", ["style", "news", "pages", "workPreview"]);

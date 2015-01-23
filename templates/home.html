@@ -11,8 +11,8 @@
 
   <section class="contained recent-work">
     <h2 class="page-subheader">Recent Work</h2>
-    {{#each_upto collections.work 4}}
-      {{>projectView}}
+    {{#each_upto collections.workPreview 4}}
+      {{>projectBlock}}
     {{/each_upto}}
   </section>
 {{>foot}}
