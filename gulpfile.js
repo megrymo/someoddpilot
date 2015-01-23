@@ -41,8 +41,8 @@ var templateOptions = _.merge({
   }
 }, require("./config/templates"));
 
-function postsTask() {
-  return gulp.src(globs.posts)
+function newsTask() {
+  return gulp.src(globs.news)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
