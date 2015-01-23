@@ -22,10 +22,7 @@ function forEachPartial(partialPath, name) {
 }
 
 function forEachHelper(helper, name) {
-  handlebars.registerHelper(
-    name,
-    helper
-  );
+  handlebars.registerHelper(name, helper);
 }
 
 function templates(options) {
