@@ -5,15 +5,19 @@ var path = require("path");
 var through = require("through2");
 
 function forEachPartial(partialPath, name) {
-  handlebars.registerPartial(
-    name,
-    fs.readFileSync(
-      path.join(
-        this.partialPath.prefix,
-        partialPath + this.partialPath.extension
-      ),
-      "utf-8"
-    )
+  fs.readFile(
+    path.join(
+      this.partialPath.prefix,
+      partialPath + this.partialPath.extension
+    ),
+    "utf-8",
+    function (err, contents) {
+      if (err) {
+        throw err;
+      }
+
+      handlebars.registerPartial(name, contents);
+    }
   );
 }
 
