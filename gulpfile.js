@@ -140,6 +140,6 @@ gulp.task("scripts", function () {
     .pipe(gulp.dest("./dest/js"));
 });
 
-gulp.task("default", ["style", "news", "pages", "work", "connect", "watch"]);
+gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts"]);
 
 gulp.task("deploy", ["style", "news", "pages", "work"]);
