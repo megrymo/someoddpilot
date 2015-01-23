@@ -3,7 +3,7 @@ title: "Sound Opinions 1-1Up"
 subheader: "Re-branding"
 linkText: "more"
 template: work
-layout1: A1-1up
+layout1: 1-1up
 images:
   image1:
     src: "/assets/images/projects/project1-1.png"

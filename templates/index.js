@@ -28,7 +28,9 @@ handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options
         "<=": function (l, r) { return l <= r; },
         ">=": function (l, r) { return l >= r; },
         "typeof": function (l, r) { return typeof l == r; },
-        "any": function (l, r) { var patt = new RegExp(l); return patt.test(r);}
+        "any": function (l, r) { 
+          r=r.split(" ");
+          return _.contains(r,l);}
     };
     
     if (!operators[operator]) {
