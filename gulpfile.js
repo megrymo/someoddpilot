@@ -10,7 +10,6 @@ var api = require("gulp-static-api");
 var stylus = require("gulp-stylus");
 var nib = require("nib");
 var sopStyl = require("sop-styl");
-var moment = require("moment");
 var watchify = require("watchify");
 var browserify = require("browserify");
 var source = require("vinyl-source-stream");
