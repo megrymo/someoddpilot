@@ -19,7 +19,10 @@ function renamePage(filePath) {
 var globs = {
   posts: "./src/posts/*.md",
   pages: "./src/*.md",
-  caseStudies: "./src/case-studies/*.md",
+  nested: {
+    indexes: "./src/nested/**/index.md",
+    sections: "./src/nested/**/!(index).md"
+  },
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -61,9 +64,9 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       posts: globs.posts,
-      caseStudies: globs.caseStudies,
+      nested: globs.nested.indexes,
       options: {
-        count: 1
+        count: 10
       }
     }))
     .pipe(frontMatter(fmOptions))
@@ -76,12 +79,18 @@ function pagesTask() {
 gulp.task("pages", pagesTask);
 
 gulp.task("case-studies", function () {
-  return gulp.src(globs.caseStudies)
+  return gulp.src(globs.nested.indexes)
+    .pipe(collections({
+      sections: globs.nested.sections,
+      options: {
+        count: 10
+      }
+    }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/case-studies"));
+    .pipe(gulp.dest("./dest/nested"));
 });
 
 gulp.task("api", function () {
