@@ -7,17 +7,17 @@ var through = require("through2");
 handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
 
     var operators, result;
-    
+
     if (arguments.length < 3) {
         throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
     }
-    
+
     if (options === undefined) {
         options = rvalue;
         rvalue = operator;
         operator = "===";
     }
-    
+
     operators = {
         "==": function (l, r) { return l == r; },
         "===": function (l, r) { return l === r; },
@@ -28,17 +28,17 @@ handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options
         "<=": function (l, r) { return l <= r; },
         ">=": function (l, r) { return l >= r; },
         "typeof": function (l, r) { return typeof l == r; },
-        "any": function (l, r) { 
+        "any": function (l, r) {
           r=r.split(" ");
           return _.contains(r,l);}
     };
-    
+
     if (!operators[operator]) {
         throw new Error("Handlerbars Helper 'compare' doesn't know the operator " + operator);
     }
-    
+
     result = operators[operator](lvalue, rvalue);
-    
+
     if (result) {
         return options.fn(this);
     } else {
@@ -69,6 +69,9 @@ handlebars.registerHelper("everyOther", function (index, amount, offset, scope) 
     }
 });
 
+// template data globals
+var globals = {};
+
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {
     if (err) {
@@ -78,6 +81,7 @@ function templateStream(file, enc, callback) {
     var templateFn = handlebars.compile(templateString);
 
     var data = _.extend(
+      globals,
       file.frontMatter,
       {
         collections: file.collections,
@@ -119,6 +123,8 @@ function templates(options) {
       helper
     );
   });
+
+  globals = options.globals || {};
 
   return through.obj(templateStream);
 }

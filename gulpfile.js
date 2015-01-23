@@ -48,6 +48,12 @@ var templateOptions = {
     foot: "foot",
     projectBlock: "project-block"
   },
+  globals: {
+    site: {
+      title: "Gulp Static",
+      description: "Prototype for a Gulp based static site generator"
+    }
+  },
   helpers: {
     dateFormat: function (context, block) {
       var f = block.hash.format || "MMM Do, YYYY";
@@ -70,6 +76,7 @@ gulp.task("news", newsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
+      homeSlides: globs.homeSlides,
       news: globs.news,
       homeSlides: globs.homeSlides,
       work: globs.work,

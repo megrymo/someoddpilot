@@ -35,3 +35,6 @@
   });
 
 })( jQuery );
+require("angular");
+
+angular.module("sop", []);
