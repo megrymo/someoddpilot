@@ -1,5 +1,5 @@
 ---
-color: blue
+color: yellow
 ---
 <div class="contained vert-center">
 	<div class="left display-serif left-align drop-cap">
