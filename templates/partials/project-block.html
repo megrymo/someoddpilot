@@ -9,7 +9,8 @@
         {{/compare}}
         <h3 class="block-header">{{ attributes.title }}</h3>
         <p class="block-subheader">{{ attributes.subheader }}</p>
-        <a class="block-link" href="#">{{ attributes.linkText }}</a>
+        {{ json .. }}
+        <a class="block-link" href="#">{{ linkText }}</a>
       {{#compare attributes.layout1 "!==" "1up" }}
         </div>
         <div class="{{#compare attributes.layout1 "1-2up" }}right{{else}}left{{/compare}}">

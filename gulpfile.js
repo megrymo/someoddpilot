@@ -15,6 +15,7 @@ var watchify = require("watchify");
 var browserify = require("browserify");
 var source = require("vinyl-source-stream");
 var gutil = require("gulp-util");
+var _ = require("lodash");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -52,7 +53,8 @@ var templateOptions = {
     site: {
       title: "Gulp Static",
       description: "Prototype for a Gulp based static site generator"
-    }
+    },
+    linkText: "More"
   },
   helpers: {
     dateFormat: function (context, block) {

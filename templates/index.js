@@ -4,6 +4,11 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
+handlebars.registerHelper("json", function (obj) {
+  console.log(arguments);
+  return JSON.stringify(obj);
+});
+
 handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
 
     var operators, result;
@@ -71,9 +76,7 @@ handlebars.registerHelper("everyOther", function (index, amount, offset, scope) 
 });
 
 // template data globals
-var globals = {
-  linkText : "More"
-};
+var globals = {};
 
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {
@@ -96,7 +99,7 @@ function templateStream(file, enc, callback) {
     callback(null, file);
   }
 
-  var templateName = file.frontMatter.template || "news";
+  var templateName = file.frontMatter.template || "news-single";
 
   var templatePath = path.join(__dirname, templateName + ".html");
 
