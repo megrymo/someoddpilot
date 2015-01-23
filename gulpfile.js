@@ -7,7 +7,6 @@ var templates = require("./templates");
 var collections = require("gulp-collections");
 var connect = require("gulp-connect");
 var api = require("gulp-static-api");
-var moment = require("moment");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -42,10 +41,7 @@ var templateOptions = {
     }
   },
   helpers: {
-    dateFormat: function (context, block) {
-      var f = block.hash.format || "MMM Do, YYYY";
-      return moment(context).format(f);
-    }
+    dateFormat: require("./helpers/dateFormat")
   }
 };
 
