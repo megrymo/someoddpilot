@@ -4,49 +4,63 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
-handlebars.registerHelper("equal", function(lvalue, rvalue, options) {
-    if (arguments.length < 3){
-      throw new Error("Handlebars Helper equal needs 2 parameters");
+handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
+
+    var operators, result;
+    
+    if (arguments.length < 3) {
+        throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
     }
-    if ( lvalue !== rvalue ) {
-      return options.inverse(this);
+    
+    if (options === undefined) {
+        options = rvalue;
+        rvalue = operator;
+        operator = "===";
+    }
+    
+    operators = {
+        "==": function (l, r) { return l == r; },
+        "===": function (l, r) { return l === r; },
+        "!=": function (l, r) { return l != r; },
+        "!==": function (l, r) { return l !== r; },
+        "<": function (l, r) { return l < r; },
+        ">": function (l, r) { return l > r; },
+        "<=": function (l, r) { return l <= r; },
+        ">=": function (l, r) { return l >= r; },
+        "typeof": function (l, r) { return typeof l == r; },
+        "any": function (l, r) { var patt = new RegExp(l); return patt.test(r);}
+    };
+    
+    if (!operators[operator]) {
+        throw new Error("Handlerbars Helper 'compare' doesn't know the operator " + operator);
+    }
+    
+    result = operators[operator](lvalue, rvalue);
+    
+    if (result) {
+        return options.fn(this);
     } else {
-      return options.fn(this);
+        return options.inverse(this);
     }
+
 });
 
-handlebars.registerHelper("lessThan", function(lvalue, rvalue, options) {
-    if (arguments.length < 3){
-      throw new Error("Handlebars Helper lessThan needs 2 parameters");
-    }
-    if (lvalue > rvalue || lvalue === rvalue) {
-      return options.inverse(this);
-    } else {
-      return options.fn(this);
-    }
+handlebars.registerHelper('each_upto', function(ary, max, options) {
+    if(!ary || ary.length == 0)
+        return options.inverse(this);
+
+    var result = [ ];
+    for(var i = 0; i < max && i < ary.length; ++i)
+        result.push(options.fn(ary[i]));
+    return result.join('');
 });
 
-handlebars.registerHelper("greaterThan", function(lvalue, rvalue, options) {
-    if (arguments.length < 3){
-      throw new Error("Handlebars Helper greaterThan needs 2 parameters");
+handlebars.registerHelper("everyOther", function (index, amount, offset, scope) {
+    if (scope === undefined) {
+        scope = offset;
+        offset = 0;
     }
-    if (lvalue < rvalue || lvalue === rvalue) {
-      return options.inverse(this);
-    } else {
-      return options.fn(this);
-    }
-});
-
-handlebars.registerHelper("everyOtherOffset", function (index, amount, offset, scope) {
     if (((++index) - offset) % amount ) {
-      return scope.inverse(this);
-    } else {
-      return scope.fn(this);
-    }
-});
-
-handlebars.registerHelper("everyOther", function (index, amount, scope) {
-    if (++index % amount ) {
       return scope.inverse(this);
     } else {
       return scope.fn(this);

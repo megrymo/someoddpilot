@@ -1,7 +1,7 @@
 ---
 color: yellow
 ---
-<div class="contained vertCenter">
+<div class="contained vert-center">
 	<div class="left display-serif left-align drop-cap">
 	  <p>Someoddpilot is a branding agency and design studio.</p>
 	  <p>We inspire wonder. We work tirelessly to bring that to the world. Something genuine and bold, real and fantastical. Because that’s what moves people. And always has. </p>

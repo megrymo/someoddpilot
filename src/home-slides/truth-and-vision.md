@@ -1,7 +1,7 @@
 ---
 color: yellow
 ---
-<div class="contained vertCenter">
+<div class="contained vert-center">
   <div class="left">
     <img class="full" src="/assets/images/home-slides/half.jpg" />
   </div>

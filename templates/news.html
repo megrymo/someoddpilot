@@ -1,6 +1,6 @@
 {{>head}}
 {{#each collections.news}}
-  {{#lessThan @index 3 }}
+  {{#compare @index "<" 3}}
   <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} even{{/everyOther}}">
     <div class="contained">
       <div class="left">
@@ -15,14 +15,14 @@
       </div>
     </div>
   </article>
-  {{/lessThan}}
-  {{#greaterThan @index 2 }}
-    {{#everyOtherOffset @index 6 -2}}
+  {{/compare}}
+  {{#compare @index ">" 2 }}
+    {{#everyOther @index 6 -2}}
       <div class="even">
-    {{/everyOtherOffset}}
-    {{#everyOtherOffset @index 3 -2}}
+    {{/everyOther}}
+    {{#everyOther @index 3 -2}}
       <div class="contained">
-    {{/everyOtherOffset}}
+    {{/everyOther}}
       <article class="news-article news-article-{{@index}}">
         <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
         <header class="news-title">{{attributes.title}}</header>
@@ -31,13 +31,13 @@
             {{{body}}}
         </div>
       </article>
-    {{#everyOtherOffset @index 3 3}}
+    {{#everyOther @index 3 3}}
       </div>
-    {{/everyOtherOffset}}
+    {{/everyOther}}
     {{#everyOther @index 6}}
       </div>
     {{/everyOther}}
-  {{/greaterThan}}
+  {{/compare}}
 {{/each}}
 </div>
 {{>foot}}
