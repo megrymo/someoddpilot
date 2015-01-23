@@ -4,16 +4,6 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
-partials.forEach(function (partial) {
-  handlebars.registerPartial(
-    partial,
-    fs.readFileSync(
-      path.join(__dirname, "/partials/", partial + ".html"),
-      "utf-8"
-    )
-  );
-});
-
 handlebars.registerHelper("equal", function(lvalue, rvalue, options) {
     if (arguments.length < 3){
       throw new Error("Handlebars Helper equal needs 2 parameters");
@@ -63,6 +53,9 @@ handlebars.registerHelper("everyOther", function (index, amount, scope) {
     }
 });
 
+// template data globals
+var globals = {};
+
 function templateStream(file, enc, callback) {
   function onTemplateFile(err, templateString) {
     if (err) {
@@ -72,6 +65,7 @@ function templateStream(file, enc, callback) {
     var templateFn = handlebars.compile(templateString);
 
     var data = _.extend(
+      globals,
       file.frontMatter,
       {
         collections: file.collections,
@@ -113,6 +107,8 @@ function templates(options) {
       helper
     );
   });
+
+  globals = options.globals || {};
 
   return through.obj(templateStream);
 }

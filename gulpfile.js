@@ -40,6 +40,12 @@ var templateOptions = {
     head: "head",
     foot: "foot"
   },
+  globals: {
+    site: {
+      title: "Gulp Static",
+      description: "Prototype for a Gulp based static site generator"
+    }
+  },
   helpers: {
     dateFormat: function (context, block) {
       var f = block.hash.format || "MMM Do, YYYY";
