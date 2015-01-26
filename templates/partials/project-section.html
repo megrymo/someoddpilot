@@ -1,0 +1,9 @@
+<section class="full project-section {{ attributes.clientSlug }}-project-section-{{slug}}{{#compare attributes.fullBackgroundImage "===" "yes"}} full-height{{/compare}}">
+  {{#compare attributes.hideHeaders "!==" "yes"}}
+  <header class="contained project-section-header">{{{attributes.header}}}</header>
+    {{#if attributes.subheader}}
+      <p class="contained project-section-subheader">{{{attributes.subheader}}}</p>
+    {{/if}}
+  {{/compare}}
+  {{{body}}}
+</section>
