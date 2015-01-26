@@ -1,7 +1,7 @@
 ---
 title: 9th Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 template: news/news-single
-date: January 25, 2016
+date: January 23, 2016
 image:
   src: "/assets/images/news/news-image.jpg"
   alt: "stuff"
