@@ -3,7 +3,6 @@ clientSlug: "cat"
 title: "CAT"
 subheader: "Re-branding"
 linkText: "more"
-template: work
 layout1: 1-2up
 images:
   image1:

@@ -10,7 +10,6 @@ var api = require("gulp-static-api");
 var stylus = require("gulp-stylus");
 var nib = require("nib");
 var sopStyl = require("sop-styl");
-var moment = require("moment");
 var watchify = require("watchify");
 var browserify = require("browserify");
 var source = require("vinyl-source-stream");
@@ -33,9 +32,13 @@ function renamePageParentFolder(filePath) {
 var globs = {
   news: "./src/news/*.md",
   pages: "./src/*.md",
+  work: {
+    indexes: "./src/work/**/index.md",
+    sections: "./src/work/**/!(index).md"
+  },
   homeSlides: "./src/home-slides/*.md",
-  workPreview: "./src/work/*/main.md",
-  work: "./src/work/*/*.md",
+  // workPreview: "./src/work/*/main.md",
+  // work: "./src/work/*/*.md",
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -43,26 +46,27 @@ var fmOptions = {
   remove: true
 };
 
-var templateOptions = {
-  partials: {
-    head: "head",
-    foot: "foot",
-    projectBlock: "project-block"
-  },
-  globals: {
-    site: {
-      title: "Gulp Static",
-      description: "Prototype for a Gulp based static site generator"
-    },
-    linkText: "More"
-  },
+// <<<<<<< HEAD
+// var templateOptions = {
+  // partials: {
+  //   head: "head",
+  //   foot: "foot",
+  //   projectBlock: "project-block"
+  // },
+  // globals: {
+  //   site: {
+  //     title: "Gulp Static",
+  //     description: "Prototype for a Gulp based static site generator"
+  //   },
+  //   linkText: "More"
+  // },
+// =======
+var templateOptions = _.merge({
+// >>>>>>> 002dc70c5f565e53672ef5663ada716e9dd798bb
   helpers: {
-    dateFormat: function (context, block) {
-      var f = block.hash.format || "MMM Do, YYYY";
-      return moment(context).format(f);
-    }
+    dateFormat: require("./helpers/dateFormat")
   }
-};
+}, require("./config/templates"));
 
 function newsTask() {
   return gulp.src(globs.news)
@@ -80,8 +84,7 @@ function pagesTask() {
     .pipe(collections({
       news: globs.news,
       homeSlides: globs.homeSlides,
-      work: globs.work,
-      workPreview: globs.workPreview,
+      work: globs.work.indexes,
       options: {
         count: 10
       }
@@ -95,8 +98,14 @@ function pagesTask() {
 
 gulp.task("pages", pagesTask);
 
-gulp.task("workPreview", function () {
-  return gulp.src(globs.workPreview)
+gulp.task("work", function () {
+  return gulp.src(globs.work.indexes)
+    .pipe(collections({
+      sections: globs.work.sections,
+      options: {
+        count: 10
+      }
+    }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePageParentFolder))
@@ -104,25 +113,27 @@ gulp.task("workPreview", function () {
     .pipe(gulp.dest("./dest/work"));
 });
 
+function sortByDate(a, b) {
+  if (!b.attributes.date) {
+    return -1;
+  }
+  if (!a.attributes.date) {
+    return 1;
+  }
+
+  a = new Date(a.attributes.date);
+  b = new Date(b.attributes.date);
+
+  return (a > b) ?
+    -1 : (a < b) ?
+    1 : 0;
+}
+
 gulp.task("api", function () {
   api({
     glob: "src/news/*.md",
     count: 2,
-    sortBy: function (a, b) {
-      if (!b.attributes.date) {
-        return -1;
-      }
-      if (!a.attributes.date) {
-        return 1;
-      }
-
-      a = new Date(a.attributes.date);
-      b = new Date(b.attributes.date);
-
-      return (a > b) ?
-        -1 : (a < b) ?
-        1 : 0;
-    }
+    sortBy: sortByDate
   })
     .pipe(gulp.dest("dest/api/news"));
 });
@@ -158,6 +169,6 @@ gulp.task("scripts", function () {
     .pipe(gulp.dest("./dest/js"));
 });
 
-gulp.task("default", ["style", "news", "pages", "workPreview", "connect", "watch", "scripts"]);
+gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts"]);
 
-gulp.task("deploy", ["style", "news", "pages", "workPreview"]);
+gulp.task("deploy", ["style", "news", "pages", "work"]);

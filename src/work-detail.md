@@ -1,4 +1,4 @@
 ---
-template: work-detail
+template: work/work-detail
 color: pink
 ---

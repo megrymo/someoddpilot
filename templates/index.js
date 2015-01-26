@@ -74,64 +74,68 @@ handlebars.registerHelper("everyOther", function (index, amount, offset, scope) 
     }
 });
 
-// template data globals
-var globals = {};
-
-function templateStream(file, enc, callback) {
-  function onTemplateFile(err, templateString) {
-    if (err) {
-      throw err;
-    }
-
-    var templateFn = handlebars.compile(templateString);
-
-    var data = _.extend(
-      globals,
-      file.frontMatter,
-      {
-        collections: file.collections,
-        contents: file.contents.toString()
+function forEachPartial(partialPath, name) {
+  fs.readFile(
+    path.join(
+      this.partialPath.prefix,
+      partialPath + this.partialPath.extension
+    ),
+    "utf-8",
+    function (err, contents) {
+      if (err) {
+        throw err;
       }
-    );
 
-    file.contents = new Buffer(templateFn(data), "utf-8");
-    callback(null, file);
-  }
+      handlebars.registerPartial(name, contents);
+    }
+  );
+}
 
-  var templateName = file.frontMatter.template || "news-single";
-
-  var templatePath = path.join(__dirname, templateName + ".html");
-
-  fs.readFile(templatePath, "utf-8", onTemplateFile);
+function forEachHelper(helper, name) {
+  handlebars.registerHelper(name, helper);
 }
 
 function templates(options) {
-  options = options || {};
-
-  var partials = options.partials || [];
-
-  _.forEach(partials, function (partialPath, name) {
-    handlebars.registerPartial(
-      name,
-      fs.readFileSync(
-        path.join(__dirname, "/partials/", partialPath + ".html"),
-        "utf-8"
-      )
-    );
+  options = _.merge(options, {
+    partialPath: {
+      prefix: path.join(__dirname, "partials"),
+      extension: ".html"
+    }
   });
 
-  var helpers = options.helpers || [];
+  _.forEach(options.partials || [], forEachPartial, options);
 
-  _.forEach(helpers, function (helper, name) {
-    handlebars.registerHelper(
-      name,
-      helper
-    );
+  _.forEach(options.helpers || [], forEachHelper);
+
+  var globals = options.globals || {};
+
+  return through.obj(function (file, enc, callback) {
+    function onTemplateFile(err, templateString) {
+      if (err) {
+        throw err;
+      }
+
+      var templateFn = handlebars.compile(templateString);
+
+      var data = _.extend(
+        globals,
+        file.frontMatter,
+        {
+          collections: file.collections,
+          contents: file.contents.toString()
+        }
+      );
+
+      file.contents = new Buffer(templateFn(data), "utf-8");
+      callback(null, file);
+    }
+
+    var templateName = file.frontMatter.template || "post";
+
+    var templatePath = path.join(__dirname, templateName + ".html");
+
+    fs.readFile(templatePath, "utf-8", onTemplateFile);
   });
-
-  globals = options.globals || {};
-
-  return through.obj(templateStream);
 }
 
 module.exports = templates;

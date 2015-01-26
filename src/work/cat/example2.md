@@ -3,7 +3,6 @@ clientSlug: "cat"
 title: "CAT"
 subheader: "Packaging"
 linkText: "more"
-template: work
 layout1: 1up
 images:
   image1:

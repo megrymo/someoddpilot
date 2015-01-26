@@ -2,7 +2,7 @@
 clientSlug: "cat"
 title: "CAT"
 subheader: "Packaging"
-template: work
+template: work/work-detail
 layout1: 1up
 images:
   image1:
