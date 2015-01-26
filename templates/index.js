@@ -36,8 +36,9 @@ handlebars.registerHelper("compare", function (lvalue, operator, rvalue, options
           var what = new RegExp(r);
           return what.test(l); },
         "doesntContain": function (l, r) {
-          var what = new RegExp("^(?!.*" + r + ")");
-          return what.test(l); },
+          var whatNot = new RegExp(r);
+          var doesIt =  !whatNot.test(l);
+          return !doesIt; },
         "any": function (l, r) {
           r = r.split(" ");
           return _.contains(r, l);}

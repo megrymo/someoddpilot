@@ -4,23 +4,23 @@
     <div class="{{#compare attributes.layout1 "1-2up" }}left{{else}}right{{/compare}}">
     {{/compare}}
       {{#compare attributes.layout1 "!==" "1-1up" }}
-        {{#compare template "doesntContain" "detail"}}
+        {{#compare attributes.template "doesntContain" "detail"}}
           <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
         {{/compare}}
           <img class="block-image animate bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
-        {{#compare template "doesntContain" "detail"}}
+        {{#compare attributes.template "doesntContain" "detail"}}
           </a>
         {{/compare}}
       {{/compare}}
       <h3 class="block-header">{{ attributes.title }}</h3>
       <p class="block-subheader">{{ attributes.subheader }}</p>
-      {{#compare template "doesntContain" "detail"}}
+      {{#compare attributes.template "doesntContain" "detail"}}
         <a class="block-link" href="/work/{{ attributes.clientSlug }}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
       {{/compare}}
     {{#compare attributes.layout1 "!==" "1up" }}
       </div>
       <div class="{{#compare attributes.layout1 "1-2up" }}right{{else}}left{{/compare}}">
-        {{#compare template "doesntContain" "detail"}}
+        {{#compare attributes.template "doesntContain" "detail"}}
         <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
         {{/compare}}
           {{#compare attributes.layout1 "!==" "1-1up" }}
@@ -30,7 +30,7 @@
           {{#compare attributes.layout1 "1-1up" }}
           <img class="block-image animate" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
           {{/compare}}
-        {{#compare template "doesntContain" "detail"}}
+        {{#compare attributes.template "doesntContain" "detail"}}
         </a>
         {{/compare}}
       </div>
