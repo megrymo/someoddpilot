@@ -4,18 +4,25 @@
     <div class="{{#compare attributes.layout1 "1-2up" }}left{{else}}right{{/compare}}">
     {{/compare}}
       {{#compare attributes.layout1 "!==" "1-1up" }}
-      <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
-        <img class="block-image animate bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
-      </a>
+        {{#compare template "doesntContain" "detail"}}
+          <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
+        {{/compare}}
+          <img class="block-image animate bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
+        {{#compare template "doesntContain" "detail"}}
+          </a>
+        {{/compare}}
       {{/compare}}
       <h3 class="block-header">{{ attributes.title }}</h3>
       <p class="block-subheader">{{ attributes.subheader }}</p>
-      {{ json .. }}
-      <a class="block-link" href="/work/{{ attributes.clientSlug }}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
+      {{#compare template "doesntContain" "detail"}}
+        <a class="block-link" href="/work/{{ attributes.clientSlug }}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
+      {{/compare}}
     {{#compare attributes.layout1 "!==" "1up" }}
       </div>
       <div class="{{#compare attributes.layout1 "1-2up" }}right{{else}}left{{/compare}}">
+        {{#compare template "doesntContain" "detail"}}
         <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
+        {{/compare}}
           {{#compare attributes.layout1 "!==" "1-1up" }}
           <img class="block-image animate bottom-gutter" src="{{ attributes.images.image2.src }}" alt="{{ attributes.images.image2.alt }}" />
           <img class="block-image animate" src="{{ attributes.images.image3.src }}" alt="{{ attributes.images.image3.alt }}" />
@@ -23,7 +30,9 @@
           {{#compare attributes.layout1 "1-1up" }}
           <img class="block-image animate" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
           {{/compare}}
+        {{#compare template "doesntContain" "detail"}}
         </a>
+        {{/compare}}
       </div>
     {{/compare}}
   </div>

@@ -1,5 +1,5 @@
 ---
-clientSlug: "sound-opnions"
+clientSlug: "client-3"
 title: "Sound Opinions 2-1Up"
 subheader: "Re-branding"
 linkText: ""
