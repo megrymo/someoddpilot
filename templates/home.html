@@ -2,41 +2,19 @@
   <div class="full slider home-slider">
     <ul class="slides">
     {{#each collections.homeSlides}}
-      <li class="slide light-{{#if color}}{{color}}{{else}}yellow{{/if}}-bg {{slug}}">
+      <li class="slide {{#if attributes.color}}{{attributes.color}}{{else}}yellow{{/if}}-bg {{slug}}">
+        {{#if attributes.link}}<a href="{{attributes.link}}">{{/if}}
         {{{body}}}
+        {{#if attributes.link}}</a>{{/if}}
       </li>
     {{/each}}
     </ul>
   </div>
 
   <section class="contained recent-work">
-  <h2 class="page-subheader">Recent Work</h2>
-  {{#each collections.project}}
-    <article class="project-preview {{ attributes.layoutStyle }}">
-      {{ content }}
-    </article>
-  {{/each}}
-    <article class="project-preview preview-one-two vertCenter">
-      <a href="/work/{{ slug }}">
-        <div class="left">
-          <img class="preview-image bottom-gutter" src="/assets/images/projects/project1-1.png" />
-          <h3 class="preview-header" >Sound Opinions</h3>
-          <p class="preview-subheader" >Re-branding</p>
-          <a class="preview-link" href="#">{{ linkText }}</a>
-        </div>
-        <div class="right">
-          <img class="preview-image bottom-gutter" src="/assets/images/projects/project1-2.jpg" />
-          <img class="preview-image" src="/assets/images/projects/project1-2.jpg" />
-        </div>
-      </a>
-    </article>
-    <article class="project-preview preview-one">
-      <a href="/work/{{ slug }}">
-        <img class="preview-image bottom-gutter" src="/assets/images/projects/project2.jpg" />
-        <h3 class="preview-header" >Record Covers</h3>
-        <p class="preview-subheader" >Packaging</p>
-        <a class="preview-link" href="#">{{ linkText }}</a>
-      </a>
-    </article>
+    <h2 class="page-subheader">Recent Work</h2>
+    {{#eachLimited collections.work 4}}
+      {{>projectBlock}}
+    {{/eachLimited}}
   </section>
 {{>foot}}

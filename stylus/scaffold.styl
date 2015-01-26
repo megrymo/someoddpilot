@@ -1,79 +1,82 @@
-html, body 
-	height: 100%;
-	width 100%
+html, body
+  height: 100%;
+  width 100%
 
 
 html { -webkit-font-smoothing: antialiased; }
 
 body
-	width 100%
-	margin 0
-	padding 0
-	font-family sop-serif
+  width 100%
+  margin 0
+  padding 0
+  font-family sop-serif
 
 .top-header
-	z-index 5
+  z-index 5
 
 .content
-	position relative
-	z-index 1
+  position relative
+  z-index 1
 
 .full
-	width 100%
-	clear both
-	overflow auto
+  width 100%
+  clear both
+  overflow auto
 
 .contained
-	position relative
-	width 100%
-	max-width (content-width)px
-	margin 0 auto
-	overflow auto
-	clear both
-	
+  position relative
+  width 100%
+  max-width (content-width)px
+  margin 0 auto
+  overflow auto
+  clear both
+
 @media screen and (max-width: (content-width + vert-gutter + vert-gutter)px)
-	.contained
-		width 90%
-		padding 0 5%
+  .contained
+    width 90%
+    padding 0 5%
 
 .left,
 .right
-	width (((content-width - vert-gutter) / content-width) * 50) %
+  width (((content-width - vert-gutter) / content-width) * 50) %
 
 .left
-	float left
-	padding-right (((vert-gutter/2)/content-width) * 100) %
+  float left
+  padding-right (((vert-gutter/2)/content-width) * 100) %
 
 .right
-	float right
-	padding-left (((vert-gutter/2)/content-width) * 100) %
-	
+  float right
+  padding-left (((vert-gutter/2)/content-width) * 100) %
+
 .bottom-gutter
-	margin-bottom (hr-gutter)px
+  margin-bottom (hr-gutter)px
 
 .small-bottom-gutter
-	margin-bottom (hr-gutter / 2)px
+  margin-bottom (hr-gutter / 2)px
 
 .big-bottom-gutter
-	margin-bottom (big-gutter)px
-	
+  margin-bottom (big-gutter)px
+
 .background-fill
-	position: absolute; 
-	top: 0; 
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.bgwidth 
-	width: 100%
+.bgwidth
+  width: 100%
 
-.bgheight 
-	height: 100%
-	left 50%
+.bgheight
+  height: 100%
+  left 50%
 
-.light-blue-bg
-	background #dbf1fc
+.blue-bg
+  background #dbf1fc
 
-.light-yellow-bg
-	background #faf7ee
+.yellow-bg
+  background #faf7ee
 
-.light-pink-bg
-	background #ffecec
+.yellow-bg .even
+  background #f0ede5
+
+.pink-bg
+  background #ffecec

@@ -1,0 +1,10 @@
+{{>head}}
+  <h1>Nested Items</h1>
+  <ul>
+  {{#each collections.nested}}
+  <li>
+    <a href="/nested/{{ attributes.slug }}/">{{ attributes.title }}</a>
+  </li>
+  {{/each}}
+  </ul>
+{{>foot}}

@@ -1,8 +1,9 @@
 ---
 title: 5th Another news article
-template: news
+template: news/news-single
+color: blue
 date: January 25, 2016
-image: 
+image:
   src: "/assets/images/news/news-image.jpg"
   alt: "stuff"
 ---

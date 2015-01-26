@@ -10,7 +10,11 @@ var api = require("gulp-static-api");
 var stylus = require("gulp-stylus");
 var nib = require("nib");
 var sopStyl = require("sop-styl");
-var moment = require("moment");
+var watchify = require("watchify");
+var browserify = require("browserify");
+var source = require("vinyl-source-stream");
+var gutil = require("gulp-util");
+var _ = require("lodash");
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -19,10 +23,20 @@ function renamePage(filePath) {
   }
 }
 
+function renamePageParentFolder(filePath) {
+  if (filePath.basename !== "index") {
+    filePath.basename = "index";
+  }
+}
+
 var globs = {
   news: "./src/news/*.md",
   pages: "./src/*.md",
-  work: "./src/work/*.md",
+  work: {
+    indexes: "./src/work/**/index.md",
+    sections: "./src/work/**/!(index).md"
+  },
+  homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -30,21 +44,14 @@ var fmOptions = {
   remove: true
 };
 
-var templateOptions = {
-  partials: {
-    head: "head",
-    foot: "foot"
-  },
+var templateOptions = _.merge({
   helpers: {
-    dateFormat: function (context, block) {
-      var f = block.hash.format || "MMM Do, YYYY";
-      return moment(context).format(f);
-    }
+    dateFormat: require("./helpers/dateFormat")
   }
-};
+}, require("./config/templates"));
 
-function postsTask() {
-  return gulp.src(globs.posts)
+function newsTask() {
+  return gulp.src(globs.news)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
@@ -58,7 +65,8 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       news: globs.news,
-      work: globs.work,
+      homeSlides: globs.homeSlides,
+      work: globs.work.indexes,
       options: {
         count: 10
       }
@@ -73,33 +81,41 @@ function pagesTask() {
 gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
-  return gulp.src(globs.work)
+  return gulp.src(globs.work.indexes)
+    .pipe(collections({
+      sections: globs.work.sections,
+      options: {
+        count: 10
+      }
+    }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
-    .pipe(rename(renamePage))
+    .pipe(rename(renamePageParentFolder))
     .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/work"));
 });
+
+function sortByDate(a, b) {
+  if (!b.attributes.date) {
+    return -1;
+  }
+  if (!a.attributes.date) {
+    return 1;
+  }
+
+  a = new Date(a.attributes.date);
+  b = new Date(b.attributes.date);
+
+  return (a > b) ?
+    -1 : (a < b) ?
+    1 : 0;
+}
 
 gulp.task("api", function () {
   api({
     glob: "src/news/*.md",
     count: 2,
-    sortBy: function (a, b) {
-      if (!b.attributes.date) {
-        return -1;
-      }
-      if (!a.attributes.date) {
-        return 1;
-      }
-
-      a = new Date(a.attributes.date);
-      b = new Date(b.attributes.date);
-
-      return (a > b) ?
-        -1 : (a < b) ?
-        1 : 0;
-    }
+    sortBy: sortByDate
   })
     .pipe(gulp.dest("dest/api/news"));
 });
@@ -126,6 +142,15 @@ gulp.task("style", function () {
     .pipe(gulp.dest("dest/css"));
 });
 
-gulp.task("default", ["style", "news", "pages", "work", "connect", "watch"]);
+var bundler = watchify(browserify("./client.js", watchify.args));
+
+gulp.task("scripts", function () {
+  return bundler.bundle()
+    .on("error", gutil.log.bind(gutil, "Browserify Error"))
+    .pipe(source("client.js"))
+    .pipe(gulp.dest("./dest/js"));
+});
+
+gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts"]);
 
 gulp.task("deploy", ["style", "news", "pages", "work"]);

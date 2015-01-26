@@ -1,0 +1,30 @@
+<article {{#everyOther @index 2}}class="even"{{/everyOther}}>
+  <div class="contained project-block block-{{@index}}{{#compare attributes.layout1 "any" "1-1up 1-2up 2-1up"}} vert-center{{/compare}}">
+    {{#compare attributes.layout1 "!==" "1up" }}
+    <div class="{{#compare attributes.layout1 "1-2up" }}left{{else}}right{{/compare}}">
+    {{/compare}}
+      {{#compare attributes.layout1 "!==" "1-1up" }}
+      <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
+        <img class="block-image animate bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
+      </a>
+      {{/compare}}
+      <h3 class="block-header">{{ attributes.title }}</h3>
+      <p class="block-subheader">{{ attributes.subheader }}</p>
+      {{ json .. }}
+      <a class="block-link" href="/work/{{ attributes.clientSlug }}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
+    {{#compare attributes.layout1 "!==" "1up" }}
+      </div>
+      <div class="{{#compare attributes.layout1 "1-2up" }}right{{else}}left{{/compare}}">
+        <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
+          {{#compare attributes.layout1 "!==" "1-1up" }}
+          <img class="block-image animate bottom-gutter" src="{{ attributes.images.image2.src }}" alt="{{ attributes.images.image2.alt }}" />
+          <img class="block-image animate" src="{{ attributes.images.image3.src }}" alt="{{ attributes.images.image3.alt }}" />
+          {{/compare}}
+          {{#compare attributes.layout1 "1-1up" }}
+          <img class="block-image animate" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
+          {{/compare}}
+        </a>
+      </div>
+    {{/compare}}
+  </div>
+</article>
