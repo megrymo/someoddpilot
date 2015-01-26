@@ -3,7 +3,6 @@ clientSlug: "sound-opnions"
 title: "Sound Opinions 1-1Up"
 subheader: "Re-branding"
 linkText: "more"
-template: work
 layout1: 1-1up
 images:
   image1:

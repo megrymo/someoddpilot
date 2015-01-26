@@ -1,13 +1,13 @@
 ---
-clientSlug: "sound-opnions"
-title: "Sound Opinions 1-1Up"
+clientSlug: "sound-opinions"
+title: "Sound Opinions 1-2up"
 subheader: "Re-branding"
 linkText: "more"
-template: work
-layout1: 1-1up
+template: work/work-detail
+layout1: 1-2up
 images:
   image1:
-    src: "/assets/images/projects/project-tall.jpg"
+    src: "/assets/images/projects/project1-1.png"
     alt: "picture alt 1"
   image2:
     src: "/assets/images/projects/project1-2.jpg"

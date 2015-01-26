@@ -4,10 +4,14 @@
   <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} even{{/everyOther}}">
     <div class="contained">
       <div class="left">
-        <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
+        <a href="/news/{{slug}}/">
+          <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
+        </a>
       </div>
       <div class="right">
-        <header class="news-title">{{attributes.title}}</header>
+        <a class="news-title" href="/news/{{slug}}/">
+          <header>{{attributes.title}}</header>
+        </a>
         <p class="news-date">{{attributes.date}}</p>
         <div class="news-snippet">
           {{{body}}}
@@ -24,8 +28,12 @@
       <div class="contained">
     {{/everyOther}}
       <article class="news-article news-article-{{@index}}">
-        <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
-        <header class="news-title">{{attributes.title}}</header>
+        <a href="/news/{{slug}}/">
+          <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
+        </a>
+        <a class="news-title" href="/news/{{slug}}/">
+          <header>{{attributes.title}}</header>
+        </a>
         <p class="news-date">{{attributes.date}}</p>
         <div class="news-snippet">
             {{{body}}}

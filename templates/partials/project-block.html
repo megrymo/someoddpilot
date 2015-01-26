@@ -11,7 +11,7 @@
       <h3 class="block-header">{{ attributes.title }}</h3>
       <p class="block-subheader">{{ attributes.subheader }}</p>
       {{ json .. }}
-      <a class="block-link" href="#">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
+      <a class="block-link" href="/work/{{ attributes.clientSlug }}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
     {{#compare attributes.layout1 "!==" "1up" }}
       </div>
       <div class="{{#compare attributes.layout1 "1-2up" }}right{{else}}left{{/compare}}">

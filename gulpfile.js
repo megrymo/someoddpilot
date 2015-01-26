@@ -37,8 +37,6 @@ var globs = {
     sections: "./src/work/**/!(index).md"
   },
   homeSlides: "./src/home-slides/*.md",
-  // workPreview: "./src/work/*/main.md",
-  // work: "./src/work/*/*.md",
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -46,23 +44,7 @@ var fmOptions = {
   remove: true
 };
 
-// <<<<<<< HEAD
-// var templateOptions = {
-  // partials: {
-  //   head: "head",
-  //   foot: "foot",
-  //   projectBlock: "project-block"
-  // },
-  // globals: {
-  //   site: {
-  //     title: "Gulp Static",
-  //     description: "Prototype for a Gulp based static site generator"
-  //   },
-  //   linkText: "More"
-  // },
-// =======
 var templateOptions = _.merge({
-// >>>>>>> 002dc70c5f565e53672ef5663ada716e9dd798bb
   helpers: {
     dateFormat: require("./helpers/dateFormat")
   }

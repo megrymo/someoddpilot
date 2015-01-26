@@ -10,5 +10,5 @@ color: blue
   2 Editors, 2 Managers<br />
   &amp; 1 Metal Band.
   </p>
-  <a class="block-link" href="#">{{ linkText }}</a>
+  <a class="block-link" href="#">More</a>
 </div>

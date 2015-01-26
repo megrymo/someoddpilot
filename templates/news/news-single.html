@@ -1,0 +1,41 @@
+{{>head}}
+<article class="full featured">
+  <div class="contained">
+    <div class="left">
+      <img class="news-image" src="{{image.src}}" alt="{{image.alt}}" />
+    </div>
+    <div class="right">
+      <header class="news-title">{{title}}</header>
+      <p class="news-date">{{date}}</p>
+      <div class="news-snippet">
+        {{{contents}}}
+        <div class="fb-like" data-href="http://someoddpilot.com/news/{{slug}}/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+      </div>
+    </div>
+  </div>
+</article>
+
+{{#each collections.news}}
+  {{#everyOther @index 6 -2}}
+    <div class="even">
+  {{/everyOther}}
+  {{#everyOther @index 3 -2}}
+    <div class="contained">
+  {{/everyOther}}
+    <article class="news-article news-article-{{@index}}">
+      <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
+      <header class="news-title">{{attributes.title}}</header>
+      <p class="news-date">{{attributes.date}}</p>
+      <div class="news-snippet">
+          {{{body}}}
+      </div>
+    </article>
+  {{#everyOther @index 3 3}}
+    </div>
+  {{/everyOther}}
+  {{#everyOther @index 6}}
+    </div>
+  {{/everyOther}}
+{{/each}}
+</div>
+{{>foot}}

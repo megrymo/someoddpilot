@@ -8,7 +8,7 @@ handlebars.registerHelper("json", function (obj) {
   return JSON.stringify(obj);
 });
 
-handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
+handlebars.registerHelper("compare", function (lvalue, operator, rvalue, options) {
 
     var operators, result;
 
@@ -32,9 +32,12 @@ handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options
         "<=": function (l, r) { return l <= r; },
         ">=": function (l, r) { return l >= r; },
         "typeof": function (l, r) { return typeof l == r; },
+        "contains": function (l, r) {
+          var what = new RegExp(r);
+          return what.test(l); },
         "any": function (l, r) {
-          r=r.split(" ");
-          return _.contains(r,l);}
+          r = r.split(" ");
+          return _.contains(r, l);}
     };
 
     if (!operators[operator]) {

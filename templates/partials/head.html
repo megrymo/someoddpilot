@@ -8,7 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.js" type="text/javascript" charset="utf-8"></script>
 </head>
-<body class="{{ template }} {{#if color}}{{color}}{{else}}yellow{{/if}}-bg"
+<body class="{{ template }} {{#compare template "contains" "news"}}yellow-bg{{else}}{{#if color}}{{color}}{{else}}yellow{{/if}}-bg{{/compare}}"
   ng-app="sop">
 
   <header class="full top-header">

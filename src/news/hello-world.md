@@ -1,8 +1,8 @@
 ---
 title: Yah Yah Yah
-template: news
+template: news/news-single
 date: January 25, 2016
-image: 
+image:
   src: "/assets/images/news/news-image.jpg"
   alt: "stuff"
 ---
