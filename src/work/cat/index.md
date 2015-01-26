@@ -1,9 +1,10 @@
 ---
 clientSlug: "cat"
 title: "CAT"
-subheader: "Packaging"
+subheader: "Everything"
 template: work/work-detail
-layout1: 1up
+color: yellow
+layout: 1up
 images:
   image1:
     src: "/assets/images/projects/project2.jpg"

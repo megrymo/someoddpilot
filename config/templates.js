@@ -2,6 +2,7 @@ module.exports = {
   partials: {
     head: "head",
     foot: "foot",
+    projectSection: "project-section",
     projectBlock: "project-block"
   },
   globals: {

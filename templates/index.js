@@ -4,10 +4,6 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
-handlebars.registerHelper("json", function (obj) {
-  return JSON.stringify(obj);
-});
-
 handlebars.registerHelper("compare", function (lvalue, operator, rvalue, options) {
 
     var operators, result;
