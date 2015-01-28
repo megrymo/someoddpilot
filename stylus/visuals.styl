@@ -3,13 +3,13 @@
   z-index 999
 
 .home .top-header,
-.work/work-detail .top-header
+.header-no-push
   position absolute
   overflow visible
 
 .logo
   display: inline-block
-  margin 100px 0 120px
+  margin 9vh 0 12vh
 
 .sop-logo
   width 280px
@@ -114,8 +114,15 @@
   overflow hidden
 
   .contained
-    padding 300px 10% (big-gutter * 1.2)px
+    padding 32vh 10% 12vh
+    height (100 - 32 - 12)vh
     width 80%
+    position relative
+    overflow hidden
+
+    .left,
+    .right
+      height 100%
 
 .pager,
 .prev,
@@ -145,10 +152,6 @@
   text-align: right
   overflow visible
 
-.home-slider
-  min-height 100%
-  height auto
-
 .project-block
   display: block
   padding 0 0 (big-gutter)px
@@ -168,6 +171,16 @@
 .block-link
   display: inline-block
   margin-top (hr-gutter / 2)px
+
+.project-section-header
+  margin-top (big-gutter)px
+
+.project-section-subheader
+  margin (hr-gutter)px 0
+
+.project-section-body
+  width 80%
+  margin 0 10%
 
 .news-article
   width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%

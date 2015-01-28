@@ -3,12 +3,11 @@
   var toggleMenu = require("./menu");
   var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
-  var fixSliderHeight = require("./slider-height");
   var animateImages = require("./animate-images");
+  var fitImage = require("./fit-image");
 
   jQuery(document).ready(function ($) {
     initSliders();
-    fixSliderHeight();
 
     $(".nav-icon").click(function () {
     toggleMenu();
@@ -23,17 +22,18 @@
 
     vertCenter();
     animateImages();
+    fitImage();
 
   });
 
   $(window).load(function() {
     vertCenter();
-    fixSliderHeight();
+    fitImage();
   });
 
   $(window).resize(function() {
-    fixSliderHeight();
     vertCenter();
+    fitImage();
   });
 
   $(window).scroll(function() {

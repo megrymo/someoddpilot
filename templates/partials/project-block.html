@@ -1,5 +1,5 @@
 <article {{#everyOther @index 2}}class="even"{{/everyOther}}>
-  <div class="contained project-block block-{{@index}}{{#compare attributes.layout "any" "1-1up 1-2up 2-1up"}} vert-center{{/compare}}">
+  <div class="contained project-block block-{{@index}}{{#compare attributes.layout "any" "1-1up 1-2up 2-1up"}} vert-center-halves{{/compare}}">
     {{#compare attributes.layout "!==" "1up" }}
     <div class="{{#compare attributes.layout "1-2up" }}left{{else}}right{{/compare}}">
     {{/compare}}

@@ -24,10 +24,10 @@ body
   overflow auto
 
 .full-height
-  min-height 100%
-  height auto
+  height 100vh
 
-.contained
+.contained,
+.contained-smaller
   position relative
   width 100%
   max-width (content-width)px
@@ -35,10 +35,18 @@ body
   overflow auto
   clear both
 
+.contained-smaller
+  max-width 980px
+
 @media screen and (max-width: (content-width + vert-gutter + vert-gutter)px)
   .contained
     width 90%
     padding 0 5%
+
+@media screen and (max-width: (980 + vert-gutter + vert-gutter)px)
+  .contained
+    width 80%
+    padding 0 10%
 
 .left,
 .right
@@ -68,10 +76,11 @@ body
 
 .bgwidth
   width: 100%
+  height auto
 
 .bgheight
   height: 100%
-  left 50%
+  width auto
 
 .blue-bg
   background #dbf1fc

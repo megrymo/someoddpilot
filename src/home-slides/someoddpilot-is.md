@@ -2,7 +2,7 @@
 color: yellow
 link: ""
 ---
-<div class="contained vert-center">
+<div class="contained">
 	<div class="left display-serif left-align">
 	  <p class="drop-cap">Someoddpilot is a branding agency and design studio.</p>
 	  <p>We inspire wonder. We work tirelessly to bring that to the world. Something genuine and bold, real and fantastical. Because that’s what moves people. And always has. </p>
@@ -10,6 +10,6 @@ link: ""
 	  <a class="block-link" href="#">More</a>
 	</div>
 	<div class="right">
-	  <img class="full" src="/assets/images/home-slides/half.jpg" />
+	  <img class="fit-image vert-center" src="/assets/images/home-slides/half.jpg" />
 	</div>
 </div>
