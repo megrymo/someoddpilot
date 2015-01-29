@@ -16,6 +16,12 @@
   height auto
   padding 10px
 
+@media screen and (max-height: (700px))
+  .sop-logo
+    width auto
+    height 12vh
+    padding 10px
+
 .nav-icon
   display inline-block
   position absolute
@@ -176,7 +182,7 @@
   margin-top (big-gutter)px
 
 .project-section-subheader
-  margin (hr-gutter)px 0
+  padding (hr-gutter)px 0
 
 .project-section-body
   width 80%
@@ -224,11 +230,8 @@
   background #000
   padding (hr-gutter/2)px 0
 
-  .left
-    padding 0 0 0 (hr-gutter)px
-
-  .right
-    padding 0 (hr-gutter)px 0 0
+.footer-links
+  padding 0 0 0 (hr-gutter)px
 
 .footer-link
   display: table-cell
@@ -250,6 +253,7 @@
 
 .signup
   margin-top 18px
+  padding 0 (hr-gutter)px 0 0
   text-align right
 
   .email,

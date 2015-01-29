@@ -5,6 +5,7 @@
   var initSliders = require("./slider");
   var animateImages = require("./animate-images");
   var fitImage = require("./fit-image");
+  var scaleText = require("./scale-text");
 
   jQuery(document).ready(function ($) {
     initSliders();
@@ -23,6 +24,7 @@
     vertCenter();
     animateImages();
     fitImage();
+    scaleText();
 
   });
 
@@ -34,6 +36,7 @@
   $(window).resize(function() {
     vertCenter();
     fitImage();
+    scaleText();
   });
 
   $(window).scroll(function() {
