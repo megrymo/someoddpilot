@@ -1,12 +1,14 @@
 ---
-clientSlug: "other"
-title: "Other"
+clientSlug: "client-4"
+title: "Sound Opinions 2Up R"
 subheader: "Re-branding"
 linkText: "more"
-layout: 1-2up
+template: work/work-detail
+layout: "2up"
+textLeftorRight: "right"
 images:
   image1:
-    src: "/assets/images/projects/project1-1.png"
+    src: "/assets/images/projects/project-tall.jpg"
     alt: "picture alt 1"
   image2:
     src: "/assets/images/projects/project1-2.jpg"

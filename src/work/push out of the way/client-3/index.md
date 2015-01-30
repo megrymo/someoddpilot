@@ -1,10 +1,11 @@
 ---
 clientSlug: "client-3"
-title: "Sound Opinions 2-1Up"
+title: "Sound Opinions 3up L"
 subheader: "Re-branding"
 linkText: ""
 template: work/work-detail
-layout: 2-1up
+layout: 3up
+textLeftorRight: "left"
 images:
   image1:
     src: "/assets/images/projects/project1-1.png"

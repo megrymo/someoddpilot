@@ -1,9 +1,9 @@
 ---
 clientSlug: "other"
-title: "Other"
+title: "Other 1up "
 subheader: "Packaging"
 template: work/work-detail
-layout: 1up
+layout: "1up"
 images:
   image1:
     src: "/assets/images/projects/project2.jpg"
