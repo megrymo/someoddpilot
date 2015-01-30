@@ -31,6 +31,7 @@ function renamePageParentFolder(filePath) {
 
 var globs = {
   news: "./src/news/*.md",
+  about: "./src/about/*.md",
   pages: "./src/*.md",
   work: {
     indexes: "./src/work/**/index.md",
@@ -65,6 +66,7 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       news: globs.news,
+      about: globs.about,
       homeSlides: globs.homeSlides,
       work: globs.work.indexes,
       options: {
