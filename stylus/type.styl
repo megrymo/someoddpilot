@@ -13,25 +13,29 @@
 .black-text
   color #000
 
-.sans,
-.page-subheader,
-.news-title,
-.project-section-header,
-.project-section-subheader
+.sans
   font-family: sop-sans
   font-weight: bold
   text-transform: uppercase
-  font-specs(20, 30, 200)
 
 .display-serif
   font-family: sop-display-serif
 
-.serif,
-.project-section-body
+.serif
   font-family: sop-serif
 
+.main-nav,
+.page-subheader,
+.news-title,
+.project-section-header,
+.project-section-subheader
+  @extend .sans
+  font-specs(20, 30, 200)
+
+.project-section-body
+  @extend .serif
+
 .main-nav
-  font-family: sop-sans
   font-specs(14, 14, 200)
 
 .nav-link
@@ -46,10 +50,12 @@
   font-specs(20, 30, 200)
 
 .mega-slide-text
+  display: inline-block
   font-specs(90, 135, 200)
+  text-shadow 0 0 75px rgba(0, 0, 0, 0.2)
 
 .project-block
-  font-family: sop-display-serif
+  @extend .display-serif
   color #000
 
 .block-header,

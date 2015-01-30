@@ -2,8 +2,9 @@ function animateImages() {
   $(".animate").each(function(){
     var imagePos = $(this).offset().top;
 
-    var topOfWindow = $(window).scrollTop();
-      if (imagePos < topOfWindow + 400) {
+    var topOfWindow = $(window).scrollTop(),
+    windowHeight = $(window).height();
+      if (imagePos < topOfWindow + (windowHeight * 0.8)) {
         $(this).addClass("slide-up");
       }
     });

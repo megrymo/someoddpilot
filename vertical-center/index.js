@@ -21,7 +21,7 @@ function vertCenter() {
   });
 
   $(".vert-center").each(function(){
-  var childHeight = $(this).height(),
+  var childHeight = $(this)[0].getBoundingClientRect().height,
   parentHeight = $(this).parent().height(),
   difference1 = (parentHeight - childHeight) * 0.5;
 

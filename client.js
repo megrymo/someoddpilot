@@ -18,10 +18,6 @@
     toggleMenu();
     });
 
-    $(".fit-text").each(function(){
-      $(this).fitText();
-    });
-
     vertCenter();
     animateImages();
     fitImage();

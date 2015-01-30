@@ -20,6 +20,7 @@
   .sop-logo
     width auto
     height 12vh
+    min-height 80px
     padding 10px
 
 .nav-icon
@@ -27,15 +28,25 @@
   position absolute
   left 11px
   top 9px
-  padding 25px
+  padding 21px 25px
   z-index 99
 
+  &:hover .menu-line:first-child
+    transform: translateY(-1px)
+
+  &:hover .menu-line:last-child
+    transform: translateY(1px)
+
 .menu-line
-  fill #000
-  transition fill ease 1s
+  display: block
+  width 23px
+  height 4px
+  margin 4px 0
+  background #000
+  transition background ease 1s, transform ease 0.1s
 
   .nav-open &
-    fill #fff
+    background #fff
 
 .nav-holder
   display: inline-block
@@ -90,7 +101,7 @@
   height 32px
   padding 4px
   fill #000
-  transition fill ease 0.5s
+  transition fill ease 0.25s
 
   .nav-open &
     fill #787878
@@ -182,7 +193,7 @@
   margin-top (big-gutter)px
 
 .project-section-subheader
-  padding (hr-gutter)px 0
+  padding (hr-gutter / 2)px 0
 
 .project-section-body
   width 80%
@@ -193,9 +204,6 @@
   padding (vert-gutter / 2)px 0
   vertical-align top
   float left
-
-.news-date
-  margin-bottom (hr-gutter/2)px
 
 .news-article:nth-child(3n+3)
   padding-left (((vert-gutter / 2) / content-width) * 100)%
@@ -215,7 +223,10 @@
 .news-image
   width 100%
   height auto
-  padding-bottom (hr-gutter)px
+  margin-bottom (hr-gutter * 0.8)px
+
+.news-date
+  margin-bottom (hr-gutter/2)px
 
 .featured .news-image
   padding-bottom avg(hr-gutter big-gutter)px
