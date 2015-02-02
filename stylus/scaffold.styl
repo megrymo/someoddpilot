@@ -28,7 +28,7 @@ body
 .contained-smaller
   position relative
   width 100%
-  max-width (content-width)px
+  max-width ($content-width)px
   margin 0 auto
   overflow auto
   clear both
@@ -36,36 +36,36 @@ body
 .contained-smaller
   max-width 980px
 
-@media screen and (max-width: (content-width + vert-gutter + vert-gutter)px)
+@media screen and (max-width: ($content-width + $vert-gutter + $vert-gutter)px)
   .contained
     width 90%
     padding 0 5%
 
-@media screen and (max-width: (980 + vert-gutter + vert-gutter)px)
+@media screen and (max-width: (980 + $vert-gutter + $vert-gutter)px)
   .contained
     width 80%
     padding 0 10%
 
 .left,
 .right
-  width (((content-width - vert-gutter) / content-width) * 50) %
+  width ((($content-width - $vert-gutter) / $content-width) * 50) %
 
 .left
   float left
-  padding-right (((vert-gutter/2)/content-width) * 100) %
+  padding-right ((($vert-gutter/2)/$content-width) * 100) %
 
 .right
   float right
-  padding-left (((vert-gutter/2)/content-width) * 100) %
+  padding-left ((($vert-gutter/2)/$content-width) * 100) %
 
 .bottom-gutter
-  margin-bottom (hr-gutter)px
+  margin-bottom ($hr-gutter)px
 
 .small-bottom-gutter
-  margin-bottom (hr-gutter / 2)px
+  margin-bottom ($hr-gutter / 2)px
 
 .big-bottom-gutter
-  margin-bottom (big-gutter)px
+  margin-bottom ($big-gutter)px
 
 .background-fill
   position: absolute;
@@ -81,16 +81,16 @@ body
   width auto
 
 .blue-bg
-  background #dbf1fc
+  background $blue
 
 .yellow-bg
-  background #faf7ee
+  background $yellow
 
 .yellow-bg .even
   background #f0ede5
 
 .pink-bg
-  background #ffecec
+  background $pink
 
 .image-hover .block-image
   transition 0.5s all ease
