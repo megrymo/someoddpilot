@@ -43,7 +43,8 @@
     animateImages();
   });
 
-})( jQuery );
+})(jQuery);
+
 require("angular");
 
 angular.module("sop", []);
