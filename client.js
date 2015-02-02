@@ -7,6 +7,7 @@
   var fitImage = require("./fit-image");
   var fillImage = require("./fill-image");
   var scaleText = require("./scale-text");
+  var angularParallax = require("./angular-parallax");
 
   jQuery(document).ready(function ($) {
     initSliders();
@@ -47,4 +48,4 @@
 
 require("angular");
 
-angular.module("sop", []);
+angular.module("sop", ["angular-parallax"]);

@@ -8,7 +8,7 @@ fullBackgroundImage: "no"
 
 <div class="contained-smaller">
   <img scr="/assets/images/projects/cat/top-video-1-poster.jpg" class="full" />
-  <p class="project-section-body">
+  <p class="project-section-body" parallax-ratio="0.2">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
