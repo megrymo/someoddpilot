@@ -16,4 +16,4 @@ fullBackgroundImage: "no"
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
 </div>
-<img scr="/assets/images/projects/cat/large-guy.jpg" class="full" />
+<img src="/assets/images/projects/cat/large-guy.jpg" class="full" />
