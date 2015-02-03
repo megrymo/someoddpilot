@@ -32,7 +32,7 @@ slides:
       ogg: ""
 ---
 
-<section class="full work-section {{slug}}-work-section">
+<section class="full work-section cat-work-section-1">
   <header class="contained work-section-header">Since 2007</header>
   <p class="contained work-section-subheader">CAT Footwear<br />X Someoddpilot</p>
   <div class="contained-smaller">
@@ -49,7 +49,7 @@ slides:
   </div>
 </section>
 
-<section class="full work-section {{slug}}-work-section">
+<section class="full work-section cat-work-section-2">
   <header class="contained work-section-header">Break New Ground</header>
   <p class="contained work-section-subheader">Brand Campaign</p>
   <div class="contained-smaller">
