@@ -7,11 +7,10 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
-<body class="{{ template }} {{#compare template "contains" "news"}}yellow-bg{{else}}{{#if color}}{{color}}{{else}}yellow{{/if}}-bg{{/compare}}"
-  ng-app="sop">
+<body class="{{ template }} {{#compare template "contains" "news"}}yellow-bg{{else}}{{#if color}}{{color}}{{else}}yellow{{/if}}-bg{{/compare}}">
 
-  <header class="full top-header{{#compare template "contains" "work-detail"}} header-no-push{{/compare}}"  ng-controller="headerController" ng-class="{active:header.active}">
-    <a href="#" class="nav-icon" ng-click="toggleActive(header)">
+  <header class="full top-header{{#compare template "contains" "work-detail"}} header-no-push{{/compare}}"  ng-controller="headerController" ng-class="class">
+    <a href="#" class="nav-icon" ng-click="toggleClass()">
       <div class="menu-icon">
         <span class="menu-line"></span>
         <span class="menu-line"></span>
@@ -20,7 +19,7 @@
     </a>
     <a class="header-logo icon-sop-logo" href="/"></a>
     <nav class="nav-holder">
-      <a href="#" class="nav-close-icon icon-close-x">
+      <a href="#" class="nav-close-icon icon-close-x" ng-click="toggleClass()">
       </a>
       <ul class="main-nav">
         <li>

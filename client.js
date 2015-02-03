@@ -1,6 +1,5 @@
 (function($){
 
-  var toggleMenu = require("./menu");
   var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
   var animateImages = require("./animate-images");
@@ -10,14 +9,6 @@
 
   jQuery(document).ready(function ($) {
     initSliders();
-
-    $(".nav-icon").click(function () {
-    toggleMenu();
-    });
-    $(".nav-close-icon").click(function () {
-    toggleMenu();
-    });
-
     vertCenter();
     animateImages();
     fitImage();
