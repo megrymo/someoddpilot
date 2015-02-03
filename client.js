@@ -1,5 +1,3 @@
-require("angular-parallax");
-
 (function($){
 
   var toggleMenu = require("./menu");
@@ -49,4 +47,8 @@ require("angular-parallax");
 
 require("angular");
 
-angular.module("sop", ["angular-parallax"]);
+angular.module("sop", []);
+
+angular.element(document).ready(function() {
+  angular.bootstrap(document, ["sop"]);
+});
