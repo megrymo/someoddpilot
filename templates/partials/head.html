@@ -10,8 +10,8 @@
 <body class="{{ template }} {{#compare template "contains" "news"}}yellow-bg{{else}}{{#if color}}{{color}}{{else}}yellow{{/if}}-bg{{/compare}}"
   ng-app="sop">
 
-  <header class="full top-header{{#compare template "contains" "work-detail"}} header-no-push{{/compare}}">
-    <a href="#" class="nav-icon">
+  <header class="full top-header{{#compare template "contains" "work-detail"}} header-no-push{{/compare}}"  ng-controller="headerController" ng-class="{active:header.active}">
+    <a href="#" class="nav-icon" ng-click="toggleActive(header)">
       <div class="menu-icon">
         <span class="menu-line"></span>
         <span class="menu-line"></span>

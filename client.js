@@ -46,8 +46,9 @@
 })(jQuery);
 
 require("angular");
+require("./angular-menu");
 
-angular.module("sop", []);
+angular.module("sop", ["menu"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);
