@@ -1,5 +1,34 @@
 {{>head}}
-  {{#each collections.sections}}
-    {{>projectSection}}
-  {{/each}}
+  <section class="full slider home-slider">
+    <ul class="full-height slides">
+    {{#each slides}}
+    {{#if header}}
+      <li class="full-height slide {{#if color}}{{color}}{{else}}yellow{{/if}}-bg slide-{{@index}}">
+        {{#if loopingVideo.mp4}}
+        <video class="fill-image header-no-push" viewport-video="" loop="loop" autoplay="autoplay" poster="{{image}}">
+          <source src="{{loopingVideo.webm}}" type="video/webm">
+          <source src="{{loopingVideo.mp4}}" type="video/mp4">
+          <source src="{{loopingVideo.ogg}}" type="video/ogg">
+          <img class="fill-image header-no-push" src="{{image}}" />
+        </video>
+        {{/if}}
+        <style>
+          .slide-{{@index}} {
+            background: url("{{image}}") cover center;
+          }
+          {{#if headerColor}}
+          .slide-{{@index}} .scale-text {
+          color: #{{headerColor}};
+          }
+          {{/if}}
+        </style>
+        <section class="contained sans mega-slide-text center-align">
+          <h4 class="scale-text">{{{header}}}</h4>
+        </div>
+      </li>
+    {{/if}}
+    {{/each}}
+    </ul>
+  </div>
+  {{{contents}}}
 {{>foot}}

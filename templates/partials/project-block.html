@@ -1,32 +1,32 @@
-<section class="contained project-block block-{{@index}}{{#compare attributes.layout "!==" "1up"}} vert-center-halves{{/compare}}">
-  {{#compare attributes.layout "!==" "1up" }}
-    {{#compare attributes.layout "===" "3up" }}
+<section class="contained project-block block-{{@index}}{{#compare attributes.previewLayout "!==" "1up"}} vert-center-halves{{/compare}}">
+  {{#compare attributes.previewLayout "!==" "1up" }}
+    {{#compare attributes.previewLayout "===" "3up" }}
       <div class="{{#compare attributes.textLeftorRight "===" "left"}}left{{else}}right{{/compare}}">
       {{else}}
       <div class="{{#compare attributes.textLeftorRight "===" "left"}}right{{else}}left{{/compare}}">
     {{/compare}}
   {{/compare}}
-      <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
-        <img class="block-image animate bottom-gutter" src="{{ attributes.images.image1.src }}" alt="{{ attributes.images.image1.alt }}" />
+      <a href="/work/{{slug}}/" class="image-hover">
+        <img class="block-image animate bottom-gutter" src="{{ attributes.previewImages.image1.src }}" alt="{{ attributes.previewImages.image1.alt }}" />
       </a>
-  {{#compare attributes.layout "===" "2up" }}
+  {{#compare attributes.previewLayout "===" "2up" }}
     </div>
     <div class="{{#compare attributes.textLeftorRight "===" "right"}}right{{else}}left{{/compare}}">
   {{/compare}}
       <h3 class="block-header">{{ attributes.title }}</h3>
       <p class="block-subheader">{{ attributes.subheader }}</p>
-      <a class="block-link" href="/work/{{ attributes.clientSlug }}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
-  {{#compare attributes.layout "===" "2up" }}
+      <a class="block-link" href="/work/{{slug}}/">{{#if attributes.linkText}}{{attributes.linkText}}{{else}}More{{/if}}</a>
+  {{#compare attributes.previewLayout "===" "2up" }}
     </div>
   {{/compare}}
-  {{#compare attributes.layout "!==" "1up" }}
+  {{#compare attributes.previewLayout "!==" "1up" }}
     </div>
   {{/compare}}
-  {{#compare attributes.layout "===" "3up" }}
+  {{#compare attributes.previewLayout "===" "3up" }}
   <div class="{{#compare attributes.textLeftorRight "===" "right"}}left{{else}}right{{/compare}}">
-    <a href="/work/{{ attributes.clientSlug }}/" class="image-hover">
-      <img class="block-image animate" src="{{ attributes.images.image2.src }}" alt="{{ attributes.images.image2.alt }}" />
-      <img class="block-image animate" src="{{ attributes.images.image3.src }}" alt="{{ attributes.images.image3.alt }}" />
+    <a href="/work/{{slug}}/" class="image-hover">
+      <img class="block-image animate" src="{{ attributes.previewImages.image2.src }}" alt="{{ attributes.previewImages.image2.alt }}" />
+      <img class="block-image animate" src="{{ attributes.previewImages.image3.src }}" alt="{{ attributes.previewImages.image3.alt }}" />
     </a>
   </div>
   {{/compare}}
