@@ -1,3 +1,5 @@
+require("angular-parallax");
+
 (function($){
 
   var toggleMenu = require("./menu");
@@ -7,7 +9,6 @@
   var fitImage = require("./fit-image");
   var fillImage = require("./fill-image");
   var scaleText = require("./scale-text");
-  var angularParallax = require("./angular-parallax");
 
   jQuery(document).ready(function ($) {
     initSliders();
