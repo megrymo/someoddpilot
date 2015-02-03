@@ -3,7 +3,7 @@ module.exports = {
     head: "head",
     foot: "foot",
     aboutSection: "about-section",
-    projectBlock: "project-block"
+    workBlock: "work-block"
   },
   globals: {
     site: {
