@@ -38,8 +38,9 @@
 
 require("angular");
 require("./angular-menu");
+require("./angular-video");
 
-angular.module("sop", ["menu"]);
+angular.module("sop", ["menu", "video"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);

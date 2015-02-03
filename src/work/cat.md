@@ -38,12 +38,12 @@ slides:
   <header class="contained work-section-header">Since 2007</header>
   <p class="contained work-section-subheader">CAT Footwear<br />X Someoddpilot</p>
   <div class="contained-smaller">
-    <div class="video-wrapper">
-      <video class="full work-section-video" poster="/assets/images/work/cat/top-video-1-poster.jpg">
+    <div class="video-wrapper work-section-video" ng-controller="videoController" ng-class="class" ng-click="toggleClass()">
+      <video class="full" poster="/assets/images/work/cat/top-video-1-poster.jpg">
         <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
         <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.webm" type="video/webm; codecs=vp8,vorbis">
         <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.ogv">
-        <img src="/img/cat/top-video-1-poster.jpg" alt="" class="no-margin full" />
+        <img src="/assets/images/work/cat/top-video-1-poster.jpg" alt="" class="no-margin full" />
       </video>
       <button class="video-play"></button>
     </div>
@@ -55,7 +55,15 @@ slides:
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-    <img src="/assets/images/work/cat/top-video-1-poster.jpg" class="full work-section-image" />
+    <div class="video-wrapper work-section-video" ng-controller="videoController" ng-class="class" ng-click="toggleClass()">
+      <video class="full" poster="/assets/images/work/cat/top-video-1-poster.jpg">
+        <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
+        <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.webm" type="video/webm; codecs=vp8,vorbis">
+        <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.ogv">
+        <img src="/assets/images/work/cat/top-video-1-poster.jpg" alt="" class="no-margin full" />
+      </video>
+      <button class="video-play"></button>
+    </div>
   </div>
 </section>
 
