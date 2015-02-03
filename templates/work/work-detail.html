@@ -1,5 +1,5 @@
 {{>head}}
-  <section class="full slider">
+  <section class="full work-section slider">
     <ul class="full-height slides">
     {{#each slides}}
     {{#if header}}
@@ -22,13 +22,13 @@
           }
           {{/if}}
         </style>
-        <section class="contained sans mega-slide-text center-align">
+        <div class="contained sans mega-slide-text center-align">
           <h4 class="scale-text">{{{header}}}</h4>
         </div>
       </li>
     {{/if}}
     {{/each}}
     </ul>
-  </div>
+  </section>
   {{{contents}}}
 {{>foot}}
