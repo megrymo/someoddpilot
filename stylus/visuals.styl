@@ -31,11 +31,8 @@
   padding 21px 25px
   z-index 99
 
-  &:hover .menu-line:first-child
-    transform: translateY(-2px)
-
-  &:hover .menu-line:last-child
-    transform: translateY(2px)
+  &:hover .menu-line
+    margin 4px 0 5px
 
 .menu-line
   display: block
@@ -43,7 +40,7 @@
   height 4px
   margin 4px 0
   background $black
-  transition background ease 1s, transform ease 0.1s
+  transition background ease 1s, margin ease 0.1s
 
   .nav-open &
     background #fff
