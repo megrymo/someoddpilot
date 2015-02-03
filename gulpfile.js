@@ -33,10 +33,7 @@ var globs = {
   news: "./src/news/*.md",
   about: "./src/about/*.md",
   pages: "./src/*.md",
-  work: {
-    indexes: "./src/work/**/index.md",
-    sections: "./src/work/**/!(index).md"
-  },
+  work: "./src/work/*.md",
   homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
@@ -68,7 +65,7 @@ function pagesTask() {
       news: globs.news,
       about: globs.about,
       homeSlides: globs.homeSlides,
-      work: globs.work.indexes,
+      work: globs.work,
       options: {
         count: 10
       }
@@ -83,16 +80,16 @@ function pagesTask() {
 gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
-  return gulp.src(globs.work.indexes)
+  return gulp.src(globs.work)
     .pipe(collections({
-      sections: globs.work.sections,
+      work: globs.work,
       options: {
         count: 10
       }
     }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
-    .pipe(rename(renamePageParentFolder))
+    .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/work"));
 });
