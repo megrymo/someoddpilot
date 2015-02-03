@@ -3,8 +3,10 @@ title: "CAT"
 subheader: "Everything"
 template: work/work-detail
 color: "yellow"
-previewLayout: "1up"
+template: work/work-detail
+previewLayout: 1up
 textLeftorRight: "left"
+linkText: ""
 previewImages:
   image1:
     src: "/assets/images/work/project2.jpg"
