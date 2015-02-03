@@ -30,7 +30,7 @@ function initSliders() {
     }
 
     if (slideCount > 1) {
-      $(this).append("<div class='pager'><a class='prev'><img src='/assets/images/arrow-left.svg' /></a><a class='next'><img src='/assets/images/arrow-right.svg' /></a></div>");
+      $(this).append("<div class='pager'><a class='prev icon-arrow-left'></a><a class='next icon-arrow-right'></a></div>");
       $(this).append("<div class='contained counter'></div>");
       updateCount();
       if (slideCount === 2) {

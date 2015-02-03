@@ -1,3 +1,41 @@
+@font-face {
+  font-family: 'sop-fontello';
+  src: url('/assets/font/sop-fontello.eot?3791079');
+  src: url('/assets/font/sop-fontello.eot?3791079#iefix') format('embedded-opentype'),
+       url('/assets/font/sop-fontello.woff?3791079') format('woff'),
+       url('/assets/font/sop-fontello.ttf?3791079') format('truetype'),
+       url('/assets/font/sop-fontello.svg?3791079#sop-fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "sop-fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+}
+
+.icon-arrow-right:before { content: '\e800'; }
+.icon-arrow-left:before { content: '\e801'; }
+.icon-vimeo:before { content: '\e802'; }
+.icon-twitter:before { content: '\e803'; }
+.icon-sop-logo:before { content: '\e804'; }
+.icon-instagram:before { content: '\e805'; }
+.icon-facebook:before { content: '\e806'; }
+.icon-close-x:before { content: '\e807'; }
+
 html, body
   height: 100%;
   width 100%

@@ -7,21 +7,16 @@
   position absolute
   overflow visible
 
-.logo
+.header-logo
   display: inline-block
   margin 9vh 0 12vh
-
-.sop-logo
-  width 280px
-  height auto
   padding 10px
+  color: $black
+  font-size: 91px
 
 @media screen and (max-height: (700px))
-  .sop-logo
-    width auto
-    height 12vh
-    min-height 80px
-    padding 10px
+  .header-logo
+    font-size 12vh
 
 .nav-icon
   display inline-block
@@ -43,7 +38,7 @@
   transition background ease 1s, margin ease 0.1s
 
   .nav-open &
-    background #fff
+    background $white
 
 .nav-holder
   display: inline-block
@@ -68,14 +63,11 @@
   top 10px
   right 0
   padding 25px;
-
-.close-line
-  stroke-width 2px
-  stroke $black
-  transition stroke ease 1s
+  color $black
+  transition color ease 1s
 
   .nav-open &
-    stroke #fff
+    color $white
 
 .nav-link
   display: block
@@ -84,7 +76,7 @@
   transition color ease 1s
 
   .nav-open &
-    color #fff
+    color $white
 
 .social-nav
   margin-top 26px
@@ -94,17 +86,20 @@
   font-specs(0,0)
 
 .social-icon
+  display: block
   width 32px
   height 32px
   padding 4px
-  fill $black
-  transition fill ease 0.25s
+  color $black
+  font-size: 32px;
+  transition color ease 1s
 
   .nav-open &
-    fill #787878
+    color darken($white, 52%)
+    transition color ease 0.25s
 
 .nav-link-social:hover .social-icon
-  fill #fff
+  color $white
 
 .page-subheader
   margin (avg($hr-gutter $big-gutter) / 2)px 0
@@ -117,7 +112,7 @@
   width 100%
   margin: 0
   padding: 0
-  background #faf7ee
+  background $pink
   list-style: none
   overflow hidden
 
@@ -146,10 +141,10 @@
 .prev,
 .next
   padding 10px
-  cursor: pointer
+  font-size: 59px
 
 .pager
-  top 50%
+  top 45%
   width 100%
 
 .prev
@@ -245,11 +240,11 @@
   display: table-cell
   vertical-align middle
   padding-right ($hr-gutter)px
-  fill #fff
+  fill $white
 
-.sop-footer .sop-logo
-  height 46px
-  width auto
+.sop-footer .footer-sop-logo
+  font-size 46px
+  color $white
 
 .pw-logo
   height 69px
@@ -271,7 +266,7 @@
     height 30px
     border none
     outline none
-    color #fff
+    color $white
     font-specs(14, 16, 150)
     line-height 2.5em
     transition: all ease 0.5s
@@ -280,7 +275,7 @@
     height 30px
     width 250px
     padding 0 2px
-    border-bottom solid 3px #fff
+    border-bottom solid 3px $white
     border-top solid 3px $black
     text-align: left
 
@@ -294,5 +289,5 @@
     float right
 
     &:hover
-      background #fff
+      background $white
       color $black
