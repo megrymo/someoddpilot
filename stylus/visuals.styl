@@ -112,7 +112,7 @@
   width 100%
   margin: 0
   padding: 0
-  background $pink
+  background $yellow
   list-style: none
   overflow hidden
 
@@ -182,14 +182,44 @@
   margin-top ($hr-gutter / 2)px
 
 .work-section-header
-  margin-top ($big-gutter)px
+  margin-top ($big-gutter - $hr-gutter)px
 
 .work-section-subheader
-  padding ($hr-gutter / 2)px 0
+  margin ($hr-gutter / 2)px 0
 
 .work-section-body
   width 80%
   margin 0 10%
+
+.video-wrapper
+  position relative
+
+.video-play
+  position absolute
+  width 57px
+  height 57px
+  top 50%
+  left 50%
+  appearance none
+  font-family 'sop-fontello'
+  font-size 20px
+  border-radius 60px
+  background $black
+  color $white
+  border 5px solid $white
+  box-shadow 0 0 10px $black
+  transform translate(-50%,-50%)
+
+  &:before
+    content: '\e800'
+
+
+.work-section,
+.work-section-subheader,
+.work-section-body,
+.work-section-image,
+.work-section-video
+  margin-bottom ($hr-gutter)px
 
 .news-article
   width ((($content-width - $vert-gutter - $vert-gutter) / $content-width) * 33.33333)%

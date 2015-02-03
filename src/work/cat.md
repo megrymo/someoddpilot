@@ -38,7 +38,15 @@ slides:
   <header class="contained work-section-header">Since 2007</header>
   <p class="contained work-section-subheader">CAT Footwear<br />X Someoddpilot</p>
   <div class="contained-smaller">
-    <img src="/assets/images/work/cat/top-video-1-poster.jpg" class="full" />
+    <div class="video-wrapper">
+      <video class="full work-section-video" poster="/assets/images/work/cat/top-video-1-poster.jpg">
+        <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
+        <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.webm" type="video/webm; codecs=vp8,vorbis">
+        <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.ogv">
+        <img src="/img/cat/top-video-1-poster.jpg" alt="" class="no-margin full" />
+      </video>
+      <button class="video-play"></button>
+    </div>
     <p class="work-section-body" parallax-ratio="0.2">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -47,7 +55,7 @@ slides:
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-    <img src="/assets/images/work/cat/top-video-1-poster.jpg" class="full" />
+    <img src="/assets/images/work/cat/top-video-1-poster.jpg" class="full work-section-image" />
   </div>
 </section>
 
@@ -64,5 +72,5 @@ slides:
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
   </div>
-  <img src="/assets/images/work/cat/large-guy.jpg" class="full" />
+  <img src="/assets/images/work/cat/large-guy.jpg" class="full work-section-image" />
 </section>

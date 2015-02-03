@@ -9,7 +9,7 @@
     {
       "uid": "c82f75d33ba8c866d651dad2dc492a88",
       "css": "facebook",
-      "code": 59398,
+      "code": 59400,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -23,7 +23,7 @@
     {
       "uid": "f0febd9a569a8ac13a00ebbeeaa63aa1",
       "css": "instagram",
-      "code": 59397,
+      "code": 59399,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -36,8 +36,8 @@
     },
     {
       "uid": "ee79150e1659514254a595d9fa28450c",
-      "css": "someoddpilot_logo",
-      "code": 59396,
+      "css": "sop-logo",
+      "code": 59398,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -45,13 +45,13 @@
         "width": 2915
       },
       "search": [
-        "someoddpilot_logo"
+        "sop-logo"
       ]
     },
     {
       "uid": "c51650e723e603b84bc4166562abec40",
       "css": "twitter",
-      "code": 59395,
+      "code": 59397,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -65,7 +65,7 @@
     {
       "uid": "13a58ac6835785d38b93c5bdc6e6206e",
       "css": "vimeo",
-      "code": 59394,
+      "code": 59396,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -79,7 +79,7 @@
     {
       "uid": "5ebea8407fc7adbf9dfa063365ebb5da",
       "css": "arrow-left",
-      "code": 59393,
+      "code": 59395,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -93,7 +93,7 @@
     {
       "uid": "f8c18dfd883804e585406070f3b996aa",
       "css": "arrow-right",
-      "code": 59392,
+      "code": 59394,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -107,7 +107,7 @@
     {
       "uid": "16d059578779717c15037dd0c02bbeda",
       "css": "close-x",
-      "code": 59399,
+      "code": 59393,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -116,6 +116,20 @@
       },
       "search": [
         "close-x"
+      ]
+    },
+    {
+      "uid": "ce09f24c80581c4fd522c4a1be46885b",
+      "css": "play",
+      "code": 59392,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M270.9 0L1137.2 500 270.9 1000V0Z",
+        "width": 1137
+      },
+      "search": [
+        "play"
       ]
     }
   ]
