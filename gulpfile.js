@@ -19,10 +19,6 @@ function renamePage(filePath) {
 var globs = {
   posts: "./src/posts/*.md",
   pages: "./src/*.md",
-  nested: {
-    indexes: "./src/nested/**/index.md",
-    sections: "./src/nested/**/!(index).md"
-  },
   templates: "./templates/**/*.html"
 };
 var fmOptions = {
@@ -50,8 +46,9 @@ gulp.task("posts", postsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
-      posts: globs.posts,
-      nested: globs.nested.indexes,
+      globs: {
+        posts: globs.posts
+      },
       options: {
         count: 10
       }
@@ -64,21 +61,6 @@ function pagesTask() {
 }
 
 gulp.task("pages", pagesTask);
-
-gulp.task("case-studies", function () {
-  return gulp.src(globs.nested.indexes)
-    .pipe(collections({
-      sections: globs.nested.sections,
-      options: {
-        count: 10
-      }
-    }))
-    .pipe(frontMatter(fmOptions))
-    .pipe(marked())
-    .pipe(rename(renamePage))
-    .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/nested"));
-});
 
 function sortByDate(a, b) {
   if (!b.attributes.date) {
@@ -116,6 +98,6 @@ gulp.task("watch", function () {
   gulp.watch([globs.posts, "./templates/post.html"], ["posts"]);
 });
 
-gulp.task("default", ["posts", "pages", "case-studies", "connect", "watch"]);
+gulp.task("default", ["posts", "pages", "connect", "watch"]);
 
-gulp.task("deploy", ["posts", "pages", "case-studies"]);
+gulp.task("deploy", ["posts", "pages"]);
