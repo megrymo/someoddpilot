@@ -2,7 +2,7 @@ var handlebars = require("handlebars");
 var _ = require("lodash");
 var fs = require("fs");
 var path = require("path");
-var through = require("through2");
+var consolidate = require("gulp-consolidate-render");
 
 function forEachPartial(partialPath, name) {
   fs.readFile(
@@ -30,24 +30,10 @@ function templates(options) {
     partialPath: {
       prefix: path.join(__dirname, "partials"),
       extension: ".html"
-    }
-  });
-
-  _.forEach(options.partials || [], forEachPartial, options);
-
-  _.forEach(options.helpers || [], forEachHelper);
-
-  var globals = options.globals || {};
-
-  return through.obj(function (file, enc, callback) {
-    function onTemplateFile(err, templateString) {
-      if (err) {
-        throw err;
-      }
-
-      var templateFn = handlebars.compile(templateString);
-
-      var data = _.extend(
+    },
+    engine: "handlebars",
+    compileData: function (globals, file) {
+      return _.extend(
         globals,
         file.frontMatter,
         {
@@ -55,17 +41,14 @@ function templates(options) {
           contents: file.contents.toString()
         }
       );
-
-      file.contents = new Buffer(templateFn(data), "utf-8");
-      callback(null, file);
     }
-
-    var templateName = file.frontMatter.template || "post";
-
-    var templatePath = path.join(__dirname, templateName + ".html");
-
-    fs.readFile(templatePath, "utf-8", onTemplateFile);
   });
+
+  _.forEach(options.partials || [], forEachPartial, options);
+
+  _.forEach(options.helpers || [], forEachHelper);
+
+  return consolidate(options);
 }
 
 module.exports = templates;
