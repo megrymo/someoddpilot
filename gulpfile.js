@@ -26,10 +26,7 @@ function renamePage(filePath) {
 var globs = {
   news: "./src/news/*.md",
   pages: "./src/*.md",
-  work: {
-    indexes: "./src/work/**/index.md",
-    sections: "./src/work/**/!(index).md"
-  },
+  work: "./src/work/*.md",
   homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
@@ -58,9 +55,11 @@ gulp.task("news", newsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
-      homeSlides: globs.homeSlides,
-      news: globs.news,
-      work: globs.work.indexes,
+      globs: {
+        homeSlides: globs.homeSlides,
+        news: globs.news,
+        work: globs.work,
+      },
       options: {
         count: 10
       }
@@ -76,12 +75,6 @@ gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
   return gulp.src(globs.work.indexes)
-    .pipe(collections({
-      sections: globs.work.sections,
-      options: {
-        count: 10
-      }
-    }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
