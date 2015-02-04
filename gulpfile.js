@@ -74,7 +74,7 @@ function pagesTask() {
 gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
-  return gulp.src(globs.work.indexes)
+  return gulp.src(globs.work)
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
