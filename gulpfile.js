@@ -126,7 +126,7 @@ gulp.task("connect", function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch([globs.news, globs.pages, globs.templates], ["pages"]);
+  gulp.watch([globs.news, globs.about, globs.pages, globs.templates], ["pages"]);
   gulp.watch([globs.news, "./templates/new.html"], ["news"]);
 });
 

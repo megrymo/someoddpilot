@@ -1,5 +1,5 @@
 ---
 template: about
 title: About
-color: blue
+color: yellow
 ---
