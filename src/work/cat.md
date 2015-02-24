@@ -23,8 +23,8 @@ slides:
     image: "/assets/images/work/cat/cat-flag"
     loopingVideo:
       mp4: "/assets/video/work/cat/flag.mp4"
-      webm: "/assets/video/work/cat/flag.webmhd.webm"
-      ogg: "/assets/video/work/cat/flag.mp4"
+      webm: "/assets/video/work/cat/flag.webm"
+      ogg: "/assets/video/work/cat/flag.ogv"
   - header: ""
     headerColor: ""
     image: ""
