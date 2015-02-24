@@ -1,17 +1,17 @@
 function vertCenter() {
   $(".vert-center-halves").each(function(){
-  var leftHeight = $(this).children(".left").height(),
-  rightHeight = $(this).children(".right").height(),
+  var leftHeight = $(this).find(".left").height(),
+  rightHeight = $(this).find(".right").height(),
   shorterOne = null,
   tallerOne = null,
   difference = 0;
   if ( leftHeight < rightHeight ) {
-    shorterOne = $(this).children(".left");
-    tallerOne = $(this).children(".right");
+    shorterOne = $(this).find(".left");
+    tallerOne = $(this).find(".right");
     difference = rightHeight - leftHeight;
   } else {
-    shorterOne = $(this).children(".right");
-    tallerOne = $(this).children(".left");
+    shorterOne = $(this).find(".right");
+    tallerOne = $(this).find(".left");
     difference = leftHeight - rightHeight;
   }
   shorterOne.css({
@@ -23,10 +23,10 @@ function vertCenter() {
   $(".vert-center").each(function(){
   var childHeight = $(this)[0].getBoundingClientRect().height,
   parentHeight = $(this).parent().height(),
-  difference1 = (parentHeight - childHeight) * 0.5;
+  difference = (parentHeight - childHeight) * 0.5;
 
   $(this).css({
-    "margin-top": difference1});
+    "margin-top": difference});
   });
 }
 
