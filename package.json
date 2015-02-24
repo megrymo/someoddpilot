@@ -42,7 +42,8 @@
     "sop-styl": "^1.2.4",
     "through2": "^0.6.3",
     "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.2.1"
+    "watchify": "^2.2.1",
+    "angular-scroll": "^0.6.5"
   },
   "devDependencies": {}
 }

@@ -2,45 +2,37 @@
 
   var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
-  var animateImages = require("./animate-images");
   var fitImage = require("./fit-image");
-  var fillImage = require("./fill-image");
   var scaleText = require("./scale-text");
 
   jQuery(document).ready(function ($) {
     initSliders();
     vertCenter();
-    animateImages();
     fitImage();
-    fillImage();
     scaleText();
-
+    skrollr.init({forceHeight: false});
   });
 
   $(window).load(function() {
     vertCenter();
     fitImage();
-    fillImage();
   });
 
   $(window).resize(function() {
     vertCenter();
     fitImage();
-    fillImage();
     scaleText();
-  });
-
-  $(window).scroll(function() {
-    animateImages();
   });
 
 })(jQuery);
 
 require("angular");
+require("angular-scroll");
 require("./angular-menu");
 require("./angular-video");
+require("./angular-fill-image");
 
-angular.module("sop", ["menu", "video"]);
+angular.module("sop", ["angular-scroll", "menu", "video", "imageResize"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);

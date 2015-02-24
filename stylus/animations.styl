@@ -41,7 +41,14 @@
 	}
 }
 
-.slide-up{
+.slide-up {
+  visibility none
+  opacity 0
+}
+
+.skrollable-after.slide-up,
+.skrollable-after .slide-up{
+  opacity 1
   animation-name: slideUp;
   animation-duration: 1s;
   animation-timing-function: ease;
@@ -56,5 +63,68 @@
   100% {
     transform: translateY(0%);
     opacity 1
+  }
+}
+
+.spinning {
+  animation: spinning 30s infinite linear
+}
+
+@keyframes spinning {
+  0% {
+    stroke-dashoffset 0
+  }
+  100% {
+    stroke-dashoffset 200
+  }
+}
+
+.animate-svg {
+  stroke-dashoffset: 1600;
+  stroke-dasharray: 1600;
+  transition all 1s ease
+}
+
+.animate-svg-short {
+  stroke-dashoffset: 200;
+  stroke-dasharray: 200;
+  transition all 1s ease
+}
+
+.skrollable-after .animate-svg {
+  animation: draw 6s ease;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 1600;
+}
+
+.skrollable-after .animate-svg-short {
+  animation: drawShort 6s ease;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 200;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1600;
+    stroke-dasharray: 1600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 1600;
+  }
+}
+
+@keyframes drawShort {
+  0% {
+    stroke-dashoffset: 200;
+    stroke-dasharray: 200;
+  }
+  50% {
+    stroke-dashoffset: 200;
+    stroke-dasharray: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 200;
   }
 }
