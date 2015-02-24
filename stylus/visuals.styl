@@ -112,17 +112,22 @@
   position: relative
   width 100%
   margin: 0
-  padding: 0 0 0 100%
+  padding: 0
   background $yellow
   list-style: none
   overflow hidden
+
+  .slider-activated &
+    padding-left 100%
 
 .slide
   position: relative
   display: block
   width 100%
-  float left
-  overflow hidden
+
+  .slider-activated &
+    float left
+    overflow hidden
 
   .contained
     padding 32vh 10% 12vh
@@ -198,18 +203,18 @@
 
 .video-play
   position absolute
-  width 57px
-  height 57px
+  width 100px
+  height 100px
   top 50%
   left 50%
   appearance none
   font-family 'sop-fontello'
-  font-size 20px
+  font-size 40px
   border-radius 60px
   background $black
   color $white
-  border 5px solid $white
-  box-shadow 0 0 10px $black
+  border 9px solid $white
+  box-shadow 0 0 20px alpha($black, 75%)
   transform translate(-50%,-50%)
 
   &:before
@@ -217,6 +222,14 @@
 
   .play &
     display: none
+
+  .contained &,
+  .contained-smaller &
+    width 57px
+    height 57px
+    font-size 20px
+    border-width 5px
+    box-shadow 0 0 10px alpha($black, 75%)
 
 .work-section,
 .work-section-subheader,
@@ -226,19 +239,10 @@
   margin-bottom ($hr-gutter)px
 
 .news-article
-  width ((($content-width - $vert-gutter - $vert-gutter) / $content-width) * 33.33333)%
-  padding ($vert-gutter / 2)px 0
+  padding-top ($vert-gutter / 2)px
+  padding-bottom ($vert-gutter / 2)px
   vertical-align top
   float left
-
-.news-article:nth-child(3n+3)
-  padding-left ((($vert-gutter / 2) / $content-width) * 100)%
-
-.news-article:nth-child(3n+1)
-  padding-right ((($vert-gutter / 2) / $content-width) * 100)%
-
-.news-article:nth-child(3n+2)
-  padding ($vert-gutter / 2 )px ((($vert-gutter / 2) / $content-width) * 100)%
 
 .featured
   padding 0
@@ -312,6 +316,29 @@
   padding ($hr-gutter / $base-font-size * 3)em 0 ($hr-gutter / $base-font-size * 2)em
   background url("/assets/images/about/mirrored-image.jpg") center
   background-size cover
+
+.about-section
+  .slider
+    margin ($hr-gutter / $base-font-size)em 0
+
+.about-truth-slide
+
+  .display-serif
+    position absolute
+    top 50%
+    left 0
+    width 80%
+    padding 0 10% 10%
+    transform: translateY(-50%)
+
+    header
+      font-specs(223, 285)
+
+    p
+      font-specs(34, 46)
+
+      &:last-child
+        font-specs(43, 58)
 
 .sop-footer
   display: table

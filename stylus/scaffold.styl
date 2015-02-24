@@ -48,9 +48,6 @@ body
   font-family sop-serif
   -webkit-font-smoothing: antialiased;
 
-p
-  margin-bottom 1em
-
 .sr {
   position: absolute;
   width: 1px;
@@ -79,50 +76,61 @@ p
 
 .contained,
 .contained-smaller
+  display: block
   position relative
-  width 100%
-  max-width ($content-width)px
+  width 90%
+  max-width ($content-width + $vert-gutter)px
   margin 0 auto
   overflow auto
   clear both
 
 .contained-smaller
-  max-width 980px
+  width 64%
+  max-width ($content-width)px
+  max-width ($content-width * 0.7)px
 
-@media screen and (max-width: ($content-width + $vert-gutter + $vert-gutter)px)
+@media screen and (max-width: (($content-width / 0.9) + $vert-gutter + $vert-gutter)px)
   .contained
     width 90%
-    padding 0 5%
 
-@media screen and (max-width: (980 + $vert-gutter + $vert-gutter)px)
-  .contained
+@media screen and (max-width: (($content-width / 0.7) + $vert-gutter + $vert-gutter)px)
+  .contained-smaller
     width 80%
-    padding 0 10%
 
 .center-block
   margin 0 auto
   display: block
 
-.half
-  width 50%
-
-.third
-  width 33.33%
-
+.left,
+.right,
+.half,
+.third,
 .quarter
-  width 25%
+  margin-left ((($vert-gutter / 2 ) / $content-width) * 100) %
+  margin-right ((($vert-gutter / 2 ) / $content-width) * 100) %
 
 .left,
-.right
-  width ((($content-width - $vert-gutter) / $content-width) * 50) %
+.right,
+.half
+  width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50) %
 
 .left
   float left
-  padding-right ((($vert-gutter/2)/$content-width) * 100) %
 
 .right
   float right
-  padding-left ((($vert-gutter/2)/$content-width) * 100) %
+
+.eighty
+  width 80%
+
+.sixty
+  width 60%
+
+.third
+  width ((($content-width - ($vert-gutter * 3 )) / $content-width) * 33.333) %
+
+.quarter
+  width ((($content-width - ($vert-gutter * 4 )) / $content-width) * 25) %
 
 .bottom-gutter
   margin-bottom ($hr-gutter)px

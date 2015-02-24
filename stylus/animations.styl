@@ -2,7 +2,7 @@
 .slide-right{
 	animation-duration: 1s;
 	animation-timing-function: ease-in-out;
-	visibility: visible !important;
+	visibility: visible;
 }
 
 .slide-left{
@@ -42,8 +42,9 @@
 }
 
 .slide-up {
-  visibility none
+  visibility hidden
   opacity 0
+  transition all 1s ease
 }
 
 .skrollable-after.slide-up,
@@ -52,7 +53,7 @@
   animation-name: slideUp;
   animation-duration: 1s;
   animation-timing-function: ease;
-  visibility: visible !important;
+  visibility: visible;
 }
 
 @keyframes slideUp {
