@@ -230,6 +230,37 @@ title: "Truth, Vision & Wonder"
   </svg>
 </div>
 
+<div class="contained">
+  <div class="full slider">
+    <ul class="slides">
+      <li class="slide about-truth-slide yellow-bg">
+        <img src="/assets/images/about/slide-1.jpg" alt="" class="full" />
+        <div class="white-text display-serif center-align">
+          <div class="scale-text">
+            <header>Truth</header>
+            <p>Life is authentic.</p>
+            <p>Posturing is death.</p>
+            <p>Truth resonates loudest.</p>
+          </div>
+        </div>
+        <figcaption class="grey-caption">iPhone5<br />Sansoro, Costa Rica</figcaption>
+      </li>
+      <li class="slide about-truth-slide yellow-bg">
+        <img src="/assets/images/about/slide-2.jpg" alt="" class="full" />
+        <div class="display-serif center-align">
+          <div class="scale-text">
+            <header>Vision</header>
+            <p>Life is authentic.</p>
+            <p>Posturing is death.</p>
+            <p>Truth resonates loudest.</p>
+          </div>
+        </div>
+        <figcaption class="grey-caption">iPhone5<br />Sansoro, Costa Rica</figcaption>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="chapter-copy display-serif contained center-block">
   <p>Truth is absolutely necessary for every relationship in our lives. Without it there’s simply no place to start. We treat “the people” as people, and start with the truth they deserve.</p>
 
