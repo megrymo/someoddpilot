@@ -1,16 +1,25 @@
 function initSliders() {
   $(".slider").each(function(){
 
-    var slideCount = $(".slides .slide").length;
-    var counter = 0;
+    var slides = ".slides",
+        slide = ".slide",
+        firstSlide = slide + ":first-child",
+        lastSlide = slide + ":last-child",
+        slideCount = $(slide).length,
+        counter = 0;
 
     function updateCount() {
       $(".counter").html((counter + 1) + "&nbsp;<em>of</em>&nbsp;" + slideCount);
     }
 
     function moveRight() {
-      $(".slides .slide:last-child").removeClass("slide-left slide-left-force").addClass("slide-right");
-      $(".slides .slide:first-child").removeClass("slide-right").addClass("slide-left-force").appendTo(".slides");
+      $(lastSlide)
+        .removeClass("slide-left slide-left-force")
+        .addClass("slide-right");
+      $(firstSlide)
+        .removeClass("slide-right")
+        .addClass("slide-left-force")
+        .appendTo(slides);
       counter = ((counter > 0) ? counter - 1 : slideCount - 1);
       updateCount();
     }
@@ -18,9 +27,9 @@ function initSliders() {
     function moveLeft() {
       counter = ((counter < slideCount - 1 ) ? counter + 1 : 0);
       updateCount();
-      $(".slides .slide:last-child").prependTo(".slides");
-      $(".slide").removeClass("slide-right slide-left slide-right-force slide-left-force");
-      $(".slides .slide:last-child").addClass("slide-left");
+      $(lastSlide).prependTo(slides);
+      $(slide).removeClass("slide-right slide-left slide-left-force");
+      $(lastSlide).addClass("slide-left");
     }
 
     function doSlide(){
@@ -30,15 +39,32 @@ function initSliders() {
     }
 
     if (slideCount > 1) {
-      $(this).append("<div class='pager'><a class='prev icon-arrow-left'></a><a class='next icon-arrow-right'></a></div>");
+      $(this).append([
+        "<div class='pager'>",
+        "<a class='prev icon-arrow-left'>",
+        "<span class='sr'>Previous",
+        "</span></a>",
+        "<a class='next icon-arrow-right'>",
+        "<span class='sr'>Next",
+        "</span></a>",
+        "</div>"]
+        .join(""));
       $(this).append("<div class='contained counter'></div>");
       updateCount();
       if (slideCount === 2) {
-        $(".slide").clone().appendTo(".slides");
+        $(slide).clone().appendTo(slides);
       }
 
-      $(".slides .slide:first-child").addClass("slide-left-force").appendTo(".slides");
-          doSlide();
+      var finalSlideCount = $(slide).length;
+
+      $(slides).css({width: (100 * finalSlideCount) + "%"});
+      $(slide).css({
+        width: (100 / finalSlideCount) + "%",
+        "margin-left": (-100 / finalSlideCount) + "%"
+      });
+
+      $(firstSlide).addClass("slide-left-force").appendTo(slides);
+      doSlide();
 
       $(".prev").click(function () {
         moveRight();
@@ -48,10 +74,10 @@ function initSliders() {
         moveLeft();
       });
 
-      $(".slider").hover(function(){
+      $(this).hover(function(){
         clearInterval(timer);
       });
-      $(".slider").mouseleave(function(){
+      $(this).mouseleave(function(){
         doSlide();
       });
     }

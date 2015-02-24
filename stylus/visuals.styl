@@ -106,20 +106,22 @@
 
 .slider
   position: relative
+  overflow hidden
 
 .slides
   position: relative
   width 100%
   margin: 0
-  padding: 0
+  padding: 0 0 0 100%
   background $yellow
   list-style: none
   overflow hidden
 
 .slide
-  position: absolute
+  position: relative
   display: block
   width 100%
+  float left
   overflow hidden
 
   .contained
