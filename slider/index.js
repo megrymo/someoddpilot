@@ -48,9 +48,16 @@ function initSliders() {
         "<span class='sr'>Next",
         "</span></a>",
         "</div>"]
-        .join(""));
-      $(this).append("<div class='contained counter'></div>");
+        .join(""))
+        .append("<div class='contained counter'></div>")
+        .addClass("slider-activated");
+
+      $(slides).append(
+        $(slides).find(slide).get().reverse()
+      );
+
       updateCount();
+
       if (slideCount === 2) {
         $(slide).clone().appendTo(slides);
       }
