@@ -81,15 +81,8 @@ function templates(options) {
       extension: ".html"
     },
     engine: "handlebars",
-    compileData: function (globals, file) {
-      return _.extend(
-        globals,
-        file.frontMatter,
-        {
-          collections: file.collections,
-          contents: file.contents.toString()
-        }
-      );
+    compileData: function (sources) {
+      return _.merge.apply(_, sources);
     }
   });
 

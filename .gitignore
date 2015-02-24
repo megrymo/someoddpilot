@@ -32,3 +32,6 @@ dest
 
 # Plato reports
 .plato
+
+# AWS reports
+.aws*
