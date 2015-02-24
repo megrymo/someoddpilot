@@ -31,7 +31,8 @@
 .page-subheader,
 .news-title,
 .work-section-header,
-.work-section-subheader
+.work-section-subheader,
+.chapter-name
   @extend .sans
   font-specs(22, 30, 200)
 
@@ -86,8 +87,45 @@
   font-specs(70, 90, 150)
   text-align: center
 
-.work-section-subheader
+.work-section-subheader,
+.chapter-name
   font-specs(28, 50, 150)
+  text-align: center
+
+.toc-header
+  @extend .display-serif
+  font-specs(18, (18 * 1.2))
+
+.toc-item
+  @extend .sans
+  font-specs(20, 30, 200)
+
+.chapter-number
+  @extend .display-serif
+  font-specs(62, 62, 50)
+
+.chapter-copy
+  @extend .display-serif
+  font-specs(32, (32 * 1.2))
+
+.big-caption
+  margin 1em auto
+  @extend .display-serif
+  font-specs(22, 30)
+  text-align: center
+
+.grey-caption
+  margin (20 / 14)em 2%
+  font-family: "Georgia", Georgia, serif
+  font-specs(14, 20)
+  font-style: italic
+  opacity 0.35
+  color $black
+
+.big-serif-header
+  margin 2em auto 1em
+  @extend .display-serif
+  font-specs(72, 96)
   text-align: center
 
 .work-section-body
@@ -108,9 +146,10 @@
 
 .drop-cap:first-letter
   float: left
-  font-size: 4em
-  line-height: .5em
-  padding-right 0.02em
+  font-size: 2.5em;
+  line-height: 0.5em;
+  padding-right: 0.04em;
+  padding-top: 0.28em;
 
 .scale-text
   display: inline-block

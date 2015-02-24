@@ -7,8 +7,8 @@ module.exports = {
   },
   globals: {
     site: {
-      title: "Gulp Static",
-      description: "Prototype for a Gulp based static site generator"
+      title: "someoddpilot",
+      description: "Lorem"
     }
   }
 };
