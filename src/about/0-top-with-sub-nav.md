@@ -11,17 +11,17 @@ title: "Top About Area with TOC"
 <div class="toc center-align">
   <header class="toc-header">Table of Contents</header>
   <ul class="toc-list left-align">
-    <a href="#truth-vision-wonder" class="toc-link" du-smooth-scroll>
+    <a href="#truth-vision-wonder" class="toc-link" du-smooth-scroll duration="1000">
       <li class="toc-item">
         Truth, Vision &amp; Wonder
       </li>
     </a>
-    <a href="#the-complete-thought" class="toc-link" du-smooth-scroll>
+    <a href="#the-complete-thought" class="toc-link" du-smooth-scroll duration="3000">
       <li class="toc-item">
         The Complete Thought
       </li>
     </a>
-    <a href="#studio" class="toc-link" du-smooth-scroll>
+    <a href="#studio" class="toc-link" du-smooth-scroll duration="6000">
       <li class="toc-item">
         Studio
       </li>

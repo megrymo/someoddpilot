@@ -32,7 +32,7 @@ require("./angular-menu");
 require("./angular-video");
 require("./angular-fill-image");
 
-angular.module("sop", ["angular-scroll", "menu", "video", "imageResize"]);
+angular.module("sop", ["duScroll", "menu", "video", "imageResize"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);
