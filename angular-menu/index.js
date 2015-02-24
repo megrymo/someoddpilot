@@ -3,11 +3,12 @@ angular.module("menu", [])
 
   $scope.class = "";
 
-    $scope.toggleClass = function(){
-        if ($scope.class === "")
-            $scope.class = "nav-open";
-        else
-            $scope.class = "";
-    };
+  $scope.toggleClass = function(){
+    if ($scope.class === ""){
+      $scope.class = "nav-open";
+    } else {
+      $scope.class = "";
+    }
+  };
 
 }]);
