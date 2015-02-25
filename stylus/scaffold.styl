@@ -105,7 +105,8 @@ body
 .right,
 .half,
 .third,
-.quarter
+.quarter,
+.add-lr-margin
   margin-left ((($vert-gutter / 2 ) / $content-width) * 100) %
   margin-right ((($vert-gutter / 2 ) / $content-width) * 100) %
 
@@ -125,6 +126,9 @@ body
 
 .sixty
   width 60%
+
+.fourty
+  width 40%
 
 .third
   width ((($content-width - ($vert-gutter * 3 )) / $content-width) * 33.333) %
@@ -161,7 +165,7 @@ body
   background $yellow
 
 .yellow-bg .even
-  background darken(saturation($yellow, 27%), 4%)
+  background darken(saturation($yellow, 50%), 4%)
 
 .pink-bg
   background $pink
