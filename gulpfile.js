@@ -146,7 +146,6 @@ gulp.task(
   ['style', 'news', 'pages', 'work'],
   function () {
     var publisher = awspublish.create({
-      // bucket: 'sop-deploy'
       region: 'us-west-2',
       bucket: 'someoddpilot.com'
     });
@@ -155,7 +154,7 @@ gulp.task(
       'Cache-Control': 'max-age=315360000, no-transform, public'
     };
 
-    gulp.src('./dest/{**/,}*.{html,css,js}')
+    gulp.src('./dest/{**/,}*.{html,css,js,png,svg,jpg}')
       .pipe(awspublish.gzip({ext: '.gz'}))
       .pipe(publisher.publish(headers))
       .pipe(publisher.cache())
