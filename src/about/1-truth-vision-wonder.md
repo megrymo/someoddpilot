@@ -281,7 +281,7 @@ title: "Truth, Vision & Wonder"
     alt=""
     class="full illustration"
     data-anchor-target=".space-illustration"
-    data-bottom-top="top: 100px"
-    data-top-bottom="top: -100px" />
+    data-bottom-top="transform: translateY(-10%)"
+    data-top-bottom="transform: translateY(10%)" />
 </div>
 <figcaption class="grey-caption">Canon 5d Mark II<br />Telluride, Colorado</figcaption>
