@@ -4,7 +4,6 @@ module.exports = function(lvalue, rvalue, options) {
   }
   if (lvalue < rvalue || lvalue === rvalue) {
     return options.inverse(this);
-  } else {
-    return options.fn(this);
   }
+  return options.fn(this);
 };
