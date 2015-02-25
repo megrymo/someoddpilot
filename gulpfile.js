@@ -48,7 +48,7 @@ function newsTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/news"));
+    .pipe(gulp.dest("./build/news"));
 }
 
 gulp.task("news", newsTask);
@@ -69,7 +69,7 @@ function pagesTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest"));
+    .pipe(gulp.dest("./build"));
 }
 
 gulp.task("pages", pagesTask);
@@ -105,12 +105,12 @@ gulp.task("api", function () {
     count: 2,
     sortBy: sortByDate
   })
-    .pipe(gulp.dest("dest/api/news"));
+    .pipe(gulp.dest("./build/api/news"));
 });
 
 gulp.task("connect", function () {
   connect.server({
-    root: "dest"
+    root: "build"
   });
 });
 
