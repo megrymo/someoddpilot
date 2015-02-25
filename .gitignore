@@ -29,6 +29,8 @@ node_modules
 
 # Built site
 dest
+build
+dist
 
 # Plato reports
 .plato
