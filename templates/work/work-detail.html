@@ -5,17 +5,17 @@
     {{#if header}}
       <li class="full-height slide {{#if color}}{{color}}{{else}}yellow{{/if}}-bg slide-{{@index}}">
         {{#if loopingVideo.mp4}}
-        <video class="header-no-push" fill-image viewport-video="" loop="loop" autoplay="autoplay" poster="{{image}}">
+        <video class="header-no-push fill-video" viewport-video="" loop="loop" autoplay="autoplay" poster="{{image}}">
           <source src="{{loopingVideo.webm}}" type="video/webm">
           <source src="{{loopingVideo.mp4}}" type="video/mp4">
           <source src="{{loopingVideo.ogg}}" type="video/ogg">
-          <img class="fill-image header-no-push" src="{{image}}" />
         </video>
         {{/if}}
         <style>
           {{#if image}}
           .slide-{{@index}} {
-            background: url("{{image}}") center;
+            background-image: url("{{image}}");
+            background-position: center;
             background-size: cover;
           }
           {{/if}}

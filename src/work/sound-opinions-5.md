@@ -20,7 +20,7 @@ previewImages:
 slides:
   - header: "Header 1"
     headerColor: ""
-    image: "/assets/images/work/cat/cat-flag"
+    image: ""
     loopingVideo:
       mp4: ""
       webm: ""
