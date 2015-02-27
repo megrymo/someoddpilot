@@ -29,10 +29,9 @@
 require("angular");
 require("angular-scroll");
 require("./angular-menu");
-require("./angular-video");
-require("./angular-fill-image");
+require("./src/video-player");
 
-angular.module("sop", ["duScroll", "menu", "video", "imageResize"]);
+angular.module("sop", ["duScroll", "menu", "video"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);

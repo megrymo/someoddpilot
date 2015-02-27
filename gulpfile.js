@@ -125,12 +125,6 @@ gulp.task("connect", function () {
   });
 });
 
-gulp.task("watch", function () {
-  gulp.watch([globs.news, globs.about, globs.pages, globs.templates], ["pages"]);
-  gulp.watch(globs.work, ["work"]);
-  gulp.watch([globs.news, "./templates/new.html"], ["news"]);
-});
-
 gulp.task("style", function () {
   gulp.src("stylus/style.styl")
     .pipe(stylus({
@@ -142,6 +136,14 @@ gulp.task("style", function () {
     .pipe(gulp.dest("dest/css"));
 });
 
+gulp.task("watch", function () {
+  gulp.watch([globs.news, globs.about, globs.pages, globs.templates], ["pages"]);
+  gulp.watch(globs.work, ["work"]);
+  gulp.watch([globs.news, "./templates/new.html"], ["news"]);
+  gulp.watch(["./src/**/*.html"], ["templates"]);
+  gulp.watch(["./stylus/*"], ["style"]);
+});
+
 var bundler = watchify(browserify("./client.js", watchify.args));
 
 gulp.task("scripts", function () {
@@ -151,6 +153,11 @@ gulp.task("scripts", function () {
     .pipe(gulp.dest("./dest/js"));
 });
 
-gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts"]);
+gulp.task("templates", function () {
+  return gulp.src("./src/**/*.html")
+  .pipe(gulp.dest("./dest/"))
+})
+
+gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts", "templates"]);
 
 gulp.task("deploy", ["style", "news", "pages", "work"]);

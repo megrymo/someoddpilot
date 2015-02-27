@@ -15,9 +15,9 @@ title: "The Complete Thought"
   <img src="/assets/images/about/the-complete-thought-vs-fragmented.jpg" alt="The Complete Thought vs Fragmented Diagram" class="full diagram" />
 </div>
 
-<div class="contained">
+<div class="contained center-align">
   <header class="big-serif-header">We are the new model</header>
-  <img src="/assets/images/about/branding-design.jpg" alt="Branding Agency + Design Studio Diagram" class="full diagram" />
+  <img src="/assets/images/about/branding-design.jpg" alt="Branding Agency + Design Studio Diagram" class="eighty diagram" />
   <figcaption class="big-caption">Fig 3. Branding Agency + Design Studio</figcaption>
 </div>
 

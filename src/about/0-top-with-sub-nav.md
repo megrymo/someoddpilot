@@ -11,7 +11,7 @@ title: "Top About Area with TOC"
 <div class="toc center-align">
   <header class="toc-header">Table of Contents</header>
   <ul class="toc-list left-align">
-    <a href="#truth-vision-wonder" class="toc-link" du-smooth-scroll duration="1000">
+    <a href="#truth-vision-wonder" class="toc-link" du-smooth-scroll duration="1500">
       <li class="toc-item">
         Truth, Vision &amp; Wonder
       </li>
@@ -21,19 +21,11 @@ title: "Top About Area with TOC"
         The Complete Thought
       </li>
     </a>
-    <a href="#studio" class="toc-link" du-smooth-scroll duration="6000">
+    <a href="#studio" class="toc-link" du-smooth-scroll duration="4500">
       <li class="toc-item">
         Studio
       </li>
     </a>
   </ul>
 </div>
-<div class="video-wrapper" ng-controller="videoController" ng-class="class" ng-click="toggleClass()">
-  <video class="full" poster="/assets/images/work/cat/top-video-1-poster.jpg">
-    <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.mp4" type="video/mp4">
-    <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.webm" type="video/webm">
-    <source src="https://s3-us-west-2.amazonaws.com/sop-viv/viv-animation.ogv" type="video/oggs">
-    <img src="/assets/images/work/cat/top-video-1-poster.jpg" alt="" class="no-margin full" />
-  </video>
-  <button class="video-play"><span class="sr">Play Video</span></button>
-</div>
+<div player class="video-wrapper" location="work/cat/cat-flag"></div>
