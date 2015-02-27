@@ -1,48 +1,47 @@
 .slide-left,
 .slide-right{
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-	visibility: visible;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  visibility: visible;
 }
 
 .slide-left{
-	transform: translateX(-120%);
-	animation-name: slideLeft;
+  transform: translateX(-120%);
+  animation-name: slideLeft;
 }
 
 .slide-right-force
-	transform: translateX(0%);
+  transform: translateX(0%);
 
 
 .slide-right
-	transform: translateX(0%);
-	animation-name: slideRight;
+  transform: translateX(0%);
+  animation-name: slideRight;
 
 .slide-left-force
-	transform: translateX(-120%);
+  transform: translateX(-120%);
 
 
 @keyframes slideLeft {
-	0% {
-		transform: translateX(0%);
-	}
-	100% {
-		transform: translateX(-120%);
-	}
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
 }
 
 
 @keyframes slideRight {
-	0% {
-		transform: translateX(-120%);
-	}
-	100% {
-		transform: translateX(0%);
-	}
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .slide-up {
-  visibility hidden
   opacity 0
   transition all 1s ease
 }
@@ -53,7 +52,6 @@
   animation-name: slideUp;
   animation-duration: 1s;
   animation-timing-function: ease;
-  visibility: visible;
 }
 
 @keyframes slideUp {
@@ -62,7 +60,7 @@
     opacity 0
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(0);
     opacity 1
   }
 }

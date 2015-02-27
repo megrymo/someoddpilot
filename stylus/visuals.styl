@@ -16,7 +16,11 @@
 
 @media screen and (max-height: (700px))
   .header-logo
-    font-size 12vh
+    font-size 13vh
+
+@media screen and (max-height: (400px))
+  .header-logo
+    font-size (52 / $base-font-size)em
 
 .nav-icon
   display inline-block
@@ -179,7 +183,6 @@
   display: block
   width 100%
   height auto
-  visibility: hidden;
 
 .block-image + .block-image
   margin-top ($hr-gutter)px
@@ -230,6 +233,17 @@
     font-size 20px
     border-width 5px
     box-shadow 0 0 10px alpha($black, 75%)
+
+.fill-video
+  width 100%
+  height auto
+  position absolute
+  left 50%
+  top 50%
+  transform: translate(-50%, -50%)
+  @media (max-aspect-ratio: 16/9)
+    width: auto;
+    height: 100%;
 
 .work-section,
 .work-section-subheader,
@@ -293,7 +307,7 @@
   margin-bottom (5 / $base-font-size)em
 
 .chapter-copy
-  max-width 780px
+  max-width 750px
   margin 0 auto (($hr-gutter / 32) - 1)em
 
 .diagram
@@ -386,9 +400,9 @@
     transition: all ease 0.5s
 
   .email
-    height 30px
+    height 20px
     width 250px
-    padding 0 2px
+    padding 7px 2px 3px 2px
     border-bottom solid 3px $white
     border-top solid 3px $black
     text-align: left

@@ -68,6 +68,7 @@ body
 
 .full
   width 100%
+  height auto
   clear both
   overflow auto
 
@@ -79,9 +80,10 @@ body
   display: block
   position relative
   width 90%
+  height auto
   max-width ($content-width + $vert-gutter)px
   margin 0 auto
-  overflow auto
+  overflow hidden
   clear both
 
 .contained-smaller
@@ -109,6 +111,7 @@ body
 .add-lr-margin
   margin-left ((($vert-gutter / 2 ) / $content-width) * 100) %
   margin-right ((($vert-gutter / 2 ) / $content-width) * 100) %
+  height auto
 
 .left,
 .right,
@@ -117,18 +120,23 @@ body
 
 .left
   float left
+  left 0
 
 .right
   float right
+  right 0
 
 .eighty
   width 80%
+  height auto
 
 .sixty
   width 60%
+  height auto
 
 .fourty
   width 40%
+  height auto
 
 .third
   width ((($content-width - ($vert-gutter * 3 )) / $content-width) * 33.333) %
