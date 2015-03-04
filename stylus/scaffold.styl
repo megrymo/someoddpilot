@@ -164,17 +164,24 @@ body
   height: 100%
   width auto
 
+.big-caption,
+.grey-caption
+  clear both
+
 .blue-bg
   background $blue
 
 .yellow-bg
   background $yellow
 
-.yellow-bg .even
-  background darken(saturation($yellow, 50%), 4%)
+  & .even
+    background darken(saturation($yellow, 50%), 4%)
 
 .pink-bg
   background $pink
+
+  & .even
+    background darken(saturation($pink, 50%), 4%)
 
 .image-hover .block-image
   transition 0.5s all ease

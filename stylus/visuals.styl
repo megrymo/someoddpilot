@@ -278,26 +278,51 @@
 .featured .news-snippet
   padding-bottom ($hr-gutter)px
 
+.persistant-about-nav
+  position fixed
+  margin 0
+  padding (15 / $base-font-size)em 0
+  top 0
+  left 0
+  width 100%
+  box-shadow 0 0 12px alpha($black, 15%)
+  z-index 999
+  transform: translateY(-120%)
+  transition: transform 0.5s ease
+
+  &.skrollable-after
+    transform: translateY(0)
+
 .toc
   margin-top ($hr-gutter / $base-font-size)em
+  margin-bottom ($hr-gutter / $base-font-size)em
 
 .toc-list
   display: inline-block
-  margin (14 / $base-font-size)em auto ($hr-gutter / $base-font-size)em
-  padding (38 / 20)em 0
-  border 2px solid $black
-  border-left none
-  border-right none
+  margin 0 auto
+  padding 0
   list-style-type upper-roman
   list-style-position: inside
+
+  .toc &
+    margin-top (15 / $base-font-size)em
+
+.toc-link
+  display: block
+  text-align: center
+  color $black
+  text-decoration none
   white-space: no-wrap
+
+  .toc &
+    margin-top (15 / $base-font-size)em
+
+  .persistant-about-nav &
+    display: inline-block
+    margin 0 (16 / $base-font-size)em
 
 .toc-item
   padding (14 / 20)em 0
-
-.toc-link
-  color $black
-  text-decoration none
 
 .chapter-header
   text-align: center
@@ -319,7 +344,6 @@
   padding-bottom (828 / 1600 *100)%
   overflow hidden
 
-  .space,
   .illustration
     position absolute
     top 0
@@ -353,6 +377,16 @@
 
       &:last-child
         font-specs(43, 58)
+
+.chicago
+  background url("/assets/images/about/chicago.jpg") center
+  background-size cover
+  .page-subheader
+    font-specs(30, auto)
+  .display-serif
+    font-specs(206, auto)
+    text-transform: none
+
 
 .sop-footer
   display: table
