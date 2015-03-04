@@ -30,8 +30,10 @@ require("angular");
 require("angular-scroll");
 require("./angular-menu");
 require("./src/video-player");
+require("./src/animations");
+require("./src/scale-text");
 
-angular.module("sop", ["duScroll", "menu", "video"]);
+angular.module("sop", ["duScroll", "menu", "video", "animations", "scaleTextFun"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);

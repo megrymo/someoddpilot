@@ -82,11 +82,10 @@ slides:
   <div class="contained">
     <div player class="video-wrapper work-section-video right sixty" location="work/cat/cat-flag"></div>
     <img src="/assets/images/work/cat/fashion-ad.jpg"
-      class="eighty center-block work-section-image slide-up"
-      data-bottom-top=""
-      data--20p-bottom-top=""
+      class="eighty center-block work-section-image"
       width="1062"
-      height="718" />
+      height="718"
+      slide-up />
     <div class="sixty center-block">
       <p class="work-section-body">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -98,11 +97,10 @@ slides:
       </p>
     </div>
     <img src="/assets/images/work/cat/aw-book.jpg"
-      class="contained work-section-image slide-up"
-      data-bottom-top=""
-      data--20p-bottom-top=""
+      class="contained work-section-image"
       width="1400"
-      height="650" />
+      height="650"
+      slide-up />
   </div>
 </section>
 
@@ -176,26 +174,22 @@ slides:
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
     <img src="/assets/images/work/cat/cat-site.jpg"
-      class="full work-section-image slide-up"
-      data-bottom-top=""
-      data--20p-bottom-top=""
+      class="full work-section-image"
       width="983"
-      height="2629" />
+      height="2629"
+      slide-up />
     <img src="/assets/images/work/cat/cat-mobile.jpg"
-      class="full work-section-image slide-up"
-      data-bottom-top=""
-      data--20p-bottom-top=""
+      class="full work-section-image"
       width="810"
-      height="695" />
-    <div player class="video-wrapper work-section-video contained-smaller slide-up"
-      data-bottom-top=""
-      data--20p-bottom-top=""
-      location="work/cat/cat-flag"></div>
+      height="695"
+      slide-up />
+    <div player class="video-wrapper work-section-video contained-smaller"
+      location="work/cat/cat-flag"
+      slide-up></div>
     <img src="/assets/images/work/cat/cat-tech-site.jpg"
-      class="full work-section-image slide-up"
-      data-bottom-top=""
-      data--20p-bottom-top=""
+      class="full work-section-image"
       width="982"
-      height="1894" />
+      height="1894"
+      slide-up />
   </div>
 </section>

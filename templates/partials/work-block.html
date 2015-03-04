@@ -7,11 +7,10 @@
     {{/compare}}
   {{/compare}}
       <a href="/work/{{slug}}/" class="image-hover">
-        <img class="block-image slide-up bottom-gutter"
+        <img class="block-image bottom-gutter"
           src="{{ attributes.previewImages.image1.src }}"
           alt="{{ attributes.previewImages.image1.alt }}"
-          data-bottom-top=""
-          data--20p-bottom-top="" />
+          slide-up />
       </a>
   {{#compare attributes.previewLayout "===" "2up" }}
     </div>
@@ -27,18 +26,16 @@
     </div>
   {{/compare}}
   {{#compare attributes.previewLayout "===" "3up" }}
-  <div class="{{#compare attributes.textLeftorRight "===" "right"}}left{{else}}right{{/compare}}">
+  <div class="half {{#compare attributes.textLeftorRight "===" "right"}}left{{else}}right{{/compare}}">
     <a href="/work/{{slug}}/" class="image-hover">
-      <img class="block-image slide-up"
+      <img class="block-image"
         src="{{ attributes.previewImages.image2.src }}"
         alt="{{ attributes.previewImages.image2.alt }}"
-        data-bottom-top=""
-        data--20p-bottom-top="" />
+        slide-up />
       <img class="block-image slide-up"
         src="{{ attributes.previewImages.image3.src }}"
         alt="{{ attributes.previewImages.image3.alt }}"
-        data-bottom-top=""
-        data--20p-bottom-top="" />
+        slide-up />
     </a>
   </div>
   {{/compare}}
