@@ -1,4 +1,6 @@
 ---
+template: /about
+color: blue
 title: "The Complete Thought"
 ---
 <div class="contained">
@@ -30,3 +32,4 @@ title: "The Complete Thought"
   </div>
 </div>
 <img src="/assets/images/about/we-are.jpg" alt="We are the guys behind the guy, as well as the guy himself." class="full" />
+

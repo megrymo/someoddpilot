@@ -1,6 +1,49 @@
 ---
-title: "Truth, Vision & Wonder"
+template: about
+color: yellow
+headerNoPush: false
+title: "About"
 ---
+<div class="contained-smaller">
+  <div class="center-block chapter-copy">
+    <p class="drop-cap">
+      Someoddpilot is a branding agency and design
+      studio. We inspire wonder by telling your
+      story with truth and larger than life vision.
+    </p>
+
+    <p>
+      Our process guides brands to a place of absolute
+      cultural value with an extraordinary sensitivity
+      to market nuance by offering a Complete Thought:
+      our team has the unique ability to realize and
+      evolve concepts from strategy all the way through
+      execution. Nothing is lost in translation.
+    </p>
+  </div>
+</div>
+<div class="toc center-align">
+  <header class="toc-header">Table of Contents</header>
+  <ul class="toc-list left-align">
+    <a href="#truth-vision-wonder" class="toc-link" du-smooth-scroll duration="1500" offset="74">
+      <li class="toc-item">
+        Truth, Vision &amp; Wonder
+      </li>
+    </a>
+    <a href="the-complete-thought/" class="toc-link">
+      <li class="toc-item">
+        The Complete Thought
+      </li>
+    </a>
+    <a href="clients-studio/" class="toc-link">
+      <li class="toc-item">
+        Clients &amp; Studio
+      </li>
+    </a>
+  </ul>
+</div>
+<div player class="video-wrapper" location="work/cat/cat-flag" alt="Someoddpilot Reel"></div>
+
 <div class="contained">
   <div class="chapter-header" id="truth-vision-wonder">
     <div class="chapter-number">I.</div>
@@ -8,8 +51,47 @@ title: "Truth, Vision & Wonder"
   </div>
   <div class="chapter-copy display-serif contained center-block">
     <p>We are driven by wonder.</p>
-    <p>We work tirelessly to bring that to the world. Something genuine and bold, real and fantastical. Because that’s what moves people. And always has.</p>
-    <p>Inspiring wonder forges a deep bond &mdash; you leave someone better off than they were before you came along &mdash; the essence of any relationship. You’ve taught them something, given them something, and affected the way they see themselves and the world.</p>
+
+    <p>We work tirelessly to bring that to the world. Something
+    genuine and bold, real and fantastical. Because that’s
+    what moves people. And always has.</p>
+
+    <p>Inspiring wonder forges a deep bond &mdash; you leave
+    someone better off than they were before you came along
+    &mdash; the essence of any relationship. You’ve taught
+    them something, given them something, and affected the
+    way they see themselves and the world.</p>
+  </div>
+</div>
+
+<div class="contained">
+  <div class="full slider">
+    <ul class="slides">
+      <li class="slide about-truth-slide yellow-bg">
+        <img src="/assets/images/about/slide-1.jpg" alt="" class="full" />
+        <div class="white-text display-serif center-align">
+          <div class="scale-text">
+            <header>Truth</header>
+            <p>Life is authentic.</p>
+            <p>Posturing is death.</p>
+            <p>Truth resonates loudest.</p>
+          </div>
+        </div>
+        <figcaption class="grey-caption">iPhone5<br />Sansoro, Costa Rica</figcaption>
+      </li>
+      <li class="slide about-truth-slide yellow-bg">
+        <img src="/assets/images/about/slide-2.jpg" alt="" class="full" />
+        <div class="display-serif center-align">
+          <div class="scale-text">
+            <header>Vision</header>
+            <p>Life is authentic.</p>
+            <p>Posturing is death.</p>
+            <p>Truth resonates loudest.</p>
+          </div>
+        </div>
+        <figcaption class="grey-caption">iPhone5<br />Sansoro, Costa Rica</figcaption>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -230,47 +312,24 @@ title: "Truth, Vision & Wonder"
   </svg>
 </div>
 
-<div class="contained">
-  <div class="full slider">
-    <ul class="slides">
-      <li class="slide about-truth-slide yellow-bg">
-        <img src="/assets/images/about/slide-1.jpg" alt="" class="full" />
-        <div class="white-text display-serif center-align">
-          <div class="scale-text">
-            <header>Truth</header>
-            <p>Life is authentic.</p>
-            <p>Posturing is death.</p>
-            <p>Truth resonates loudest.</p>
-          </div>
-        </div>
-        <figcaption class="grey-caption">iPhone5<br />Sansoro, Costa Rica</figcaption>
-      </li>
-      <li class="slide about-truth-slide yellow-bg">
-        <img src="/assets/images/about/slide-2.jpg" alt="" class="full" />
-        <div class="display-serif center-align">
-          <div class="scale-text">
-            <header>Vision</header>
-            <p>Life is authentic.</p>
-            <p>Posturing is death.</p>
-            <p>Truth resonates loudest.</p>
-          </div>
-        </div>
-        <figcaption class="grey-caption">iPhone5<br />Sansoro, Costa Rica</figcaption>
-      </li>
-    </ul>
-  </div>
-</div>
-
 <div class="chapter-copy display-serif contained center-block">
-  <p>Truth is absolutely necessary for every relationship in our lives. Without it there’s simply no place to start. We treat “the people” as people, and start with the truth they deserve.</p>
+  <p>
+    Truth is absolutely necessary for every relationship in our lives.
+    Without it there’s simply no place to start. We treat “the people”
+    as people, and start with the truth they deserve.
+  </p>
 
-  <p>Vision drives every one of us. Some place to go to, something bigger than ourselves. Bold, fantastical, grounded in truth but reaching far beyond reason, to a place where we see our best selves.</p>
+  <p>
+    Vision drives every one of us. Some place to go to, something bigger
+    than ourselves. Bold, fantastical, grounded in truth but reaching far
+    beyond reason, to a place where we see our best selves.
+  </p>
 </div>
 
 <figcaption class="grey-caption">Canon 5d Mark II<br />Telluride, Colorado</figcaption>
-<img src="/assets/images/about/discover.jpg" alt="There is still so much left to discover" class="full" />
+<img src="/assets/images/about/discover.jpg" alt="There is still so much left to discover" class="full left" />
 
-<div class="space-illustration">
+<div class="full left space-illustration">
   <img src="/assets/images/about/space.jpg"
     alt=""
     class="full space"
@@ -285,3 +344,4 @@ title: "Truth, Vision & Wonder"
     data-top-bottom="transform: translateY(10%)" />
 </div>
 <figcaption class="grey-caption">Canon 5d Mark II<br />Telluride, Colorado</figcaption>
+<a class="big-bottom-button">Next</a>
