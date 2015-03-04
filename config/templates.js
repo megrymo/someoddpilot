@@ -2,7 +2,8 @@ module.exports = {
   partials: {
     head: "head",
     foot: "foot",
-    aboutSection: "about-section",
+    mainNav: "main-nav",
+    aboutNav: "about-nav",
     workBlock: "work-block"
   },
   globals: {
