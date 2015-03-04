@@ -20,12 +20,15 @@ app.config(['$sceProvider', function ($sceProvider) {
     restrict: 'EA',
     replace: false,
     scope: {
-      location: "@"
+      location: "@",
+      alt: "@"
     },
     templateUrl: "/video-player/templates/video-template.html",
     controller: "getUrls",
     controllerAs: "player",
     link: function (scope, element) {
+
+      element.addClass("video-wrapper");
 
       scope.isPlaying = false;
 
@@ -45,6 +48,7 @@ app.config(['$sceProvider', function ($sceProvider) {
     link: function (scope, element, attrs) {
 
       var player = element[0];
+      skrollr.get().refresh(player);
 
       scope.$watch('isPlaying', function(){
         if(!scope.isPlaying){

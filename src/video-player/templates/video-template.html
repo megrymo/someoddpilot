@@ -1,7 +1,7 @@
-<video playervideo class="full" poster="/assets/images/{{location}}.jpg" width="1600" height="900">
+<video playervideo class="full {{class}}" poster="/assets/images/{{location}}.jpg" width="1600" height="900">
   <source src="{{player.getVideoUrl(location, 'mp4')}}" type="video/mp4">
   <source src="{{player.getVideoUrl(location, 'webm')}}" type="video/webm">
   <source src="{{player.getVideoUrl(location, 'ogv')}}" type="video/ogg">
-  <img ng-src="{{player.getImageUrl(location, 'jpg')}}" alt="" class="no-margin full" />
+  <img ng-src="{{player.getImageUrl(location, 'jpg')}}" alt="{{alt}}" class="no-margin full" />
 </video>
 <button ng-show="!isPlaying" class="video-play"><span class="sr">Play Video</span></button>
