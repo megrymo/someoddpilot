@@ -3,12 +3,12 @@
   {{#compare @index "<" 3}}
   <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} even{{/everyOther}}">
     <div class="contained">
-      <div class="left">
+      <div class="half left">
         <a href="/news/{{slug}}/">
           <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
         </a>
       </div>
-      <div class="right">
+      <div class="half right">
         <a class="news-title" href="/news/{{slug}}/">
           <header>{{attributes.title}}</header>
         </a>

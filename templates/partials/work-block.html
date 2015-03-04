@@ -1,9 +1,9 @@
 <section class="contained work-block block-{{@index}}{{#compare attributes.previewLayout "!==" "1up"}} vert-center-halves{{/compare}}">
   {{#compare attributes.previewLayout "!==" "1up" }}
     {{#compare attributes.previewLayout "===" "3up" }}
-      <div class="{{#compare attributes.textLeftorRight "===" "left"}}left{{else}}right{{/compare}}">
+      <div class="half {{#compare attributes.textLeftorRight "===" "left"}}left{{else}}right{{/compare}}">
       {{else}}
-      <div class="{{#compare attributes.textLeftorRight "===" "left"}}right{{else}}left{{/compare}}">
+      <div class="half {{#compare attributes.textLeftorRight "===" "left"}}right{{else}}left{{/compare}}">
     {{/compare}}
   {{/compare}}
       <a href="/work/{{slug}}/" class="image-hover">
@@ -14,7 +14,7 @@
       </a>
   {{#compare attributes.previewLayout "===" "2up" }}
     </div>
-    <div class="{{#compare attributes.textLeftorRight "===" "right"}}right{{else}}left{{/compare}}">
+    <div class="half {{#compare attributes.textLeftorRight "===" "right"}}right{{else}}left{{/compare}}">
   {{/compare}}
       <h3 class="block-header">{{ attributes.title }}</h3>
       <p class="block-subheader">{{ attributes.subheader }}</p>
