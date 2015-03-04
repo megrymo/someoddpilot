@@ -31,7 +31,10 @@ function renamePageParentFolder(filePath) {
 
 var globs = {
   news: "./src/news/*.md",
-  about: "./src/about/*.md",
+  about: {
+    first: "./src/about/index.md",
+    others: "./src/about/!(index).md"
+  },
   pages: "./src/*.md",
   work: "./src/work/*.md",
   homeSlides: "./src/home-slides/*.md",
@@ -63,7 +66,7 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       news: globs.news,
-      about: globs.about,
+      about: globs.about.first,
       homeSlides: globs.homeSlides,
       work: globs.work,
       options: {
@@ -92,6 +95,31 @@ gulp.task("work", function () {
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/work"));
+});
+
+gulp.task("about", function () {
+  return gulp.src(globs.about.others)
+    .pipe(collections({
+      others: globs.about.others,
+      options: {
+        count: 10
+      }
+    }))
+    .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePage))
+    .pipe(templates(templateOptions))
+    .pipe(gulp.dest("./dest/about")),
+
+    gulp.src(globs.about.first)
+    .pipe(collections({
+      first: globs.about.first
+    }))
+    .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePage))
+    .pipe(templates(templateOptions))
+    .pipe(gulp.dest("./dest/about"));
 });
 
 function sortByDate(a, b) {
@@ -136,14 +164,6 @@ gulp.task("style", function () {
     .pipe(gulp.dest("dest/css"));
 });
 
-gulp.task("watch", function () {
-  gulp.watch([globs.news, globs.about, globs.pages, globs.templates], ["pages"]);
-  gulp.watch(globs.work, ["work"]);
-  gulp.watch([globs.news, "./templates/new.html"], ["news"]);
-  gulp.watch(["./src/**/*.html"], ["templates"]);
-  gulp.watch(["./stylus/*"], ["style"]);
-});
-
 var bundler = watchify(browserify("./client.js", watchify.args));
 
 gulp.task("scripts", function () {
@@ -155,9 +175,18 @@ gulp.task("scripts", function () {
 
 gulp.task("templates", function () {
   return gulp.src("./src/**/*.html")
-  .pipe(gulp.dest("./dest/"))
-})
+    .pipe(gulp.dest("./dest/"));
+});
 
-gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts", "templates"]);
+gulp.task("watch", function () {
+  gulp.watch([globs.news, globs.about.first, globs.pages, globs.about.first, globs.about.others, globs.templates], ["pages", "about"]);
+  gulp.watch(globs.work, ["work"]);
+  gulp.watch([globs.news, "./templates/news/*.html"], ["news"]);
+  gulp.watch(["./src/**/templates/*.html"], ["templates"]);
+  gulp.watch(["./stylus/*"], ["style"]);
+  gulp.watch(["./src/**/*.js"], ["scripts"]);
+});
+
+gulp.task("default", [ "style", "news", "pages", "work", "about", "connect", "watch", "scripts", "templates"]);
 
 gulp.task("deploy", ["style", "news", "pages", "work"]);
