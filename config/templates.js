@@ -4,7 +4,11 @@ module.exports = {
     foot: "foot",
     mainNav: "main-nav",
     aboutNav: "about-nav",
-    workBlock: "work-block"
+    aboutProfile: "about-profile",
+    workBlock: "work-block",
+    workTopHeader: "work-top-header",
+    workSectionHeader: "work-section-header",
+    workStack: "work-stack"
   },
   globals: {
     site: {

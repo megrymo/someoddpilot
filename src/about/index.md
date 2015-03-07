@@ -1,5 +1,5 @@
 ---
-template: about
+template: about/index
 color: yellow
 headerNoPush: false
 title: "About"
@@ -11,7 +11,6 @@ title: "About"
       studio. We inspire wonder by telling your
       story with truth and larger than life vision.
     </p>
-
     <p>
       Our process guides brands to a place of absolute
       cultural value with an extraordinary sensitivity
@@ -344,4 +343,4 @@ title: "About"
     data-top-bottom="transform: translateY(10%)" />
 </div>
 <figcaption class="grey-caption">Canon 5d Mark II<br />Telluride, Colorado</figcaption>
-<a class="big-bottom-button">Next</a>
+<a href="/about/the-complete-thought/" class="big-bottom-button">Next</a>
