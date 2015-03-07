@@ -1,7 +1,7 @@
 {{>head}}
 {{#each collections.news}}
   {{#compare @index "<" 3}}
-  <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} even{{/everyOther}}">
+  <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} darker-bg{{/everyOther}}">
     <div class="contained">
       <div class="half left">
         <a href="/news/{{slug}}/">
@@ -22,7 +22,7 @@
   {{/compare}}
   {{#compare @index ">" 2 }}
     {{#everyOther @index 6 -2}}
-      <div class="even">
+      <div class="darker-bg">
     {{/everyOther}}
     {{#everyOther @index 3 -2}}
       <div class="contained">
