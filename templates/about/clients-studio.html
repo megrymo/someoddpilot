@@ -1,0 +1,72 @@
+{{>head}}
+{{>aboutNav}}
+
+<section reveal>
+  <div class="full-height slide chicago">
+    <div class="contained sans center-align white-text">
+      <div class="scale-text">
+        <h4 class="page-subheader">EST. 1999</h4>
+        <h3 class="display-serif">Chicago</h3>
+        <h4 class="page-subheader">Wicker Park</h4>
+      </div>
+    </div>
+  </div>
+  <div class="contained">
+    <div class="chapter-header" id="truth-vision-wonder">
+      <div class="chapter-number">III.</div>
+      <h2 class="chapter-name">Studio &amp; Clients</h2>
+    </div>
+    <div class="chapter-copy display-serif contained center-block">
+      <p>{{intro}}</p>
+    </div>
+  </div>
+</section>
+<section reveal>
+  <div class="full-height darker-bg">
+    <div class="contained-smaller client-logos">
+      {{#eachLimited clients.logos 12}}
+        <div class="quarter left">
+          <image src="/assets/images/about/logos/{{logo}}" alt="{{name}}" class="full vert-center client-logo" />
+        </div>
+      {{/eachLimited}}
+    </div>
+  </div>
+  <div class="chapter-copy display-serif contained center-block">
+    <p>
+      {{clients.copy}}
+    </p>
+  </div>
+</section>
+<section class="lighter-bg" reveal>
+  <div class="contained-smaller profiles simple-fade-slider same-height-kids">
+    {{#each people}}
+      {{>aboutProfile}}
+    {{/each}}
+    <a class="prev" alt="Previous"><span class="sr">Previous</span></a>
+    <a class="next" alt="Next"><span class="sr">Next</span></a>
+  </div>
+  <div>
+</section>
+<section reveal>
+  <img src="/assets/images/about/we-are.jpg" alt="We are the guys behind the guy, as well as the guy himself." class="full" />
+</section>
+<section class="full-height reveal">
+  <div class="lighter-bg about-we-are">
+    <div class="contained">
+    <span class="contained there-are"><em>There are {{staff.total}} of us.</em></span>
+    <p class="display-serif contained list">
+      {{#each staff.titles}}
+        {{#if @first}}
+          <span class="left">We are {{number}} {{title}}<!--
+          -->{{else}}<!--
+          -->{{#if @last}}&nbsp;{{else}},&nbsp;{{/if}}</span><span class="left">{{#if @last}}&amp; {{/if}}{{number}} {{title}}{{#if @last}}.{{else}}{{/if}}<!--
+        -->{{/if}}<!--
+      -->{{/each}}<!--
+      --></span>
+    </p>
+    </div>
+  </div>
+  <a href="/contact" class="big-bottom-button">Contact</a>
+</section>
+
+{{>foot}}
