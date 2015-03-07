@@ -179,8 +179,9 @@ gulp.task("templates", function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch([globs.news, globs.about.first, globs.pages, globs.about.first, globs.about.others, globs.templates], ["pages", "about"]);
-  gulp.watch(globs.work, ["work"]);
+  gulp.watch([globs.news, globs.pages, globs.templates], ["pages"]);
+  gulp.watch(["./*/about/*"], ["about"]);
+  gulp.watch(["./*/work/*"], ["work"]);
   gulp.watch([globs.news, "./templates/news/*.html"], ["news"]);
   gulp.watch(["./src/**/templates/*.html"], ["templates"]);
   gulp.watch(["./stylus/*"], ["style"]);
