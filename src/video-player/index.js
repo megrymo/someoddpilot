@@ -6,10 +6,14 @@ app.config(['$sceProvider', function ($sceProvider) {
 .controller("getUrls", ["$scope", function (){
 
   this.getVideoUrl = function(path, ext) {
+    parts = path.split(".");
+    path = parts[0];
     return "/assets/video/" + path + "." + ext;
   };
 
   this.getImageUrl = function(path, ext) {
+    parts = path.split(".");
+    path = parts[0];
     return "/assets/images/" + path + "." + ext;
   };
 

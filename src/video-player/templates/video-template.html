@@ -1,4 +1,4 @@
-<video playervideo class="full {{class}}" poster="/assets/images/{{location}}.jpg" width="1600" height="900">
+<video playervideo class="full {{class}}" poster="{{player.getImageUrl(location, 'jpg')}}" width="1600" height="900">
   <source src="{{player.getVideoUrl(location, 'mp4')}}" type="video/mp4">
   <source src="{{player.getVideoUrl(location, 'webm')}}" type="video/webm">
   <source src="{{player.getVideoUrl(location, 'ogv')}}" type="video/ogg">
