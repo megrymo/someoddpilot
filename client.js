@@ -3,13 +3,16 @@
   var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
   var fitImage = require("./fit-image");
-  var scaleText = require("./scale-text");
+  var simpleFadeSlider = require("./src/simple-fade-slider");
+  var sameHeightKids = require("./src/same-height-kids");
+
+  simpleFadeSlider();
 
   jQuery(document).ready(function ($) {
     initSliders();
     vertCenter();
     fitImage();
-    scaleText();
+    sameHeightKids();
     skrollr.init({forceHeight: false});
   });
 
@@ -21,7 +24,7 @@
   $(window).resize(function() {
     vertCenter();
     fitImage();
-    scaleText();
+    sameHeightKids();
   });
 
 })(jQuery);
@@ -31,9 +34,8 @@ require("angular-scroll");
 require("./angular-menu");
 require("./src/video-player");
 require("./src/animations");
-require("./src/scale-text");
 
-angular.module("sop", ["duScroll", "menu", "video", "animations", "scaleTextFun"]);
+angular.module("sop", ["duScroll", "menu", "video", "animations"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);
