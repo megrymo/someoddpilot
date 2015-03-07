@@ -1,3 +1,10 @@
+.reveal
+  @extend .full-height
+
+.reveal + div,
+.reveal + section
+  position relative
+
 .slide-left,
 .slide-right{
   animation-duration: 1s;
@@ -40,6 +47,9 @@
     transform: translateX(0%);
   }
 }
+
+[slide-up]
+  opacity 0
 
 .slide-up {
   opacity 0

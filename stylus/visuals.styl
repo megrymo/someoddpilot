@@ -108,6 +108,14 @@
 .page-subheader
   margin (avg($hr-gutter $big-gutter) / 2)px 0
 
+.big-bottom-button
+  display: inline-block
+  margin ($big-gutter / 30)em auto
+  padding (14 / $base-font-size)em (20 / $base-font-size)em (10 / $base-font-size)em
+  background $black
+  color $white
+  text-decoration none
+
 .slider
   position: relative
   overflow hidden
@@ -326,7 +334,7 @@
 
 .chapter-header
   text-align: center
-  padding ($hr-gutter / $base-font-size)em 0
+  padding ($big-gutter / $base-font-size)em 0 ($hr-gutter / $base-font-size)em
 
 .chapter-number
   margin-bottom (5 / $base-font-size)em
@@ -334,6 +342,10 @@
 .chapter-copy
   max-width 750px
   margin 0 auto (($hr-gutter / 32) - 1)em
+  padding ($hr-gutter)px 0
+
+.chapter-header + .chapter-copy
+  padding-top 0
 
 .diagram
   margin ($hr-gutter / $base-font-size / 2)em auto
@@ -350,10 +362,44 @@
     left 0
 
 .mirrored-image-wrapper
+  position relative
   margin ($hr-gutter / $base-font-size * 2)em 0 0
-  padding ($hr-gutter / $base-font-size * 3)em 0 ($hr-gutter / $base-font-size * 2)em
-  background url("/assets/images/about/mirrored-image.jpg") center
-  background-size cover
+  padding-bottom (760 / 1600 * 100)%
+  background lighten($black, 50%)
+  overflow hidden
+
+  .full
+    position absolute
+    top 50%
+    margin-top ((1066 / 1600) / 2 * -100)%
+
+.expertise
+  text-align: center
+  padding 0 0 ($big-gutter / $base-font-size)em
+
+  .border
+    position absolute
+    width 100%
+    height auto
+    left 50%
+    transform: translate(-50%)
+    stroke-dasharray 1800
+
+.expertise-header
+  display: inline-block
+  margin ($hr-gutter / 30 * 1.2)em 0 ($hr-gutter / 30)em
+  &:after
+    content: ""
+    display: block
+    width 100%
+    height 0
+    margin-top -0.1em
+    border-bottom 1px $black solid
+
+.expertise-item
+  padding 0.4em 0
+  &:last-child
+    padding-bottom 0
 
 .about-section
   .slider
@@ -387,6 +433,66 @@
     font-specs(206, auto)
     text-transform: none
 
+.client-logos
+  position relative
+  margin-bottom ($hr-gutter / $base-font-size)em
+  padding (30 / 2)vh 0
+
+  .quarter
+    height (70 / 3)vh
+
+.client-logo
+  opacity 0.7
+
+.simple-fade-slider
+  .simple-fade-slide
+    opacity 0
+    position absolute
+    transition opacity 0.5s ease
+  .active
+    opacity 1
+    transition opacity 0.5s ease
+
+  .next,
+  .prev
+    position: fixed;
+    top: 0;
+    height: 300%;
+    width 33%
+    cursor: pointer
+
+  .next
+    right: 0
+    cursor: url("/assets/images/arrow-right.svg"), pointer;
+
+  .prev
+    left: 0
+    cursor: url("/assets/images/arrow-left.svg"), pointer;
+
+.profiles
+  padding ($big-gutter / $base-font-size)em 0
+  text-align: center
+
+.profile-name
+  padding (avg($hr-gutter $big-gutter))px 0 0
+
+.profile-title
+  padding ($hr-gutter / 3)px 0 ($hr-gutter / 2)px
+
+.profile-copy
+  padding ($hr-gutter)px 0
+
+.about-we-are
+  font-size: (12 / 1.2)vh
+  padding 12vh 0
+  @media (max-aspect-ratio: 4/3)
+    font-size: 6.2vw
+    padding ($hr-gutter / $base-font-size)em 0
+
+  .there-are
+    font-size: 3vh
+    @media (max-aspect-ratio: 4/3)
+      font-size: 2vw
 
 .sop-footer
   display: table
@@ -435,7 +541,7 @@
 
   .email
     height 20px
-    width 250px
+    min-width 260px
     padding 7px 2px 3px 2px
     border-bottom solid 3px $white
     border-top solid 3px $black

@@ -73,7 +73,7 @@ body
   overflow auto
 
 .full-height
-  height 100vh
+  min-height 100vh
 
 .contained,
 .contained-smaller
@@ -103,8 +103,6 @@ body
   margin 0 auto
   display: block
 
-.left,
-.right,
 .half,
 .third,
 .quarter,
@@ -171,22 +169,40 @@ body
 .blue-bg
   background $blue
 
+  .reveal
+    @extend .blue-bg
+
+  .darker-bg
+    background darken(saturation($blue, 50%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($blue, 98%), 4%)
+
 .yellow-bg
   background $yellow
 
-  & .even
+  .reveal
+    @extend .yellow-bg
+
+  .darker-bg
     background darken(saturation($yellow, 50%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($yellow, 98%), 4%)
 
 .pink-bg
   background $pink
 
-  & .even
+  .reveal
+    @extend .pink-bg
+
+  .darker-bg
     background darken(saturation($pink, 50%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($pink, 98%), 4%)
 
 .image-hover .block-image
   transition 0.5s all ease
   &:hover
     opacity: 0.8
-
-[slide-up]
-  opacity 0
