@@ -77,6 +77,19 @@ handlebars.registerHelper("everyOther", function (index, amount, offset, scope) 
     }
 });
 
+handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+  lvalue = parseFloat(lvalue);
+  rvalue = parseFloat(rvalue);
+
+  return {
+      "+": lvalue + rvalue,
+      "-": lvalue - rvalue,
+      "*": lvalue * rvalue,
+      "/": lvalue / rvalue,
+      "%": lvalue % rvalue
+  }[operator];
+});
+
 function forEachPartial(partialPath, name) {
   fs.readFile(
     path.join(
