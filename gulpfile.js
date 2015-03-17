@@ -166,6 +166,8 @@ gulp.task("style", function () {
 
 var bundler = watchify(browserify("./client.js", watchify.args));
 
+bundler.transform("babelify");
+
 gulp.task("scripts", function () {
   return bundler.bundle()
     .on("error", gutil.log.bind(gutil, "Browserify Error"))
