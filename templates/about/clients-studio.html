@@ -3,7 +3,7 @@
 
 <section reveal>
   <div class="full-height slide chicago">
-    <div class="contained sans center-align white-text">
+    <div class="contained sans center-align">
       <div class="scale-text">
         <h4 class="page-subheader">EST. 1999</h4>
         <h3 class="display-serif">Chicago</h3>
@@ -37,29 +37,44 @@
     </p>
   </div>
 </section>
-<section class="lighter-bg" reveal>
-  <div class="contained-smaller profiles simple-fade-slider same-height-kids">
+<section class="darker-bg" reveal>
+  <div simple-slider class="contained-smaller profiles same-height-kids">
     {{#each people}}
       {{>aboutProfile}}
     {{/each}}
-    <a class="prev" alt="Previous"><span class="sr">Previous</span></a>
-    <a class="next" alt="Next"><span class="sr">Next</span></a>
+    <a simple-slider-prev class="prev" alt="Previous"><span class="sr">Previous</span></a>
+    <a simple-slider-next class="next" alt="Next"><span class="sr">Next</span></a>
   </div>
   <div>
 </section>
 <section reveal>
-  <img src="/assets/images/about/we-are.jpg" alt="We are the guys behind the guy, as well as the guy himself." class="full" />
+  <div class="full studio-images">
+    <div class="left">
+      <img src="/assets/images/about/studio-1.jpg"
+        alt=""
+        class="full"
+        data-bottom-top="transform: translateY(20%) scale(1.5)"
+        data--100p-top-top="transform: translateY(-20%) scale(1.5)" />
+    </div>
+    <div class="right">
+      <img src="/assets/images/about/studio-2.jpg"
+        alt=""
+        class="full"
+        data-bottom-top="transform: translateY(20%) scale(1.5)"
+        data--100p-top-top="transform: translateY(-20%) scale(1.5)" />
+    </div>
+  </div>
 </section>
 <section class="full-height reveal">
   <div class="lighter-bg about-we-are">
     <div class="contained">
-    <span class="contained there-are"><em>There are {{staff.total}} of us.</em></span>
+    <span slide-up class="contained there-are"><em>There are {{staff.total}} of us.</em></span>
     <p class="display-serif contained list">
       {{#each staff.titles}}
         {{#if @first}}
-          <span class="left">We are {{number}} {{title}}<!--
+          <span slide-up class="left">We are {{number}} {{title}}<!--
           -->{{else}}<!--
-          -->{{#if @last}}&nbsp;{{else}},&nbsp;{{/if}}</span><span class="left">{{#if @last}}&amp; {{/if}}{{number}} {{title}}{{#if @last}}.{{else}}{{/if}}<!--
+          -->{{#if @last}}&nbsp;{{else}},&nbsp;{{/if}}</span><span slide-up class="left">{{#if @last}}&amp; {{/if}}{{number}} {{title}}{{#if @last}}.{{else}}{{/if}}<!--
         -->{{/if}}<!--
       -->{{/each}}<!--
       --></span>

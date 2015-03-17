@@ -351,7 +351,8 @@
   margin ($hr-gutter / $base-font-size / 2)em auto
 
 .t-v-w-diagram
-  font-size: 1.25em
+  font-size 1.25em
+  max-width 600px
 
   .small-text
     font-size: 0.35em
@@ -386,7 +387,7 @@
 
 .expertise
   text-align: center
-  padding 0 0 ($big-gutter / $base-font-size)em
+  padding 0 0 ($hr-gutter / $base-font-size / 2)em
 
   .border
     position absolute
@@ -406,6 +407,10 @@
     height 0
     margin-top -0.1em
     border-bottom 1px $black solid
+
+.expertise-list
+  overflow visible
+  list-style none
 
 .expertise-item
   padding 0.4em 0
@@ -438,6 +443,8 @@
 .chicago
   background url("/assets/images/about/chicago.jpg") center
   background-size cover
+
+  color $pink
   .page-subheader
     font-specs(30, auto)
   .display-serif
@@ -455,8 +462,8 @@
 .client-logo
   opacity 0.7
 
-.simple-fade-slider
-  .simple-fade-slide
+[simple-slider]
+  [simple-slider-slide]
     opacity 0
     position absolute
     transition opacity 0.5s ease
@@ -493,6 +500,25 @@
 .profile-copy
   padding ($hr-gutter)px 0
 
+.studio-images
+  padding ($small-gutter / 2 / 1600 * 100)%
+  width ((1600 - $small-gutter) / 1600 * 100)%
+
+  .left,
+  .right
+    margin ($small-gutter / 2 / 1600 * 100)%
+    overflow hidden
+
+    //take away after getting real images
+    img
+      transform: scale(1.5)
+
+  .left
+    width ((592 + ($small-gutter / 2)) / 1600 * 100)%
+
+  .right
+    width ((894 + ($small-gutter / 2))  / 1600 * 100)%
+
 .about-we-are
   font-size: (12 / 1.2)vh
   padding 12vh 0
@@ -504,6 +530,12 @@
     font-size: 3vh
     @media (max-aspect-ratio: 4/3)
       font-size: 2vw
+
+.blockquote
+  padding ($big-gutter)px 0 0
+
+.blockquote-cite
+  padding ($hr-gutter / 2)px 0 ($big-gutter)px
 
 .sop-footer
   display: table

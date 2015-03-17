@@ -37,7 +37,9 @@
   @extend .sans
   font-specs(22, 30, 200)
 
-.work-section-body
+.work-section-body,
+.blockquote,
+.blockquote-cite
   @extend .serif
 
 .main-nav
@@ -107,7 +109,7 @@
 
 .chapter-copy
   @extend .display-serif
-  font-specs(32, (32 * 1.2))
+  font-specs(32, 50)
 
   p
     margin-bottom 1em
@@ -179,3 +181,23 @@
 .big-bottom-button
   @extend .sans
   font-specs(30, auto, 200)
+
+.blockquote,
+.blockquote-cite
+  text-align: center
+
+.blockquote
+  font-specs(30, 50)
+  font-style: italic
+
+  &:before
+    content: "“"
+  &:after
+    content: "”"
+
+.blockquote-cite
+  font-style: normal
+  font-specs(20, 30)
+
+  &:before
+    content: "—"

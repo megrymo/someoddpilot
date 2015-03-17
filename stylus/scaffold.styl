@@ -173,7 +173,7 @@ body
     @extend .blue-bg
 
   .darker-bg
-    background darken(saturation($blue, 50%), 4%)
+    background darken(desaturate($blue, 10%), 4%)
 
   .lighter-bg
     background saturate(lightness($blue, 98%), 4%)
@@ -197,7 +197,7 @@ body
     @extend .pink-bg
 
   .darker-bg
-    background darken(saturation($pink, 50%), 4%)
+    background darken(desaturate($pink, 10%), 4%)
 
   .lighter-bg
     background saturate(lightness($pink, 98%), 4%)
