@@ -127,38 +127,25 @@
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px" y="0px"
       width="998px"
-      height="742px"
-      viewBox="0 0 998 742"
-      enable-background="new 0 0 998 742"
+      height="{{math (math expertise.length "+" "3.25") "*" "8"}}2px"
+      viewBox="0 0 998 {{math (math expertise.length "+" "3.25") "*" "8"}}2"
+      enable-background="new 0 0 998 {{math (math expertise.length "+" "3.25") "*" "8"}}2"
       xml:space="preserve"
       data-20p-center-top="stroke-dashoffset:1800;"
       data--10p-bottom-bottom="stroke-dashoffset:0;"
       data-target-anchor=".expertise">
-      <polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="499,2 2,2 2,740 499,740 "/>
-      <polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="499,2 996,2 996,740 499,740 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="499,2 2,2 2,{{math (math expertise.length "+" "3.25") "*" "8"}}0 499,{{math (math expertise.length "+" "3.25") "*" "8"}}0 "/>
+      <polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="499,2 996,2 996,{{math (math expertise.length "+" "3.25") "*" "8"}}0 499,{{math (math expertise.length "+" "3.25") "*" "8"}}0 "/>
     </svg>
     <header class="expertise-header">
       Expertise
     </header>
     <ul class="expertise-list">
+      {{#each expertise}}
       <li slide-up class="expertise-item">
-        Branding
+        {{this}}
       </li>
-      <li slide-up class="expertise-item">
-        Print & Digital Advertising
-      </li>
-      <li slide-up class="expertise-item">
-        Web & Mobile
-      </li>
-      <li slide-up class="expertise-item">
-        Photography, Film & Video
-      </li>
-      <li slide-up class="expertise-item">
-        Packaging
-      </li>
-      <li slide-up class="expertise-item">
-        Content Strategy
-      </li>
+      {{/each}}
     </ul>
   </div>
 </div>
