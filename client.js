@@ -6,14 +6,22 @@
   var simpleFadeSlider = require("./src/simple-fade-slider");
   var sameHeightKids = require("./src/same-height-kids");
 
-  simpleFadeSlider();
-
   jQuery(document).ready(function ($) {
     initSliders();
     vertCenter();
     fitImage();
     sameHeightKids();
     skrollr.init({forceHeight: false});
+
+    $("[simple-slider]").map(function (index, element) {
+      console.log(element);
+      return new simpleFadeSlider(
+        element, {
+          delay: "10"
+        }
+      );
+    });
+
   });
 
   $(window).load(function() {
