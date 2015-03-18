@@ -12,8 +12,9 @@ module.exports = class Slider {
       nextButton: "[simple-slider-next]"
     }, options);
 
+    this.delaySetting = $(element).data("slider-delay"),
     // 5 seconds
-    this.delay = $(element).data("slider-delay") || 5 * 1000;
+    this.delay = this.delaySetting === undefined ? 5 * 1000 : this.delaySetting;
     this.slides = $(element).find(this.options.slides);
     this.counter = $(element).find(this.options.counter);
     this.indicators = $(element).find(this.options.indicators);

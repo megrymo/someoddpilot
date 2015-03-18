@@ -32,12 +32,6 @@ function initSliders() {
       $(lastSlide).addClass("slide-left");
     }
 
-    function doSlide(){
-      timer = setInterval(function(){
-      moveLeft();
-      }, 8000);
-    }
-
     if (slideCount > 1) {
       $(this).append([
         "<div class='pager'>",
@@ -71,21 +65,31 @@ function initSliders() {
       });
 
       $(firstSlide).addClass("slide-left-force").appendTo(slides);
-      doSlide();
+
+      var timer = setInterval(function(){
+        moveLeft();
+      }, 8000);
+
+      skrollr.get().refresh($(this));
 
       $(".prev").click(function () {
         moveRight();
+        clearInterval(timer);
       });
 
       $(".next").click(function () {
         moveLeft();
+        clearInterval(timer);
       });
 
       $(this).hover(function(){
         clearInterval(timer);
       });
+
       $(this).mouseleave(function(){
-        doSlide();
+        var timer = setInterval(function(){
+          moveLeft();
+        }, 8000);
       });
     }
 

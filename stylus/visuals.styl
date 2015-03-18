@@ -315,6 +315,12 @@
   .toc &
     margin-top (15 / $base-font-size)em
 
+  .persistant-about-nav &
+    display: block
+    padding 0 20px
+
+    text-align: center
+
 .toc-link
   display: block
   text-align: center
@@ -351,6 +357,8 @@
   margin ($hr-gutter / $base-font-size / 2)em auto
 
 .t-v-w-diagram
+  padding-top 90px
+
   font-size 1.5em
   max-width 650px
   overflow visible
@@ -362,6 +370,56 @@
   .medium-text
     font-size: 0.45em
     letter-spacing: 0.15em
+
+
+.compare
+  position relative
+  margin-top ($big-gutter / $base-font-size)em
+
+  & + .big-caption
+    margin-bottom ($hr-gutter / $base-font-size)em
+
+.compare-words
+  position absolute
+  text-align: center
+
+  left 50%
+  top 0
+
+  height 100%
+
+  transform: translateX(-50%)
+
+  max-width 500px
+
+  [simple-slider-slide]
+    display: inline-block
+    left 50%
+    height 100%
+    width 100%
+    transform: translateX(-50%)
+
+    font-specs(8, 12, 100)
+
+    transition opacity 0.25s ease !important
+
+    .top,
+    .bottom
+      position absolute
+      transform: translate(-50%, -50%)
+
+      left 50%
+
+      text-align: center
+
+    .top
+      top 35%
+      width 30%
+
+    .bottom
+      bottom 15%
+      width 16%
+      transform: translate(-50%, 50%)
 
 .space-illustration
   position relative
@@ -467,10 +525,12 @@
   [simple-slider-slide]
     opacity 0
     position absolute
-    transition opacity 0.5s ease
+    transition opacity 1.5s ease
+    z-index 1
   .active
     opacity 1
     transition opacity 0.5s ease
+    z-index 5
 
   .next,
   .prev

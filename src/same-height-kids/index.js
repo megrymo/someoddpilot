@@ -1,11 +1,11 @@
 function sameHeightKids(){
 
-  var elem = $(".same-height-kids"),
-      kids = $(".same-height-kids > div");
+  var elem = $(".same-height-kids");
 
   elem.each(function(){
 
-    var maxHeight = 0;
+    var kids = $(this).find("> div"),
+        maxHeight = 0;
 
     kids.each(function(){
       $(this).height("auto");
@@ -14,9 +14,13 @@ function sameHeightKids(){
       }
     });
 
-    elem.height(maxHeight);
+    $(this).height(maxHeight);
     kids.height(maxHeight);
+    skrollr.get().refresh($(this));
+    skrollr.get().refresh(kids);
+
   });
+
 }
 
 module.exports = sameHeightKids;

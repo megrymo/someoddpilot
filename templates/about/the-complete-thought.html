@@ -1,6 +1,15 @@
 {{>head}}
 {{>aboutNav}}
-<img src="/assets/images/about/we-are.jpg" alt="We are the guys behind the guy, as well as the guy himself." class="full" />
+<div class="full same-height-kids"
+  simple-slider>
+  {{#each topImages}}
+  <div simple-slider-slide class="full {{#if @first}}active{{/if}}">
+    <img src="/assets/images/about/{{file}}"
+      alt="{{alt}}"
+      class="full" />
+  </div>
+  {{/each}}
+</div>
 
 <div class="contained">
   <div class="chapter-header" id="the-complete-thought">
@@ -15,55 +24,6 @@
       Our work is crafted with extraordinary sensitivity for medium and audience, and we do it ourselves - the same minds who formulate the strategy and intimately understand the audience, get behind the camera, the design tools, the code, the pen and pencil. Nothing is lost in translation.
     </p>
   </div>
-</div>
-
-<div class="mirrored-image-wrapper">
-  <img src="/assets/images/about/mirrored-image-2.png" class="full"
-    data-anchor-target=".mirrored-image-wrapper"
-    data-bottom-top="transform: translateY(15%)"
-    data-top-bottom="transform: translateY(-15%)">
-  <img src="/assets/images/about/mirrored-image-1.png" class="full"
-    data-anchor-target=".mirrored-image-wrapper"
-    data-bottom-top="transform: translateY(-18%)"
-    data-top-bottom="transform: translateY(18%)">
-  <img src="/assets/images/about/mirrored-image-3-1.png" class="full"
-    data-anchor-target=".mirrored-image-wrapper"
-    data-bottom-top="transform: translateY(10%)"
-    data-top-bottom="transform: translateY(-10%)">
-  <img src="/assets/images/about/mirrored-image-3-2.png" class="full"
-    data-anchor-target=".mirrored-image-wrapper"
-    data-bottom-top="transform: translateY(-13%)"
-    data-top-bottom="transform: translateY(13%)">
-  <img src="/assets/images/about/medium-fearless.png" class="full"
-    data-anchor-target=".mirrored-image-wrapper"
-    data-bottom-top="transform: translateY(5%)"
-    data-top-bottom="transform: translateY(-5%)">
-  <img src="/assets/images/about/mirrored-image-3-3.png" class="full"
-    data-anchor-target=".mirrored-image-wrapper"
-    data-bottom-top="transform: translateY(-2%)"
-    data-top-bottom="transform: translateY(2%)">
-</div>
-<div class="mirrored-image-wrapper" id="mirror2">
-  <img src="/assets/images/about/mirrored-image-2.png" class="full"
-    data-anchor-target="#mirror2"
-    data-bottom-top="transform: translateY(15%)"
-    data-top-bottom="transform: translateY(-15%)">
-  <img src="/assets/images/about/mirrored-image-1.png" class="full"
-    data-anchor-target="#mirror2"
-    data-bottom-top="transform: translateY(-18%)"
-    data-top-bottom="transform: translateY(18%)">
-  <img src="/assets/images/about/mirrored-image-3-2.png" class="full"
-    data-anchor-target="#mirror2"
-    data-bottom-top="transform: translateY(10%)"
-    data-top-bottom="transform: translateY(-10%)">
-  <img src="/assets/images/about/medium-fearless.png" class="full"
-    data-anchor-target="#mirror2"
-    data-bottom-top="transform: translateY(5%)"
-    data-top-bottom="transform: translateY(-5%)">
-  <img src="/assets/images/about/mirrored-image-3-1.png" class="full"
-    data-anchor-target="#mirror2"
-    data-bottom-top="transform: translateY(-2%)"
-    data-top-bottom="transform: translateY(2%)">
 </div>
 
 <div class="mirrored-image-wrapper" id="mirror4">
@@ -85,33 +45,6 @@
     data-top-bottom="transform: translateY(-5%)">
   <img src="/assets/images/about/mirrored-image-3-1.png" class="full"
     data-anchor-target="#mirror4"
-    data-bottom-top="transform: translateY(-2%)"
-    data-top-bottom="transform: translateY(2%)">
-</div>
-
-<div class="mirrored-image-wrapper" id="mirror3">
-  <img src="/assets/images/about/mirrored-image-2.png" class="full"
-    data-anchor-target="#mirror3"
-    data-bottom-top="transform: translateY(7%)"
-    data-top-bottom="transform: translateY(-7%)">
-  <img src="/assets/images/about/mirrored-image-1.png" class="full"
-    data-anchor-target="#mirror3"
-    data-bottom-top="transform: translateY(-9%)"
-    data-top-bottom="transform: translateY(9%)">
-  <img src="/assets/images/about/mirrored-image-3-2.png" class="full"
-    data-anchor-target="#mirror3"
-    data-bottom-top="transform: translateY(5%)"
-    data-top-bottom="transform: translateY(-5%)">
-  <img src="/assets/images/about/mirrored-image-3-3.png" class="full"
-    data-anchor-target="#mirror3"
-    data-bottom-top="transform: translateY(-6%)"
-    data-top-bottom="transform: translateY(6%)">
-  <img src="/assets/images/about/medium-fearless.png" class="full"
-    data-anchor-target="#mirror3"
-    data-bottom-top="transform: translateY(3%)"
-    data-top-bottom="transform: translateY(-3%)">
-  <img src="/assets/images/about/mirrored-image-3-1.png" class="full"
-    data-anchor-target="#mirror3"
     data-bottom-top="transform: translateY(-2%)"
     data-top-bottom="transform: translateY(2%)">
 </div>
@@ -150,23 +83,29 @@
   </ul>
 </div>
 
-<img src="/assets/images/about/we-are.jpg" alt="We are the guys behind the guy, as well as the guy himself." class="full" />
+<img src="/assets/images/about/for-the-people.jpg" alt="For the People" class="full" />
 
 <div class="contained">
-  <div class="serif contained-smaller center-block">
-    <blockquote class="blockquote">
-      I have never met another agency that was so incredibly spot-on
-      with the caliber of strategic and creative work, in as many different
-      mediums. From long form videos to websites. It’s truly a head scratcher.
-    </blockquote>
-    <div class="contained-smaller blockquote-cite">
-      <strong>Phil Borthwick</strong>, <em>European Marketing Director, Cat Footwear,
-      formerly Global Marketing Director at Dr. Martens.</em>
-    </div>
+  <div class="chapter-copy display-serif contained center-block">
+    People. There, we said it. Why is that so difficult to remember? Business is people talking to people. People need to be treated with respect, and that means understanding who they are, what they want and leaving them better off than when you found them. Inspire them. Otherwise you’re not a friend, you’re spam.
   </div>
 </div>
 
 <img src="/assets/images/about/we-are.jpg" alt="We are the guys behind the guy, as well as the guy himself." class="full" />
+
+<div class="contained">
+  <div class="serif contained-smaller center-block">
+    {{#each testimonials}}
+    <blockquote class="blockquote">
+      {{quote}}
+    </blockquote>
+    <div class="contained-smaller blockquote-cite">
+      <strong>{{name}}</strong>{{#if title}}, <em>{{{title}}}.</em>{{/if}}
+    </div>
+    {{/each}}
+  </div>
+
+</div>
 
 <div class="darker-bg">
   <div class="contained center-align darker-bg">
@@ -186,15 +125,15 @@
         xml:space="preserve">
         <circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="300" cy="370.632" r="292.455"
           data-center-top="stroke-dashoffset: 1850;stroke-dasharray: 1850;"
-          data-70-top-top="stroke-dashoffset: 0;stroke-dasharray: 1850;"
+          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 1850;"
           data-anchor-target=".t-v-w-diagram" />
         <polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="467.005,611.651 300,821.517 132.994,611.652"
-          data-20p-top-top="stroke-dashoffset: 555;stroke-dasharray: 555;"
-          data-70-top-top="stroke-dashoffset: 0;stroke-dasharray: 555;"
+          data-90-top-top="stroke-dashoffset: 555;stroke-dasharray: 555;"
+          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 555;"
           data-anchor-target=".t-v-w-diagram" />
         <circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="300" cy="834.102" r="32.422"
-          data-20p-top-top="stroke-dashoffset: 250;stroke-dasharray: 250;"
-          data-70-top-top="stroke-dashoffset: 0;stroke-dasharray: 250;"
+          data-90-top-top="stroke-dashoffset: 220;stroke-dasharray: 220;"
+          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 220;"
           data-anchor-target=".t-v-w-diagram" />
 
         <text class="slide-up" x="300" y="385" text-anchor="middle">Wonder</text>
@@ -216,16 +155,17 @@
         <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="298" cy="758" r="127.5"/>
         <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="299" cy="370" r="131.5"/>
 
-        <g data-40p-top-top="stroke-dashoffset: 250;stroke-dasharray: 250;"
-          data-70-top-top="stroke-dashoffset: 0;stroke-dasharray: 250;">
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="165.325,360.458 157.616,368.168 149.91,360.458"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="243.121,505.72 243.121,516.619 232.22,516.619"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="253.145,594.726 264.047,594.726 264.046,605.625"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="358.635,501.255 369.536,501.255 369.536,512.155"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="149.91,763.925 157.617,756.216 165.325,763.925"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="447.021,754.738 439.312,762.444 431.604,754.738"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="297.882,905.882 290.173,898.173 297.882,890.465"/>
-          <polyline class="animate-svg-short" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="297.882,237.484 290.173,229.777 297.882,222.068"/>
+        <g data-90-top-top="stroke-dashoffset: 30;stroke-dasharray: 30;"
+          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 30;"
+          data-anchor-target=".t-v-w-diagram">
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="165.325,360.458 157.616,368.168 149.91,360.458"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="243.121,505.72 243.121,516.619 232.22,516.619"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="253.145,594.726 264.047,594.726 264.046,605.625"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="358.635,501.255 369.536,501.255 369.536,512.155"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="149.91,763.925 157.617,756.216 165.325,763.925"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="447.021,754.738 439.312,762.444 431.604,754.738"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="297.882,905.882 290.173,898.173 297.882,890.465"/>
+          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="297.882,237.484 290.173,229.777 297.882,222.068"/>
         </g>
 
         <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="403" cy="249" r="63"/>
@@ -248,8 +188,8 @@
         </text>
 
         <g data-anchor-target=".t-v-w-diagram"
-          data-12p-top-top="opacity: 0"
-          data-2p-top-top="opacity: 1">
+          data-60-top-top="opacity: 0"
+          data-top-top="opacity: 1">
           <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="500.176" y1="401.02" x2="478.746" y2="481.5"/>
           <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="472.267" y1="294.109" x2="486.987" y2="323.419"/>
           <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="464.945" y1="360.548" x2="439.311" y2="360.548"/>
@@ -262,7 +202,7 @@
     <figcaption class="big-caption">Fig 3. How it all works</figcaption>
 
     <div
-      class="diagram"
+      class="diagram compare"
       data-bottom-top=""
       data-20p-center-center="">
       <svg
@@ -270,14 +210,24 @@
         version="1.1" id="images"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        width="474px"
+        width="460px"
         height="372"
-        viewBox="-2 303 474 372"
-        enable-background="new -2 303 474 372"
+        viewBox="0 303 460 372"
+        enable-background="new 0 303 460 372"
         xml:space="preserve">
         <circle fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" cx="230" cy="611.917" r="44.652"/>
         <polyline fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" points="460,305.556 230,594.584 0,305.557 "/>
       </svg>
+      <div class="contained-smaller compare-words"
+        simple-slider
+        data-slider-delay="1500">
+        {{#each comparisons}}
+        <div simple-slider-slide {{#if @first}}class="active"{{/if}}>
+          <div class="top">{{{top}}}</div>
+          <div class="bottom">{{{bottom}}}</div>
+        </div>
+        {{/each}}
+      </div>
     </div>
 
     <figcaption class="big-caption">Fig 3. The new model</figcaption>
