@@ -31,11 +31,12 @@ function renamePageParentFolder(filePath) {
 
 var globs = {
   news: "./src/news/*.md",
-  pages: "./src/*.md",
-  work: {
-    indexes: "./src/work/**/index.md",
-    sections: "./src/work/**/!(index).md"
+  about: {
+    first: "./src/about/index.md",
+    others: "./src/about/!(index).md"
   },
+  pages: "./src/*.md",
+  work: "./src/work/*.md",
   homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
@@ -65,8 +66,9 @@ function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
       news: globs.news,
+      about: globs.about.first,
       homeSlides: globs.homeSlides,
-      work: globs.work.indexes,
+      work: globs.work,
       options: {
         count: 10
       }
@@ -81,18 +83,43 @@ function pagesTask() {
 gulp.task("pages", pagesTask);
 
 gulp.task("work", function () {
-  return gulp.src(globs.work.indexes)
+  return gulp.src(globs.work)
     .pipe(collections({
-      sections: globs.work.sections,
+      work: globs.work,
       options: {
         count: 10
       }
     }))
     .pipe(frontMatter(fmOptions))
     .pipe(marked())
-    .pipe(rename(renamePageParentFolder))
+    .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/work"));
+});
+
+gulp.task("about", function () {
+  return gulp.src(globs.about.others)
+    .pipe(collections({
+      others: globs.about.others,
+      options: {
+        count: 10
+      }
+    }))
+    .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePage))
+    .pipe(templates(templateOptions))
+    .pipe(gulp.dest("./dest/about")),
+
+    gulp.src(globs.about.first)
+    .pipe(collections({
+      first: globs.about.first
+    }))
+    .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePage))
+    .pipe(templates(templateOptions))
+    .pipe(gulp.dest("./dest/about"));
 });
 
 function sortByDate(a, b) {
@@ -126,11 +153,6 @@ gulp.task("connect", function () {
   });
 });
 
-gulp.task("watch", function () {
-  gulp.watch([globs.news, globs.pages, globs.templates], ["pages"]);
-  gulp.watch([globs.news, "./templates/new.html"], ["news"]);
-});
-
 gulp.task("style", function () {
   gulp.src("stylus/style.styl")
     .pipe(stylus({
@@ -144,6 +166,8 @@ gulp.task("style", function () {
 
 var bundler = watchify(browserify("./client.js", watchify.args));
 
+bundler.transform("babelify");
+
 gulp.task("scripts", function () {
   return bundler.bundle()
     .on("error", gutil.log.bind(gutil, "Browserify Error"))
@@ -151,6 +175,21 @@ gulp.task("scripts", function () {
     .pipe(gulp.dest("./dest/js"));
 });
 
-gulp.task("default", ["style", "news", "pages", "work", "connect", "watch", "scripts"]);
+gulp.task("templates", function () {
+  return gulp.src("./src/**/*.html")
+    .pipe(gulp.dest("./dest/"));
+});
+
+gulp.task("watch", function () {
+  gulp.watch([globs.news, globs.pages, globs.templates], ["pages"]);
+  gulp.watch(["./*/about/*"], ["about"]);
+  gulp.watch(["./*/work/*"], ["work"]);
+  gulp.watch([globs.news, "./templates/news/*.html"], ["news"]);
+  gulp.watch(["./src/**/templates/*.html"], ["templates"]);
+  gulp.watch(["./stylus/*"], ["style"]);
+  gulp.watch(["./src/**/*.js"], ["scripts"]);
+});
+
+gulp.task("default", [ "style", "news", "pages", "work", "about", "connect", "watch", "scripts", "templates"]);
 
 gulp.task("deploy", ["style", "news", "pages", "work"]);

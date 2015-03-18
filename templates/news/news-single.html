@@ -9,7 +9,7 @@
       <p class="news-date">{{date}}</p>
       <div class="news-snippet">
         {{{contents}}}
-        <div class="fb-like" data-href="http://someoddpilot.com/news/{{slug}}/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+        <div class="fb-like" data-href="http://someoddpilot.com/{{url}}" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
 
 {{#each collections.news}}
   {{#everyOther @index 6 -2}}
-    <div class="even">
+    <div class="darker-bg">
   {{/everyOther}}
   {{#everyOther @index 3 -2}}
     <div class="contained">

@@ -4,10 +4,6 @@ var fs = require("fs");
 var path = require("path");
 var through = require("through2");
 
-handlebars.registerHelper("json", function (obj) {
-  return JSON.stringify(obj);
-});
-
 handlebars.registerHelper("compare", function (lvalue, operator, rvalue, options) {
 
     var operators, result;
@@ -35,6 +31,10 @@ handlebars.registerHelper("compare", function (lvalue, operator, rvalue, options
         "contains": function (l, r) {
           var what = new RegExp(r);
           return what.test(l); },
+        "doesntContain": function (l, r) {
+          var whatNot = new RegExp(r);
+          var doesIt =  !whatNot.test(l);
+          return !doesIt; },
         "any": function (l, r) {
           r = r.split(" ");
           return _.contains(r, l);}
@@ -75,6 +75,19 @@ handlebars.registerHelper("everyOther", function (index, amount, offset, scope) 
     } else {
       return scope.fn(this);
     }
+});
+
+handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+  lvalue = parseFloat(lvalue);
+  rvalue = parseFloat(rvalue);
+
+  return {
+      "+": lvalue + rvalue,
+      "-": lvalue - rvalue,
+      "*": lvalue * rvalue,
+      "/": lvalue / rvalue,
+      "%": lvalue % rvalue
+  }[operator];
 });
 
 function forEachPartial(partialPath, name) {

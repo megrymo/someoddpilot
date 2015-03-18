@@ -1,8 +1,8 @@
 {{>head}}
   <div class="full slider home-slider">
-    <ul class="slides">
+    <ul class="full-height slides">
     {{#each collections.homeSlides}}
-      <li class="slide {{#if attributes.color}}{{attributes.color}}{{else}}yellow{{/if}}-bg {{slug}}">
+      <li class="full-height slide {{#if attributes.color}}{{attributes.color}}{{else}}yellow{{/if}}-bg {{slug}}">
         {{#if attributes.link}}<a href="{{attributes.link}}">{{/if}}
         {{{body}}}
         {{#if attributes.link}}</a>{{/if}}
@@ -11,10 +11,10 @@
     </ul>
   </div>
 
-  <section class="contained recent-work">
+  <section class="recent-work">
     <h2 class="page-subheader">Recent Work</h2>
     {{#eachLimited collections.work 4}}
-      {{>projectBlock}}
+      {{>workBlock}}
     {{/eachLimited}}
   </section>
 {{>foot}}

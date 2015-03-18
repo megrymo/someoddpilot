@@ -1,51 +1,67 @@
+.reveal
+  @extend .full-height
+
+.reveal + div,
+.reveal + section
+  position relative
+
 .slide-left,
 .slide-right{
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-	visibility: visible !important;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  visibility: visible;
 }
 
 .slide-left{
-	transform: translateX(-150%);
-	animation-name: slideLeft;
+  transform: translateX(-120%);
+  animation-name: slideLeft;
 }
 
 .slide-right-force
-	transform: translateX(0%);
+  transform: translateX(0%);
 
 
 .slide-right
-	transform: translateX(0%);
-	animation-name: slideRight;
+  transform: translateX(0%);
+  animation-name: slideRight;
 
 .slide-left-force
-	transform: translateX(-150%);
+  transform: translateX(-120%);
 
 
 @keyframes slideLeft {
-	0% {
-		transform: translateX(0%);
-	}
-	100% {
-		transform: translateX(-150%);
-	}
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
 }
 
 
 @keyframes slideRight {
-	0% {
-		transform: translateX(-150%);
-	}
-	100% {
-		transform: translateX(0%);
-	}
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-.slide-up{
+[slide-up]
+  opacity 0
+
+.slide-up {
+  opacity 0
+  transition all 1s ease
+}
+
+.skrollable-after.slide-up,
+.skrollable-after .slide-up{
+  opacity 1
   animation-name: slideUp;
   animation-duration: 1s;
   animation-timing-function: ease;
-  visibility: visible !important;
 }
 
 @keyframes slideUp {
@@ -54,7 +70,20 @@
     opacity 0
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(0);
     opacity 1
+  }
+}
+
+.spinning {
+  animation: spinning 30s infinite linear
+}
+
+@keyframes spinning {
+  0% {
+    stroke-dashoffset 0
+  }
+  100% {
+    stroke-dashoffset 200
   }
 }

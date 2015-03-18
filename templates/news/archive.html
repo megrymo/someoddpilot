@@ -1,14 +1,14 @@
 {{>head}}
 {{#each collections.news}}
   {{#compare @index "<" 3}}
-  <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} even{{/everyOther}}">
+  <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} darker-bg{{/everyOther}}">
     <div class="contained">
-      <div class="left">
+      <div class="half left">
         <a href="/news/{{slug}}/">
           <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
         </a>
       </div>
-      <div class="right">
+      <div class="half right">
         <a class="news-title" href="/news/{{slug}}/">
           <header>{{attributes.title}}</header>
         </a>
@@ -22,12 +22,12 @@
   {{/compare}}
   {{#compare @index ">" 2 }}
     {{#everyOther @index 6 -2}}
-      <div class="even">
+      <div class="darker-bg">
     {{/everyOther}}
     {{#everyOther @index 3 -2}}
       <div class="contained">
     {{/everyOther}}
-      <article class="news-article news-article-{{@index}}">
+      <article class="third news-article news-article-{{@index}}">
         <a href="/news/{{slug}}/">
           <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
         </a>

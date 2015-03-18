@@ -1,17 +1,33 @@
 ---
-title: "Sound Opinions"
+title: "Sound Opinions 3up L"
 subheader: "Re-branding"
-linkText: "more"
-template: work
-layout1: 1-2up
-images:
+color: "yellow"
+preview:
+  layout: 3up
+  textLeftorRight: "left"
+  linkText: ""
   image1:
-    src: "/assets/images/projects/project1-1.png"
+    src: "sample/project1-1.png"
     alt: "picture alt 1"
   image2:
-    src: "/assets/images/projects/project1-2.jpg"
+    src: "sample/project1-2.jpg"
     alt: "picture alt 2"
   image3:
-    src: "/assets/images/projects/project1-2.jpg"
+    src: "sample/project1-2.jpg"
     alt: "picture alt 3"
+slides:
+  - header: "Header 1"
+    headerColor: ""
+    image: ""
+    loopingVideo:
+      mp4: ""
+      webm: ""
+      ogg: ""
+  - header: "Header 2"
+    headerColor: "ff6600"
+    image: ""
+    loopingVideo:
+      mp4: ""
+      webm: ""
+      ogg: ""
 ---
