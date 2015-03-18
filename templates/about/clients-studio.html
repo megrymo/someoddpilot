@@ -38,7 +38,9 @@
   </div>
 </section>
 <section class="darker-bg" reveal>
-  <div simple-slider class="contained-smaller profiles same-height-kids">
+  <div simple-slider
+    data-slider-delay="0"
+    class="contained-smaller profiles same-height-kids">
     {{#each people}}
       {{>aboutProfile}}
     {{/each}}
