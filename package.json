@@ -4,7 +4,7 @@
   "description": "Someoddpilot’s site generator",
   "main": "index.js",
   "scripts": {
-    "test": "eslint -c .eslintrc {gulpfile,app,client,helpers/*}.js"
+    "test": "./node_modules/eslint/bin/eslint.js -c .eslintrc {gulpfile,app,client,helpers/*}.js"
   },
   "author": "Alex Robertson <alex@someoddpilot.com>",
   "license": "ISC",
