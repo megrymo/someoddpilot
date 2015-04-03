@@ -4,7 +4,8 @@
   "description": "Someoddpilot’s site generator",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp deploy"
+    "postinstall": "gulp deploy",
+    "test": "eslint -c .eslintrc {gulpfile,app,client,helpers/*}.js"
   },
   "author": "Alex Robertson <alex@someoddpilot.com>",
   "license": "ISC",
@@ -46,5 +47,7 @@
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.2.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "*"
+  }
 }
