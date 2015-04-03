@@ -4,7 +4,6 @@
   "description": "Someoddpilot’s site generator",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp deploy",
     "test": "eslint -c .eslintrc {gulpfile,app,client,helpers/*}.js"
   },
   "author": "Alex Robertson <alex@someoddpilot.com>",
