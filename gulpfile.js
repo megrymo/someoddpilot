@@ -16,6 +16,7 @@ var source = require("vinyl-source-stream");
 var gutil = require("gulp-util");
 var _ = require("lodash");
 var awspublish = require('gulp-awspublish');
+var eslint = require('gulp-eslint');
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
@@ -161,3 +162,10 @@ gulp.task(
       .pipe(awspublish.reporter());
   }
 );
+
+gulp.task('test', function testTask() {
+  return gulp.src('{gulpfile,app,client,helpers/*}.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
+});
