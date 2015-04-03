@@ -3,6 +3,7 @@ var _ = require("lodash");
 var fs = require("fs");
 var path = require("path");
 var consolidate = require("gulp-consolidate-render");
+var glob = require('glob');
 
 function forEachPartial(partialPath, name) {
   fs.readFile(
@@ -24,6 +25,21 @@ function forEachPartial(partialPath, name) {
 function forEachHelper(helper, name) {
   handlebars.registerHelper(name, helper);
 }
+
+glob('helpers/*.js', function (err, filepaths) {
+  if (err) {
+    throw err;
+  }
+
+  filepaths.forEach(function (filepath) {
+    handlebars.registerHelper(
+      filepath
+        .replace('helpers/', '')
+        .replace('.js', ''),
+      require('./../' + filepath)
+    );
+  });
+});
 
 function templates(options) {
   options = _.merge(options, {
