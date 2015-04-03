@@ -59,7 +59,7 @@ function pagesTask() {
       globs: {
         homeSlides: globs.homeSlides,
         news: globs.news,
-        work: globs.work,
+        work: globs.work
       },
       options: {
         count: 10
