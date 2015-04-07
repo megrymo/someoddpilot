@@ -97,7 +97,19 @@ gulp.task("work", function () {
     .pipe(gulp.dest("./dest/work"));
 });
 
-gulp.task("about", function () {
+gulp.task("about-first", function () {
+  return gulp.src(globs.about.first)
+    .pipe(collections({
+      first: globs.about.first
+    }))
+    .pipe(frontMatter(fmOptions))
+    .pipe(marked())
+    .pipe(rename(renamePage))
+    .pipe(templates(templateOptions))
+    .pipe(gulp.dest("./dest/about"));
+});
+
+gulp.task("about-others", function () {
   return gulp.src(globs.about.others)
     .pipe(collections({
       others: globs.about.others,
@@ -109,18 +121,10 @@ gulp.task("about", function () {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/about")),
-
-    gulp.src(globs.about.first)
-    .pipe(collections({
-      first: globs.about.first
-    }))
-    .pipe(frontMatter(fmOptions))
-    .pipe(marked())
-    .pipe(rename(renamePage))
-    .pipe(templates(templateOptions))
     .pipe(gulp.dest("./dest/about"));
 });
+
+gulp.task("about", ["about-first", "about-others", "pages", "work"]);
 
 function sortByDate(a, b) {
   if (!b.attributes.date) {
