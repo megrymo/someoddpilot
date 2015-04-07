@@ -124,7 +124,7 @@ gulp.task("about-others", function () {
     .pipe(gulp.dest("./dest/about"));
 });
 
-gulp.task("about", ["about-first", "about-others", "pages", "work"]);
+gulp.task("about", ["about-first", "about-others"]);
 
 function sortByDate(a, b) {
   if (!b.attributes.date) {
