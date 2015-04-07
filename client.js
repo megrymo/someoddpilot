@@ -7,11 +7,11 @@
   var sameHeightKids = require("./src/same-height-kids");
 
   jQuery(document).ready(function ($) {
+    skrollr.init({forceHeight: false});
     initSliders();
     vertCenter();
     fitImage();
     sameHeightKids();
-    skrollr.init({forceHeight: false});
 
     $("[simple-slider]").map(function (index, element) {
       console.log(element);

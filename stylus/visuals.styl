@@ -315,6 +315,12 @@
   .toc &
     margin-top (15 / $base-font-size)em
 
+  .persistant-about-nav &
+    display: block
+    padding 0 20px
+
+    text-align: center
+
 .toc-link
   display: block
   text-align: center
@@ -350,7 +356,12 @@
 .diagram
   margin ($hr-gutter / $base-font-size / 2)em auto
 
+  & + .big-caption
+    margin-bottom ($hr-gutter / $base-font-size)em
+
 .t-v-w-diagram
+  padding-top 90px
+
   font-size 1.5em
   max-width 650px
   overflow visible
@@ -393,6 +404,7 @@
   .border
     position absolute
     width 100%
+    max-width 998px
     height auto
     left 50%
     transform: translate(-50%)
@@ -458,6 +470,7 @@
   padding (30 / 2)vh 0
 
   .quarter
+    position relative
     height (70 / 3)vh
 
 .client-logo
@@ -467,10 +480,12 @@
   [simple-slider-slide]
     opacity 0
     position absolute
-    transition opacity 0.5s ease
+    transition opacity 1.5s ease
+    z-index 1
   .active
     opacity 1
     transition opacity 0.5s ease
+    z-index 5
 
   .next,
   .prev
