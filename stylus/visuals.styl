@@ -356,6 +356,9 @@
 .diagram
   margin ($hr-gutter / $base-font-size / 2)em auto
 
+  & + .big-caption
+    margin-bottom ($hr-gutter / $base-font-size)em
+
 .t-v-w-diagram
   padding-top 90px
 
@@ -401,6 +404,7 @@
   .border
     position absolute
     width 100%
+    max-width 998px
     height auto
     left 50%
     transform: translate(-50%)
@@ -466,6 +470,7 @@
   padding (30 / 2)vh 0
 
   .quarter
+    position relative
     height (70 / 3)vh
 
 .client-logo

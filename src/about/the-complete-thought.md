@@ -15,11 +15,11 @@ expertise:
   - Photography, Film & Video
   - Packaging
   - Content Strategy
-testimonials:
-  - quote:
-      I have never met another agency that was so incredibly spot-on
-      with the caliber of strategic and creative work, in as many different
-      mediums. From long form videos to websites. It’s truly a head scratcher.
-    name: Phil Borthwick
-    title: European Marketing Director, Cat Footwear, <br />formerly Global Marketing Director at Dr. Martens
+testimonial:
+  quote:
+    I have never met another agency that was so incredibly spot-on
+    with the caliber of strategic and creative work, in as many different
+    mediums. From long form videos to websites. It’s truly a head scratcher.
+  name: Phil Borthwick
+  title: European Marketing Director, Cat Footwear, <br />formerly Global Marketing Director at Dr. Martens
 ---

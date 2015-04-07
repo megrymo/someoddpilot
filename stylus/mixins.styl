@@ -9,3 +9,18 @@ font-specs(size, leading = null, tracking = 0)
       line-height (leading / size)em
   unless tracking == 0
     letter-spacing (tracking / 1000)em
+
+vert-center()
+  position absolute
+
+  top 50%
+
+  transform: translateY(-50%)
+
+absolute-center()
+  position absolute
+
+  top 50%
+  left 50%
+
+  transform: translate(-50%, -50%)
