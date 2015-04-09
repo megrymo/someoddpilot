@@ -4,22 +4,21 @@ import marked from "gulp-marked";
 import rename from "gulp-rename";
 import collections from 'gulp-collections';
 import templates from "./../templates";
-
-var globs = require('./globs');
+import {about as aboutGlobs} from './globs';
 import renamePage from './renamePage';
-
-var templateOptions = require("./../config/templates");
+import templateOptions from "./../config/templates";
+import fmOptions from './fmOptions';
 
 gulp.task("about-first", function aboutFirstTask() {
-  return gulp.src(globs.about.first)
+  return gulp.src(aboutGlobs.first)
     .pipe(collections({
       globs: {
-        first: globs.about.first
+        first: aboutGlobs.first
       }
     }))
-    .pipe(frontMatter(require('./fmOptions')))
+    .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./build/about"));
+    .pipe(gulp.dest("build/about"));
 });
