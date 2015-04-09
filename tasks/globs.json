@@ -1,0 +1,7 @@
+{
+  "news": "./src/news/*.md",
+  "pages": "./src/*.md",
+  "work": "./src/work/*.md",
+  "homeSlides": "./src/home-slides/*.md",
+  "templates": "./templates/**/*.html"
+}

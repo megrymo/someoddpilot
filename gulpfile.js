@@ -43,16 +43,7 @@ var templateOptions = _.merge({
   }
 }, require("./config/templates"));
 
-function newsTask() {
-  return gulp.src(globs.news)
-    .pipe(frontMatter(fmOptions))
-    .pipe(marked())
-    .pipe(rename(renamePage))
-    .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./build/news"));
-}
-
-gulp.task("news", newsTask);
+require('./tasks/news');
 
 function pagesTask() {
   return gulp.src(globs.pages)
