@@ -9,5 +9,4 @@
   globals:
     angular: true
     jQuery: true
-    _: true
     skrollr: true
