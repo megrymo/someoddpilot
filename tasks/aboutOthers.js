@@ -1,24 +1,23 @@
-var gulp = require("gulp");
-var frontMatter = require("gulp-front-matter");
-var marked = require("gulp-marked");
-var rename = require("gulp-rename");
-var collections = require('gulp-collections');
-var templates = require("./../templates");
-
-var globs = require('./globs');
-var renamePage = require('./renamePage');
-
-var templateOptions = require("./../config/templates");
+import gulp from "gulp";
+import frontMatter from "gulp-front-matter";
+import marked from "gulp-marked";
+import rename from "gulp-rename";
+import collections from 'gulp-collections';
+import templates from "./../templates";
+import {about as aboutGlobs} from './globs';
+import renamePage from './renamePage';
+import templateOptions from "./../config/templates";
+import fmOptions from './fmOptions';
 
 gulp.task("about-others", function () {
-  return gulp.src(globs.about.others)
+  return gulp.src(aboutGlobs.others)
     .pipe(collections({
-      others: globs.about.others,
+      others: aboutGlobs.others,
       options: {
         count: 10
       }
     }))
-    .pipe(frontMatter(require('./fmOptions')))
+    .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
