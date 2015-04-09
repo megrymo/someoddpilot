@@ -24,7 +24,7 @@ function pagesTask() {
         count: 10
       }
     }))
-    .pipe(frontMatter(require(fmOptions)))
+    .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))

@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 
 gulp.task("default", [
+  "assets",
   "style",
   "news",
   "pages",
