@@ -1,224 +1,620 @@
 .top-header
-	text-align: center
-	z-index 999
+  text-align: center
+  z-index 999
 
-.home .top-header
-	position absolute
-	overflow visible
-	
-.logo
-	display: inline-block
-	margin 111px 0 130px
-	width 280px
-	height auto
+.home .top-header,
+.header-no-push
+  position absolute
+  overflow visible
 
-.sop-logo
-	width 100%
-	height auto
-	
+.header-logo
+  display: inline-block
+  margin 9vh 0 12vh
+  padding 10px
+  color: $black
+  font-size: 91px
+
+@media screen and (max-height: (700px))
+  .header-logo
+    font-size 13vh
+
+@media screen and (max-height: (400px))
+  .header-logo
+    font-size (52 / $base-font-size)em
+
 .nav-icon
-	display inline-block
-	position absolute
-	left 11px
-	top 9px
-	padding 25px
-	z-index 99
+  display inline-block
+  position absolute
+  left 11px
+  top 9px
+  padding 21px 25px
+  z-index 99
+
+  &:hover .menu-line
+    margin 4px 0 5px
 
 .menu-line
-	fill #000
-	transition fill ease 1s
-	
-	.nav-open &
-		fill #fff
-	
+  display: block
+  width 23px
+  height 4px
+  margin 4px 0
+  background $black
+  transition background ease 1s, margin ease 0.1s
+
+  .nav-open &
+    background $white
+
 .nav-holder
-	display: inline-block
-	position absolute
-	height 0
-	top 0
-	left 0
-	background #000
-	padding 0 66px 0 56px
-	overflow hidden
-	text-align: left
-	transition height ease 1s, padding ease 1s
-	z-index 5
-	
-	.nav-open &
-		height 248px
-		padding-top 80px
-		padding-bottom 72px
+  display: inline-block
+  position absolute
+  height 0
+  top 0
+  left 0
+  background $black
+  padding 0 66px 0 56px
+  overflow hidden
+  text-align: left
+  transition height ease 1s, padding ease 1s
+  z-index 5
+
+  .nav-open &
+    height 248px
+    padding-top 80px
+    padding-bottom 72px
 
 .nav-close-icon
-	position absolute
-	top 10px
-	right 0
-	padding 25px;
+  position absolute
+  top 10px
+  right 0
+  padding 25px;
+  color $black
+  transition color ease 1s
 
-.close-line
-	stroke-width 2px
-	stroke #000
-	transition stroke ease 1s
-
-	.nav-open &
-		stroke #fff
+  .nav-open &
+    color $white
 
 .nav-link
-	display: block
-	padding 12px 4px
-	color #000
-	transition color ease 1s
-	
-	.nav-open &
-		color #fff
+  display: block
+  padding 12px 4px
+  color $black
+  transition color ease 1s
+
+  .nav-open &
+    color $white
 
 .social-nav
-	margin-top 26px
-	
+  margin-top 26px
+
 .nav-link-social
-	float left
-	font-specs(0,0)
-	
+  float left
+  font-specs(0,0)
+
 .social-icon
-	width 32px
-	height 32px
-	padding 4px
-	fill #000
-	transition fill ease 0.5s
-	
-	.nav-open &
-		fill #787878
-	
+  display: block
+  width 32px
+  height 32px
+  padding 4px
+  color $black
+  font-size: 32px;
+  transition color ease 1s
+
+  .nav-open &
+    color darken($white, 52%)
+    transition color ease 0.25s
+
 .nav-link-social:hover .social-icon
-	fill #fff
+  color $white
 
 .page-subheader
-	margin (avg(hr-gutter big-gutter) / 2)px 0
+  margin (avg($hr-gutter $big-gutter) / 2)px 0
 
-.slider 
-	position: relative
+.big-bottom-button
+  display: inline-block
+  margin ($big-gutter / 30)em auto
+  padding (14 / $base-font-size)em (20 / $base-font-size)em (10 / $base-font-size)em
+  background $black
+  color $white
+  text-decoration none
 
-.slides 
-	position: relative
-	width 100%
-	min-height 100%
-	height auto
-	margin: 0
-	padding: 0
-	background #faf7ee
-	list-style: none
-	overflow hidden
+.slider
+  position: relative
+  overflow hidden
+
+.slides
+  position: relative
+  width 100%
+  margin: 0
+  padding: 0
+  background $yellow
+  list-style: none
+  overflow hidden
+
+  .slider-activated &
+    padding-left 100%
 
 .slide
-	position: absolute
-	display: block
-	width 100%
-	min-height 100%
-	height auto
-	overflow hidden
-	
-	.contained
-		padding 300px 10% (big-gutter)px
-		width 80%
-		max-height 125%
+  position: relative
+  display: block
+  width 100%
+
+  .slider-activated &
+    float left
+    overflow hidden
+
+  .contained
+    padding 32vh 10% 12vh
+    height (100 - 32 - 12)vh
+    width 80%
+    position relative
+    overflow hidden
+
+    .left,
+    .right
+      height 100%
 
 .pager,
 .prev,
 .next
-	position absolute
-	
+  position absolute
+
 .prev,
 .next
-	padding 10px
-	
+  padding 10px
+  font-size: 59px
+
 .pager
-	top 50%
-	width 100%
+  top 45%
+  width 100%
 
 .prev
-	left 2%
+  left 2%
 
 .next
-	right 2%
+  right 2%
 
 .counter
-	position absolute
-	bottom (hr-gutter)px
-	font-family: "Georgia", Georgia, serif
-	font-specs(18, 18)
-	font-weight: bold
-	text-align: right
+  bottom ($hr-gutter)px
+  font-family: "Georgia", Georgia, serif
+  font-specs(18, 18)
+  font-weight: bold
+  text-align: right
+  overflow visible
 
-.home-slider
-	min-height 100%
-	height auto
+.work-block
+  display: block
+  padding 0 0 ($big-gutter)px
+  clear both
+  overflow auto
+  text-align: center
 
-.we-are
-	.contained
-		margin 0
-		width 50%
-		overflow visible
-		white-space: nowrap
-	
-	.display-serif
-		font-specs(90, 120)
+.block-image
+  display: block
+  width 100%
+  height auto
 
-.truth-and-vision .fit-text
-	font-specs(30, 35)
-	
-.project-preview
-	display: block
-	padding 0 0 (big-gutter)px
-	clear both
-	overflow auto
-	text-align: center
-	
-.preview-image
-	display: block
-	width 100%
-	height auto
+.block-image + .block-image
+  margin-top ($hr-gutter)px
 
-.preview-image + .preview-image
-	margin-top (hr-gutter)px
+.block-link
+  display: inline-block
+  margin-top ($hr-gutter / 2)px
 
-.preview-link
-	display: inline-block
-	margin-top (hr-gutter / 2)px
+.work-section-header
+  margin-top ($big-gutter - $hr-gutter)px
+
+.work-section-subheader
+  margin ($hr-gutter / 2)px auto
+
+.work-section-body
+  width 80%
+  margin 0 10%
+
+.video-wrapper
+  position relative
+
+.video-play
+  position absolute
+  width 100px
+  height 100px
+  top 50%
+  left 50%
+  appearance none
+  font-family 'sop-fontello'
+  font-size 40px
+  border-radius 60px
+  background $black
+  color $white
+  border 9px solid $white
+  box-shadow 0 0 20px alpha($black, 75%)
+  transform translate(-50%,-50%)
+
+  &:before
+    content: '\e800'
+
+  .play &
+    display: none
+
+  .contained &,
+  .contained-smaller &
+    width 57px
+    height 57px
+    font-size 20px
+    border-width 5px
+    box-shadow 0 0 10px alpha($black, 75%)
+
+.fill-video
+  width 100%
+  height auto
+  position absolute
+  left 50%
+  top 50%
+  transform: translate(-50%, -50%)
+  @media (max-aspect-ratio: 16/9)
+    width: auto;
+    height: 100%;
+
+.work-section,
+.work-section-subheader,
+.work-section-body,
+.work-section-image,
+.work-section-video
+  margin-bottom ($hr-gutter)px
 
 .news-article
-	width (((content-width - vert-gutter - vert-gutter) / content-width) * 33.33333)%
-	padding (vert-gutter / 2)px 0
-	vertical-align top
-	float left
-	
-.news-date
-	margin-bottom (hr-gutter/2)px
-
-.news-article:nth-child(3n+3)
-	padding-left (((vert-gutter / 2) / content-width) * 100)%
-	
-.news-article:nth-child(3n+1)
-	padding-right (((vert-gutter / 2) / content-width) * 100)%
-	
-.news-article:nth-child(3n+2)
-	padding (vert-gutter / 2)px (((vert-gutter / 2) / content-width) * 100)%
+  padding-top ($vert-gutter / 2)px
+  padding-bottom ($vert-gutter / 2)px
+  vertical-align top
+  float left
 
 .featured
-	padding 0
+  padding 0
 
 .featured + .featured
-	padding (avg(hr-gutter big-gutter))px 0 0
-	
-.news .even
-	background #f0ede5
+  padding (avg($hr-gutter $big-gutter))px 0 0
 
 .news-image
-	width 100%
-	height auto
-	padding-bottom (hr-gutter)px
+  width 100%
+  height auto
+  margin-bottom ($hr-gutter * 0.8)px
+
+.news-date
+  margin-bottom ($hr-gutter / 2)px
 
 .featured .news-image
-	padding-bottom avg(hr-gutter big-gutter)px
+  padding-bottom avg($hr-gutter $big-gutter)px
 
 .featured .news-snippet
-	padding-bottom (hr-gutter)px
+  padding-bottom ($hr-gutter)px
+
+.persistant-about-nav
+  position fixed
+  margin 0
+  padding (15 / $base-font-size)em 0
+  top 0
+  left 0
+  width 100%
+  box-shadow 0 0 12px alpha($black, 15%)
+  z-index 999
+  transform: translateY(-120%)
+  transition: transform 0.5s ease
+
+  &.skrollable-after
+    transform: translateY(0)
+
+.toc
+  margin-top ($hr-gutter / $base-font-size)em
+  margin-bottom ($hr-gutter / $base-font-size)em
+
+.toc-list
+  display: inline-block
+  margin 0 auto
+  padding 0
+  list-style-type upper-roman
+  list-style-position: inside
+
+  .toc &
+    margin-top (15 / $base-font-size)em
+
+  .persistant-about-nav &
+    display: block
+    padding 0 20px
+
+    text-align: center
+
+.toc-link
+  display: block
+  text-align: center
+  color $black
+  text-decoration none
+  white-space: no-wrap
+
+  .toc &
+    margin-top (15 / $base-font-size)em
+
+  .persistant-about-nav &
+    display: inline-block
+    margin 0 (16 / $base-font-size)em
+
+.toc-item
+  padding (14 / 20)em 0
+
+.chapter-header
+  text-align: center
+  padding ($big-gutter / $base-font-size)em 0 ($hr-gutter / $base-font-size)em
+
+.chapter-number
+  margin-bottom (5 / $base-font-size)em
+
+.chapter-copy
+  max-width 750px
+  margin 0 auto (($hr-gutter / 32) - 1)em
+  padding ($hr-gutter)px 0
+
+.chapter-header + .chapter-copy
+  padding-top 0
+
+.diagram
+  margin ($hr-gutter / $base-font-size / 2)em auto
+
+  & + .big-caption
+    margin-bottom ($hr-gutter / $base-font-size)em
+
+.t-v-w-diagram
+  padding-top 90px
+
+  font-size 1.5em
+  max-width 650px
+  overflow visible
+
+  .small-text
+    font-size: 0.35em
+    letter-spacing: 0.1em
+
+  .medium-text
+    font-size: 0.45em
+    letter-spacing: 0.15em
+
+.space-illustration
+  position relative
+  height 0
+  padding-bottom (828 / 1600 *100)%
+  overflow hidden
+
+  .illustration
+    position absolute
+    top 0
+    left 0
+
+.mirrored-image-wrapper
+  position relative
+  margin ($hr-gutter / $base-font-size * 2)em 0 0
+  padding-bottom (760 / 1600 * 100)%
+  background lighten($black, 50%)
+  overflow hidden
+
+  .full
+    position absolute
+    top 50%
+    margin-top ((1066 / 1600) / 2 * -100)%
+
+.expertise
+  text-align: center
+  padding 0 0 ($hr-gutter / $base-font-size / 2)em
+
+  .border
+    position absolute
+    width 100%
+    max-width 998px
+    height auto
+    left 50%
+    transform: translate(-50%)
+    stroke-dasharray 1800
+
+.expertise-header
+  display: inline-block
+  margin ($hr-gutter / 30 * 1.2)em 0 ($hr-gutter / 30)em
+  &:after
+    content: ""
+    display: block
+    width 100%
+    height 0
+    margin-top -0.1em
+    border-bottom 1px $black solid
+
+.expertise-list
+  overflow visible
+  list-style none
+
+.expertise-item
+  padding 0.4em 0
+  &:last-child
+    padding-bottom 0
+
+.about-section
+  .slider
+    margin ($hr-gutter / $base-font-size)em 0
+
+.about-truth-slide
+
+  .display-serif
+    position absolute
+    top 50%
+    left 0
+    width 80%
+    padding 0 10% 10%
+    transform: translateY(-50%)
+
+    header
+      font-specs(223, 285)
+
+    p
+      font-specs(34, 46)
+
+      &:last-child
+        font-specs(43, 58)
+
+.chicago
+  background url("/assets/images/about/chicago.jpg") center
+  background-size cover
+
+  color $pink
+  .page-subheader
+    font-specs(30, auto)
+  .display-serif
+    font-specs(206, auto)
+    text-transform: none
+
+.client-logos
+  position relative
+  margin-bottom ($hr-gutter / $base-font-size)em
+  padding (30 / 2)vh 0
+
+  .quarter
+    position relative
+    height (70 / 3)vh
+
+.client-logo
+  opacity 0.7
+
+[simple-slider]
+  [simple-slider-slide]
+    opacity 0
+    position absolute
+    transition opacity 1.5s ease
+    z-index 1
+  .active
+    opacity 1
+    transition opacity 0.5s ease
+    z-index 5
+
+  .next,
+  .prev
+    position: fixed;
+    top: 0;
+    height: 300%;
+    width 33%
+    cursor: pointer
+
+  .next
+    right: 0
+    cursor: url("/assets/images/arrow-right.svg"), pointer;
+
+  .prev
+    left: 0
+    cursor: url("/assets/images/arrow-left.svg"), pointer;
+
+.profiles
+  padding ($big-gutter / $base-font-size)em 0
+  text-align: center
+
+.profile-name
+  padding (avg($hr-gutter $big-gutter))px 0 0
+
+.profile-title
+  padding ($hr-gutter / 3)px 0 ($hr-gutter / 2)px
+
+.profile-copy
+  padding ($hr-gutter)px 0
+
+.studio-images
+  padding ($small-gutter / 2 / 1600 * 100)%
+  width ((1600 - $small-gutter) / 1600 * 100)%
+
+  .left,
+  .right
+    margin ($small-gutter / 2 / 1600 * 100)%
+    overflow hidden
+
+    //take away after getting real images
+    img
+      transform: scale(1.5)
+
+  .left
+    width ((592 + ($small-gutter / 2)) / 1600 * 100)%
+
+  .right
+    width ((894 + ($small-gutter / 2))  / 1600 * 100)%
+
+.about-we-are
+  font-size: (12 / 1.2)vh
+  padding 12vh 0
+  @media (max-aspect-ratio: 4/3)
+    font-size: 6.2vw
+    padding ($hr-gutter / $base-font-size)em 0
+
+  .there-are
+    font-size: 3vh
+    @media (max-aspect-ratio: 4/3)
+      font-size: 2vw
+
+.blockquote
+  padding ($big-gutter)px 0 0
+
+.blockquote-cite
+  padding ($hr-gutter / 2)px 0 ($big-gutter)px
+
+.sop-footer
+  display: table
+  vertical-align middle
+  width 100%
+  background $black
+  padding ($hr-gutter / 2)px 0
+
+.footer-links
+  padding 0 0 0 ($hr-gutter)px
+
+.footer-link
+  display: table-cell
+  vertical-align middle
+  padding-right ($hr-gutter)px
+  fill $white
+
+.sop-footer .footer-sop-logo
+  font-size 46px
+  color $white
+
+.pw-logo
+  height 69px
+  width auto
+
+.chris-logo
+  height 44px
+  width auto
+
+.signup
+  margin-top 18px
+  padding 0 ($hr-gutter)px 0 0
+  text-align right
+
+  .email,
+  .button
+    appearance none
+    background $black
+    height 30px
+    border none
+    outline none
+    color $white
+    font-specs(14, 16, 150)
+    line-height 2.5em
+    transition: all ease 0.5s
+
+  .email
+    height 20px
+    min-width 260px
+    padding 7px 2px 3px 2px
+    border-bottom solid 3px $white
+    border-top solid 3px $black
+    text-align: left
+
+    &:focus
+      outline none
+      background #222
+      border-top-color #222
+
+  .button
+    height 36px
+    float right
+
+    &:hover
+      background $white
+      color $black

@@ -2,12 +2,18 @@ module.exports = {
   partials: {
     head: "head",
     foot: "foot",
-    projectView: "project-view"
+    mainNav: "main-nav",
+    aboutNav: "about-nav",
+    aboutProfile: "about-profile",
+    workBlock: "work-block",
+    workTopHeader: "work-top-header",
+    workSectionHeader: "work-section-header",
+    workStack: "work-stack"
   },
   globals: {
     site: {
-      title: "Gulp Static",
-      description: "Prototype for a Gulp based static site generator"
+      title: "someoddpilot",
+      description: "Lorem"
     }
   }
 };

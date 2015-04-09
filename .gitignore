@@ -34,7 +34,9 @@ dist
 
 # Plato reports
 .plato
-plato
+
+# Sublime Workspaces
+*.sublime-workspace
 
 # AWS reports
 .aws*

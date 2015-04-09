@@ -1,0 +1,51 @@
+{{>head}}
+{{#each collections.news}}
+  {{#compare @index "<" 3}}
+  <article class="news-article-{{@index}} full featured {{#everyOther @index 2}} darker-bg{{/everyOther}}">
+    <div class="contained">
+      <div class="half left">
+        <a href="/news/{{slug}}/">
+          <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
+        </a>
+      </div>
+      <div class="half right">
+        <a class="news-title" href="/news/{{slug}}/">
+          <header>{{attributes.title}}</header>
+        </a>
+        <p class="news-date">{{attributes.date}}</p>
+        <div class="news-snippet">
+          {{{body}}}
+        </div>
+      </div>
+    </div>
+  </article>
+  {{/compare}}
+  {{#compare @index ">" 2 }}
+    {{#everyOther @index 6 -2}}
+      <div class="darker-bg">
+    {{/everyOther}}
+    {{#everyOther @index 3 -2}}
+      <div class="contained">
+    {{/everyOther}}
+      <article class="third news-article news-article-{{@index}}">
+        <a href="/news/{{slug}}/">
+          <img class="news-image" src="{{attributes.image.src}}" alt="{{attributes.image.alt}}" />
+        </a>
+        <a class="news-title" href="/news/{{slug}}/">
+          <header>{{attributes.title}}</header>
+        </a>
+        <p class="news-date">{{attributes.date}}</p>
+        <div class="news-snippet">
+            {{{body}}}
+        </div>
+      </article>
+    {{#everyOther @index 3 3}}
+      </div>
+    {{/everyOther}}
+    {{#everyOther @index 6}}
+      </div>
+    {{/everyOther}}
+  {{/compare}}
+{{/each}}
+</div>
+{{>foot}}

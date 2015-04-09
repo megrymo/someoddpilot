@@ -1,79 +1,219 @@
-html, body 
-	height: 100%;
-	width 100%
+@font-face {
+  font-family: 'sop-fontello';
+  src: url('/assets/font/sop-fontello.eot?3791079');
+  src: url('/assets/font/sop-fontello.eot?3791079#iefix') format('embedded-opentype'),
+       url('/assets/font/sop-fontello.woff?3791079') format('woff'),
+       url('/assets/font/sop-fontello.ttf?3791079') format('truetype'),
+       url('/assets/font/sop-fontello.svg?3791079#sop-fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "sop-fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
 
-html { -webkit-font-smoothing: antialiased; }
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+}
+
+.icon-play:before { content: '\e800'; } /* '' */
+.icon-close-x:before { content: '\e801'; } /* '' */
+.icon-arrow-right:before { content: '\e802'; } /* '' */
+.icon-arrow-left:before { content: '\e803'; } /* '' */
+.icon-vimeo:before { content: '\e804'; } /* '' */
+.icon-twitter:before { content: '\e805'; } /* '' */
+.icon-sop-logo:before { content: '\e806'; } /* '' */
+.icon-instagram:before { content: '\e807'; } /* '' */
+.icon-facebook:before { content: '\e808'; }
+
+html, body
+  height: 100%;
+  width 100%
 
 body
-	width 100%
-	margin 0
-	padding 0
-	font-family sop-serif
+  width 100%
+  margin 0
+  padding 0
+  font-family sop-serif
+  -webkit-font-smoothing: antialiased;
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
 
 .top-header
-	z-index 5
+  z-index 5
 
 .content
-	position relative
-	z-index 1
+  position relative
+  z-index 1
 
 .full
-	width 100%
-	clear both
-	overflow auto
+  width 100%
+  height auto
+  clear both
+  overflow auto
 
-.contained
-	position relative
-	width 100%
-	max-width (content-width)px
-	margin 0 auto
-	overflow auto
-	clear both
-	
-@media screen and (max-width: (content-width + vert-gutter + vert-gutter)px)
-	.contained
-		width 90%
-		padding 0 5%
+.full-height
+  min-height 100vh
+  position relative
 
-.left,
-.right
-	width (((content-width - vert-gutter) / content-width) * 50) %
+.contained,
+.contained-smaller
+  display: block
+  position relative
+  width 90%
+  height auto
+  max-width ($content-width + $vert-gutter)px
+  margin 0 auto
+  overflow hidden
+  clear both
+
+.contained-smaller
+  width 64%
+  max-width ($content-width)px
+  max-width ($content-width * 0.7)px
+
+@media screen and (max-width: (($content-width / 0.9) + $vert-gutter + $vert-gutter)px)
+  .contained
+    width 90%
+
+@media screen and (max-width: (($content-width / 0.7) + $vert-gutter + $vert-gutter)px)
+  .contained-smaller
+    width 80%
+
+.center-block
+  margin 0 auto
+  display: block
+
+.half,
+.third,
+.quarter,
+.add-lr-margin
+  margin-left ((($vert-gutter / 2 ) / $content-width) * 100) %
+  margin-right ((($vert-gutter / 2 ) / $content-width) * 100) %
+  height auto
+
+.half
+  width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50) %
 
 .left
-	float left
-	padding-right (((vert-gutter/2)/content-width) * 100) %
+  float left
+  left 0
 
 .right
-	float right
-	padding-left (((vert-gutter/2)/content-width) * 100) %
-	
+  float right
+  right 0
+
+.eighty
+  width 80%
+  height auto
+
+.sixty
+  width 60%
+  height auto
+
+.fourty
+  width 40%
+  height auto
+
+.third
+  width ((($content-width - ($vert-gutter * 3 )) / $content-width) * 33.333) %
+
+.quarter
+  width ((($content-width - ($vert-gutter * 4 )) / $content-width) * 25) %
+
 .bottom-gutter
-	margin-bottom (hr-gutter)px
+  margin-bottom ($hr-gutter)px
 
 .small-bottom-gutter
-	margin-bottom (hr-gutter / 2)px
+  margin-bottom ($hr-gutter / 2)px
 
 .big-bottom-gutter
-	margin-bottom (big-gutter)px
-	
+  margin-bottom ($big-gutter)px
+
 .background-fill
-	position: absolute; 
-	top: 0; 
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.bgwidth 
-	width: 100%
+.bgwidth
+  width: 100%
+  height auto
 
-.bgheight 
-	height: 100%
-	left 50%
+.bgheight
+  height: 100%
+  width auto
 
-.light-blue-bg
-	background #dbf1fc
+.big-caption,
+.grey-caption
+  clear both
 
-.light-yellow-bg
-	background #faf7ee
+.blue-bg
+  background $blue
 
-.light-pink-bg
-	background #ffecec
+  .reveal
+    @extend .blue-bg
+
+  .darker-bg
+    background darken(desaturate($blue, 10%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($blue, 98%), 4%)
+
+.yellow-bg
+  background $yellow
+
+  .reveal
+    @extend .yellow-bg
+
+  .darker-bg
+    background darken(saturation($yellow, 50%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($yellow, 98%), 4%)
+
+.pink-bg
+  background $pink
+
+  .reveal
+    @extend .pink-bg
+
+  .darker-bg
+    background darken(desaturate($pink, 10%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($pink, 98%), 4%)
+
+.image-hover .block-image
+  transition 0.5s all ease
+  &:hover
+    opacity: 0.8
+
+.vert-center
+  vert-center()
+  padding-top 10%
+  padding-bottom 10%
+
+.absolute-center
+  absolute-center()
+  padding-top 10%
+  padding-bottom 10%
