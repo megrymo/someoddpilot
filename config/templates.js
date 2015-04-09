@@ -1,4 +1,7 @@
 module.exports = {
+  helpers: {
+    dateFormat: require("./../helpers/dateFormat")
+  },
   partials: {
     head: "head",
     foot: "foot",
