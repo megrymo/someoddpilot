@@ -1,9 +1,4 @@
 var gulp = require("gulp");
-var frontMatter = require("gulp-front-matter");
-var marked = require("gulp-marked");
-var rename = require("gulp-rename");
-var path = require("path");
-var templates = require("./templates");
 var connect = require("gulp-connect");
 var api = require("gulp-static-api");
 var stylus = require("gulp-stylus");
@@ -13,16 +8,8 @@ var watchify = require("watchify");
 var browserify = require("browserify");
 var source = require("vinyl-source-stream");
 var gutil = require("gulp-util");
-var _ = require("lodash");
 var awspublish = require('gulp-awspublish');
 var eslint = require('gulp-eslint');
-
-function renamePage(filePath) {
-  if (filePath.basename !== "index") {
-    filePath.dirname = path.join(filePath.dirname, filePath.basename);
-    filePath.basename = "index";
-  }
-}
 
 var globs = {
   news: "./src/news/*.md",
@@ -31,28 +18,9 @@ var globs = {
   homeSlides: "./src/home-slides/*.md",
   templates: "./templates/**/*.html"
 };
-var fmOptions = {
-  property: "frontMatter",
-  remove: true
-};
-
-var templateOptions = _.merge({
-  helpers: {
-    dateFormat: require("./helpers/dateFormat")
-  }
-}, require("./config/templates"));
 
 require('./tasks/news');
 require('./tasks/pages');
-
-gulp.task("work", function () {
-  return gulp.src(globs.work)
-    .pipe(frontMatter(fmOptions))
-    .pipe(marked())
-    .pipe(rename(renamePage))
-    .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/work"));
-});
 
 function sortByDate(a, b) {
   if (!b.attributes.date) {
