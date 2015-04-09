@@ -29,9 +29,14 @@ node_modules
 
 # Built site
 dest
+build
+dist
 
 # Plato reports
 .plato
 
 # Sublime Workspaces
 *.sublime-workspace
+
+# AWS reports
+.aws*

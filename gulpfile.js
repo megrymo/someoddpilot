@@ -15,16 +15,12 @@ var browserify = require("browserify");
 var source = require("vinyl-source-stream");
 var gutil = require("gulp-util");
 var _ = require("lodash");
+var awspublish = require('gulp-awspublish');
+var eslint = require('gulp-eslint');
 
 function renamePage(filePath) {
   if (filePath.basename !== "index") {
     filePath.dirname = path.join(filePath.dirname, filePath.basename);
-    filePath.basename = "index";
-  }
-}
-
-function renamePageParentFolder(filePath) {
-  if (filePath.basename !== "index") {
     filePath.basename = "index";
   }
 }
@@ -57,7 +53,7 @@ function newsTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/news"));
+    .pipe(gulp.dest("./build/news"));
 }
 
 gulp.task("news", newsTask);
@@ -65,10 +61,12 @@ gulp.task("news", newsTask);
 function pagesTask() {
   return gulp.src(globs.pages)
     .pipe(collections({
-      news: globs.news,
-      about: globs.about.first,
-      homeSlides: globs.homeSlides,
-      work: globs.work,
+      globs: {
+        news: globs.news,
+        about: globs.about.first,
+        homeSlides: globs.homeSlides,
+        work: globs.work
+      },
       options: {
         count: 10
       }
@@ -77,7 +75,7 @@ function pagesTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest"));
+    .pipe(gulp.dest("./build"));
 }
 
 gulp.task("pages", pagesTask);
@@ -94,7 +92,7 @@ gulp.task("work", function () {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/work"));
+    .pipe(gulp.dest("./build/work"));
 });
 
 gulp.task("about-first", function () {
@@ -106,7 +104,7 @@ gulp.task("about-first", function () {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/about"));
+    .pipe(gulp.dest("./build/about"));
 });
 
 gulp.task("about-others", function () {
@@ -121,7 +119,7 @@ gulp.task("about-others", function () {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/about"));
+    .pipe(gulp.dest("./build/about"));
 });
 
 gulp.task("about", ["about-first", "about-others"]);
@@ -148,12 +146,12 @@ gulp.task("api", function () {
     count: 2,
     sortBy: sortByDate
   })
-    .pipe(gulp.dest("dest/api/news"));
+    .pipe(gulp.dest("./build/api/news"));
 });
 
 gulp.task("connect", function () {
   connect.server({
-    root: "dest"
+    root: "build"
   });
 });
 
@@ -165,7 +163,7 @@ gulp.task("style", function () {
         sopStyl()
       ]
     }))
-    .pipe(gulp.dest("dest/css"));
+    .pipe(gulp.dest("build/css"));
 });
 
 var bundler = watchify(browserify("./client.js", watchify.args));
@@ -176,12 +174,12 @@ gulp.task("scripts", function () {
   return bundler.bundle()
     .on("error", gutil.log.bind(gutil, "Browserify Error"))
     .pipe(source("client.js"))
-    .pipe(gulp.dest("./dest/js"));
+    .pipe(gulp.dest("./build/js"));
 });
 
 gulp.task("templates", function () {
   return gulp.src("./src/**/*.html")
-    .pipe(gulp.dest("./dest/"));
+    .pipe(gulp.dest("./build/"));
 });
 
 gulp.task("watch", function () {
@@ -196,4 +194,30 @@ gulp.task("watch", function () {
 
 gulp.task("default", [ "style", "news", "pages", "work", "about", "connect", "watch", "scripts", "templates"]);
 
-gulp.task("deploy", ["style", "news", "pages", "work"]);
+gulp.task(
+  'deploy',
+  ['style', 'news', 'pages', 'work'],
+  function () {
+    var publisher = awspublish.create({
+      region: 'us-west-2',
+      bucket: 'someoddpilot.com'
+    });
+
+    var headers = {
+      'Cache-Control': 'max-age=315360000, no-transform, public'
+    };
+
+    gulp.src('./build/{**/,}*.{html,css,js,png,svg,jpg}')
+      .pipe(awspublish.gzip({ext: '.gz'}))
+      .pipe(publisher.publish(headers))
+      .pipe(publisher.cache())
+      .pipe(awspublish.reporter());
+  }
+);
+
+gulp.task('test', function testTask() {
+  return gulp.src('{gulpfile,app,client,helpers/*}.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
+});

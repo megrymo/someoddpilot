@@ -23,9 +23,8 @@ module.exports = class Slider {
 
     this.init();
   }
-  init() {
 
-    console.log(this);
+  init() {
 
     this.indicators.click(this.onClick.bind(this));
     this.goTo(0);
@@ -47,19 +46,23 @@ module.exports = class Slider {
       .on("swipeleft", this.goToNext.bind(this))
       .on("swiperight", this.goToPrev.bind(this));
   }
+
   goToNext() {
     this.goTo(this.index + 1);
 
     this.pause();
   }
+
   goToPrev() {
     this.goTo(this.index - 1);
 
     this.pause();
   }
+
   setIndex(newIndex) {
     this.index = newIndex % this.slides.length;
   }
+
   update() {
     this.slides
       .removeClass(this.options.activeSlideClass)
@@ -69,23 +72,28 @@ module.exports = class Slider {
       .removeClass(this.options.activeIndicatorClass)
       .eq(this.index).addClass(this.options.activeIndicatorClass);
   }
+
   goTo(newIndex) {
     this.setIndex(newIndex);
 
     this.update();
   }
+
   tick() {
     this.goTo(this.index + 1);
     this.startTimer();
   }
+
   startTimer() {
     if (parseInt(this.delay, 10) > 100) {
       this.fadeTimer = setTimeout(this.tick.bind(this), this.delay);
     }
   }
+
   pause() {
     clearTimeout(this.fadeTimer);
   }
+
   onClick(event) {
     this.goTo($(event.target).index());
 

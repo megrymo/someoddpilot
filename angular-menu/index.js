@@ -4,11 +4,8 @@ angular.module("menu", [])
   $scope.class = "";
 
   $scope.toggleClass = function(){
-    if ($scope.class === ""){
-      $scope.class = "nav-open";
-    } else {
-      $scope.class = "";
-    }
+    var newClass = $scope.class === "nav-open" ? "" : "nav-open";
+    $scope.class = newClass;
   };
 
 }]);

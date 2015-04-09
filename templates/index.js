@@ -2,7 +2,8 @@ var handlebars = require("handlebars");
 var _ = require("lodash");
 var fs = require("fs");
 var path = require("path");
-var through = require("through2");
+var consolidate = require("gulp-consolidate-render");
+var glob = require('glob');
 
 handlebars.registerHelper("compare", function (lvalue, operator, rvalue, options) {
 
@@ -65,18 +66,6 @@ handlebars.registerHelper("eachLimited", function(ary, max, options) {
     return result.join("");
 });
 
-handlebars.registerHelper("everyOther", function (index, amount, offset, scope) {
-    if (scope === undefined) {
-        scope = offset;
-        offset = 0;
-    }
-    if (((++index) - offset) % amount ) {
-      return scope.inverse(this);
-    } else {
-      return scope.fn(this);
-    }
-});
-
 handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
   lvalue = parseFloat(lvalue);
   rvalue = parseFloat(rvalue);
@@ -111,11 +100,30 @@ function forEachHelper(helper, name) {
   handlebars.registerHelper(name, helper);
 }
 
+glob('helpers/*.js', function (err, filepaths) {
+  if (err) {
+    throw err;
+  }
+
+  filepaths.forEach(function (filepath) {
+    handlebars.registerHelper(
+      filepath
+        .replace('helpers/', '')
+        .replace('.js', ''),
+      require('./../' + filepath)
+    );
+  });
+});
+
 function templates(options) {
   options = _.merge(options, {
     partialPath: {
       prefix: path.join(__dirname, "partials"),
       extension: ".html"
+    },
+    engine: "handlebars",
+    compileData: function (sources) {
+      return _.merge.apply(_, sources);
     }
   });
 
@@ -123,35 +131,7 @@ function templates(options) {
 
   _.forEach(options.helpers || [], forEachHelper);
 
-  var globals = options.globals || {};
-
-  return through.obj(function (file, enc, callback) {
-    function onTemplateFile(err, templateString) {
-      if (err) {
-        throw err;
-      }
-
-      var templateFn = handlebars.compile(templateString);
-
-      var data = _.extend(
-        globals,
-        file.frontMatter,
-        {
-          collections: file.collections,
-          contents: file.contents.toString()
-        }
-      );
-
-      file.contents = new Buffer(templateFn(data), "utf-8");
-      callback(null, file);
-    }
-
-    var templateName = file.frontMatter.template || "post";
-
-    var templatePath = path.join(__dirname, templateName + ".html");
-
-    fs.readFile(templatePath, "utf-8", onTemplateFile);
-  });
+  return consolidate(options);
 }
 
 module.exports = templates;
