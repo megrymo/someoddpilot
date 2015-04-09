@@ -1,11 +1,1 @@
-require('./tasks/news');
-require('./tasks/pages');
-require('./tasks/work');
-require('./tasks/api');
-require('./tasks/connect');
-require('./tasks/watch');
-require('./tasks/style');
-require('./tasks/scripts');
-require('./tasks/default');
-require('./tasks/test');
-require('./tasks/deploy');
+require('require-dir')('./tasks');

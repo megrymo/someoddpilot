@@ -41,6 +41,7 @@
     "lodash": "^3.1.0",
     "moment": "^2.9.0",
     "nib": "^1.1.0",
+    "require-dir": "^0.3.0",
     "serve-static": "^1.8.1",
     "sop-styl": "^1.2.4",
     "through2": "^0.6.3",
