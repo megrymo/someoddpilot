@@ -45,7 +45,7 @@
     "sop-styl": "^1.2.4",
     "through2": "^0.6.3",
     "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.2.1"
+    "watchify": "^3.1.0"
   },
   "devDependencies": {
     "gulp-eslint": "^0.8.0"
