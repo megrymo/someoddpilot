@@ -1,12 +1,27 @@
-var gulp = require('gulp');
-var globs = require('./globs');
+import gulp from 'gulp';
+import globs from './globs';
+import watch from 'gulp-watch';
 
 gulp.task("watch", function () {
-  gulp.watch([globs.news, globs.pages, globs.templates], ["pages"]);
-  gulp.watch(["./*/about/*"], ["about"]);
-  gulp.watch(["./*/work/*"], ["work"]);
-  gulp.watch([globs.news, "./templates/news/*.html"], ["news"]);
-  gulp.watch(["./src/**/templates/*.html"], ["templates"]);
-  gulp.watch(["./stylus/*"], ["style"]);
-  gulp.watch(["./src/**/*.js"], ["scripts"]);
+  watch([globs.news, globs.pages, globs.templates], function () {
+    gulp.start(["pages"]);
+  });
+  watch(["./src/about/*"], function () {
+    gulp.start(["about"]);
+  });
+  watch(["./src/work/*"], function () {
+    gulp.start(["work"]);
+  });
+  watch([globs.news, "./templates/news/*.html"], function () {
+    gulp.start(["news"]);
+  });
+  watch(["./src/**/templates/*.html"], function () {
+    gulp.start(["templates"]);
+  });
+  watch(["./stylus/*"], function () {
+    gulp.start(["style"]);
+  });
+  watch(["./src/**/*.js"], function () {
+    gulp.start(["scripts"]);
+  });
 });

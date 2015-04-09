@@ -1,6 +1,6 @@
-var path = require("path");
+import path from "path";
 
-function renamePage(filePath) {
+export default function renamePage(filePath) {
   if (filePath.basename !== "index") {
     filePath.dirname = path.join(
       filePath.dirname,
@@ -9,5 +9,3 @@ function renamePage(filePath) {
     filePath.basename = "index";
   }
 }
-
-module.exports = renamePage;

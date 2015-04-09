@@ -1,5 +1,3 @@
-require('gulp')
-  .task(
-    "about",
-    ["about-first", "about-others"]
-  );
+import gulp from 'gulp';
+
+gulp.task( "about", ["about-first", "about-others"]);
