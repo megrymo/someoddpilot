@@ -3,16 +3,11 @@ var frontMatter = require("gulp-front-matter");
 var marked = require("gulp-marked");
 var rename = require("gulp-rename");
 var templates = require("./../templates");
-var _ = require('lodash');
 
 var globs = require('./globs');
 var renamePage = require('./renamePage');
 
-var templateOptions = _.merge({
-  helpers: {
-    dateFormat: require("./../helpers/dateFormat")
-  }
-}, require("./../config/templates"));
+var templateOptions = require("./../config/templates");
 
 function newsTask() {
   return gulp.src(globs.news)

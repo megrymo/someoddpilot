@@ -4,16 +4,11 @@ var marked = require("gulp-marked");
 var rename = require("gulp-rename");
 var templates = require("./../templates");
 var collections = require("gulp-collections");
-var _ = require('lodash');
 
 var globs = require('./globs');
 var renamePage = require('./renamePage');
 
-var templateOptions = _.merge({
-  helpers: {
-    dateFormat: require("./../helpers/dateFormat")
-  }
-}, require("./../config/templates"));
+var templateOptions = require("./../config/templates");
 
 function pagesTask() {
   return gulp.src(globs.pages)
