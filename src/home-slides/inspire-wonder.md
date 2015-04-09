@@ -1,5 +1,6 @@
 ---
 color: yellow
 ---
-<img class="background-fill" src="/assets/images/home-slides/slide1.jpg">
-<h4 class="contained fit-text sans center-align white-text">Inspire<br />Wonder</h4>
+<div scaletextparent class="contained center-align white-text">
+  <h4 scaletext class="sans mega-slide-text">Inspire<br />Wonder</h4>
+</div>

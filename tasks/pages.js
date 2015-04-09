@@ -16,6 +16,7 @@ function pagesTask() {
       globs: {
         homeSlides: globs.homeSlides,
         news: globs.news,
+        about: globs.about.first,
         work: globs.work
       },
       options: {
@@ -26,7 +27,7 @@ function pagesTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./build"));
+    .pipe(gulp.dest("build"));
 }
 
 gulp.task("pages", pagesTask);
