@@ -1,5 +1,5 @@
-var gulp = require('gulp');
-var globs = require('./globs');
+import gulp from 'gulp';
+import globs from './globs';
 import watch from 'gulp-watch';
 
 gulp.task("watch", function () {

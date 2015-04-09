@@ -1,5 +1,5 @@
-var gulp = require("gulp");
-var api = require("gulp-static-api");
+import gulp from "gulp";
+import api from "gulp-static-api";
 
 function sortByDate(a, b) {
   if (!b.attributes.date) {

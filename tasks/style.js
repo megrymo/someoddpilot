@@ -1,7 +1,7 @@
-var gulp = require("gulp");
-var stylus = require("gulp-stylus");
-var nib = require("nib");
-var sopStyl = require("sop-styl");
+import gulp from "gulp";
+import stylus from "gulp-stylus";
+import nib from "nib";
+import sopStyl from "sop-styl";
 
 gulp.task("style", function () {
   gulp.src("stylus/style.styl")

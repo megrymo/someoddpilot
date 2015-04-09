@@ -1,7 +1,7 @@
-var gulp = require("gulp");
-var connect = require("gulp-connect");
+import gulp from "gulp";
+import connect from "gulp-connect";
 
-gulp.task("connect", function () {
+gulp.task("connect", function connectTask() {
   connect.server({
     root: "build"
   });

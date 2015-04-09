@@ -1,17 +1,18 @@
-var gulp = require("gulp");
-var frontMatter = require("gulp-front-matter");
-var marked = require("gulp-marked");
-var rename = require("gulp-rename");
-var templates = require("./../templates");
+import gulp from "gulp";
+import frontMatter from "gulp-front-matter";
+import marked from "gulp-marked";
+import rename from "gulp-rename";
+import templates from "./../templates";
 
-var globs = require('./globs');
-var renamePage = require('./renamePage');
+import globs from './globs';
+import renamePage from './renamePage';
 
-var templateOptions = require("./../config/templates");
+import templateOptions from "./../config/templates";
+import fmOptions from './fmOptions';
 
 function newsTask() {
   return gulp.src(globs.news)
-    .pipe(frontMatter(require('./fmOptions')))
+    .pipe(frontMatter(fmOptions))
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
