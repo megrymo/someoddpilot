@@ -4,7 +4,6 @@ var marked = require("gulp-marked");
 var rename = require("gulp-rename");
 var path = require("path");
 var templates = require("./templates");
-var collections = require("gulp-collections");
 var connect = require("gulp-connect");
 var api = require("gulp-static-api");
 var stylus = require("gulp-stylus");
@@ -44,27 +43,7 @@ var templateOptions = _.merge({
 }, require("./config/templates"));
 
 require('./tasks/news');
-
-function pagesTask() {
-  return gulp.src(globs.pages)
-    .pipe(collections({
-      globs: {
-        homeSlides: globs.homeSlides,
-        news: globs.news,
-        work: globs.work
-      },
-      options: {
-        count: 10
-      }
-    }))
-    .pipe(frontMatter(fmOptions))
-    .pipe(marked())
-    .pipe(rename(renamePage))
-    .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./build"));
-}
-
-gulp.task("pages", pagesTask);
+require('./tasks/pages');
 
 gulp.task("work", function () {
   return gulp.src(globs.work)
