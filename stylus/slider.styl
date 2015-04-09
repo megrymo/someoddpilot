@@ -1,0 +1,74 @@
+.slider
+  position: relative
+  overflow hidden
+
+.slides
+  position: relative
+  width 100%
+  margin: 0
+  padding: 0
+  background $yellow
+  list-style: none
+  overflow hidden
+
+  .slider-activated &
+    padding-left 100%
+
+.slide
+  position: relative
+  display: block
+  width 100%
+
+  .slider-activated &
+    float left
+    overflow hidden
+
+  .contained
+    padding 32vh 10% 12vh
+    height (100 - 32 - 12)vh
+    width 80%
+    position relative
+    overflow hidden
+
+    .left,
+    .right
+      height 100%
+
+.pager,
+.prev,
+.next
+  position absolute
+
+.prev,
+.next
+  padding 10px
+  font-size: 59px
+
+.pager
+  top 45%
+  width 100%
+
+.prev
+  left 2%
+
+.next
+  right 2%
+
+.counter
+  bottom ($hr-gutter)px
+  font-family: "Georgia", Georgia, serif
+  font-specs(18, 18)
+  font-weight: bold
+  text-align: right
+  overflow visible
+
+[simple-slider]
+  [simple-slider-slide]
+    opacity 0
+    position absolute
+    transition opacity 1.5s ease
+    z-index 1
+  .active
+    opacity 1
+    transition opacity 0.5s ease
+    z-index 5
