@@ -3,10 +3,10 @@
   var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
   var fitImage = require("./fit-image");
-  var simpleFadeSlider = require("./src/simple-fade-slider");
+  var SimpleFadeSlider = require("./src/simple-fade-slider");
   var sameHeightKids = require("./src/same-height-kids");
 
-  jQuery(document).ready(function ($) {
+  jQuery(document).ready(function () {
     skrollr.init({forceHeight: false});
     initSliders();
     vertCenter();
@@ -14,8 +14,7 @@
     sameHeightKids();
 
     $("[simple-slider]").map(function (index, element) {
-      console.log(element);
-      return new simpleFadeSlider(
+      return new SimpleFadeSlider(
         element, {
           delay: "10"
         }
