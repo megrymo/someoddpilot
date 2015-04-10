@@ -1,0 +1,6 @@
+{{#each images}}
+  <img class="block-image{{#unless @last}} bottom-gutter{{/unless}}"
+    src="/assets/images/work/{{ src }}"
+    alt="{{ alt }}"
+    slide-up />
+{{/each}}

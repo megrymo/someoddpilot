@@ -69,8 +69,7 @@ body
 .full
   width 100%
   height auto
-  clear both
-  overflow auto
+  clearfix()
 
 .full-height
   min-height 100vh
@@ -103,6 +102,14 @@ body
 .center-block
   margin 0 auto
   display: block
+
+.left
+  left 0
+  float left
+
+.right
+  right 0
+  float right
 
 .half,
 .third,
@@ -146,6 +153,15 @@ body
 .big-bottom-gutter
   margin-bottom ($big-gutter)px
 
+.top-gutter
+  margin-top ($hr-gutter)px
+
+.small-top-gutter
+  margin-top ($hr-gutter / 2)px
+
+.big-top-gutter
+  margin-top ($big-gutter)px
+
 .background-fill
   position: absolute;
   top: 0;
@@ -163,9 +179,10 @@ body
 .grey-caption
   clear both
 
-.image-hover .block-image
-  transition 0.5s all ease
-  &:hover
+.image-hover 
+  .block-image
+    transition 0.5s all ease
+  &:hover .block-image
     opacity: 0.8
 
 .page-subheader

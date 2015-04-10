@@ -1,20 +1,15 @@
 ---
 template: work/cat
 title: "CAT"
+subheader: "Everything"
 preview:
-  subheader: "Everything"
-  layout: 1up
-  textLeftorRight: "left"
-  linkText: ""
-  image1:
-    src: "sample/project2.jpg"
-    alt: "picture alt 1"
-  image2:
-    src: "sample/project2.jpg"
-    alt: "picture alt 1"
-  image3:
-    src: "sample/project2.jpg"
-    alt: "picture alt 1"
+  sections:
+    - template: "image"
+      size: "full"
+      includeTitle: true
+      images:
+        - src: "sample/project2.jpg"
+          alt: ""
 
 ## Begin Detail Page
 color: "yellow"

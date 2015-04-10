@@ -24,3 +24,26 @@ absolute-center()
   left 50%
 
   transform: translate(-50%, -50%)
+
+full-link()
+  position absolute
+  z-index  2
+
+  left 0
+  top  0
+
+  width  100%
+  height 100%
+
+  cursor pointer
+  
+  backface-visibility(hidden)
+
+cta-front()
+  position relative
+  z-index 5
+  cursor pointer
+  backface-visibility(hidden)
+
+.full-link
+  full-link()
