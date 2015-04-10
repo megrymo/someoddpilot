@@ -10,8 +10,10 @@
   width 100%
   height auto
 
-.block-image + .block-image
-  margin-top ($hr-gutter)px
+.block-image
+  & + .block-image,
+  & + .block-copy-container
+    margin-top ($hr-gutter)px
 
 .block-link
   display: inline-block

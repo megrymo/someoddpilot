@@ -1,42 +1,19 @@
 <section class="contained work-block block-{{@index}}">
-
-  {{#compare attributes.preview.layout "!==" "1up"~}}
-
-    <div class="half">
-      {{~#compare attributes.preview.textLeftorRight "===" "left"}}
-        {{#compare attributes.preview.layout "===" "3up"}}
-          {{> workBlockFeatureImage}}
-        {{/compare}}
-        {{> workBlockText}}
-      {{else}}
-        {{#compare attributes.preview.layout "===" "3up"}}
-          {{> workBlockDoubleImage}}
-        {{else}}
-          {{> workBlockFeatureImage}}
-        {{/compare}}
-      {{~/compare~}}
+  {{~#each attributes.preview.sections~}}
+    <div class="{{#compare size "===" "half"}}half{{/compare}}">
+      {{#compare template "===" "title"}}
+        {{> workBlockTitle ../../this}}
+      {{/compare}}
+      {{#compare template "===" "image"}}
+        {{> workBlockImage this}}
+        {{#if includeTitle}}
+          {{> workBlockTitle ../../../this}}
+        {{/if}}
+      {{/compare}}
     </div>
+  {{~/each}}
 
-    <div class="half">
-      {{~#compare attributes.preview.textLeftorRight "===" "right"~}}
-        {{#compare attributes.preview.layout "===" "3up"}}
-          {{> workBlockFeatureImage}}
-        {{/compare}}
-        {{> workBlockText}}
-      {{else}}
-        {{#compare attributes.preview.layout "===" "3up"}}
-          {{> workBlockDoubleImage}}
-        {{else}}
-          {{> workBlockFeatureImage}}
-        {{/compare}}
-      {{/compare~}}
-    </div>
-
-  {{~else}}
-
-    {{> workBlockFeatureImage}}
-    {{> workBlockText}}
-
-  {{/compare}}
+  <a href="/work/{{slug}}/" class="image-hover full-link">
+  </a>
 
 </section>

@@ -4,17 +4,14 @@ subheader: "Re-branding"
 color: "yellow"
 linkText: ""
 preview:
-  layout: 2up
-  textLeftorRight: "left"
-  image1:
-    src: "sample/project1-1.png"
-    alt: "picture alt 1"
-  image2:
-    src: "sample/project1-2.jpg"
-    alt: "picture alt 2"
-  image3:
-    src: "sample/project1-2.jpg"
-    alt: "picture alt 3"
+  sections:
+    - template: "title"
+      size: "half"
+    - template: "image"
+      size: "half"
+      images:
+        - src: "sample/project1-1.png"
+          alt: ""
 slides:
   - header: "Header 1"
     headerColor: ""

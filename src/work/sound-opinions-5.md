@@ -3,18 +3,20 @@ title: "Sound Opinions5 3up R"
 subheader: "Re-branding"
 color: "yellow"
 preview:
-  layout: 3up
-  textLeftorRight: "right"
-  linkText: ""
-  image1:
-    src: "sample/project1-1.png"
-    alt: "picture alt 1"
-  image2:
-    src: "sample/project1-2.jpg"
-    alt: "picture alt 2"
-  image3:
-    src: "sample/project1-2.jpg"
-    alt: "picture alt 3"
+  sections:
+    - template: "image"
+      size: "half"
+      images:
+        - src: "sample/project1-1.png"
+          alt: ""
+        - src: "sample/project1-1.png"
+          alt: ""
+    - template: "image"
+      size: "half"
+      includeTitle: true
+      images:
+        - src: "sample/project1-1.png"
+          alt: ""
 slides:
   - header: "Header 1"
     headerColor: ""
