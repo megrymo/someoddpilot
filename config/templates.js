@@ -9,6 +9,8 @@ module.exports = {
     aboutNav: "about-nav",
     aboutProfile: "about-profile",
     workBlock: "work-block",
+    workBlockText: "work-block-text",
+    workBlockImage: "work-block-image",
     workTopHeader: "work-top-header",
     workSectionHeader: "work-section-header",
     workStack: "work-stack"

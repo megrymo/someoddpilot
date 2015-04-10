@@ -1,32 +1,39 @@
-<section class="contained work-block block-{{@index}}{{#compare attributes.preview.layout "!==" "1up"}} vert-center-halves{{/compare}}">
-  {{#compare attributes.preview.layout "!==" "1up" }}
-    {{#compare attributes.preview.layout "===" "3up" }}
-      <div class="half {{#compare attributes.preview.textLeftorRight "===" "left"}}left{{else}}right{{/compare}}">
-      {{else}}
+<section class="contained work-block block-{{@index}}">
+  {{#compare attributes.preview.layout "!==" "1up" ~}}
+    {{~#compare attributes.preview.layout "===" "3up" ~}}
+      <div class="half">
+      {{#compare attributes.preview.textLeftorRight "===" "left"}}left{{else}}right{{/compare}}
+      {{~else~}}
       <div class="half {{#compare attributes.preview.textLeftorRight "===" "left"}}right{{else}}left{{/compare}}">
-    {{/compare}}
-  {{/compare}}
+    {{~/compare~}}
+  {{~/compare~}}
       <a href="/work/{{slug}}/" class="image-hover">
         <img class="block-image bottom-gutter"
           src="/assets/images/work/{{ attributes.preview.image1.src }}"
           alt="{{ attributes.preview.image1.alt }}"
           slide-up />
       </a>
-  {{#compare attributes.preview.layout "===" "2up" }}
+  {{~#compare attributes.preview.layout "===" "2up" ~}}
     </div>
-    <div class="half {{#compare attributes.preview.textLeftorRight "===" "right"}}right{{else}}left{{/compare}}">
-  {{/compare}}
+    <div class="half">
+    {{~#compare attributes.preview.textLeftorRight "===" "right"}}right{{else}}left{{/compare}}
+  {{/compare~}}
       <h3 class="block-header">{{ attributes.title }}</h3>
       <p class="block-subheader">{{ attributes.preview.subheader }}</p>
-      <a class="block-link" href="/work/{{slug}}/">{{#if attributes.preview.linkText}}{{attributes.preview.linkText}}{{else}}More{{/if}}</a>
-  {{#compare attributes.preview.layout "===" "2up" }}
+      <a class="block-link" href="/work/{{slug}}/">{{#if attributes.preview.linkText}}
+            {{attributes.preview.linkText}}
+          {{else}}
+            More
+          {{/if}}</a>
+  {{~#compare attributes.preview.layout "===" "2up" ~}}
     </div>
-  {{/compare}}
-  {{#compare attributes.preview.layout "!==" "1up" }}
+  {{~/compare~}}
+  {{~#compare attributes.preview.layout "!==" "1up" ~}}
     </div>
-  {{/compare}}
-  {{#compare attributes.preview.layout "===" "3up" }}
-  <div class="half {{#compare attributes.preview.textLeftorRight "===" "right"}}left{{else}}right{{/compare}}">
+  {{~/compare~}}
+  {{~#compare attributes.preview.layout "===" "3up"~}}
+  <div class="half">
+  {{~#compare attributes.preview.textLeftorRight "===" "right"}}left{{else}}right{{/compare}}
     <a href="/work/{{slug}}/" class="image-hover">
       <img class="block-image"
         src="/assets/images/work/{{ attributes.preview.image2.src }}"
@@ -38,5 +45,34 @@
         slide-up />
     </a>
   </div>
+  {{~/compare}}
+</section>
+
+<section class="contained work-block block-{{@index}}">
+
+  {{#compare attributes.preview.layout "!==" "1up"}}
+
+    <div class="half">
+      {{#compare attributes.preview.textLeftorRight "===" "left"}}
+        {{> workBlockText}}
+      {{else}}
+        {{> workBlockImage}}
+      {{/compare}}
+    </div>
+
+    <div class="half">
+      {{#compare attributes.preview.textLeftorRight "===" "right"}}
+        {{> workBlockText}}
+      {{else}}
+        {{> workBlockImage}}
+      {{/compare}}
+    </div>
+
+  {{else}}
+
+    {{> workBlockImage}}
+    {{> workBlockText}}
+
   {{/compare}}
+
 </section>
