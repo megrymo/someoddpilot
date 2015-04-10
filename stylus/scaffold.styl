@@ -110,18 +110,14 @@ body
 .add-lr-margin
   margin-left ((($vert-gutter / 2 ) / $content-width) * 100) %
   margin-right ((($vert-gutter / 2 ) / $content-width) * 100) %
+
   height auto
 
+  vertical-align middle
+
 .half
-  width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50) %
-
-.left
-  float left
-  left 0
-
-.right
-  float right
-  right 0
+  width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50)%
+  display inline-block
 
 .eighty
   width 80%

@@ -78,12 +78,12 @@
     <p class="display-serif contained list">
       {{#each staff.titles}}
         {{#if @first}}
-          <span slide-up class="left">We are {{number}} {{title}}<!--
-          -->{{else}}<!--
-          -->{{#if @last}}&nbsp;{{else}},&nbsp;{{/if}}</span><span slide-up class="left">{{#if @last}}&amp; {{/if}}{{number}} {{title}}{{#if @last}}.{{else}}{{/if}}<!--
-        -->{{/if}}<!--
-      -->{{/each}}<!--
-      --></span>
+          <span slide-up class="left">We are {{number}} {{title~}}
+          {{~else~}}
+          {{~#if @last}}&nbsp;{{else}},&nbsp;{{/if}}</span><span slide-up class="left">{{#if @last}}&amp; {{/if}}{{number}} {{title}}{{#if @last}}.{{else}}{{/if~}}
+        {{~/if~}}
+      {{~/each~}}
+      </span>
     </p>
     </div>
   </div>
