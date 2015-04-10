@@ -1,6 +1,5 @@
 (function($){
 
-  var vertCenter = require("./vertical-center");
   var initSliders = require("./slider");
   var fitImage = require("./fit-image");
   var SimpleFadeSlider = require("./src/simple-fade-slider");
@@ -9,7 +8,6 @@
   jQuery(document).ready(function () {
     skrollr.init({forceHeight: false});
     initSliders();
-    vertCenter();
     fitImage();
     sameHeightKids();
 
@@ -24,12 +22,10 @@
   });
 
   $(window).load(function() {
-    vertCenter();
     fitImage();
   });
 
   $(window).resize(function() {
-    vertCenter();
     fitImage();
     sameHeightKids();
   });

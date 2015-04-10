@@ -3,18 +3,14 @@ title: "Sound Opinions4 1up"
 subheader: "Re-branding"
 color: "yellow"
 preview:
-  layout: 1up
-  textLeftorRight: "left"
-  linkText: ""
-  image1:
-    src: "sample/project1-1.png"
-    alt: "picture alt 1"
-  image2:
-    src: "sample/project1-2.jpg"
-    alt: "picture alt 2"
-  image3:
-    src: "sample/project1-2.jpg"
-    alt: "picture alt 3"
+  sections:
+    - template: "image"
+      size: "full"
+      images:
+        - src: "sample/project1-1.png"
+          alt: ""
+    - template: "title"
+      size: "full"
 slides:
   - header: "Header 1"
     headerColor: ""

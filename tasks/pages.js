@@ -17,7 +17,6 @@ function pagesTask() {
       globs: {
         homeSlides: globs.homeSlides,
         news: globs.news,
-        about: globs.about.first,
         work: globs.work
       },
       options: {

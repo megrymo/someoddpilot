@@ -69,8 +69,7 @@ body
 .full
   width 100%
   height auto
-  clear both
-  overflow auto
+  clearfix()
 
 .full-height
   min-height 100vh
@@ -104,24 +103,28 @@ body
   margin 0 auto
   display: block
 
+.left
+  left 0
+  float left
+
+.right
+  right 0
+  float right
+
 .half,
 .third,
 .quarter,
 .add-lr-margin
   margin-left ((($vert-gutter / 2 ) / $content-width) * 100) %
   margin-right ((($vert-gutter / 2 ) / $content-width) * 100) %
+
   height auto
 
+  vertical-align middle
+
 .half
-  width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50) %
-
-.left
-  float left
-  left 0
-
-.right
-  float right
-  right 0
+  width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50)%
+  display inline-block
 
 .eighty
   width 80%
@@ -150,6 +153,15 @@ body
 .big-bottom-gutter
   margin-bottom ($big-gutter)px
 
+.top-gutter
+  margin-top ($hr-gutter)px
+
+.small-top-gutter
+  margin-top ($hr-gutter / 2)px
+
+.big-top-gutter
+  margin-top ($big-gutter)px
+
 .background-fill
   position: absolute;
   top: 0;
@@ -167,9 +179,10 @@ body
 .grey-caption
   clear both
 
-.image-hover .block-image
-  transition 0.5s all ease
-  &:hover
+.image-hover 
+  .block-image
+    transition 0.5s all ease
+  &:hover .block-image
     opacity: 0.8
 
 .page-subheader
