@@ -6,7 +6,7 @@ gulp.task("watch", function () {
   watch([globs.news, globs.pages, globs.templates], function () {
     gulp.start(["pages"]);
   });
-  watch(["./src/about/*"], function () {
+  watch(["./src/about/*", "./src/templates/about/*"], function () {
     gulp.start(["about"]);
   });
   watch(["./src/work/*"], function () {
