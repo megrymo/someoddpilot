@@ -10,7 +10,8 @@ module.exports = {
     aboutProfile: "about-profile",
     workBlock: "work-block",
     workBlockText: "work-block-text",
-    workBlockImage: "work-block-image",
+    workBlockFeatureImage: "work-block-feature-image",
+    workBlockDoubleImage: "work-block-double-image",
     workTopHeader: "work-top-header",
     workSectionHeader: "work-section-header",
     workStack: "work-stack"
