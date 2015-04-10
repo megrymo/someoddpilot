@@ -2,7 +2,7 @@
 title: "Sound Opinions2 2up L"
 subheader: "Re-branding"
 color: "yellow"
-linkText: ""
+linkText: "Custom CTA"
 preview:
   sections:
     - template: "title"
