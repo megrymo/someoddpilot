@@ -10,5 +10,5 @@ gulp.task("scripts", function () {
   return bundler.bundle()
     .on("error", gutil.log.bind(gutil, "Browserify Error"))
     .pipe(source("client.js"))
-    .pipe(gulp.dest("./dest/js"));
+    .pipe(gulp.dest("./build/js"));
 });

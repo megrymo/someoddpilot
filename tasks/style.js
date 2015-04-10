@@ -11,5 +11,5 @@ gulp.task("style", function () {
         sopStyl()
       ]
     }))
-    .pipe(gulp.dest("dest/css"));
+    .pipe(gulp.dest("build/css"));
 });

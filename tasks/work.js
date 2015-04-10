@@ -24,5 +24,5 @@ gulp.task("work", function workTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
-    .pipe(gulp.dest("./dest/work"));
+    .pipe(gulp.dest("./build/work"));
 });
