@@ -206,17 +206,16 @@
   .prev
     position: fixed;
     top: 0;
-    height: 300%;
+    height: 100vh;
     width 33%
     cursor: pointer
+    z-index 99
 
   .next
     right: 0
-    cursor: url("/assets/images/arrow-right.svg"), pointer;
 
   .prev
     left: 0
-    cursor: url("/assets/images/arrow-left.svg"), pointer;
 
 .profiles
   padding ($big-gutter / $base-font-size)em 0
@@ -241,6 +240,7 @@
   .right
     margin ($small-gutter / 2 / 1600 * 100)%
     overflow hidden
+    height 100vh
 
     //take away after getting real images
     img
