@@ -1,14 +1,12 @@
 import gulp from 'gulp';
 
 gulp.task("default", [
-  "assets",
   "style",
   "news",
   "pages",
   "work",
   "about",
-  "connect",
+  "server",
   "watch",
-  "scripts",
-  "templates"
+  "scripts"
 ]);
