@@ -6,10 +6,8 @@ $yellow ?= #fffaec
 $pink ?= #ffe8e8
 
 .blue-bg
+.blue-bg [reveal]
   background $blue
-
-  .reveal
-    @extend .blue-bg
 
   .darker-bg
     background darken(desaturate($blue, 10%), 4%)
@@ -18,10 +16,8 @@ $pink ?= #ffe8e8
     background saturate(lightness($blue, 98%), 4%)
 
 .yellow-bg
+.yellow-bg [reveal]
   background $yellow
-
-  .reveal
-    @extend .yellow-bg
 
   .darker-bg
     background darken(saturation($yellow, 50%), 4%)
@@ -30,10 +26,8 @@ $pink ?= #ffe8e8
     background saturate(lightness($yellow, 98%), 4%)
 
 .pink-bg
+.pink-bg [reveal]
   background $pink
-
-  .reveal
-    @extend .pink-bg
 
   .darker-bg
     background darken(desaturate($pink, 10%), 4%)

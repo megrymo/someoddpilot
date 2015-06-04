@@ -2,10 +2,10 @@
 template: about/clients-studio
 color: pink
 headerNoPush: true
-title: "Clients & Studio"
+title: Clients & Studio
 
 intro:
-  "You are who you work for, and our clients have been our friends and close collaborators since 1999. In many cases, we came up together: Pitchfork were our neighbors on the North Side, and we helped launch each other’s businesses."
+  You are who you work for, and our clients have been our friends and close collaborators since 1999. In many cases, we came up together: Pitchfork were our neighbors on the North Side, and we helped launch each other’s businesses.
 
 clients:
   logos:
@@ -45,7 +45,7 @@ clients:
       name: Saucony
 
   copy:
-    "We’ve dedicated our time to Fashion & Apparel, Tech, Music and Cultural Institutions of various kinds. Clients who see in us what we see in them: passionate, dedicated doers. People driven by wonder."
+    We’ve dedicated our time to Fashion & Apparel, Tech, Music and Cultural Institutions of various kinds. Clients who see in us what we see in them: passionate, dedicated doers. People driven by wonder.
 
 people:
   - name: Chris Eichenseer
@@ -69,26 +69,26 @@ people:
 staff:
   total: 18
   titles:
-    - title: "Designers"
-      number: "5"
-    - title: "Writers"
-      number: "2"
-    - title: "Photographers"
-      number: "2"
-    - title: "Coders"
-      number: "2"
-    - title: "Stylist"
-      number: "1"
-    - title: "Strategists"
-      number: "4"
-    - title: "Architect"
-      number: "1"
-    - title: "Cinematographers"
-      number: "3"
-    - title: "Editors"
-      number: "2"
-    - title: "Managers"
-      number: "2"
-    - title: "Metal Band"
-      number: "1"
+    - title: Designers
+      number: 5
+    - title: Writers
+      number: 2
+    - title: Photographers
+      number: 2
+    - title: Coders
+      number: 2
+    - title: Stylist
+      number: 1
+    - title: Strategists
+      number: 4
+    - title: Architect
+      number: 1
+    - title: Cinematographers
+      number: 3
+    - title: Editors
+      number: 2
+    - title: Managers
+      number: 2
+    - title: Metal Band
+      number: 1
 ---
