@@ -8,37 +8,20 @@ Someoddpilot’s site generator
 
 # Workflow
 
-* Headers / Sections - Chris
-  |
-  |
-  V
+1. **Headers / Sections** — Chris
 
-* Images / Layout - Chris and/or Sr. Designers
-  * Dev Look Over
-    * Start template data development
-    * Start development of custom areas if possible
-  |
-  |
-  V
+2. **Images / Layout** — Chris and/or Sr. Designers
 
-* Copy - Annika & team
-  |
-  |
-  V
+3. **Dev Look Over**
+  * Start template data development
+  * Start development of custom areas if possible
 
-* Edits
-  |
-  |
-  V
+4. **Copy** — Annika & team
 
-* Dev
-  |
-  |
-  V
+5. **Edits**
 
-* Approve - Chris & Annika
-  |
-  |
-  V
+6. **Dev**
 
-* Push - Devs
+7. **Approve** — Chris & Annika
+
+8. **Push** — Devs
