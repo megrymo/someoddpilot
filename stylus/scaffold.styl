@@ -62,8 +62,12 @@ body
 .top-header
   z-index 5
 
-.content
+.content,
+.page-content
   position relative
+
+  text-align: center
+
   z-index 1
 
 .full
@@ -85,6 +89,7 @@ body
   margin 0 auto
   overflow hidden
   clear both
+  text-align: left
 
 .contained-smaller
   width 64%
@@ -179,7 +184,7 @@ body
 .grey-caption
   clear both
 
-.image-hover 
+.image-hover
   .block-image
     transition 0.5s all ease
   &:hover .block-image

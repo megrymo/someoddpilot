@@ -111,11 +111,14 @@
   padding-bottom (760 / 1600 * 100)%
   background lighten($black, 50%)
   overflow hidden
+  text-align: left
 
   .full
     position absolute
     top 50%
     margin-top ((1066 / 1600) / 2 * -100)%
+
+    transform-origin: center
 
 .expertise
   text-align: center
@@ -144,6 +147,7 @@
 .expertise-list
   overflow visible
   list-style none
+  text-align: center
 
 .expertise-item
   padding 0.4em 0
@@ -220,9 +224,11 @@
 
 .profile-name
   padding (avg($hr-gutter $big-gutter))px 0 0
+  text-align: center
 
 .profile-title
   padding ($hr-gutter / 3)px 0 ($hr-gutter / 2)px
+  text-align: center
 
 .profile-copy
   padding ($hr-gutter)px 0
