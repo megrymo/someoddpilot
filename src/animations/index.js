@@ -1,3 +1,5 @@
+var ScrollMagic = require("scrollmagic");
+require("./plugins/debug/");
 var app = angular.module("animations", []);
 
 app
@@ -25,14 +27,37 @@ app
     replace: false,
     link: function (scope, element) {
 
-      element
-        .addClass("reveal")
-        .attr("data-smooth-scrolling", "off")
-        .attr("data-bottom-bottom", "transform: translateY(0vh)")
-        .attr("data-top-bottom", "transform: translateY(100vh)");
-      skrollr.get().refresh(element);
+      // element
+      //   .addClass("reveal")
+      //   .attr("data-smooth-scrolling", "off")
+      //   .attr("data-bottom-bottom", "transform: translateY(0vh)")
+      //   .attr("data-top-bottom", "transform: translateY(100vh)");
+      // skrollr.get().refresh(element);
 
     }
   };
 
 });
+
+(function($) {
+
+  var animationController = new ScrollMagic.Controller();
+
+  $('[reveal]').each(function (index, elem) {
+
+    $(elem).addClass('reveal--' + index);
+
+  });
+
+  $('[reveal]').each(function (index, elem) {
+
+    new ScrollMagic.Scene({
+          triggerHook: 'onEnter',
+          triggerElement: '.' + $(elem).next().attr('class').replace(/\s/g,'.')
+        })
+        .setPin(elem)
+        .addTo(animationController)
+        .addIndicators();
+  });
+
+})(jQuery);

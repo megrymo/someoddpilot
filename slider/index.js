@@ -6,13 +6,20 @@ function initSliders() {
         firstSlide = slide + ":first-child",
         lastSlide = slide + ":last-child",
         slideCount = $(slide).length,
-        counter = 0;
+        counter = 0,
+        timer,
+        ready = true;
+
+    function slideReady() {
+      ready = true;
+    }
 
     function updateCount() {
       $(".counter").html((counter + 1) + "&nbsp;<em>of</em>&nbsp;" + slideCount);
     }
 
     function moveRight() {
+      ready = false;
       $(lastSlide)
         .removeClass("slide-left slide-left-force")
         .addClass("slide-right");
@@ -25,11 +32,16 @@ function initSliders() {
     }
 
     function moveLeft() {
+      ready = false;
       counter = ((counter < slideCount - 1 ) ? counter + 1 : 0);
       updateCount();
       $(lastSlide).prependTo(slides);
       $(slide).removeClass("slide-right slide-left slide-left-force");
-      $(lastSlide).addClass("slide-left");
+      $(lastSlide).addClass("slide-left").delay(1001).queue( function(){
+        console.log('post');
+        slideReady();
+      });
+      console.log('pre');
     }
 
     if (slideCount > 1) {
@@ -47,7 +59,10 @@ function initSliders() {
         .addClass("slider-activated");
 
       $(slides).append(
-        $(slides).find(slide).get().reverse()
+        $(slides)
+          .find(slide)
+          .get()
+          .reverse()
       );
 
       updateCount();
@@ -58,28 +73,34 @@ function initSliders() {
 
       var finalSlideCount = $(slide).length;
 
-      $(slides).css({width: (100 * finalSlideCount) + "%"});
+      $(slides).css("width", (100 * finalSlideCount) + "%");
       $(slide).css({
         width: (100 / finalSlideCount) + "%",
         "margin-left": (-100 / finalSlideCount) + "%"
       });
 
-      $(firstSlide).addClass("slide-left-force").appendTo(slides);
+      $(firstSlide)
+        .addClass("slide-left-force")
+        .appendTo(slides);
 
-      var timer = setInterval(function(){
-        moveLeft();
-      }, 8000);
+      timer = setInterval(function(){
+                moveLeft();
+              }, 8000);
 
       skrollr.get().refresh($(this));
 
       $(".prev").click(function () {
-        moveRight();
-        clearInterval(timer);
+        if (ready) {
+          clearInterval(timer);
+          moveRight();
+        }
       });
 
       $(".next").click(function () {
-        moveLeft();
-        clearInterval(timer);
+        if (ready) {
+          clearInterval(timer);
+          moveLeft();
+        }
       });
 
       $(this).hover(function(){
@@ -87,9 +108,9 @@ function initSliders() {
       });
 
       $(this).mouseleave(function(){
-        var timer = setInterval(function(){
-          moveLeft();
-        }, 8000);
+        timer = setInterval(function(){
+                  moveLeft();
+                }, 8000);
       });
     }
 

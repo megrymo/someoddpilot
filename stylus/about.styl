@@ -204,8 +204,9 @@
 
   .next,
   .prev
-    position: fixed;
+    position: absolute;
     top: 0;
+    bottom 0
     height: 100vh;
     width 33%
     cursor: pointer
@@ -220,6 +221,8 @@
 .profiles
   padding ($big-gutter / $base-font-size)em 0
   text-align: center
+
+  position relative
 
 .profile-name
   padding (avg($hr-gutter $big-gutter))px 0 0
@@ -240,7 +243,7 @@
   .right
     margin ($small-gutter / 2 / 1600 * 100)%
     overflow hidden
-    height 100vh
+    height 100%
 
     //take away after getting real images
     img

@@ -48,6 +48,7 @@
     "require-dir": "^0.3.0",
     "serve-static": "^1.8.1",
     "sop-styl": "^1.2.4",
+    "scrollmagic": "^2.0.5",
     "through2": "^0.6.3",
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^3.1.0"

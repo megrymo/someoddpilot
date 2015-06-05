@@ -37,6 +37,7 @@ require("angular-scroll");
 require("./angular-menu");
 require("./src/video-player");
 require("./src/animations");
+require("./src/debug");
 
 angular.module("sop", ["duScroll", "menu", "video", "animations"]);
 
