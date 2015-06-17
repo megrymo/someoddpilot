@@ -6,39 +6,53 @@
     <span class="sr">Menu</span>
   </div>
 </a>
-<nav class="nav-holder">
-  <a href="#" class="nav-close-icon icon-close-x" ng-click="toggleClass()">
-  </a>
-  <ul class="main-nav">
-    <li>
-      <a class="nav-link" href="/">Home</a>
-    </li>
-    <li>
-      <a class="nav-link" href="/work/">Work</a>
-    </li>
-    <li>
-      <a class="nav-link" href="/news/">News</a>
-    </li>
-    <li>
-      <a class="nav-link" href="/about/">About</a>
-    </li>
-    <li>
-      <a class="nav-link" href="/contact/">Contact</a>
-    </li>
-  </ul>
-  <ul class="social-nav">
-    <li class="nav-link-social">
-      <a class="social-icon icon-facebook" href="http://www.facebook.com/someoddpilot"></a>
-    </li>
-    <li class="nav-link-social">
-      <a class="social-icon icon-twitter" href="http://www.twitter.com/someoddpilot"></a>
-    </li>
-    <li class="nav-link-social">
-      <a class="social-icon icon-vimeo" href="http://www.vimeo.com/someoddpilot">
-      </a>
-    </li>
-    <li class="nav-link-social">
-      <a class="social-icon icon-instagram" href="http://www.instagram.com/someoddpilot"></a>
-    </li>
-  </ul>
+<nav class="nav-holder white-text">
+  <div class="nav-contents">
+    <a href="#" class="nav-close-icon icon-close-x" ng-click="toggleClass()">
+    </a>
+    <ul class="main-nav">
+      <li>
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/work/">Work</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/news/">News</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/about/">About</a>
+      </li>
+      <li>
+        <a class="nav-link" href="/contact/">Contact</a>
+      </li>
+    </ul>
+    {{#if navFeatures.length}}
+    <div class="nav-features-header">
+      Features
+    </div>
+    <ul class="nav-features">
+      {{#each navFeatures}}
+      <li>
+        <a class="nav-link" href="{{ link }}">{{ name }}</a>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    <ul class="social-nav">
+      <li class="nav-link-social">
+        <a class="social-icon icon-facebook" href="http://www.facebook.com/someoddpilot"></a>
+      </li>
+      <li class="nav-link-social">
+        <a class="social-icon icon-twitter" href="http://www.twitter.com/someoddpilot"></a>
+      </li>
+      <li class="nav-link-social">
+        <a class="social-icon icon-vimeo" href="http://www.vimeo.com/someoddpilot">
+        </a>
+      </li>
+      <li class="nav-link-social">
+        <a class="social-icon icon-instagram" href="http://www.instagram.com/someoddpilot"></a>
+      </li>
+    </ul>
+  </div>
 </nav>

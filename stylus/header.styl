@@ -8,10 +8,12 @@
 
 .header-logo
   display: inline-block
-  margin 9vh 0 12vh
+  margin 7vh 0
   padding 10px
   color: $black
   font-size: 91px
+
+  transition 0.25s
 
   @media screen and (max-height: (700px))
     font-size 13vh
@@ -43,21 +45,38 @@
 
 .nav-holder
   display: inline-block
+
   position absolute
-  height 0
   top 0
   left 0
+
   background $black
+
   padding 0 66px 0 56px
+
   overflow hidden
   text-align: left
-  transition height ease 1s, padding ease 1s
+  transition padding ease 1s, transform ease 1s
+
   z-index 5
 
+  transform: translateY(-100%)
+
   .nav-open &
-    height 248px
     padding-top 80px
-    padding-bottom 72px
+    padding-bottom 30px
+
+    transform: translateY(0)
+
+.nav-contents
+  opacity 0
+
+  transition opacity ease 0.5s 0s
+
+  .nav-open &
+    opacity 1
+
+    transition opacity ease 0.5s 0.5s
 
 .nav-close-icon
   position absolute
@@ -65,19 +84,39 @@
   right 0
   padding 25px;
   color $black
-  transition color ease 1s
+  transition color 0.5s
 
   .nav-open &
     color $white
+    transition color 0.5s 0s
 
 .nav-link
   display: block
   padding 12px 4px
-  color $black
-  transition color ease 1s
 
-  .nav-open &
-    color $white
+  color $white
+
+  transition color 0.5s
+
+.nav-features-header
+  margin 1em 0 0
+  padding 12px 4px 0
+
+  color darken($white, 52%)
+
+  font-specs(12, auto, 15)
+  font-family: $sop-sans
+  text-transform: lowercase
+
+.nav-features
+  text-decoration underline
+
+  .nav-link
+    padding 4px
+
+    font-family: $sop-display-serif
+    font-size: (15 / 16)em
+    text-transform: capitalize
 
 .social-nav
   margin-top 26px
@@ -88,16 +127,16 @@
 
 .social-icon
   display: block
+
   width 32px
   height 32px
-  padding 4px
-  color $black
-  font-size: 32px;
-  transition color ease 1s
 
-  .nav-open &
-    color darken($white, 52%)
-    transition color ease 0.25s
+  padding 4px
+
+  color darken($white, 52%)
+  font-size: 32px;
+
+  transition color 0.25s
 
 .nav-link-social:hover .social-icon
   color $white

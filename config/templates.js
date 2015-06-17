@@ -19,6 +19,20 @@ module.exports = {
     site: {
       title: "someoddpilot",
       description: "Lorem"
-    }
+    },
+    navFeatures: [
+      {
+        name: "Reel",
+        link: null
+      },
+      {
+        name: "Clients",
+        link: "/about/clients-studio#clients"
+      },
+      {
+        name: "Public Works",
+        link: null
+      }
+    ]
   }
 };
