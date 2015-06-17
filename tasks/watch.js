@@ -3,7 +3,7 @@ import globs from './globs';
 import watch from 'gulp-watch';
 
 gulp.task("watch", function () {
-  watch([globs.news, globs.pages, globs.templates], function () {
+  watch([globs.news, globs.pages, globs.templates, globs.homeSlides], function () {
     gulp.start(["pages"]);
   });
   watch(["./src/about/*", "./templates/about/*"], function () {
@@ -21,7 +21,7 @@ gulp.task("watch", function () {
   watch(["./stylus/*"], function () {
     gulp.start(["style"]);
   });
-  watch(["./src/**/*.js"], function () {
+  watch(["./src/**/*.js", "./slider/*.js"], function () {
     gulp.start(["scripts"]);
   });
   watch(["./src/assets/**/*"], function () {
