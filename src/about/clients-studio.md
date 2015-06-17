@@ -4,7 +4,7 @@ color: pink
 headerNoPush: true
 title: Clients & Studio
 
-intro:
+intro: |
   You are who you work for, and our clients have been our friends and close collaborators since 1999. In many cases, we came up together: Pitchfork were our neighbors on the North Side, and we helped launch each other’s businesses.
 
 clients:
@@ -44,7 +44,7 @@ clients:
     - logo: saucony.png
       name: Saucony
 
-  copy:
+  copy: |
     We’ve dedicated our time to Fashion & Apparel, Tech, Music and Cultural Institutions of various kinds. Clients who see in us what we see in them: passionate, dedicated doers. People driven by wonder.
 
 people:
