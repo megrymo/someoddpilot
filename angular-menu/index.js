@@ -1,11 +1,10 @@
 angular.module("menu", [])
   .controller("headerController", ["$scope", function($scope){
 
-  $scope.class = "";
+  $scope.active = false;
 
   $scope.toggleClass = function(){
-    var newClass = $scope.class === "nav-open" ? "" : "nav-open";
-    $scope.class = newClass;
+    $scope.active = !$scope.active;
   };
 
 }]);
