@@ -4,6 +4,7 @@ import marked from "gulp-marked";
 import rename from "gulp-rename";
 import templates from "./../templates";
 import collections from "gulp-collections";
+import replace from "gulp-replace";
 
 import globs from './globs';
 import renamePage from './renamePage';
@@ -27,6 +28,7 @@ function pagesTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
+    .pipe(replace(/>\s+</g, '><'))
     .pipe(gulp.dest("build"));
 }
 

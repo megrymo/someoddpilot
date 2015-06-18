@@ -8,6 +8,7 @@ import {about as aboutGlobs} from './globs';
 import renamePage from './renamePage';
 import templateOptions from "./../config/templates";
 import fmOptions from './fmOptions';
+import replace from 'gulp-replace';
 
 gulp.task("about-others", function () {
   return gulp.src(aboutGlobs.others)
@@ -21,5 +22,6 @@ gulp.task("about-others", function () {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
+    .pipe(replace(/>\s+</g, '><'))
     .pipe(gulp.dest("./build/about"));
 });

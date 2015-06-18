@@ -37,6 +37,7 @@
     "gulp-front-matter": "^1.2.1",
     "gulp-marked": "^1.0.0",
     "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.3",
     "gulp-static-api": "^1.0.0",
     "gulp-stylus": "^2.0.0",
     "gulp-util": "^3.0.2",
