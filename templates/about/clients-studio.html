@@ -23,12 +23,14 @@
     </div>
   </div>
 </section>
-<section reveal id="clients">
-  <div class="full-height darker-bg">
+<section reveal>
+  <div class="full-height darker-bg" id="clients">
     <div class="contained-smaller client-logos">
       {{~#eachLimited clients.logos 12~}}
         <div class="quarter left">
-          <image src="/assets/images/about/logos/{{logo}}" alt="{{name}}" class="full vert-center client-logo" />
+          <image src="/assets/images/about/logos/{{logo}}"
+            alt="{{name}}"
+            class="full vert-center client-logo" />
         </div>
       {{~/eachLimited~}}
     </div>
@@ -48,8 +50,16 @@
     {{#each people}}
       {{>aboutProfile}}
     {{/each}}
-    <button simple-slider-prev class="prev icon-arrow-left" alt="Previous"><span class="sr">Previous</span></button>
-    <button simple-slider-next class="next icon-arrow-right" alt="Next"><span class="sr">Next</span></button>
+    <button simple-slider-prev class="prev icon-arrow-left" alt="Previous">
+      <span class="sr">
+        Previous
+      </span>
+    </button>
+    <button simple-slider-next class="next icon-arrow-right" alt="Next">
+      <span class="sr">
+        Next
+      </span>
+    </button>
   </div>
   <div>
 </section>
