@@ -189,7 +189,11 @@ function initSliders() {
             .addClass("slide-left-force")
             .appendTo(this.slides);
 
-          skrollr.get().refresh(this.$element);
+          const isSkrolled = skrollr.get();
+
+          if ( isSkrolled ) {
+            skrollr.get().refresh(this.$element);
+          }
           this.startTimer();
         },
 

@@ -50,31 +50,14 @@
 }
 
 [slide-up]
+.slide-up
   opacity 0
-
-.slide-up {
-  opacity 0
+  transform: translateY(1em);
   transition all 1s ease
-}
 
-.skrollable-after.slide-up,
-.skrollable-after .slide-up{
+.slide-up--show
   opacity 1
-  animation-name: slideUp;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-}
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(1em);
-    opacity 0
-  }
-  100% {
-    transform: translateY(0);
-    opacity 1
-  }
-}
+  transform: translateY(0);
 
 .spinning {
   animation: spinning 30s infinite linear

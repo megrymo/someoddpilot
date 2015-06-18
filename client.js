@@ -1,14 +1,23 @@
 (function($){
 
-  var initSliders = require("./slider");
-  var fitImage = require("./fit-image");
-  var SimpleFadeSlider = require("./src/simple-fade-slider");
-  var sameHeightKids = require("./src/same-height-kids");
+  const initSliders = require("./slider");
+  const fitImage = require("./fit-image");
+  const SimpleFadeSlider = require("./src/simple-fade-slider");
+  const sameHeightKids = require("./src/same-height-kids");
+
+  const isTouchDevice = function(){
+                          return true ===
+                            ('ontouchstart' in window || window.DocumentTouch &&
+                              document instanceof DocumentTouch);
+                        }
 
   jQuery(document).ready(function () {
-    skrollr.init({forceHeight: false});
+
+    if ( !isTouchDevice() ) {
+      skrollr.init({forceHeight: false});
+    }
+
     initSliders();
-    fitImage();
     sameHeightKids();
 
     $("[simple-slider]").map(function (index, element) {
@@ -21,12 +30,7 @@
 
   });
 
-  $(window).load(function() {
-    fitImage();
-  });
-
   $(window).resize(function() {
-    fitImage();
     sameHeightKids();
   });
 
@@ -35,11 +39,12 @@
 require("angular");
 require("angular-scroll");
 require("./angular-menu");
+require("./deep-links");
 require("./src/video-player");
 require("./src/animations");
 require("./src/debug");
 
-angular.module("sop", ["duScroll", "menu", "video", "animations"]);
+angular.module("sop", ["duScroll", "menu", "video", "deepLinks"]);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);
