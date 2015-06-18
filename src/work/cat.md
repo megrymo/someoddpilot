@@ -1,6 +1,7 @@
 ---
 template: work/cat
 title: "CAT"
+class: cat
 subheader: "Everything"
 preview:
   sections:
