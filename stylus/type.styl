@@ -74,8 +74,26 @@
 .block-header
   font-specs(49, 66, 50)
 
+  @media screen and (max-width: 1200px)
+    font-specs(36)
+
+  @media screen and (max-width: 900px)
+    font-specs(32)
+
+  @media screen and (max-width: 600px)
+    font-specs(28)
+
 .block-subheader
   font-specs(30, 40, 50)
+
+  @media screen and (max-width: 1200px)
+    font-specs(24)
+
+  @media screen and (max-width: 900px)
+    font-specs(22)
+
+  @media screen and (max-width: 600px)
+    font-specs(20)
 
 .block-link
   font-family: "Georgia", Georgia, serif
@@ -87,14 +105,35 @@
   color $black
   cursor pointer
 
+  @media screen and (max-width: 900px)
+    font-specs(16)
+
+  @media screen and (max-width: 600px)
+    font-specs(14)
+
 .work-section-header
   font-specs(70, 90, 150)
   text-align: center
+
+  @media screen and (max-width: 1200px)
+    font-specs(60)
+
+  @media screen and (max-width: 900px)
+    font-specs(50)
+
+  @media screen and (max-width: 600px)
+    font-specs(40)
 
 .work-section-subheader,
 .chapter-name
   font-specs(28, 50, 150)
   text-align: center
+
+  @media screen and (max-width: 1200px)
+    font-specs(22)
+
+  @media screen and (max-width: 900px)
+    font-specs(18)
 
 .toc-header
   @extend .display-serif
@@ -138,6 +177,12 @@
 
 .work-section-body
   font-specs(24, 40)
+
+  @media screen and (max-width: 900px)
+    font-specs(20)
+
+  @media screen and (max-width: 600px)
+    font-specs(16)
 
 .news-title
   color $black

@@ -17,18 +17,26 @@
 
 .block-link
   display: inline-block
-  margin-top ($hr-gutter / 2)px
+  margin-top ($hr-gutter / 2 / 18)em
   cta-front()
 
 .work-section-header
-  margin-top ($big-gutter - $hr-gutter)px
+  margin-top (($big-gutter - $hr-gutter) / 70)em
 
 .work-section-subheader
-  margin ($hr-gutter / 2)px auto
+  margin (($hr-gutter / 2) / 28)em auto ($hr-gutter / 28)em
 
 .work-section-body
   width 80%
   margin 0 10%
+
+  @media screen and (max-width: 1200px)
+    width 90%
+    margin 0 5%
+
+  @media screen and (max-width: 900px)
+    width 98%
+    margin 0 1%
 
 .video-wrapper
   position relative
@@ -75,8 +83,10 @@
     height: 100%;
 
 .work-section,
-.work-section-subheader,
 .work-section-body,
 .work-section-image,
 .work-section-video
   margin-bottom ($hr-gutter)px
+
+  @media screen and (max-width: 1000px)
+    margin-bottom ($hr-gutter / 2)px

@@ -127,44 +127,83 @@ body
   width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 50)%
   display inline-block
 
+  @media screen and (max-width: 1000px)
+    width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 100)%
+
 .eighty
   width 80%
   height auto
+
+  @media screen and (max-width: 1200px)
+    width 90%
 
 .sixty
   width 60%
   height auto
 
+  @media screen and (max-width: 1200px)
+    width 80%
+
   & + &
     margin-left 40%
+
+    @media screen and (max-width: 1200px)
+      margin-left 20%
 
 .fourty
   width 40%
   height auto
 
+  @media screen and (max-width: 1200px)
+    width 60%
+
 .third
   width ((($content-width - ($vert-gutter * 3 )) / $content-width) * 33.333) %
+
+  @media screen and (max-width: 1000px)
+    width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 100)%
 
 .quarter
   width ((($content-width - ($vert-gutter * 4 )) / $content-width) * 25) %
 
+  @media screen and (max-width: 1000px)
+    width ((($content-width - ($vert-gutter * 2 )) / $content-width) * 100)%
+
 .bottom-gutter
   margin-bottom ($hr-gutter)px
+
+  @media screen and (max-width: 1000px)
+    margin-bottom ($hr-gutter / 2)px
 
 .small-bottom-gutter
   margin-bottom ($hr-gutter / 2)px
 
+  @media screen and (max-width: 1000px)
+    margin-bottom ($hr-gutter / 4)px
+
 .big-bottom-gutter
   margin-bottom ($big-gutter)px
+
+  @media screen and (max-width: 1000px)
+    margin-bottom ($big-gutter / 2)px
 
 .top-gutter
   margin-top ($hr-gutter)px
 
+  @media screen and (max-width: 1000px)
+    margin-top ($hr-gutter / 2)px
+
 .small-top-gutter
   margin-top ($hr-gutter / 2)px
 
+  @media screen and (max-width: 1000px)
+    margin-top ($hr-gutter / 4)px
+
 .big-top-gutter
   margin-top ($big-gutter)px
+
+  @media screen and (max-width: 1000px)
+    margin-top ($big-gutter / 2)px
 
 .background-fill
   position: absolute;
@@ -190,7 +229,7 @@ body
     opacity: 0.8
 
 .page-subheader
-  margin (avg($hr-gutter $big-gutter) / 2)px 0
+  margin (avg($hr-gutter $big-gutter) / 2 / 20)em 0
 
 .vert-center
   vert-center()
