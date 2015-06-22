@@ -6,7 +6,11 @@
   .mega-slide-text
     absolute-center()
 
-    font-size: 18vh
+    @media screen and (min-width: 800px)
+      font-size: 18vh
+
+    @media screen and (max-aspect-ratio: 7 / 3) and (min-height: 800px)
+      font-size: 12vw
 
 .we-are
 
@@ -58,4 +62,16 @@
   .right
     background url(/assets/images/home-slides/half-nature.jpg) center
     background-size cover
+
+  .block-link
+    display: inline
+
+@media screen and (max-width: 1000px)
+  .someoddpilot-is
+  .truth-and-vision
+    .right
+      display: none
+    .left
+      width 90%
+      margin 0 5%
 
