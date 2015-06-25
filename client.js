@@ -1,9 +1,7 @@
 (function($){
 
   const initSliders = require("./slider");
-  const fitImage = require("./fit-image");
   const SimpleFadeSlider = require("./src/simple-fade-slider");
-  const sameHeightKids = require("./src/same-height-kids");
 
   const isTouchDevice = function(){
                           return true ===
