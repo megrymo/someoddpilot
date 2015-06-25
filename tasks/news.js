@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import frontMatter from 'gulp-front-matter';
 import marked from 'gulp-marked';
 import rename from 'gulp-rename';
-import templates from './../src/templates';
+import templates from './../templates.js';
 
 import globs from './globs';
 import renamePage from './renamePage';

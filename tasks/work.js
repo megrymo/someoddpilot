@@ -3,7 +3,7 @@ import frontMatter from "gulp-front-matter";
 import marked from "gulp-marked";
 import rename from "gulp-rename";
 import collections from 'gulp-collections';
-import templates from "./../src/templates";
+import templates from "./../templates.js";
 import replace from 'gulp-replace';
 
 import globs from './globs';

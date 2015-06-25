@@ -1,7 +1,7 @@
 (function($){
 
-  const initSliders = require("./src/js/slider");
-  const SimpleFadeSlider = require("./src/js/simple-fade-slider");
+  const initSliders = require('./slider');
+  const SimpleFadeSlider = require('./simple-fade-slider');
 
   const isTouchDevice = function(){
                           return true ===
@@ -17,10 +17,10 @@
 
     initSliders();
 
-    $("[simple-slider]").map(function (index, element) {
+    $('[simple-slider]').map(function (index, element) {
       return new SimpleFadeSlider(
         element, {
-          delay: "10"
+          delay: '10'
         }
       );
     });
@@ -33,17 +33,17 @@
 
 })(jQuery);
 
-require("angular");
-require("angular-scroll");
-require("./src/js/angular-menu");
-require("./src/js/deep-links");
-require("./src/js/video-player");
-require("./src/js/animations");
+require('angular');
+require('angular-scroll');
+require('./angular-menu');
+require('./deep-links');
+require('./video-player');
+require('./animations');
 
 angular
-  .module("sop", ["duScroll", "menu", "video", "deepLinks"])
+  .module('sop', ['duScroll', 'menu', 'video', 'deepLinks'])
   .value('duScrollDuration', 5000);
 
 angular.element(document).ready(function() {
-  angular.bootstrap(document, ["sop"]);
+  angular.bootstrap(document, ['sop']);
 });

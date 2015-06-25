@@ -36,7 +36,7 @@ glob('./src/helpers/*.js', function (err, filepaths) {
       filepath
         .replace('./src/helpers/', '')
         .replace('.js', ''),
-      require('./../../' + filepath)
+      require(filepath)
     );
   });
 });
@@ -44,7 +44,7 @@ glob('./src/helpers/*.js', function (err, filepaths) {
 function templates(options) {
   options = _.merge(options, {
     partialPath: {
-      prefix: path.join(__dirname, "partials"),
+      prefix: path.join(__dirname, "src/templates/partials"),
       extension: ".html"
     },
     engine: "handlebars",
