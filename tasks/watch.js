@@ -6,13 +6,13 @@ gulp.task("watch", function () {
   watch([globs.news, globs.pages, globs.templates, globs.homeSlides], function () {
     gulp.start(["pages"]);
   });
-  watch(["./src/about/*", "./templates/about/*"], function () {
+  watch(["./src/data/about/*", "./src/templates/about/*"], function () {
     gulp.start(["about"]);
   });
-  watch(["./src/work/*"], function () {
+  watch(["./src/data/work/*"], function () {
     gulp.start(["work"]);
   });
-  watch([globs.news, "./templates/news/*.html"], function () {
+  watch([globs.news, "./src/templates/news/*.html"], function () {
     gulp.start(["news"]);
   });
   watch(["./src/**/templates/*.html"], function () {

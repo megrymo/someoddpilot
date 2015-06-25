@@ -1,6 +1,6 @@
 module.exports = {
   helpers: {
-    dateFormat: require("./../helpers/dateFormat")
+    dateFormat: require("./../src/helpers/dateFormat")
   },
   partials: {
     head: "head",

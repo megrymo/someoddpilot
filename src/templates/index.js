@@ -26,7 +26,7 @@ function forEachHelper(helper, name) {
   handlebars.registerHelper(name, helper);
 }
 
-glob('./helpers/*.js', function (err, filepaths) {
+glob('./src/helpers/*.js', function (err, filepaths) {
   if (err) {
     throw err;
   }
@@ -34,7 +34,7 @@ glob('./helpers/*.js', function (err, filepaths) {
   filepaths.forEach(function (filepath) {
     handlebars.registerHelper(
       filepath
-        .replace('./helpers/', '')
+        .replace('./src/helpers/', '')
         .replace('.js', ''),
       require('./../../' + filepath)
     );
