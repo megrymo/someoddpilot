@@ -1,16 +1,27 @@
 .inspire-wonder
+.inspire-wonder-flattened
     background url("/assets/images/home-slides/slide1.jpg")
     background-size cover
     background-position center
 
   .mega-slide-text
-    absolute-center()
+    background: url("/assets/images/home-slides/slide1-top.jpg") center no-repeat;
+    background-size auto 100vh
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     @media screen and (min-width: 800px)
       font-size: 18vh
 
-    @media screen and (max-aspect-ratio: 7 / 3) and (min-height: 800px)
+    @media screen and (max-aspect-ratio: 7 / 3)
       font-size: 12vw
+
+    // the specs of the image file
+    @media screen and (min-aspect-ratio: 1944/1288)
+      background-size 100vw auto
+
+.inspire-wonder
+  background-image url("/assets/images/home-slides/slide1-bottom.jpg")
 
 .we-are
 
