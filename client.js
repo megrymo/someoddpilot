@@ -7,7 +7,7 @@
                           return true ===
                             ('ontouchstart' in window || window.DocumentTouch &&
                               document instanceof DocumentTouch);
-                        }
+                        };
 
   jQuery(document).ready(function () {
 
@@ -16,7 +16,6 @@
     }
 
     initSliders();
-    sameHeightKids();
 
     $("[simple-slider]").map(function (index, element) {
       return new SimpleFadeSlider(
@@ -26,10 +25,6 @@
       );
     });
 
-  });
-
-  $(window).resize(function() {
-    sameHeightKids();
   });
 
   $('button').on('click', function() {
