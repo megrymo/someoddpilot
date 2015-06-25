@@ -26,7 +26,7 @@ function forEachHelper(helper, name) {
   handlebars.registerHelper(name, helper);
 }
 
-glob('helpers/*.js', function (err, filepaths) {
+glob('./helpers/*.js', function (err, filepaths) {
   if (err) {
     throw err;
   }
@@ -34,9 +34,9 @@ glob('helpers/*.js', function (err, filepaths) {
   filepaths.forEach(function (filepath) {
     handlebars.registerHelper(
       filepath
-        .replace('helpers/', '')
+        .replace('./helpers/', '')
         .replace('.js', ''),
-      require('./../' + filepath)
+      require('./../../' + filepath)
     );
   });
 });
@@ -48,6 +48,7 @@ function templates(options) {
       extension: ".html"
     },
     engine: "handlebars",
+    templateDir: 'src/templates/',
     compileData: function (sources) {
       return _.merge.apply(_, sources);
     }

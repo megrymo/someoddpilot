@@ -2,7 +2,7 @@ import gulp from "gulp";
 import frontMatter from "gulp-front-matter";
 import marked from "gulp-marked";
 import rename from "gulp-rename";
-import templates from "./../templates";
+import templates from "./../src/templates";
 import collections from "gulp-collections";
 import replace from "gulp-replace";
 

@@ -1,11 +1,11 @@
 {
-  "news": "./src/news/*.md",
+  "news": "./src/data/news/*.md",
   "about": {
-    "first": "./src/about/index.md",
-    "others": "./src/about/!(index).md"
+    "first": "./src/data/about/index.md",
+    "others": "./src/data/about/!(index).md"
   },
-  "pages": "./src/*.md",
-  "work": "./src/work/*.md",
-  "homeSlides": "./src/home-slides/*.md",
-  "templates": "./templates/**/*.html"
+  "pages": "./src/data/*.md",
+  "work": "./src/data/work/*.md",
+  "homeSlides": "./src/data/home-slides/*.md",
+  "templates": "./src/**/*.html"
 }
