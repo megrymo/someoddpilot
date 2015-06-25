@@ -1,23 +1,5 @@
 function initSliders() {
 
-  var CounterElement = (function () {
-    function CounterElement(element, parent) {
-      this.element = element;
-      this.$element = $(element);
-      this.parent = parent;
-    }
-
-    $.extend(
-      CounterElement.prototype,
-      {
-        update: function() {
-          this.$element.html((this.parent.count + 1) + "&nbsp;<em>of</em>&nbsp;" + this.parent.slideCount);
-        }
-      }
-    );
-  return CounterElement;
-  }());
-
   var PagerElement = (function () {
     function PagerElement(element, parent) {
       this.element = element;
@@ -60,8 +42,7 @@ function initSliders() {
           this.$element.css({
             width: (100 / this.parent.finalSlideCount) + "%",
             "margin-left": (-100 / this.parent.finalSlideCount) + "%"
-          })
-          .attr('id', index);
+          });
         },
         removeClasses: function() {
           this.$element
@@ -77,13 +58,37 @@ function initSliders() {
 
           this.removeClasses();
 
-          if ( index + 1 === this.newIndex ) {
+          if ( index === this.newIndex - 1 ) {
             this.$element
               .dequeue()
               .addClass("slide-left")
               .delay(800)
               .queue(
-                $.proxy(this.parent.swipeCallback, this.parent)
+                $.proxy(this.parent.moveCallback, this.parent)
+              );
+          }
+        },
+        moveRight: function(index) {
+          this.newIndex   = this.parent.finalSlideCount - this.parent.countIndex;
+          this.changing   = this.newIndex === this.parent.finalSlideCount ? 0 : this.newIndex;
+          this.showIndex  = (this.newIndex % this.parent.finalSlideCount) + 1;
+          this.show       = this.showIndex === this.parent.finalSlideCount ? 0 : this.showIndex;
+
+          this.removeClasses();
+
+          if ( index === this.changing ) {
+            this.$element.addClass("slide-right");
+          }
+
+          if ( index === this.show ) {
+            this.$element
+              .dequeue()
+              .removeClass("slide-right")
+              .addClass("slide-left-force")
+              .appendTo(this.parent.slides)
+              .delay(800)
+              .queue(
+                $.proxy(this.parent.moveCallback, this.parent)
               );
           }
         }
@@ -132,20 +137,12 @@ function initSliders() {
               "</span></a>",
               "</div>"]
               .join(""))
-            .append("<div class='contained counter'></div>")
             .addClass("slider-activated");
-
-          this.counter = new CounterElement(
-            this.$element.find(".counter").get(0),
-            this
-          );
 
           this.pager = new PagerElement(
             this.$element.find(".pager").get(0),
             this
           );
-
-          this.counter.update();
 
           if (this.slideCount === 2) {
             this.slide
@@ -197,9 +194,8 @@ function initSliders() {
           this.startTimer();
         },
 
-        swipeCallback: function() {
+        moveCallback: function() {
           this.slideReady = true;
-          console.log('callback');
         },
 
         moveLeft: function() {
@@ -216,7 +212,6 @@ function initSliders() {
 
           this.count = ((this.count < this.slideCount - 1 ) ? this.count + 1 : 0);
           this.countIndex = ((this.countIndex < this.finalSlideCount - 1 ) ? this.countIndex + 1 : 0);
-          this.counter.update();
 
         },
 
@@ -226,44 +221,27 @@ function initSliders() {
             return;
           }
 
-          this.slideLast = this.$element.find('.slide').last();
-          this.slideFirst = this.$element.find('.slide').first();
           this.slideReady = false;
 
           this.finalSlides.map( function (index, finalSlide){
-            finalSlide.removeClasses();
+            finalSlide.moveRight(index);
           });
-
-          this.slideLast.addClass("slide-right");
 
           this.count = ((this.count > 0) ? this.count - 1 : this.slideCount - 1);
           this.countIndex = ((this.countIndex > 0) ? this.countIndex - 1 : this.finalSlideCount - 1);
-          this.counter.update();
 
-          this.slideFirst
-            .dequeue()
-            .removeClass("slide-right")
-            .addClass("slide-left-force")
-            .appendTo(this.slides)
-            .delay(800)
-            .queue( $.proxy(this.swipeCallback, this) );
         },
 
         timerFunction: function() {
           setInterval( function(){
-            if (this.slideReady) {
-              this.moveLeft();
-            }
+              console.log('tick');
+              $.proxy(this.moveLeft, this);
           }, 8000);
         },
 
         startTimer: function() {
           console.log('startTimer');
-          this.timer = setInterval( function(){
-            if (this.slideReady) {
-              this.moveLeft();
-            }
-          }, 8000);
+          this.timer = this.timerFunction();
         },
 
         killTimer: function() {
