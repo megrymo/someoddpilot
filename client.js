@@ -1,6 +1,6 @@
 (function($){
 
-  const initSliders = require("./slider");
+  const initSliders = require("./src/slider");
   const SimpleFadeSlider = require("./src/simple-fade-slider");
 
   const isTouchDevice = function(){
@@ -40,8 +40,8 @@
 
 require("angular");
 require("angular-scroll");
-require("./angular-menu");
-require("./deep-links");
+require("./src/angular-menu");
+require("./src/deep-links");
 require("./src/video-player");
 require("./src/animations");
 
