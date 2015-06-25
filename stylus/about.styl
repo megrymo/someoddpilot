@@ -1,10 +1,18 @@
 .big-bottom-button
   display: inline-block
+
   margin ($big-gutter / 30)em auto
   padding (14 / $base-font-size)em (20 / $base-font-size)em (10 / $base-font-size)em
+
   background $black
   color $white
+
   text-decoration none
+
+  transition: 0.5s
+
+  &:hover
+    opacity 0.8
 
 .persistant-about-nav
   position fixed
@@ -18,7 +26,7 @@
   transform: translateY(-120%)
   transition: transform 0.5s ease
 
-  &.skrollable-after
+  &--show
     transform: translateY(0)
 
 .toc
@@ -56,7 +64,15 @@
     margin 0 (16 / $base-font-size)em
 
 .toc-item
-  padding (14 / 20)em 0
+  margin (14 / 20)em 0
+
+  .persistant-about-nav &
+
+    @media screen and (max-width 1000px)
+      font-size: 0.7em
+
+  .persistant-about-nav .toc-link--active &
+    border-bottom 1px solid $black
 
 .chapter-header
   text-align: center
