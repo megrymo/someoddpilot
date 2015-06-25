@@ -2,7 +2,7 @@
 {{>aboutNav}}
 <section reveal>
 
-  <div class="full same-height-kids"
+  <div class="full full-height"
     simple-slider>
     {{#each topImages}}
     <div simple-slider-slide class="full {{#if @first}}active{{/if}}">
@@ -73,7 +73,7 @@
   </div>
 
   <div class="expertise">
-    <svg class="border"
+    <svg class="border draw"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -83,9 +83,7 @@
       viewBox="0 0 998 {{math (math expertise.length "+" "3.25") "*" "8"}}2"
       enable-background="new 0 0 998 {{math (math expertise.length "+" "3.25") "*" "8"}}2"
       xml:space="preserve"
-      data-20p-center-top="stroke-dashoffset:1800;"
-      data--10p-bottom-bottom="stroke-dashoffset:0;"
-      data-target-anchor=".expertise">
+      stroke-dasharray="{{math (math (math expertise.length "+" "3.25") "*" "88") "+" "998" }}">
       <polyline fill="none" stroke="#000000"
         stroke-width="4"
         stroke-miterlimit="10"
@@ -150,9 +148,7 @@
 <section class="darker-bg full-height reveal">
   <div class="contained center-align darker-bg">
     <header class="big-serif-header">The Complete Thought</header>
-    <div class="diagram"
-      data-bottom-top=""
-      data-20p-top-top="">
+    <div class="diagram">
       <svg
         class="full contained-smaller center-block t-v-w-diagram"
         version="1.1" id="images"
@@ -163,21 +159,31 @@
         viewBox="0 67.613 600 845.958"
         enable-background="new 0 67.613 600 845.958"
         xml:space="preserve">
-        <circle fill="none" stroke="#000000" stroke-width="5"
-          stroke-miterlimit="10" cx="300" cy="370.632" r="292.455"
-          data-center-top="stroke-dashoffset: 1850;stroke-dasharray: 1850;"
-          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 1850;"
-          data-anchor-target=".t-v-w-diagram" />
-        <polyline fill="none" stroke="#000000" stroke-width="5"
-          stroke-miterlimit="10" points="467.005,611.651 300,821.517 132.994,611.652"
-          data-90-top-top="stroke-dashoffset: 555;stroke-dasharray: 555;"
-          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 555;"
-          data-anchor-target=".t-v-w-diagram" />
-        <circle fill="none" stroke="#000000" stroke-width="5"
-          stroke-miterlimit="10" cx="300" cy="834.102" r="32.422"
-          data-90-top-top="stroke-dashoffset: 220;stroke-dasharray: 220;"
-          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 220;"
-          data-anchor-target=".t-v-w-diagram" />
+        <circle fill="none"
+          stroke="#000000"
+          stroke-width="5"
+          stroke-miterlimit="10"
+          cx="300"
+          cy="370.632"
+          r="292.455"
+          class="draw rotate"
+          stroke-dasharray="1850" />
+        <polyline fill="none"
+          stroke="#000000"
+          stroke-width="5"
+          stroke-miterlimit="10"
+          points="467.005,611.651 300,821.517 132.994,611.652"
+          class="draw v-line"
+          stroke-dasharray="555" />
+        <circle fill="none"
+          stroke="#000000"
+          stroke-width="5"
+          stroke-miterlimit="10"
+          cx="300"
+          cy="834.102"
+          r="32.422"
+          class="draw"
+          stroke-dasharray="222" />
 
         <text class="slide-up" x="300" y="352" text-anchor="middle">Wonder</text>
         <text class="slide-up small-text" x="300" y="722" text-anchor="middle">Vision</text>
@@ -195,31 +201,39 @@
         </text>
 
 
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="298" cy="758" r="127.5"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="299" cy="370" r="131.5"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="298" cy="758" r="127.5"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="299" cy="370" r="131.5"/>
 
-        <g data-90-top-top="stroke-dashoffset: 30;stroke-dasharray: 30;"
-          data-top-top="stroke-dashoffset: 0;stroke-dasharray: 30;"
-          data-anchor-target=".t-v-w-diagram">
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="165.325,360.458 157.616,368.168 149.91,360.458"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="247.121,505.719 247.121,516.62 236.22,516.62"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="253.145,594.726 264.047,594.726 264.046,605.625"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="356.635,501.254 367.536,501.254 367.536,512.155"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="149.91,763.925 157.617,756.216 165.325,763.925"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="447.021,754.738 439.312,762.444 431.604,754.738"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="297.882,905.882 290.173,898.173 297.882,890.465"/>
-          <polyline fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" points="297.882,237.484 290.173,229.777 297.882,222.068"/>
+        <g class="draw"
+          stroke-dasharray="30"
+          data-anchor-target=".v-line">
+
+          {{#each arrows}}
+
+          <polyline class="roving-arrow roving-arrow--{{@index}}"
+            fill="none"
+            stroke="#EF435D"
+            stroke-width="2.5"
+            stroke-miterlimit="10"
+            points="-5.645,-6.226 5.547,-6.226 5.546,6.125">
+            <animateMotion dur="{{ math @root.arrowSlower "*" @root.arrows.length }}s" repeatCount="indefinite" rotate="auto-reverse" begin="-{{ math @root.arrowSlower "*" @index }}s">
+              <mpath xlink:href="#circle-loop"/>
+            </animateMotion>
+          </polyline>
+
+          {{/each}}
+
         </g>
 
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="403" cy="249" r="63"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="117" cy="360" r="76"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="274" cy="239" r="93"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="165" cy="280" r="41.5"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="463" cy="533" r="38.5"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="403" cy="171" r="24.5"/>
-        <circle class="spinning" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4" cx="170" cy="485" r="18"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="403" cy="249" r="63"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="117" cy="360" r="76"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="274" cy="239" r="93"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="165" cy="280" r="41.5"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="463" cy="533" r="38.5"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" cx="403" cy="171" r="24.5"/>
+        <circle class="spinning slide-up" fill="none" stroke="#00ABDF" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4" cx="170" cy="485" r="18"/>
 
-        <path class="spinning" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" d="M184.277,452.577 c-17.296-22.496-26.23-51.349-26.23-81.892c0-77.816,63.083-140.895,140.897-140.895c77.813,0,140.895,63.081,140.895,140.895 c0,30.757-9.854,59.214-26.581,82.381C395.345,477.882,298.799,565.25,298.799,565.25s-83.919,70.166-114.523,109.977 c-17.296,22.496-26.23,51.347-26.23,81.89c0,77.817,63.083,140.898,140.896,140.898c77.815,0,140.896-63.083,140.896-140.898 c0-30.757-9.854-59.212-26.582-82.379C395.344,649.922,214.881,492.387,184.277,452.577z"/>
+        <path class="spinning slide-up" id="circle-loop" fill="none" stroke="#EF435D" stroke-width="2.5" stroke-miterlimit="10" stroke-dasharray="4.5" d="M184.277,452.577 c-17.296-22.496-26.23-51.349-26.23-81.892c0-77.816,63.083-140.895,140.897-140.895c77.813,0,140.895,63.081,140.895,140.895 c0,30.757-9.854,59.214-26.581,82.381C395.345,477.882,298.799,565.25,298.799,565.25s-83.919,70.166-114.523,109.977 c-17.296,22.496-26.23,51.347-26.23,81.89c0,77.817,63.083,140.898,140.896,140.898c77.815,0,140.896-63.083,140.896-140.898 c0-30.757-9.854-59.212-26.582-82.379C395.344,649.922,214.881,492.387,184.277,452.577z"/>
 
         <text class="slide-up small-text"
           x="100" y="763"
@@ -228,22 +242,20 @@
             The Complete Thought
         </text>
 
-        <g data-anchor-target=".t-v-w-diagram"
-          data-60-top-top="opacity: 0"
-          data-top-top="opacity: 1">
-          <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="500" x2="478" y1="401" y2="481"/>
+        <g>
+          <line class="slide-up" fill="none" stroke="#00ABDF" stroke-width="1.5" x1="500" x2="478" y1="401" y2="481"/>
 
-          <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="472" x2="486" y1="294" y2="323"/>
+          <line class="slide-up" fill="none" stroke="#00ABDF" stroke-width="1.5" x1="472" x2="486" y1="294" y2="323"/>
 
-          <line fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="464" x2="435" y1="358" y2="358"/>
-          <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="464" x2="435" y1="360" y2="360"/>
-          <line fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="464" x2="435" y1="362" y2="362"/>
+          <line class="slide-up" fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="464" x2="435" y1="358" y2="358"/>
+          <line class="slide-up" fill="none" stroke="#00ABDF" stroke-width="1.5" x1="464" x2="435" y1="360" y2="360"/>
+          <line class="slide-up" fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="464" x2="435" y1="362" y2="362"/>
 
-          <line fill="none" stroke="#EF435D" stroke-width="1.5" x1="112" x2="140" y1="769" y2="769"/>
+          <line class="slide-up" fill="none" stroke="#EF435D" stroke-width="1.5" x1="112" x2="140" y1="769" y2="769"/>
 
-          <line fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="432" x2="472" y1="769" y2="769"/>
-          <line fill="none" stroke="#00ABDF" stroke-width="1.5" x1="432" x2="472" y1="771" y2="771"/>
-          <line fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="432" x2="472" y1="773" y2="773"/>
+          <line class="slide-up" fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="432" x2="472" y1="769" y2="769"/>
+          <line class="slide-up" fill="none" stroke="#00ABDF" stroke-width="1.5" x1="432" x2="472" y1="771" y2="771"/>
+          <line class="slide-up" fill="none" stroke="#D6F0FD" stroke-width="3.5" x1="432" x2="472" y1="773" y2="773"/>
         </g>
 
       </svg>

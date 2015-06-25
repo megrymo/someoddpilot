@@ -1,8 +1,8 @@
 require('gsap/src/minified/TweenLite.min');
 require('scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min');
-require("scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap");
+require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
-const ScrollMagic = require("scrollmagic");
+const ScrollMagic = require('scrollmagic');
 
 (function($) {
 
@@ -18,7 +18,7 @@ const ScrollMagic = require("scrollmagic");
 
     new ScrollMagic.Scene({
           triggerHook: 'onEnter',
-          duration: "100%",
+          duration: '100%',
           triggerElement: '.' + $(elem).next().attr('class').replace(/\s/g,'.')
         })
         .setTween(elem, {
@@ -27,7 +27,7 @@ const ScrollMagic = require("scrollmagic");
           ease: Linear.easeNone
         })
         .addTo(animationController)
-        .addIndicators({name: "reveal " + index});
+        .addIndicators({name: 'reveal ' + index});
   });
 
   $('[pause]').each(function (index, elem) {
@@ -36,13 +36,13 @@ const ScrollMagic = require("scrollmagic");
 
     new ScrollMagic.Scene({
           triggerHook: 0.5,
-          duration: "30%",
+          duration: '30%',
           offset: (height / 2),
           triggerElement: elem
         })
         .setPin(elem)
         .addTo(animationController)
-        .addIndicators({name: "pause " + index});
+        .addIndicators({name: 'pause ' + index});
   });
 
 })(jQuery);
@@ -60,12 +60,12 @@ const ScrollMagic = require("scrollmagic");
   $('[slide-up], .slide-up').each(function (index, elem) {
 
     new ScrollMagic.Scene({
-          triggerHook: 0.8,
+          triggerHook: 0.9,
           triggerElement: elem
         })
-        .setClassToggle(elem, "slide-up--show")
+        .setClassToggle(elem, 'slide-up--show')
         .addTo(slideUpController)
-        .addIndicators();
+        .addIndicators({name: 'slideup  ' + index});
   });
 
 })(jQuery);
@@ -87,5 +87,34 @@ const ScrollMagic = require("scrollmagic");
         .addIndicators();
 
   }
+
+})(jQuery);
+
+(function($) {
+
+  var drawController = new ScrollMagic.Controller();
+
+  $('.draw').each(function (index, elem) {
+
+    var length = $(elem).attr('stroke-dasharray'),
+        dimensions = elem.getBoundingClientRect(),
+        target = $(elem).data('anchor-target') || elem;
+
+        console.log(target);
+
+    $(elem).attr('stroke-dashoffset', length);
+
+    new ScrollMagic.Scene({
+          triggerHook: 0.9,
+          duration: dimensions.height,
+          triggerElement: target
+        })
+        .setTween(elem, {
+          strokeDashoffset: 0,
+          ease: Linear.easeNone
+        })
+        .addTo(drawController)
+        .addIndicators({name: 'draw ' + index});
+  });
 
 })(jQuery);

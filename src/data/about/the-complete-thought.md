@@ -25,4 +25,15 @@ testimonial:
     mediums. From long form videos to websites. It’s truly a head scratcher.
   name: Phil Borthwick
   title: European Marketing Director, Cat Footwear, <br />formerly Global Marketing Director at Dr. Martens
+
+arrows:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+
+arrowSlower: 10
 ---
