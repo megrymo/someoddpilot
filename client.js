@@ -1,7 +1,7 @@
 (function($){
 
-  const initSliders = require("./src/slider");
-  const SimpleFadeSlider = require("./src/simple-fade-slider");
+  const initSliders = require("./src/js/slider");
+  const SimpleFadeSlider = require("./src/js/simple-fade-slider");
 
   const isTouchDevice = function(){
                           return true ===
@@ -35,10 +35,10 @@
 
 require("angular");
 require("angular-scroll");
-require("./src/angular-menu");
-require("./src/deep-links");
-require("./src/video-player");
-require("./src/animations");
+require("./src/js/angular-menu");
+require("./src/js/deep-links");
+require("./src/js/video-player");
+require("./src/js/animations");
 
 angular
   .module("sop", ["duScroll", "menu", "video", "deepLinks"])

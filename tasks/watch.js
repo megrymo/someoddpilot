@@ -21,7 +21,7 @@ gulp.task("watch", function () {
   watch(["./stylus/*"], function () {
     gulp.start(["style"]);
   });
-  watch(["./src/**/*.js", "./slider/*.js", "./client.js"], function () {
+  watch(["./src/js/*", "./client.js"], function () {
     gulp.start(["scripts"]);
   });
   watch(["./src/assets/**/*"], function () {

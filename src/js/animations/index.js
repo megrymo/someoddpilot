@@ -3,7 +3,6 @@ require('scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min');
 require("scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap");
 
 const ScrollMagic = require("scrollmagic");
-const isSkrolled = skrollr.get();
 
 (function($) {
 

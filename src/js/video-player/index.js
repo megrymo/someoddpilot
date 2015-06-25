@@ -31,7 +31,7 @@ app.config(['$sceProvider', function ($sceProvider) {
       location: "@",
       alt: "@"
     },
-    templateUrl: "/video-player/templates/video-template.html",
+    templateUrl: "/js/video-player/templates/video-template.html",
     controller: "getUrls",
     controllerAs: "player",
     link: function (scope, element) {
