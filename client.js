@@ -34,6 +34,10 @@
     sameHeightKids();
   });
 
+  $('button').on('click', function() {
+    this.blur();
+  });
+
 })(jQuery);
 
 require("angular");
@@ -42,9 +46,10 @@ require("./angular-menu");
 require("./deep-links");
 require("./src/video-player");
 require("./src/animations");
-require("./src/debug");
 
-angular.module("sop", ["duScroll", "menu", "video", "deepLinks"]);
+angular
+  .module("sop", ["duScroll", "menu", "video", "deepLinks"])
+  .value('duScrollDuration', 5000);
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ["sop"]);
