@@ -11,6 +11,6 @@ bundler.transform('babelify');
 gulp.task("scripts", function () {
   return bundler.bundle()
     .on("error", gutil.log.bind(gutil, "Browserify Error"))
-    .pipe(source("src/js/client.js"))
+    .pipe(source("client.js"))
     .pipe(gulp.dest("./build/js"));
 });
