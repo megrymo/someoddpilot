@@ -4,7 +4,7 @@
   {{#if header}}
     <li class="full-height slide {{#if color}}{{color}}{{else}}yellow{{/if}}-bg slide-{{@index}}">
       {{#if loopingVideo.mp4}}
-      <video class="header-no-push fill-video" viewport-video="" loop="loop" autoplay="autoplay" poster="{{image}}">
+      <video class="header-no-push fill-video" viewport-video="" loop="loop" autoplay="autoplay" poster="/assets/images/work/{{image}}">
         <source src="/assets/video/work/{{loopingVideo.webm}}" type="video/webm">
         <source src="/assets/video/work/{{loopingVideo.ogg}}" type="video/ogg">
         <source src="/assets/video/work/{{loopingVideo.mp4}}" type="video/mp4">
