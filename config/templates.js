@@ -33,6 +33,23 @@ module.exports = {
         name: "Public Works",
         link: null
       }
+    ],
+    aboutNav: [
+      {
+        name: "Truth, Vision & Wonder",
+        aboutTemplate: 'about/index',
+        link: null
+      },
+      {
+        name: "The Complete Thought",
+        aboutTemplate: "about/the-complete-thought",
+        link: "the-complete-thought"
+      },
+      {
+        name: "Clients & Studio",
+        aboutTemplate: "about/clients-studio",
+        link: "clients-studio"
+      }
     ]
   }
 };
