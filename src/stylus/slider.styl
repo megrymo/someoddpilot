@@ -16,14 +16,19 @@
 
 .slide
   position: relative
-  display: block
+  display: none
   width 100%
 
   z-index 1
 
+  &:first-child
+    display: block
+
   .slider-activated &
     float left
     overflow hidden
+
+    display: block
 
   .contained
     padding 25vh 5% 10vh
