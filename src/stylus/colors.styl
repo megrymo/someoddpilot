@@ -1,0 +1,36 @@
+$black ?= #000
+$white ?= #fff
+
+$blue ?= #e8f7ff
+$yellow ?= #fffaec
+$pink ?= #ffe8e8
+
+.blue-bg
+.blue-bg [reveal]
+  background $blue
+
+  .darker-bg
+    background darken(desaturate($blue, 10%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($blue, 98%), 4%)
+
+.yellow-bg
+.yellow-bg [reveal]
+  background $yellow
+
+  .darker-bg
+    background darken(saturation($yellow, 50%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($yellow, 98%), 4%)
+
+.pink-bg
+.pink-bg [reveal]
+  background $pink
+
+  .darker-bg
+    background darken(desaturate($pink, 10%), 4%)
+
+  .lighter-bg
+    background saturate(lightness($pink, 98%), 4%)

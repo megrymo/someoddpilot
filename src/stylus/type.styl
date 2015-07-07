@@ -1,0 +1,253 @@
+.center-align
+  text-align: center
+
+.left-align
+  text-align: left
+
+.right-align
+  text-align: right
+
+.white-text
+  color #fff
+
+.black-text
+  color $black
+
+.sans
+  font-family: $sop-sans
+  font-weight: bold
+  text-transform: uppercase
+  line-height (30/22)em
+
+.display-serif
+  font-family: $sop-display-serif
+  line-height (66/49)em
+
+.serif
+  font-family: $sop-serif
+  line-height (40/24)em
+
+.main-nav,
+.page-subheader,
+.news-title,
+.work-section-header,
+.work-section-subheader,
+.chapter-name,
+.diagram
+  @extend .sans
+  font-specs(22, 30, 200)
+
+.work-section-body,
+.blockquote,
+.blockquote-cite
+  @extend .serif
+
+.main-nav
+  font-specs(14, 14, 200)
+
+.nav-link
+  text-decoration none
+  text-transform: uppercase
+
+.page-title
+  display: none
+
+.page-subheader
+  text-align: center
+  font-specs(20, 30, 200)
+
+.mega-slide-text
+  display: inline-block
+  font-specs(90, 135, 200)
+  text-shadow 0 0 75px rgba(0, 0, 0, 0.15)
+  absolute-center()
+
+.work-block
+  @extend .display-serif
+  color $black
+
+.block-header,
+.block-subheader
+  text-decoration none !important
+  color $black
+
+.block-header
+  font-specs(49, 66, 50)
+
+  @media screen and (max-width: 1200px)
+    font-specs(36)
+
+  @media screen and (max-width: 900px)
+    font-specs(32)
+
+  @media screen and (max-width: 600px)
+    font-specs(28)
+
+.block-subheader
+  font-specs(30, 40, 50)
+
+  @media screen and (max-width: 1200px)
+    font-specs(24)
+
+  @media screen and (max-width: 900px)
+    font-specs(22)
+
+  @media screen and (max-width: 600px)
+    font-specs(20)
+
+.block-link
+  font-family: "Georgia", Georgia, serif
+  font-specs(18, 18, 200)
+  font-weight: bold
+  text-transform: uppercase
+  text-decoration: none;
+  border-bottom: 1px solid $black;
+  color $black
+  cursor pointer
+
+  @media screen and (max-width: 900px)
+    font-specs(16)
+
+  @media screen and (max-width: 600px)
+    font-specs(14)
+
+  &:hover
+    opacity 0.8
+
+.work-section-header
+  font-specs(70, 90, 150)
+  text-align: center
+
+  @media screen and (max-width: 1200px)
+    font-specs(60)
+
+  @media screen and (max-width: 900px)
+    font-specs(50)
+
+  @media screen and (max-width: 600px)
+    font-specs(40)
+
+.work-section-subheader,
+.chapter-name
+  font-specs(28, 50, 150)
+  text-align: center
+
+  @media screen and (max-width: 1200px)
+    font-specs(22)
+
+  @media screen and (max-width: 900px)
+    font-specs(18)
+
+.toc-header
+  @extend .display-serif
+  font-specs(18, auto)
+
+.toc-item
+  @extend .sans
+  font-specs(16, auto, 200)
+
+.chapter-number
+  @extend .display-serif
+  font-specs(62, 62, 50)
+
+.chapter-copy
+  @extend .display-serif
+  font-specs(32, 50)
+
+  p
+    margin-bottom 1em
+
+.big-caption
+  padding 1em auto
+  @extend .display-serif
+  font-specs(22, 30)
+  text-align: center
+
+.grey-caption
+  padding (20 / 14)em 2%
+  font-family: "Georgia", Georgia, serif
+  font-specs(14, 20)
+  font-style: italic
+  text-align: left
+  opacity 0.35
+  color $black
+
+.big-serif-header
+  margin 2em auto 1em
+  @extend .display-serif
+  font-specs(72, 96)
+  text-align: center
+
+.work-section-body
+  font-specs(24, 40)
+
+  @media screen and (max-width: 900px)
+    font-specs(20)
+
+  @media screen and (max-width: 600px)
+    font-specs(16)
+
+.news-title
+  color $black
+  font-specs(22, 30, 100)
+  text-decoration none
+  cursor pointer
+
+.news-snippet,
+.news-date
+  font-specs(20, 30)
+
+.news-date
+  font-style: italic
+
+.drop-cap:first-letter
+  float: left
+  font-size: 3em;
+  line-height: 0.55em;
+  padding-right: 0.04em;
+  padding-top: 0.28em;
+
+.expertise-header
+  @extend .display-serif
+  font-specs(30, auto)
+
+.expertise-item
+  @extend .sans
+  font-specs(40, auto, 150)
+
+.profile-name
+  @extend .sans
+  font-specs(37, 62, 200)
+
+.profile-title
+  @extend .sans
+  font-specs(31, auto, 200)
+
+.profile-copy
+  @extend .display-serif
+  font-specs(30, 50)
+  text-align: left
+
+.big-bottom-button
+  @extend .sans
+  font-specs(30, auto, 200)
+
+.blockquote,
+.blockquote-cite
+  text-align: center
+
+.blockquote
+  font-specs(30, 50)
+  font-style: italic
+
+  &:before
+    content: "“"
+  &:after
+    content: "”"
+
+.blockquote-cite
+  font-style: normal
+  font-specs(20, 30)
+
+  &:before
+    content: "—"

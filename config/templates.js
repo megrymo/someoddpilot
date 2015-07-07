@@ -1,6 +1,6 @@
 module.exports = {
   helpers: {
-    dateFormat: require("./../helpers/dateFormat")
+    dateFormat: require("./../src/helpers/dateFormat")
   },
   partials: {
     head: "head",
@@ -19,6 +19,40 @@ module.exports = {
     site: {
       title: "someoddpilot",
       description: "Lorem"
-    }
+    },
+    navFeatures: [
+      {
+        name: "Reel",
+        link: null
+      },
+      {
+        name: "Clients",
+        link: "/about/clients-studio#clients"
+      },
+      {
+        name: "Public Works",
+        link: null
+      }
+    ],
+    aboutNav: [
+      {
+        name: "Truth, Vision & Wonder",
+        numeral: "I",
+        aboutTemplate: 'about/index',
+        link: null
+      },
+      {
+        name: "The Complete Thought",
+        numeral: "II",
+        aboutTemplate: "about/the-complete-thought",
+        link: "the-complete-thought"
+      },
+      {
+        name: "Clients & Studio",
+        numeral: "III",
+        aboutTemplate: "about/clients-studio",
+        link: "clients-studio"
+      }
+    ]
   }
 };

@@ -1,0 +1,350 @@
+.big-bottom-button
+  display: inline-block
+
+  margin ($big-gutter / 30)em auto
+  padding (14 / $base-font-size)em (20 / $base-font-size)em (10 / $base-font-size)em
+
+  background $black
+  color $white
+
+  text-decoration none
+
+  transition: 0.5s
+
+  &:hover
+    opacity 0.8
+
+.persistant-about-nav
+  position fixed
+  margin 0
+  padding (15 / $base-font-size)em 0
+  top 0
+  left 0
+  width 100%
+  box-shadow 0 0 12px alpha($black, 15%)
+  z-index 999
+  transform: translateY(-120%)
+  transition: transform 0.5s ease
+
+  &--show
+    transform: translateY(0)
+
+.toc
+  absolute-center()
+  color $white
+
+  padding 50px
+  padding 4vh
+
+  border 4px solid $white
+
+  opacity 0
+
+  .toc-link
+    color $white
+
+.toc-list
+  display: inline-block
+  margin 0 auto
+  padding 0
+  list-style-type none
+
+  .toc &
+    margin-top (15 / $base-font-size)em
+
+  .persistant-about-nav &
+    display: block
+    padding 0 20px
+
+    text-align: center
+
+.toc-link
+  display: block
+  text-align: center
+  color $black
+  text-decoration none
+
+  white-space: no-wrap
+
+  .toc &
+    margin-top (15 / $base-font-size)em
+
+  .persistant-about-nav &
+    display: inline-block
+    margin 0 (16 / $base-font-size)em
+
+.toc-item
+  margin (14 / 20)em 0
+
+  white-space: no-wrap
+
+  .persistant-about-nav &
+    display: inline-block
+
+    @media screen and (max-width 1000px)
+      font-size: 0.7em
+
+.toc-link--active
+  border-bottom 1px solid $black
+
+.about/index
+  .header-logo
+    opacity 0
+
+.about-leader
+  .black-container
+    background $black url(/assets/images/someoddpilot_logo_white.svg) no-repeat center 5vh
+    background-size auto 8vh
+    color $white
+
+    position absolute
+
+    left    80px
+    right   80px
+    top     80px
+    bottom  80px
+
+    text-align: left
+
+    transform: scale(0)
+
+    p
+      absolute-center()
+      opacity 0
+
+      &:first-child
+        opacity 1
+
+.chapter-header
+  text-align: center
+  padding ($big-gutter / $base-font-size)em 0 ($hr-gutter / $base-font-size)em
+
+.chapter-number
+  margin-bottom (5 / $base-font-size)em
+
+.chapter-copy
+  max-width 750px
+  margin 0 auto (($hr-gutter / 32) - 1)em
+  padding ($hr-gutter)px 0
+
+.chapter-header + .chapter-copy
+  padding-top 0
+
+.truth-vision
+  background url(/assets/images/about/slide-1.jpg)
+  background-size cover
+
+  .half
+    absolute-center()
+    margin 0
+
+  .left
+    font-size: 6em
+
+  .right
+    opacity 0
+
+.diagram
+  margin ($hr-gutter / $base-font-size / 2)em auto
+
+  & + .big-caption
+    margin-bottom ($hr-gutter / $base-font-size)em
+
+.t-v-w-diagram
+  padding-top 90px
+
+  font-size 1.5em
+  max-width 650px
+  overflow visible
+
+  .rotate
+    transform rotate(-180deg)
+    transform-origin: center
+
+  .small-text
+    font-size: 0.35em
+    letter-spacing: 0.1em
+
+  .medium-text
+    font-size: 0.45em
+    letter-spacing: 0.15em
+
+.space-illustration
+  position relative
+  overflow hidden
+
+  background url(/assets/images/about/space.jpg)
+  background-size cover
+
+  .illustration
+    vert-center()
+
+.mirrored-image-wrapper
+  position relative
+  margin ($hr-gutter / $base-font-size * 2)em 0 0
+  padding-bottom (760 / 1600 * 100)%
+  background lighten($black, 50%)
+  overflow hidden
+  text-align: left
+
+  .full
+    position absolute
+    top 50%
+    margin-top ((1066 / 1600) / 2 * -100)%
+
+    transform-origin: center
+
+.expertise
+  text-align: center
+  padding 0 0 ($hr-gutter / $base-font-size / 2)em
+
+  .border
+    position absolute
+    width 100%
+    max-width 998px
+    height auto
+    left 50%
+    transform: translate(-50%)
+    stroke-dasharray 1800
+
+.expertise-header
+  display: inline-block
+  margin ($hr-gutter / 30 * 1.2)em 0 ($hr-gutter / 30)em
+  &:after
+    content: ""
+    display: block
+    width 100%
+    height 0
+    margin-top -0.1em
+    border-bottom 1px $black solid
+
+.expertise-list
+  overflow visible
+  list-style none
+  text-align: center
+
+  padding-bottom 15em
+
+.expertise-item
+  padding 0.4em 0
+  &:last-child
+    padding-bottom 0
+
+.about-section
+  .slider
+    margin ($hr-gutter / $base-font-size)em 0
+
+.about-truth-slide
+
+  .display-serif
+    position absolute
+    top 50%
+    left 0
+    width 80%
+    padding 0 10% 10%
+    transform: translateY(-50%)
+
+    header
+      font-specs(223, 285)
+
+    p
+      font-specs(34, 46)
+
+      &:last-child
+        font-specs(43, 58)
+
+.chicago
+  background url("/assets/images/about/chicago.jpg") center
+  background-size cover
+
+  color $pink
+  .page-subheader
+    font-specs(30, auto)
+  .display-serif
+    font-specs(206, auto)
+    text-transform: none
+
+.client-logos
+  position relative
+  margin-bottom ($hr-gutter / $base-font-size)em
+  padding (30 / 2)vh 0
+
+  .quarter
+    position relative
+    height (70 / 3)vh
+
+.client-logo
+  opacity 0.7
+
+[simple-slider]
+
+  .next,
+  .prev
+    position: absolute;
+    top: 0;
+    bottom 0
+    height: 100vh;
+    width 33%
+    cursor: pointer
+    z-index 99
+
+  .next
+    right: 0
+
+  .prev
+    left: 0
+
+.profiles
+  padding ($big-gutter / $base-font-size)em 0
+  text-align: center
+
+  position relative
+
+.profile-name
+  padding (avg($hr-gutter $big-gutter))px 0 0
+  text-align: center
+
+.profile-title
+  padding ($hr-gutter / 3)px 0 ($hr-gutter / 2)px
+  text-align: center
+
+.profile-copy
+  padding ($hr-gutter)px 0
+
+.studio-images
+  padding ($small-gutter / 2 / 1600 * 100)%
+  width ((1600 - $small-gutter) / 1600 * 100)%
+
+  .left,
+  .right
+    margin ($small-gutter / 2 / 1600 * 100)%
+    overflow hidden
+    height 100%
+
+    //take away after getting real images
+    img
+      transform: scale(1.5)
+
+  .left
+    width ((592 + ($small-gutter / 2)) / 1600 * 100)%
+
+  .right
+    width ((894 + ($small-gutter / 2))  / 1600 * 100)%
+
+.about-we-are
+  font-size: (12 / 1.2)vh
+  padding 12vh 0
+  @media (max-aspect-ratio: 4/3)
+    font-size: 6.2vw
+    padding ($hr-gutter / $base-font-size)em 0
+
+  .there-are
+    font-size: 3vh
+    @media (max-aspect-ratio: 4/3)
+      font-size: 2vw
+
+.blockquote
+  padding ($big-gutter)px 0 0
+
+.blockquote-cite
+  padding ($hr-gutter / 2)px 0 ($big-gutter)px

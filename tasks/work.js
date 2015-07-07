@@ -3,7 +3,8 @@ import frontMatter from "gulp-front-matter";
 import marked from "gulp-marked";
 import rename from "gulp-rename";
 import collections from 'gulp-collections';
-import templates from "./../templates";
+import templates from "./../templates.js";
+import replace from 'gulp-replace';
 
 import globs from './globs';
 import renamePage from './renamePage';
@@ -24,5 +25,6 @@ gulp.task("work", function workTask() {
     .pipe(marked())
     .pipe(rename(renamePage))
     .pipe(templates(templateOptions))
+    .pipe(replace(/>\s+</g, '><'))
     .pipe(gulp.dest("./build/work"));
 });
