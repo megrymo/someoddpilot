@@ -1,0 +1,106 @@
+{{>head}}
+{{>aboutNav}}
+
+<section reveal>
+  <div class="full-height slide chicago">
+    <div class="contained sans center-align">
+      <div class="scale-text">
+        <h4 class="page-subheader">EST. 1999</h4>
+        <h3 class="display-serif">Chicago</h3>
+        <h4 class="page-subheader">Wicker Park</h4>
+      </div>
+    </div>
+  </div>
+  <div class="contained full-height">
+    <div class="absolute-center">
+      <div class="chapter-header activate-nav" id="truth-vision-wonder">
+        <div class="chapter-number">III.</div>
+        <h2 class="chapter-name">Studio &amp; Clients</h2>
+      </div>
+      <div class="chapter-copy display-serif contained center-block">
+        <p>{{intro}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section reveal>
+  <div class="full-height darker-bg" id="clients">
+    <div class="contained-smaller client-logos">
+      {{~#eachLimited clients.logos 12~}}
+        <div class="quarter left">
+          <image src="/assets/images/about/logos/{{logo}}"
+            alt="{{name}}"
+            class="full vert-center client-logo" />
+        </div>
+      {{~/eachLimited~}}
+    </div>
+  </div>
+  <div class="full-height">
+    <div class="absolute-center chapter-copy display-serif contained center-block">
+      <p>
+        {{clients.copy}}
+      </p>
+    </div>
+  </div>
+</section>
+<section class="darker-bg" reveal>
+  <div simple-slider
+    data-slider-delay="0"
+    class="contained-smaller profiles same-height-kids">
+    {{#each people}}
+      {{>aboutProfile}}
+    {{/each}}
+    <button simple-slider-prev class="prev icon-arrow-left" alt="Previous">
+      <span class="sr">
+        Previous
+      </span>
+    </button>
+    <button simple-slider-next class="next icon-arrow-right" alt="Next">
+      <span class="sr">
+        Next
+      </span>
+    </button>
+  </div>
+  <div>
+</section>
+<section reveal>
+  <div class="full studio-images">
+    <div class="left">
+      <img src="/assets/images/about/studio-1.jpg"
+        alt=""
+        class="full"
+        data-bottom-top="transform: translateY(10%) scale(2)"
+        data--100p-top-top="transform: translateY(-10%) scale(2)" />
+    </div>
+    <div class="right">
+      <img src="/assets/images/about/studio-2.jpg"
+        alt=""
+        class="full"
+        data-bottom-top="transform: translateY(10%) scale(2)"
+        data--100p-top-top="transform: translateY(-10%) scale(2)" />
+    </div>
+  </div>
+</section>
+<section class="full-height reveal">
+  <div class="lighter-bg about-we-are">
+    <div class="contained">
+    <span slide-up class="contained there-are"><em>There are {{staff.total}} of us.</em></span>
+    <p class="display-serif contained list">
+      {{#each staff.titles}}
+        {{#if @first}}
+          <span slide-up class="left">We are {{number}} {{title~}}
+          {{~else~}}
+          {{~#if @last}}&nbsp;{{else}},&nbsp;{{/if}}</span><span slide-up class="left">{{#if @last}}&amp; {{/if}}{{number}} {{title}}{{#if @last}}.{{else}}{{/if~}}
+        {{~/if~}}
+      {{~/each~}}
+      </span>
+    </p>
+    </div>
+  </div>
+</section>
+
+<section class="pink-bg">
+  <a href="/contact" class="big-bottom-button">Contact</a>
+</section>
+
+{{>foot}}

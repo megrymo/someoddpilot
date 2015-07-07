@@ -4,7 +4,7 @@ import nib from "nib";
 import sopStyl from "sop-styl";
 
 gulp.task("style", function () {
-  gulp.src("stylus/style.styl")
+  gulp.src("src/stylus/style.styl")
     .pipe(stylus({
       use: [
         nib(),

@@ -4,7 +4,7 @@ import browserify from "browserify";
 import source from "vinyl-source-stream";
 import gutil from "gulp-util";
 
-var bundler = watchify(browserify("./client.js", watchify.args));
+var bundler = watchify(browserify("./src/js/client.js", watchify.args));
 
 bundler.transform('babelify');
 

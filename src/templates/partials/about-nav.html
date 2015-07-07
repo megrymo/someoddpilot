@@ -1,0 +1,17 @@
+<nav class="center-align persistant-about-nav {{#if color}}{{color}}{{else}}yellow{{/if}}-bg">
+  <ul class="toc-list left-align">
+  {{#each aboutNav}}
+    <li class="toc-item">
+      <a {{#compare ../template '===' aboutTemplate}}
+        href="#" du-smooth-scroll
+        class="toc-link toc-link--active"
+      {{ else }}
+        href="/about/{{ link }}"
+        class="toc-link"
+      {{/compare}}>
+        {{ numeral }}. {{ name }}
+      </a>
+    </li>
+  {{/each}}
+  </ul>
+</nav>
