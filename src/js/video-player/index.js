@@ -56,7 +56,6 @@ app.config(['$sceProvider', function ($sceProvider) {
     link: function (scope, element, attrs) {
 
       var player = element[0];
-      skrollr.get().refresh(player);
 
       scope.$watch('isPlaying', function(){
         if(!scope.isPlaying){

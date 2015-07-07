@@ -12,7 +12,6 @@
   jQuery(document).ready(function () {
 
     if ( !isTouchDevice() ) {
-      skrollr.init({forceHeight: false});
     }
 
     initSliders();
