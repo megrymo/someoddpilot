@@ -1,6 +1,6 @@
 ---
 template: about/index
 color: yellow
-headerNoPush: false
+headerNoPush: true
 title: "About"
 ---

@@ -1,6 +1,7 @@
 .reveal
 [reveal]
   @extend .full-height
+  backface-visibility: hidden
 
 .reveal + div,
 .reveal + section
@@ -49,14 +50,19 @@
   }
 }
 
-[slide-up]
-.slide-up
+.slide-up--animate
+.show-up--animate
   opacity 0
-  transform: translateY(1em);
   transition all 1s ease
 
+.slide-up--animate
+  transform: translateY(1em);
+
 .slide-up--show
+.show-up--show
   opacity 1
+
+.slide-up--show
   transform: translateY(0);
 
 .spinning {

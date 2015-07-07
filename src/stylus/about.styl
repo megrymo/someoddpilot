@@ -30,15 +30,24 @@
     transform: translateY(0)
 
 .toc
-  margin-top ($hr-gutter / $base-font-size)em
-  margin-bottom ($hr-gutter / $base-font-size)em
+  absolute-center()
+  color $white
+
+  padding 50px
+  padding 4vh
+
+  border 4px solid $white
+
+  opacity 0
+
+  .toc-link
+    color $white
 
 .toc-list
   display: inline-block
   margin 0 auto
   padding 0
-  list-style-type upper-roman
-  list-style-position: inside
+  list-style-type none
 
   .toc &
     margin-top (15 / $base-font-size)em
@@ -54,6 +63,7 @@
   text-align: center
   color $black
   text-decoration none
+
   white-space: no-wrap
 
   .toc &
@@ -66,13 +76,44 @@
 .toc-item
   margin (14 / 20)em 0
 
+  white-space: no-wrap
+
   .persistant-about-nav &
+    display: inline-block
 
     @media screen and (max-width 1000px)
       font-size: 0.7em
 
-  .persistant-about-nav .toc-link--active &
-    border-bottom 1px solid $black
+.toc-link--active
+  border-bottom 1px solid $black
+
+.about/index
+  .header-logo
+    opacity 0
+
+.about-leader
+  .black-container
+    background $black url(/assets/images/someoddpilot_logo_white.svg) no-repeat center 5vh
+    background-size auto 8vh
+    color $white
+
+    position absolute
+
+    left    80px
+    right   80px
+    top     80px
+    bottom  80px
+
+    text-align: left
+
+    transform: scale(0)
+
+    p
+      absolute-center()
+      opacity 0
+
+      &:first-child
+        opacity 1
 
 .chapter-header
   text-align: center
@@ -88,6 +129,20 @@
 
 .chapter-header + .chapter-copy
   padding-top 0
+
+.truth-vision
+  background url(/assets/images/about/slide-1.jpg)
+  background-size cover
+
+  .half
+    absolute-center()
+    margin 0
+
+  .left
+    font-size: 6em
+
+  .right
+    opacity 0
 
 .diagram
   margin ($hr-gutter / $base-font-size / 2)em auto
@@ -114,19 +169,15 @@
     font-size: 0.45em
     letter-spacing: 0.15em
 
-  .roving-arrow
-    transform: rotate(225deg)
-
 .space-illustration
   position relative
-  height 0
-  padding-bottom (828 / 1600 *100)%
   overflow hidden
 
+  background url(/assets/images/about/space.jpg)
+  background-size cover
+
   .illustration
-    position absolute
-    top 0
-    left 0
+    vert-center()
 
 .mirrored-image-wrapper
   position relative
