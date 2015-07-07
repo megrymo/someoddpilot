@@ -1,0 +1,88 @@
+.inspire-wonder
+.inspire-wonder-flattened
+  background url("/assets/images/home-slides/slide1.jpg")
+  background-size cover
+  background-position center
+
+  .mega-slide-text
+    background: url("/assets/images/home-slides/slide1-top.jpg") center no-repeat;
+    background-size auto 100vh
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media screen and (min-width: 800px)
+      font-size: 18vh
+
+    @media screen and (max-aspect-ratio: 7 / 3)
+      font-size: 12vw
+
+    // the specs of the image file
+    @media screen and (min-aspect-ratio: 1944/1288)
+      background-size 100vw auto
+
+.inspire-wonder
+  background-image url("/assets/images/home-slides/slide1-bottom.jpg")
+
+.we-are
+
+  .contained
+    overflow visible
+    white-space: nowrap
+
+    .display-serif
+      font-specs(90, 120)
+
+.truth-and-vision
+
+  .scale-text
+    font-specs(30, 35)
+
+    font-size: 1.5vh
+
+  .sans
+    font-specs(20, 35, 200)
+
+  .display-serif
+    font-specs(100, 110)
+
+  .right
+    background url(/assets/images/home-slides/half.jpg) center
+    background-size cover
+
+.someoddpilot-is
+
+  .half
+    width 50%
+    margin 0
+
+  .text
+    padding 0 6vw
+
+  p
+    font-specs(30, (50 * 30 / 32))
+    margin-bottom 2.5vh
+
+    font-size: 2.5vh
+
+    @media (max-aspect-ratio: 14 / 10)
+      font-size: 2vh
+
+    @media (max-aspect-ratio: 9 / 10)
+      font-size: 1.5vh
+
+  .right
+    background url(/assets/images/home-slides/half-nature.jpg) center
+    background-size cover
+
+  .block-link
+    display: inline
+
+@media screen and (max-width: 1000px)
+  .someoddpilot-is
+  .truth-and-vision
+    .right
+      display: none
+    .left
+      width 90%
+      margin 0 5%
+

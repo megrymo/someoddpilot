@@ -1,0 +1,93 @@
+.sop-footer
+  display: table
+  vertical-align middle
+  width 100%
+  background $black
+  padding ($hr-gutter / 2)px 0
+
+  position relative
+
+  z-index 5
+
+  .half
+    vertical-align middle
+
+.footer-links
+  @media screen and (max-width: 500px)
+    font-size: 0.7em
+    font-size: 3vw
+
+.footer-link
+  display: table-cell
+  vertical-align middle
+  padding-right ($hr-gutter)px
+  fill $white
+
+  @media screen and (max-width: 600px)
+    padding-right ($hr-gutter / 2)px
+
+  @media screen and (max-width: 600px)
+    padding-right 5vw
+    padding-left  5vw
+
+.sop-footer .footer-sop-logo
+  font-size (46 / $base-font-size)em
+  color $white
+
+.pw-logo
+  height (69 / $base-font-size)em
+  width auto
+
+.chris-logo
+  height (44 / $base-font-size)em
+  width auto
+
+.signup
+  text-align right
+
+  @media screen and (max-width: 1000px)
+    text-align: left
+    margin-top ($hr-gutter / 2)px
+
+  .email,
+  .button
+    appearance none
+    background $black
+
+    height 30px
+
+    border none
+    outline none
+    border-radius 0
+
+    color $white
+    font-specs(14, 16, 150)
+    line-height 2.5em
+
+    transition: all ease 0.5s
+
+  .email
+    height 20px
+    min-width 250px
+    padding 7px 2px 3px 2px
+    border-bottom solid 3px $white
+    border-top solid 3px $black
+    text-align: left
+
+    &:focus
+      outline none
+      background #222
+      border-top-color #222
+
+  .button
+    height 36px
+    float right
+
+    @media screen and (max-width: 1000px)
+      float none
+
+    &:hover
+      background $white
+      color $black
+
+      cursor pointer

@@ -1,0 +1,173 @@
+.top-header
+  text-align: center
+  z-index 999
+
+.header-no-push
+  position absolute
+  overflow visible
+
+.header-logo
+  display: inline-block
+  margin 7vh 0
+  padding 10px
+  color: $black
+  font-size: 91px
+
+  transition 0.25s
+
+  @media screen and (max-height: (700px))
+    font-size 13vh
+
+  @media screen and (max-height: (400px))
+    font-size (52 / $base-font-size)em
+
+  &--hide
+    display: none
+
+  &--show
+    display: inline-block
+
+.nav-icon
+  display inline-block
+
+  background none
+
+  position absolute
+  left 11px
+  top 9px
+
+  padding 21px 25px
+
+  z-index 99
+
+  appearance none
+
+  border none
+
+  transition 0.5s 0.5s
+
+  &:hover
+    cursor: pointer
+
+  &:focus
+    background alpha($black, 20%)
+    outline none
+
+.menu-line
+  display: block
+  width 23px
+  height 4px
+  margin 4px 0
+  background $black
+  transition ease 1s
+
+  .nav--open &
+    background $white
+
+  .nav--open &:nth-child(1)
+    transform rotate(45deg) translateY(11.4px)
+
+  .nav--open &:nth-child(2)
+    opacity 0
+
+  .nav--open &:nth-child(3)
+    transform rotate(-45deg) translateY(-11.4px)
+
+.nav-holder
+  display: inline-block
+
+  position absolute
+  top 0
+  left 0
+
+  background $black
+
+  padding 80px 66px 40px 56px
+
+  overflow hidden
+  text-align: left
+  transition padding ease 1s, transform ease 1s
+
+  z-index 5
+
+  transform: translateY(-100%)
+
+  .nav--open &
+    transform: translateY(0)
+
+.nav-contents
+  opacity 0
+
+  transition opacity ease 0.5s 0s
+
+  .nav--open &
+    opacity 1
+
+    transition opacity ease 0.5s 0.5s
+
+.nav-close-icon
+  position absolute
+  top 10px
+  right 0
+  padding 25px;
+  color $black
+  transition color 0.5s
+
+  .nav--open &
+    color $white
+    transition color 0.5s 0s
+
+.nav-link
+  display: block
+  padding 12px 4px
+
+  color $white
+
+  transition color 0.5s
+
+.nav-features-header
+  margin 1em 0 0.25em
+  padding 12px 4px 0
+
+  color darken($white, 52%)
+
+  font-specs(13, auto)
+  font-family: $sop-serif
+  font-style: italic
+  text-transform: lowercase
+
+.nav-features
+  text-decoration underline
+
+  .nav-link
+    padding 4px
+
+    font-family: $sop-display-serif
+    font-size: (15 / 16)em
+    text-transform: capitalize
+
+    &:hover
+      text-decoration underline
+
+.social-nav
+  margin-top 30px
+
+.nav-link-social
+  float left
+  font-specs(0,0)
+
+.social-icon
+  display: block
+
+  width 32px
+  height 32px
+
+  padding 4px
+
+  color darken($white, 52%)
+  font-size: 32px;
+
+  transition color 0.25s
+
+.nav-link-social:hover .social-icon
+  color $white

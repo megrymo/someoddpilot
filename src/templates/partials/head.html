@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7765932/798266/css/fonts.css" />
+  <script type="text/javascript" src="http://fast.fonts.net/jsapi/a5f4aaff-6b26-4655-a20d-d42cb949ab09.js"></script>
+  <link href="http://webfonts.radimpesko.com/RP-W-54db7050934c2b0607000002.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body class="{{ template }} {{#compare template "contains" "news"}}yellow-bg{{else}}{{#if color}}{{color}}{{else}}yellow{{/if}}-bg{{/compare}}"
+  ng-controller="deepLinks">
+
+  <header class="full top-header{{#compare template "contains" "work-detail"}} header-no-push{{/compare}}{{#if headerNoPush }} header-no-push{{/if}}"
+    ng-controller="headerController"
+    ng-class="{'nav--open':active}">
+    <a class="header-logo icon-sop-logo" href="/"></a>
+    {{>mainNav}}
+  </header>
+
+  <h1 class="page-title">{{title}}</h1>
+
+  <div class="page-content">

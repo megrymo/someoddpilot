@@ -1,0 +1,11 @@
+{
+  "news": "./src/data/news/*.md",
+  "about": {
+    "first": "./src/data/about/index.md",
+    "others": "./src/data/about/!(index).md"
+  },
+  "pages": "./src/data/*.md",
+  "work": "./src/data/work/*.md",
+  "homeSlides": "./src/data/home-slides/*.md",
+  "templates": "./src/**/*.html"
+}

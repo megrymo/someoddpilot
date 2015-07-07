@@ -1,0 +1,3 @@
+[submodule "src/assets"]
+	path = src/assets
+	url = https://krispy1298@github.com/krispy1298/someoddpilot-assets.git

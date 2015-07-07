@@ -1,0 +1,27 @@
+<section class="contained work-block block-{{@index}} image-hover">
+  {{~#each attributes.preview.sections~}}
+    <div class="{{#compare size "===" "half"}}half{{/compare}}">
+      {{#compare template "===" "title"}}
+        {{> workBlockTitle ../../this}}
+      {{/compare}}
+      {{#compare template "===" "image"}}
+        {{> workBlockImage this}}
+        {{#if includeTitle}}
+          {{> workBlockTitle ../../../this}}
+        {{/if}}
+      {{/compare}}
+    </div>
+  {{~/each}}
+
+  <a href="/work/{{slug}}/" class="full-link">
+    <span class="sr">
+    {{attributes.title}} — 
+    {{#if attributes.linkText}}
+      {{attributes.linkText}}
+    {{else}}
+      More
+    {{/if}}
+    </span>
+  </a>
+
+</section>

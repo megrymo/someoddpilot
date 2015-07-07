@@ -1,0 +1,11 @@
+<div class="block-copy-container">
+  <h3 class="block-header">{{ attributes.title }}</h3>
+  <p class="block-subheader">{{ attributes.subheader }}</p>
+  <a class="block-link" href="/work/{{slug}}/">
+    {{#if attributes.linkText}}
+      {{attributes.linkText}}
+    {{else}}
+      More
+    {{/if}}
+  </a>
+</div>
