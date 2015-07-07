@@ -37,16 +37,19 @@ module.exports = {
     aboutNav: [
       {
         name: "Truth, Vision & Wonder",
+        numeral: "I",
         aboutTemplate: 'about/index',
         link: null
       },
       {
         name: "The Complete Thought",
+        numeral: "II",
         aboutTemplate: "about/the-complete-thought",
         link: "the-complete-thought"
       },
       {
         name: "Clients & Studio",
+        numeral: "III",
         aboutTemplate: "about/clients-studio",
         link: "clients-studio"
       }
